@@ -6,149 +6,136 @@ order: 10
 domain: "governance"
 ---
 
-# Proposal Submission Process
+# Test Submission Process
 
-This guide explains how to create and submit a governance proposal in the Jito ecosystem.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 
-## Proposal Types
+## Test Types
 
-The Jito governance system supports several types of proposals:
+Lorem ipsum dolor sit amet:
 
-1. **Parameter Change**: Modify protocol parameters (e.g., tip distribution rates)
-2. **Program Upgrade**: Deploy a new version of a protocol program
-3. **Treasury Expenditure**: Allocate funds from the treasury
-4. **Text Proposal**: Non-binding social consensus proposals
-5. **Custom Action**: Specialized proposals with custom on-chain execution
+1. **Test Type One**: Lorem ipsum dolor sit amet
+2. **Test Type Two**: Consectetur adipiscing elit
+3. **Test Type Three**: Nullam euismod, nisl eget aliquam
+4. **Test Type Four**: Nunc nisl aliquet nunc
+5. **Test Type Five**: Quis aliquam nisl nunc quis nisl
 
-## Proposal Requirements
+## Test Requirements
 
-To submit a proposal, you must meet the following requirements:
+To complete a test submission:
 
-- Hold at least 10,000 JITO tokens or have them delegated to you
-- Submit a proposal deposit of 1,000 JITO tokens (returned after the voting period if the proposal is not marked as spam)
-- Provide a complete proposal document following the standard template
+- Test requirement one
+- Test requirement two
+- Test requirement three
 
-## Step-by-Step Submission Guide
+## Step-by-Step Test Guide
 
-### 1. Community Discussion
+### 1. Test Step One
 
-Before formal submission, discuss your idea with the community:
+Lorem ipsum dolor sit amet:
 
-1. Post your idea in the [Jito Governance Forum](https://forum.jito.network)
-2. Gather feedback and refine your proposal
-3. Build community awareness and support
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Nullam euismod, nisl eget aliquam
 
-### 2. Draft Your Proposal
+### 2. Test Step Two
 
-Create a formal proposal document using the standard template:
+Create test content using the standard template:
 
 ```markdown
-# JIP-XX: [Title of Proposal]
+# TEST-XX: [Test Title]
 
-## Summary
-Brief 1-2 sentence summary of the proposal.
+## Test Section 1
+Lorem ipsum dolor sit amet.
 
-## Abstract
-More detailed explanation (1-2 paragraphs).
+## Test Section 2
+Lorem ipsum dolor sit amet.
 
-## Motivation
-Why this proposal is necessary or beneficial.
+## Test Section 3
+Lorem ipsum dolor sit amet.
 
-## Specification
-Technical details of the implementation.
+## Test Section 4
+Lorem ipsum dolor sit amet.
 
-## Benefits
-Expected benefits of the proposal.
-
-## Risks
-Potential risks and mitigation strategies.
-
-## Timeline
-Expected implementation timeline.
-
-## Copyright
-Copyright and license information.
+## Test Section 5
+Lorem ipsum dolor sit amet.
 ```
 
-### 3. Technical Review (If Applicable)
+### 3. Test Step Three
 
-For technical proposals:
+For test purposes:
 
-1. Create a pull request in the appropriate GitHub repository
-2. Request review from the technical committee
-3. Address feedback and make necessary adjustments
+1. Create a test request
+2. Request test review
+3. Address test feedback
 
-### 4. Formal Submission
+### 4. Test Step Four
 
-Submit your proposal through the governance portal:
+Submit test through the test portal:
 
-1. Go to [governance.jito.network](https://governance.jito.network)
-2. Connect your wallet
-3. Click "Create Proposal"
-4. Fill in the required fields:
-   - Title
-   - Description
-   - Link to forum discussion
-   - Proposal type
-   - Execution parameters (if applicable)
-5. Submit the deposit
+1. Go to [test.example.com](https://test.example.com)
+2. Connect test account
+3. Click "Create Test"
+4. Fill in the test fields:
+   - Test field one
+   - Test field two
+   - Test field three
+   - Test field four
+5. Submit test deposit
 
 ```javascript
-// Example of creating a proposal using the Jito SDK
-import { Connection, Keypair, PublicKey } from '@solana/web3.js';
-import { JitoGovernanceClient, ProposalType } from '@jito-foundation/governance-sdk';
+// Example test code
+import { TestClass } from '@test/example';
 
-const createParameterChangeProposal = async (
-  connection: Connection,
-  proposerKeypair: Keypair,
-  title: string,
-  description: string,
-  parameterName: string,
-  newValue: number
+const createTest = async (
+  testParam1,
+  testParam2,
+  testParam3,
+  testParam4
 ) => {
-  const governanceClient = new JitoGovernanceClient({
-    connection,
-    wallet: { publicKey: proposerKeypair.publicKey, signTransaction: async (tx) => tx },
+  const testClient = new TestClass({
+    param1: testParam1,
+    param2: { testParam2, testFunction: async (x) => x },
   });
   
-  const proposal = await governanceClient.createProposal({
-    title,
-    description,
-    proposalType: ProposalType.ParameterChange,
-    parameters: {
-      name: parameterName,
-      value: newValue,
+  const testResult = await testClient.createTestRequest({
+    testParam3,
+    testParam4,
+    testType: TestType.TypeOne,
+    testOptions: {
+      name: testParam3,
+      value: testParam4,
     },
   });
   
-  return proposal;
+  return testResult;
 };
 ```
 
-### 5. Governance Review
+### 5. Test Step Five
 
-After submission:
+After test submission:
 
-1. The governance council reviews the proposal for compliance
-2. If approved, the proposal enters the voting phase
-3. If rejected, feedback is provided for resubmission
+1. Test review process begins
+2. If approved, test continues to next stage
+3. If rejected, test feedback is provided
 
-## Proposal Lifecycle
+## Test Lifecycle
 
-Once submitted, your proposal goes through the following stages:
+Once submitted, your test goes through the following stages:
 
-1. **Pending**: Initial review by the governance council
-2. **Active**: Open for voting
-3. **Passed/Rejected**: Final voting outcome
-4. **Executed**: Implementation of passed proposals
-5. **Expired**: Proposals that did not reach quorum
+1. **Test Stage One**: Lorem ipsum dolor sit amet
+2. **Test Stage Two**: Consectetur adipiscing elit
+3. **Test Stage Three**: Nullam euismod, nisl eget aliquam
+4. **Test Stage Four**: Nunc nisl aliquet nunc
+5. **Test Stage Five**: Quis aliquam nisl nunc quis nisl
 
-## Best Practices
+## Test Best Practices
 
-- **Be Specific**: Clearly define what you're proposing and why
-- **Provide Evidence**: Include data, research, or examples supporting your proposal
-- **Consider Alternatives**: Discuss alternative approaches and why your solution is best
-- **Engage with Feedback**: Be responsive to community questions and concerns
-- **Technical Feasibility**: Ensure your proposal can be implemented as described
+- **Test Practice One**: Lorem ipsum dolor sit amet
+- **Test Practice Two**: Consectetur adipiscing elit
+- **Test Practice Three**: Nullam euismod, nisl eget aliquam
+- **Test Practice Four**: Nunc nisl aliquet nunc
+- **Test Practice Five**: Quis aliquam nisl nunc quis nisl
 
-For examples of successful proposals, see the [Proposal Archive](/governance/proposals/archive). 
+For examples of test submissions, see the [Test Archive](/test/archive). 

@@ -6,13 +6,13 @@ order: 1
 domain: "jitosol"
 ---
 
-# Maximal Extractable Value (MEV)
+# Test MEV Overview
 
-Maximal Extractable Value (MEV) refers to the profit that can be extracted from reordering, inserting, or censoring transactions within a block. Jito's MEV infrastructure is designed to capture this value and redirect a portion of it back to stakers.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 
 ## Topics in this Section
 
-- **Block Engine**: Learn about Jito's block building infrastructure
-- **Searcher API**: Understand how searchers can interact with the Jito MEV system
+- **Test Topic A**: Lorem ipsum dolor sit amet
+- **Test Topic B**: Consectetur adipiscing elit
 
-This section explains how Jito's MEV infrastructure works and how it contributes to the enhanced yields for JitoSOL stakers. 
+This section contains test content for demonstration purposes only. 

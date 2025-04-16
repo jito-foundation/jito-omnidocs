@@ -6,171 +6,160 @@ order: 20
 domain: "jitosol"
 ---
 
-# Jito Searcher API
+# Test API Documentation
 
-The Jito Searcher API allows developers to submit transaction bundles to the Jito Block Engine for inclusion in blocks. This API is designed for MEV searchers who want to capture value through strategies like arbitrage, liquidations, and sandwich trading.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies.
 
 ## Getting Started
 
-### Obtaining API Access
+### Test Access
 
-To access the Searcher API, you need to:
+To access the Test API:
 
-1. Register for an account at [searcher.jito.network](https://searcher.jito.network)
-2. Generate API credentials in the dashboard
-3. Deposit funds to pay for tip inclusion
+1. Register at [test.example.com](https://test.example.com)
+2. Generate test credentials
+3. Deposit test funds
 
-### API Endpoints
+### Test Endpoints
 
-The main endpoints for the Searcher API are:
+The main test endpoints are:
 
 | Endpoint | Description |
 |----------|-------------|
-| `v1/bundle/submit` | Submit a transaction bundle |
-| `v1/bundle/status` | Check the status of a submitted bundle |
-| `v1/account/balance` | Check your account balance |
-| `v1/account/transactions` | View your transaction history |
+| `v1/test/submit` | Submit a test request |
+| `v1/test/status` | Check test status |
+| `v1/test/balance` | Check test balance |
+| `v1/test/history` | View test history |
 
-## Bundle Submission
+## Test Submission
 
-A bundle is a collection of transactions that should be executed in a specific order. Here's how to submit a bundle:
+Lorem ipsum dolor sit amet, consectetur adipiscing elit:
 
 ```javascript
-import { Connection, Keypair, Transaction } from '@solana/web3.js';
-import { JitoSearcherClient, Bundle } from '@jito-foundation/searcher-client';
+// This is test code
+import { TestClient, TestBundle } from '@test/client';
 
-// Create a Jito searcher client
-const searcherClient = new JitoSearcherClient({
-  url: 'https://api.searcher.jito.network',
-  authToken: 'your_auth_token',
+// Create a test client
+const testClient = new TestClient({
+  url: 'https://api.test.example.com',
+  authToken: 'test_token',
 });
 
-// Create transactions for your MEV strategy
-const transaction1 = new Transaction().add(/* instructions */);
-const transaction2 = new Transaction().add(/* instructions */);
+// Create test data
+const testData1 = {/* test data */};
+const testData2 = {/* test data */};
 
-// Sign transactions
-const keypair = Keypair.fromSecretKey(/* your secret key */);
-transaction1.sign(keypair);
-transaction2.sign(keypair);
-
-// Create a bundle
-const bundle = new Bundle({
-  transactions: [transaction1, transaction2],
-  tipOptions: {
-    tipLamports: 10000, // 0.00001 SOL tip
-    spilloverPercentage: 0, // No spillover
+// Create a test bundle
+const testBundle = new TestBundle({
+  data: [testData1, testData2],
+  options: {
+    testOption1: 10000,
+    testOption2: 0,
   },
 });
 
-// Submit the bundle
-const result = await searcherClient.submitBundle(bundle);
-console.log(`Bundle submitted with ID: ${result.bundleId}`);
+// Submit the test
+const result = await testClient.submitTest(testBundle);
+console.log(`Test submitted with ID: ${result.testId}`);
 ```
 
-### Bundle Tips
+### Test Options
 
-Tips are payments to validators for including your bundle in a block. Higher tips increase the likelihood of inclusion, especially during periods of high demand. Tips are specified in SOL (lamports) and are deducted from your account balance.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies.
 
-## Common MEV Strategies
+## Common Test Strategies
 
-Using the Searcher API, you can implement various MEV strategies:
+Using the Test API, you can implement various test strategies:
 
-### Arbitrage
+### Test Strategy One
 
 ```javascript
-// Example of a simple arbitrage bundle
-const getArbitrageBundle = async (
-  connection: Connection,
-  keypair: Keypair,
-  marketA: PublicKey,
-  marketB: PublicKey,
-  amount: number
+// Example test strategy
+const testStrategyOne = async (
+  testParam1,
+  testParam2,
+  testParam3,
+  testParam4
 ) => {
-  // Step 1: Buy token on market A
-  const buyTx = createBuyTransaction(marketA, amount);
+  // Step 1: Test operation
+  const testOperation1 = createTestOperation(testParam1, testParam2);
   
-  // Step 2: Sell token on market B
-  const sellTx = createSellTransaction(marketB, amount);
+  // Step 2: Another test operation
+  const testOperation2 = createTestOperation(testParam3, testParam4);
   
-  // Sign transactions
-  buyTx.sign(keypair);
-  sellTx.sign(keypair);
-  
-  // Create a bundle with a tip
-  const bundle = new Bundle({
-    transactions: [buyTx, sellTx],
-    tipOptions: {
-      tipLamports: 100000, // 0.0001 SOL tip
-      spilloverPercentage: 0,
+  // Create a test result
+  const testBundle = new TestBundle({
+    operations: [testOperation1, testOperation2],
+    options: {
+      testOption1: 100000,
+      testOption2: 0,
     },
   });
   
-  return bundle;
+  return testBundle;
 };
 ```
 
-### Liquidations
+### Test Strategy Two
 
 ```javascript
-// Example of a liquidation bundle
-const getLiquidationBundle = async (
-  connection: Connection,
-  keypair: Keypair,
-  liquidationTarget: PublicKey,
-  amount: number
+// Example of another test strategy
+const testStrategyTwo = async (
+  testParam1,
+  testParam2,
+  testParam3,
+  testParam4
 ) => {
-  // Check if account is liquidatable
-  const position = await fetchPosition(connection, liquidationTarget);
-  if (!position.isLiquidatable) {
+  // Test check
+  const testCheck = await checkTestCondition(testParam1);
+  if (!testCheck.isValid) {
     return null;
   }
   
-  // Create liquidation transaction
-  const liquidateTx = createLiquidationTransaction(liquidationTarget, amount);
-  liquidateTx.sign(keypair);
+  // Create test operation
+  const testOperation = createTestOperation(testParam1, testParam4);
   
-  // Create a bundle with a tip
-  const bundle = new Bundle({
-    transactions: [liquidateTx],
-    tipOptions: {
-      tipLamports: 500000, // 0.0005 SOL tip
-      spilloverPercentage: 20, // Share 20% of profit with validators
+  // Create a test bundle
+  const testBundle = new TestBundle({
+    operations: [testOperation],
+    options: {
+      testOption1: 500000,
+      testOption2: 20,
     },
   });
   
-  return bundle;
+  return testBundle;
 };
 ```
 
 ## Best Practices
 
-For optimal results with the Searcher API:
+For optimal test results:
 
-1. **Efficient Bundles**: Keep bundles as small as possible to minimize fees
-2. **Dynamic Tips**: Adjust tips based on network congestion and expected profit
-3. **Error Handling**: Implement robust error handling for failed bundles
-4. **Rate Limiting**: Respect API rate limits to avoid being throttled
-5. **Monitor Results**: Track your bundle success rate and profitability
+1. **Test Practice One**: Lorem ipsum dolor sit amet
+2. **Test Practice Two**: Consectetur adipiscing elit
+3. **Test Practice Three**: Nullam euismod, nisl eget aliquam
+4. **Test Practice Four**: Nunc nisl aliquet nunc
+5. **Test Practice Five**: Quis aliquam nisl nunc quis nisl
 
-## Monitoring and Analytics
+## Test Monitoring
 
-The Searcher API provides tools for monitoring your bundles:
+Test monitoring examples:
 
 ```javascript
-// Check the status of a submitted bundle
-const bundleStatus = await searcherClient.getBundleStatus(bundleId);
-console.log(`Bundle status: ${bundleStatus.status}`);
+// Check test status
+const testStatus = await testClient.getTestStatus(testId);
+console.log(`Test status: ${testStatus.status}`);
 
-// Get your account balance
-const balance = await searcherClient.getAccountBalance();
-console.log(`Account balance: ${balance.balanceSol} SOL`);
+// Get test account balance
+const testBalance = await testClient.getTestBalance();
+console.log(`Test balance: ${testBalance.value}`);
 
-// View recent transactions
-const transactions = await searcherClient.getAccountTransactions({
+// View test history
+const testHistory = await testClient.getTestHistory({
   limit: 10,
 });
-console.log(`Recent transactions:`, transactions);
+console.log(`Test history:`, testHistory);
 ```
 
-For detailed information about the Searcher API, refer to the [API Reference](/jitosol/mev/searcher-api-reference). 
+For more information, see the [Test Reference](/test/reference). 

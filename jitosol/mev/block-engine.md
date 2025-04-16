@@ -6,81 +6,81 @@ order: 10
 domain: "jitosol"
 ---
 
-# Jito Block Engine
+# Test Block Engine
 
-The Jito Block Engine is a key component of Jito's MEV infrastructure. It's responsible for building optimized blocks that maximize value extraction for validators and stakers.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 
-## How Block Engine Works
+## How Test Engine Works
 
-1. **Bundle Collection**: The Block Engine collects transaction bundles from searchers
-2. **Block Optimization**: It arranges transactions in a way that maximizes total value
-3. **Validator Integration**: Validators using Jito's software produce these optimized blocks
-4. **Revenue Sharing**: A portion of MEV rewards flows back to JitoSOL stakers
+1. **Test Step One**: Lorem ipsum dolor sit amet
+2. **Test Step Two**: Consectetur adipiscing elit
+3. **Test Step Three**: Nullam euismod, nisl eget aliquam
+4. **Test Step Four**: Nunc nisl aliquet nunc
 
-![Block Engine Architecture](/shared/images/placeholder.png)
+![Test Image](/shared/images/placeholder.png)
 
-## Benefits for the Ecosystem
+## Test Benefits
 
-The Jito Block Engine provides several benefits:
+The Test Engine provides several benefits:
 
-- **Democratized MEV**: More equitable distribution of MEV across the network
-- **Enhanced Security**: Reduces the incentive for malicious behavior like frontrunning
-- **Higher Rewards**: Increases yields for validators and stakers
-- **Market Efficiency**: Helps prices converge more quickly across the Solana ecosystem
+- **Test Benefit One**: Lorem ipsum dolor sit amet
+- **Test Benefit Two**: Consectetur adipiscing elit
+- **Test Benefit Three**: Nullam euismod, nisl eget aliquam
+- **Test Benefit Four**: Nunc nisl aliquet nunc
 
-## Technical Implementation
+## Test Implementation
 
-The Block Engine operates as a specialized service that integrates with Solana validators:
+Lorem ipsum dolor sit amet:
 
 ```rust
-// Example of how a validator integrates with the Block Engine
-pub struct JitoValidatorConfig {
-    // Standard validator configuration
-    pub validator_config: ValidatorConfig,
-    // Block Engine connection details
-    pub block_engine_url: String,
-    pub auth_keypair: Keypair,
-    // MEV settings
-    pub tip_distribution_percentage: u8,
-    pub minimum_commission_bps: u16,
+// This is test code
+pub struct TestConfig {
+    // Test configuration
+    pub test_config: TestConfig,
+    // Test connection details
+    pub test_url: String,
+    pub test_keypair: Keypair,
+    // Test settings
+    pub test_percentage: u8,
+    pub test_minimum: u16,
 }
 
-pub fn start_validator_with_block_engine(config: JitoValidatorConfig) -> Result<()> {
-    // Initialize connection to Block Engine
-    let block_engine_client = BlockEngineClient::new(
-        config.block_engine_url,
-        config.auth_keypair,
+pub fn test_function(config: TestConfig) -> Result<()> {
+    // Initialize test
+    let test_client = TestClient::new(
+        config.test_url,
+        config.test_keypair,
     )?;
     
-    // Start the validator with Block Engine integration
-    let validator = Validator::new_with_block_engine(
-        config.validator_config,
-        block_engine_client,
-        config.tip_distribution_percentage,
-        config.minimum_commission_bps,
+    // Start the test
+    let test = Test::new_with_config(
+        config.test_config,
+        test_client,
+        config.test_percentage,
+        config.test_minimum,
     )?;
     
-    validator.run();
+    test.run();
     
     Ok(())
 }
 ```
 
-## Validator Participation
+## Test Participation
 
-Validators can participate in the Jito MEV ecosystem by:
+Test participants can:
 
-1. **Installing Jito's Fork**: Using Jito's fork of the Solana validator software
-2. **Configuration**: Setting up proper connection to the Block Engine
-3. **Commission Settings**: Configuring commission rates and tip distribution
+1. **Step One**: Lorem ipsum dolor sit amet
+2. **Step Two**: Consectetur adipiscing elit
+3. **Step Three**: Nullam euismod, nisl eget aliquam
 
-For detailed instructions on setting up a validator with Jito's Block Engine, refer to the [Validator Setup Guide](/stakenet/validators/setup).
+For detailed test instructions, refer to the [Test Guide](/test/guide).
 
-## Future Developments
+## Future Test Developments
 
-The Jito team is continuously improving the Block Engine with planned enhancements:
+Test roadmap includes:
 
-- **Enhanced Auction Mechanisms**: More sophisticated bundle auction formats
-- **Cross-Domain MEV**: Capturing MEV across multiple domains
-- **Advanced Analytics**: Better insights for searchers and validators
-- **Programmable MEV**: Custom MEV strategies for specific use cases 
+- **Test Feature One**: Lorem ipsum dolor sit amet
+- **Test Feature Two**: Consectetur adipiscing elit
+- **Test Feature Three**: Nullam euismod, nisl eget aliquam
+- **Test Feature Four**: Nunc nisl aliquet nunc 

@@ -6,13 +6,13 @@ order: 1
 domain: "governance"
 ---
 
-# Governance Proposals
+# Test Proposals
 
-Proposals are the core mechanism for enacting changes within the Jito protocol. This section covers everything you need to know about creating, voting on, and implementing governance proposals.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 
 ## Topics in this Section
 
-- **Submission Process**: Learn how to create and submit a governance proposal
-- **Voting**: Understand the voting process and mechanisms
+- **Test Topic 1**: Lorem ipsum dolor sit amet
+- **Test Topic 2**: Consectetur adipiscing elit
 
-Proposals enable the community to collectively decide on protocol changes, parameter adjustments, funding allocations, and other important governance actions. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies. 

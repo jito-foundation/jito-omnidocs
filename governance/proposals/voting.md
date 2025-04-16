@@ -6,172 +6,158 @@ order: 20
 domain: "governance"
 ---
 
-# Proposal Voting
+# Test Voting Process
 
-This guide explains the voting process for Jito governance proposals and how to participate as a token holder.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 
-## Voting Basics
+## Test Basics
 
-### Voting Power
+### Test Calculation
 
-Voting power in the Jito governance system is determined by:
+Lorem ipsum dolor sit amet, consectetur adipiscing elit:
 
-- The number of JITO tokens you hold or have delegated to you
-- The lock duration of your tokens (longer locks provide higher voting power)
+- Test factor one
+- Test factor two
 
-The formula for calculating voting power is:
+The formula for test calculation is:
 
 ```
-Voting Power = Token Amount × (1 + Lock Duration Bonus)
+Test Formula = Value A × (1 + Value B)
 ```
 
-where the Lock Duration Bonus ranges from 0% (no lock) to 100% (maximum lock duration).
+where Value B ranges from 0% to 100%.
 
-### Voting Options
+### Test Options
 
-When voting on a proposal, you typically have the following options:
+When testing, you typically have the following options:
 
-- **Yes**: Approve the proposal
-- **No**: Reject the proposal
-- **Abstain**: Neither approve nor reject, but count towards quorum
+- **Option One**: Lorem ipsum dolor sit amet
+- **Option Two**: Consectetur adipiscing elit
+- **Option Three**: Nullam euismod, nisl eget aliquam
 
-## How to Vote
+## How to Test
 
-### 1. Connect Your Wallet
+### 1. Test Connection
 
-To vote on a proposal:
+To test:
 
-1. Go to [governance.jito.network](https://governance.jito.network)
-2. Connect your wallet (Phantom, Solflare, etc.)
-3. Navigate to the "Active Proposals" section
+1. Go to [test.example.com](https://test.example.com)
+2. Connect test account
+3. Navigate to the "Active Tests" section
 
-### 2. Review the Proposal
+### 2. Test Review
 
-Before voting:
+Before testing:
 
-1. Read the complete proposal details
-2. Review community discussions on the forum
-3. Consider the potential impacts of the proposal
+1. Read the test documentation
+2. Review test discussions
+3. Consider the test impacts
 
-### 3. Cast Your Vote
+### 3. Complete Test
 
-To cast your vote:
+To complete the test:
 
-1. Click on the proposal you want to vote on
-2. Select your voting option (Yes, No, Abstain)
-3. Confirm the transaction in your wallet
+1. Click on the test
+2. Select your test option
+3. Confirm the test transaction
 
 ```javascript
-// Example of voting on a proposal using the Jito SDK
-import { Connection, Keypair, PublicKey } from '@solana/web3.js';
-import { JitoGovernanceClient, VoteOption } from '@jito-foundation/governance-sdk';
+// Example test code
+import { TestOne, TestTwo, TestThree } from '@test/example';
 
-const voteOnProposal = async (
-  connection: Connection,
-  voterKeypair: Keypair,
-  proposalId: string,
-  vote: VoteOption
+const runTest = async (
+  testClient,
+  testId,
+  testOption
 ) => {
-  const governanceClient = new JitoGovernanceClient({
-    connection,
-    wallet: { publicKey: voterKeypair.publicKey, signTransaction: async (tx) => tx },
+  const testResult = await testClient.executeTest({
+    testId,
+    testOption,
   });
   
-  const result = await governanceClient.vote({
-    proposalId,
-    vote,
-  });
-  
-  return result;
+  return testResult;
 };
 ```
 
-## Delegation
+## Test Delegation
 
-If you prefer not to vote directly, you can delegate your voting power to another address:
+If you prefer not to test directly:
 
-### Delegating Your Voting Power
+### Delegating Test Responsibility
 
-1. Go to [governance.jito.network/delegate](https://governance.jito.network/delegate)
-2. Connect your wallet
-3. Enter the address you want to delegate to
-4. Specify the amount to delegate
-5. Confirm the transaction
+1. Go to [test.example.com/delegate](https://test.example.com/delegate)
+2. Connect test account
+3. Enter test delegation details
+4. Specify test amount
+5. Confirm test transaction
 
 ```javascript
-// Example of delegating voting power using the Jito SDK
-import { Connection, Keypair, PublicKey } from '@solana/web3.js';
-import { JitoGovernanceClient } from '@jito-foundation/governance-sdk';
+// Example test delegation code
+import { TestOne, TestTwo, TestThree } from '@test/example';
 
-const delegateVotingPower = async (
-  connection: Connection,
-  delegatorKeypair: Keypair,
-  delegateeAddress: string,
-  amount: number
+const delegateTest = async (
+  testClient,
+  delegateAddress,
+  testAmount
 ) => {
-  const governanceClient = new JitoGovernanceClient({
-    connection,
-    wallet: { publicKey: delegatorKeypair.publicKey, signTransaction: async (tx) => tx },
+  const testResult = await testClient.delegateTest({
+    delegate: new TestThree(delegateAddress),
+    amount: testAmount,
   });
   
-  const result = await governanceClient.delegate({
-    delegatee: new PublicKey(delegateeAddress),
-    amount,
-  });
-  
-  return result;
+  return testResult;
 };
 ```
 
-### Removing Delegation
+### Removing Test Delegation
 
-You can remove your delegation at any time:
+You can remove test delegation at any time:
 
-1. Go to [governance.jito.network/delegate](https://governance.jito.network/delegate)
-2. Connect your wallet
+1. Go to [test.example.com/delegate](https://test.example.com/delegate)
+2. Connect test account
 3. Select "Remove Delegation"
-4. Confirm the transaction
+4. Confirm test transaction
 
-## Voting Rules
+## Test Rules
 
-### Quorum
+### Test Minimum
 
-For a proposal to be valid, it must reach quorum, which is the minimum participation required:
+For a test to be valid, it must meet minimum requirements:
 
-- **Parameter Change Proposals**: 10% of total voting power
-- **Program Upgrade Proposals**: 15% of total voting power
-- **Treasury Expenditure Proposals**: 20% of total voting power
-- **Text Proposals**: 5% of total voting power
+- **Test Type One**: 10% of total test value
+- **Test Type Two**: 15% of total test value
+- **Test Type Three**: 20% of total test value
+- **Test Type Four**: 5% of total test value
 
-### Voting Period
+### Test Period
 
-The standard voting period is 7 days. During this time, all eligible token holders can cast their votes.
+The standard test period is 7 days. During this time, all eligible test accounts can participate.
 
-### Approval Thresholds
+### Test Thresholds
 
-Proposals must meet the following approval thresholds to pass:
+Tests must meet the following thresholds to pass:
 
-- **Parameter Change Proposals**: >50% approval
-- **Program Upgrade Proposals**: >66% approval
-- **Treasury Expenditure Proposals**: >60% approval
-- **Text Proposals**: >50% approval
+- **Test Type One**: >50% completion
+- **Test Type Two**: >66% completion
+- **Test Type Three**: >60% completion
+- **Test Type Four**: >50% completion
 
-## Viewing Results
+## Test Results
 
-You can view voting results in real-time:
+You can view test results in real-time:
 
-1. Go to the proposal page
-2. Check the current votes and percentages
-3. See the remaining time in the voting period
+1. Go to the test page
+2. Check the current test metrics
+3. See the remaining test time
 
-After the voting period ends, the proposal is marked as "Passed" or "Rejected" based on the final tally.
+After the test period ends, the test is marked as "Passed" or "Failed" based on the final results.
 
-## Governance Analytics
+## Test Analytics
 
-The governance portal provides analytics on voting patterns:
+The test portal provides analytics on test patterns:
 
-- **Voter Participation**: Percentage of total tokens that voted
-- **Voting History**: Historical voting data for all proposals
-- **Top Voters**: Most active participants in governance
+- **Test Participation**: Percentage of total test accounts that participated
+- **Test History**: Historical test data
+- **Top Testers**: Most active test participants
 
-These analytics help the community understand governance participation trends and identify areas for improvement. 
+These analytics help improve the testing process. 

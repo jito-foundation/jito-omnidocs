@@ -6,13 +6,13 @@ order: 1
 domain: "governance"
 ---
 
-# Governance Council
+# Test Council
 
-The Jito Governance Council is a group of elected representatives responsible for overseeing the governance process and ensuring the protocol's long-term health and stability.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 
 ## Topics in this Section
 
-- **Members**: Information about current council members
-- **Responsibilities**: The role and responsibilities of the council
+- **Test Topic A**: Lorem ipsum dolor sit amet
+- **Test Topic B**: Consectetur adipiscing elit
 
-The council provides oversight, guidance, and emergency decision-making capabilities to the Jito governance system. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 

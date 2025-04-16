@@ -6,94 +6,80 @@ order: 10
 domain: "governance"
 ---
 
-# Council Members
+# Test Members
 
-The Jito Governance Council consists of 7 members elected by JITO token holders. Council elections occur annually, with members serving a one-year term.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 
-## Current Council Members
+## Current Test Members
 
-### Alice Johnson
+### Test Member One
 **Term: 2023-2024**
 
-Alice is a blockchain governance expert with over 10 years of experience in decentralized systems. She previously served on the governance councils of several major DeFi protocols and brings valuable expertise in protocol economics.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 
-**Voting Address**: `jitoCouncilMember1111111111111111111111111111`
+**Test ID**: `test1111111111111111111111111111111111111111`
 
-### Bob Williams
+### Test Member Two
 **Term: 2023-2024**
 
-Bob is a core contributor to the Solana ecosystem with deep technical knowledge of the Jito protocol. He has been involved in the project since its inception and specializes in protocol security and scalability.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 
-**Voting Address**: `jitoCouncilMember2222222222222222222222222222`
+**Test ID**: `test2222222222222222222222222222222222222222`
 
-### Carol Martinez
+### Test Member Three
 **Term: 2023-2024**
 
-Carol is a DeFi researcher and validator operator with extensive experience in MEV extraction and liquid staking protocols. She brings a practical perspective on validator economics and incentive alignment.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 
-**Voting Address**: `jitoCouncilMember3333333333333333333333333333`
+**Test ID**: `test3333333333333333333333333333333333333333`
 
-### David Thompson
+### Test Member Four
 **Term: 2023-2024**
 
-David is a legal expert specializing in DAO governance and regulatory compliance. His expertise helps ensure Jito's governance system remains robust while navigating the evolving regulatory landscape.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 
-**Voting Address**: `jitoCouncilMember4444444444444444444444444444`
+**Test ID**: `test4444444444444444444444444444444444444444`
 
-### Emily Chen
+### Test Member Five
 **Term: 2023-2024**
 
-Emily is a community representative with a strong track record of community building in the Solana ecosystem. She focuses on ensuring governance remains accessible to all community members.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 
-**Voting Address**: `jitoCouncilMember5555555555555555555555555555`
+**Test ID**: `test5555555555555555555555555555555555555555`
 
-### Frank Wilson
-**Term: 2023-2024**
+## Test Selection Process
 
-Frank is a tokenomics expert who specializes in designing sustainable incentive mechanisms. He brings valuable insights on economic governance and long-term protocol sustainability.
+Test selection includes:
 
-**Voting Address**: `jitoCouncilMember6666666666666666666666666666`
+1. **Test Phase One**: Lorem ipsum dolor sit amet
+2. **Test Phase Two**: Consectetur adipiscing elit
+3. **Test Phase Three**: Nullam euismod, nisl eget aliquam
+4. **Test Phase Four**: Nunc nisl aliquet nunc
 
-### Grace Lee
-**Term: 2023-2024**
+## Test Dashboards
 
-Grace is a protocol researcher with expertise in MEV and consensus mechanisms. Her technical background helps the council evaluate complex protocol changes and upgrades.
+Test dashboards include:
 
-**Voting Address**: `jitoCouncilMember7777777777777777777777777777`
+- **Test Dashboard One**: Lorem ipsum dolor sit amet
+- **Test Dashboard Two**: Consectetur adipiscing elit
+- **Test Dashboard Three**: Nullam euismod, nisl eget aliquam
 
-## Council Selection Process
+Access these at [test.example.com/dashboard](https://test.example.com/dashboard).
 
-Council members are elected through a voting process:
+## Test Communication
 
-1. **Nomination Phase**: Community members can nominate themselves or others
-2. **Candidate Review**: Nominees submit qualifications and governance statements
-3. **Voting Phase**: JITO token holders vote for their preferred candidates
-4. **Election Results**: The 7 candidates with the most votes are elected
+Test communication channels:
 
-## Council Dashboards
+- **Test Channel One**: Lorem ipsum dolor sit amet
+- **Test Channel Two**: Consectetur adipiscing elit
+- **Test Channel Three**: Nullam euismod, nisl eget aliquam
 
-You can track council activity through several dashboards:
+## Next Test Schedule
 
-- **Voting History**: See how council members vote on proposals
-- **Attendance Record**: Track participation in council meetings
-- **Proposal Sponsorship**: View proposals sponsored by each member
+The next test is scheduled for:
 
-Access these dashboards at [governance.jito.network/council](https://governance.jito.network/council).
+- **Test Phase One**: January 1-15, 2024
+- **Test Phase Two**: January 16-30, 2024
+- **Test Phase Three**: February 1, 2024
 
-## Communication Channels
-
-You can reach out to council members through:
-
-- **Forum**: Each council member has a dedicated thread on the governance forum
-- **Office Hours**: Regular office hours are held on Discord
-- **Council Meetings**: Public council meetings are held monthly
-
-## Next Council Election
-
-The next council election is scheduled for:
-
-- **Nomination Period**: January 1-15, 2024
-- **Voting Period**: January 16-30, 2024
-- **Term Start**: February 1, 2024
-
-If you're interested in becoming a council member, watch for nomination announcements on the governance forum and Discord. 
+Contact test@example.com for more information. 

@@ -1,14 +1,16 @@
 ---
-title: "Liquid Staking Security"
-description: "How Jito ensures the security of staked assets"
-section_type: "page"
+title: Liquid Staking Security
+description: How Jito ensures the security of staked assets
+section_type: page
 order: 20
-domain: "jitosol"
+domain: jitosol
 ---
 
-# JitoSOL Security
+# JitoSOL Security Now
 
 Security is a top priority for the Jito liquid staking protocol. This page outlines the security measures in place to protect staked assets.
+
+![JitoSOL Overview](shared/images/1.png)
 
 ## Smart Contract Security
 

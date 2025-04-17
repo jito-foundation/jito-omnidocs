@@ -1,12 +1,12 @@
 ---
-title: "Block Engine"
+title: "Staking Overview Test"
 description: "Understanding Jito's block building infrastructure"
 section_type: "page"
-order: 10
-domain: "jitosol"
+order: 9
+# domain: jitosol
 ---
 
-# Test Block Engine
+# Staking Overview Test
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 

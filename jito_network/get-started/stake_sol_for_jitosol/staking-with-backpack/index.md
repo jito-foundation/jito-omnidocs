@@ -1,12 +1,12 @@
 ---
-title: "Searcher API"
+title: "Staking with Test Phantom"
 description: "Guide to using Jito's Searcher API for MEV opportunities"
 section_type: "page"
-order: 20
-domain: "jitosol"
+order: 10
+# domain: jitosol
 ---
 
-# Test API Documentation
+# Staking with Phantom Documentation Test
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies.
 

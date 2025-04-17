@@ -1,9 +1,9 @@
 ---
-title: "Liquid Staking Overview"
+title: "Maximum Extactable Value"
 description: "Understanding the basics of liquid staking with Jito"
 section_type: "page"
 order: 10
-domain: "jitosol"
+# domain: jitosol
 ---
 
 # Test Liquid Staking Overview

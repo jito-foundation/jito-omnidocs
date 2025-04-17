@@ -11,27 +11,38 @@ The Jito Documentation Monorepo is built using:
 
 ## Repository Structure
 
+The repository follows a structured approach compatible with Decap CMS's nested collections:
+
 ```
 jito-omnidocs/
-├── jitosol/                   # JitoSOL documentation (jito.network/docs/jitosol)
-│   ├── _meta.json             # Navigation metadata
-│   ├── introduction.md        # Introduction to Jito
-│   ├── liquid-staking/        # JITOSOL LIQUID STAKING section
-│   │   ├── _section.json      # Section metadata
-│   │   ├── _index.md          # Landing page for section
-│   │   └── ...                # Child pages
-│   └── ...
+├── jitosol/                   # JitoSOL documentation
+│   ├── index.md               # Main introduction to JitoSOL
+│   ├── liquid-staking/        # Liquid staking section
+│   │   ├── index.md           # Section overview
+│   │   ├── overview.md        # Detailed overview
+│   │   └── faq.md             # Frequently asked questions
+│   └── mev/                   # MEV section
+│       ├── index.md           # Section overview
+│       ├── block-engine.md    # Block engine documentation
+│       └── searcher-api.md    # Searcher API documentation
 ├── governance/                # Governance documentation
-│   └── ...
+│   ├── index.md               # Introduction to governance
+│   ├── council/               # Council section
+│   │   ├── index.md           # Council overview
+│   │   └── members.md         # Council members information
+│   └── proposals/             # Proposals section
+│       ├── index.md           # Proposals overview
+│       ├── submission-process.md # How to submit proposals
+│       └── voting.md          # How voting works
 ├── stakenet/                  # StakeNet documentation
-│   └── ...
-├── restaking/                 # Restaking documentation
-│   └── ...
-├── tiprouter/                 # Tip Router documentation
-│   └── ...
-└── shared/                    # Shared assets and components
-    ├── images/                # Shared images
-    └── ...
+│   ├── index.md               # Introduction to StakeNet
+│   └── validators/            # Validators section
+│       ├── index.md           # Validators overview
+│       ├── requirements.md    # Validator requirements
+│       └── setup.md           # Validator setup guide
+└── shared/                    # Shared assets
+    └── images/                # Shared images
+        └── placeholder.png    # Placeholder image
 ```
 
 ## Documentation File Format
@@ -42,9 +53,9 @@ Each documentation file uses markdown with frontmatter metadata:
 ---
 title: "Page Title"
 description: "Brief description of the page content"
-section_type: "page" # Options: page, header, expandable, parent_only
+section_type: "page" # Options: page, header, expandable, parent_only, section_meta
 order: 10 # Controls display order in navigation
-domain: "jitosol" # Which documentation domain this belongs to
+# domain: jitosol # Which documentation domain this belongs to
 ---
 
 # Page Title
@@ -58,6 +69,33 @@ Content starts here...
 - **header**: Section header (typically without content)
 - **expandable**: Page with its own content plus child pages
 - **parent_only**: Section that only displays children but has no content itself
+
+## Decap CMS Configuration
+
+The repository uses Decap CMS's nested collections feature to manage the documentation hierarchy. The configuration looks like this:
+
+```yaml
+collections:
+  - name: "jitosol"
+    label: "JitoSOL Documentation"
+    folder: "jitosol"
+    create: true
+    nested:
+      depth: 100
+      summary: '{{title}}'
+    meta: 
+      path: 
+        widget: string
+        label: 'Path'
+        index_file: 'index'
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Section Type", name: "section_type", widget: "select", options: ["page", "header", "expandable", "parent_only"], default: "page"}
+      - {label: "Order", name: "order", widget: "number"}
+      - {label: "Domain", name: "domain", widget: "hidden", default: "jitosol"}
+      - {label: "Content", name: "body", widget: "markdown"}
+```
 
 ## Adding New Documentation
 
@@ -73,9 +111,17 @@ Content starts here...
 1. Go to your documentation site's admin panel (e.g., jito.network/admin)
 2. Log in with GitHub
 3. Navigate to the appropriate collection (e.g., JitoSOL Documentation)
-4. Click "New..." and select the type of content
-5. Fill out the form and use the rich text editor
-6. Save and publish
+4. Use the nested folder view to navigate to the correct location
+5. Click "New..." and create your content
+6. Fill out the form and use the rich text editor
+7. Save and publish
+
+## Important Notes on Folder Structure
+
+- Each folder must contain an `index.md` file that serves as the main page for that section
+- The CMS uses the `index_file: 'index'` setting to know which file represents each folder
+- When adding a new section, always create an index.md file for that section
+- The nested structure allows editors to move pages and entire sections through the CMS interface
 
 ## Content Guidelines
 
@@ -86,29 +132,20 @@ Content starts here...
 - Link related content between pages
 - Prioritize up-to-date information
 
-## LLM Instructions for Creating Test Documentation
-
-To populate this repository with test documentation:
-
-1. Create the basic directory structure as shown above
-2. For each domain, create an introduction page plus at least 3 content pages
-3. Use the appropriate frontmatter format for each file
-4. Generate realistic content that mimics the actual documentation
-5. Organize content hierarchically with appropriate section types
-6. Include sample images in the shared/images directory
-7. Create cross-references between related pages
-
 ## Local Development
 
-To run the documentation site locally:
+To run the documentation locally with Decap CMS:
 
 ```bash
 # Clone the repository
 git clone https://github.com/jito-foundation/jito-omnidocs.git
 cd jito-omnidocs
 
-# Set up the Next.js app (in a separate repository)
-# Follow setup instructions in the documentation-frontend repository
+# Run the local Decap CMS proxy server
+npx decap-server
+
+# In a separate terminal, run your frontend application
+# Follow setup instructions in your frontend repository
 ```
 
 ## Deployment

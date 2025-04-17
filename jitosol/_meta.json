@@ -1,9 +1,0 @@
-{
-  "title": "JitoSOL Documentation",
-  "description": "Documentation for JitoSOL liquid staking and MEV products",
-  "navigation_order": [
-    "introduction",
-    "liquid-staking",
-    "mev"
-  ]
-} 

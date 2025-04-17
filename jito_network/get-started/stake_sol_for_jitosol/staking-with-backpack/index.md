@@ -1,165 +1,83 @@
 ---
-title: "Staking with Test Phantom"
-description: "Guide to using Jito's Searcher API for MEV opportunities"
-section_type: "page"
-order: 10
-# domain: jitosol
+title: Staking with Backpack Test
+description: Understanding Jito's block building infrastructure
+section_type: page
+order: 8
 ---
+# Staking with Backpack Test
 
-# Staking with Phantom Documentation Test
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies.
+## How Test Engine Works
 
-## Getting Started
+1. **Test Step One**: Lorem ipsum dolor sit amet
+2. **Test Step Two**: Consectetur adipiscing elit
+3. **Test Step Three**: Nullam euismod, nisl eget aliquam
+4. **Test Step Four**: Nunc nisl aliquet nunc
 
-### Test Access
 
-To access the Test API:
+## Test Benefits
 
-1. Register at [test.example.com](https://test.example.com)
-2. Generate test credentials
-3. Deposit test funds
+The Test Engine provides several benefits:
 
-### Test Endpoints
+* **Test Benefit One**: Lorem ipsum dolor sit amet
+* **Test Benefit Two**: Consectetur adipiscing elit
+* **Test Benefit Three**: Nullam euismod, nisl eget aliquam
+* **Test Benefit Four**: Nunc nisl aliquet nunc
 
-The main test endpoints are:
+## Test Implementation
 
-| Endpoint | Description |
-|----------|-------------|
-| `v1/test/submit` | Submit a test request |
-| `v1/test/status` | Check test status |
-| `v1/test/balance` | Check test balance |
-| `v1/test/history` | View test history |
+Lorem ipsum dolor sit amet:
 
-## Test Submission
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit:
-
-```javascript
+```rust
 // This is test code
-import { TestClient, TestBundle } from '@test/client';
+pub struct TestConfig {
+    // Test configuration
+    pub test_config: TestConfig,
+    // Test connection details
+    pub test_url: String,
+    pub test_keypair: Keypair,
+    // Test settings
+    pub test_percentage: u8,
+    pub test_minimum: u16,
+}
 
-// Create a test client
-const testClient = new TestClient({
-  url: 'https://api.test.example.com',
-  authToken: 'test_token',
-});
-
-// Create test data
-const testData1 = {/* test data */};
-const testData2 = {/* test data */};
-
-// Create a test bundle
-const testBundle = new TestBundle({
-  data: [testData1, testData2],
-  options: {
-    testOption1: 10000,
-    testOption2: 0,
-  },
-});
-
-// Submit the test
-const result = await testClient.submitTest(testBundle);
-console.log(`Test submitted with ID: ${result.testId}`);
+pub fn test_function(config: TestConfig) -> Result<()> {
+    // Initialize test
+    let test_client = TestClient::new(
+        config.test_url,
+        config.test_keypair,
+    )?;
+    
+    // Start the test
+    let test = Test::new_with_config(
+        config.test_config,
+        test_client,
+        config.test_percentage,
+        config.test_minimum,
+    )?;
+    
+    test.run();
+    
+    Ok(())
+}
 ```
 
-### Test Options
+## Test Participation
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies.
+Test participants can:
 
-## Common Test Strategies
+1. **Step One**: Lorem ipsum dolor sit amet
+2. **Step Two**: Consectetur adipiscing elit
+3. **Step Three**: Nullam euismod, nisl eget aliquam
 
-Using the Test API, you can implement various test strategies:
+For detailed test instructions, refer to the [Test Guide](/test/guide).
 
-### Test Strategy One
+## Future Test Developments
 
-```javascript
-// Example test strategy
-const testStrategyOne = async (
-  testParam1,
-  testParam2,
-  testParam3,
-  testParam4
-) => {
-  // Step 1: Test operation
-  const testOperation1 = createTestOperation(testParam1, testParam2);
-  
-  // Step 2: Another test operation
-  const testOperation2 = createTestOperation(testParam3, testParam4);
-  
-  // Create a test result
-  const testBundle = new TestBundle({
-    operations: [testOperation1, testOperation2],
-    options: {
-      testOption1: 100000,
-      testOption2: 0,
-    },
-  });
-  
-  return testBundle;
-};
-```
+Test roadmap includes:
 
-### Test Strategy Two
-
-```javascript
-// Example of another test strategy
-const testStrategyTwo = async (
-  testParam1,
-  testParam2,
-  testParam3,
-  testParam4
-) => {
-  // Test check
-  const testCheck = await checkTestCondition(testParam1);
-  if (!testCheck.isValid) {
-    return null;
-  }
-  
-  // Create test operation
-  const testOperation = createTestOperation(testParam1, testParam4);
-  
-  // Create a test bundle
-  const testBundle = new TestBundle({
-    operations: [testOperation],
-    options: {
-      testOption1: 500000,
-      testOption2: 20,
-    },
-  });
-  
-  return testBundle;
-};
-```
-
-## Best Practices
-
-For optimal test results:
-
-1. **Test Practice One**: Lorem ipsum dolor sit amet
-2. **Test Practice Two**: Consectetur adipiscing elit
-3. **Test Practice Three**: Nullam euismod, nisl eget aliquam
-4. **Test Practice Four**: Nunc nisl aliquet nunc
-5. **Test Practice Five**: Quis aliquam nisl nunc quis nisl
-
-## Test Monitoring
-
-Test monitoring examples:
-
-```javascript
-// Check test status
-const testStatus = await testClient.getTestStatus(testId);
-console.log(`Test status: ${testStatus.status}`);
-
-// Get test account balance
-const testBalance = await testClient.getTestBalance();
-console.log(`Test balance: ${testBalance.value}`);
-
-// View test history
-const testHistory = await testClient.getTestHistory({
-  limit: 10,
-});
-console.log(`Test history:`, testHistory);
-```
-
-For more information, see the [Test Reference](/test/reference). 
+* **Test Feature One**: Lorem ipsum dolor sit amet
+* **Test Feature Two**: Consectetur adipiscing elit
+* **Test Feature Three**: Nullam euismod, nisl eget aliquam
+* **Test Feature Four**: Nunc nisl aliquet nunc

@@ -1,6 +1,6 @@
 ---
 title: "Get Started"
-section_type: "expandable"
+section_type: "header"
 order: 3
 # domain: jitosol
 # navigation_order: [

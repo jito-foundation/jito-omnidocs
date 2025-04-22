@@ -1,9 +1,8 @@
 ---
-title: "Liquid Staking Basics"
-description: "How Jito ensures the security of staked assets"
+title: Liquid Staking Basics Now
+description: How Jito ensures the security of staked assets
 section_type: page
 order: 20
-# domain: jitosol
 ---
 
 # JitoSOL Security Now Test

@@ -1,9 +1,0 @@
-{
-  "title": "Governance Documentation",
-  "description": "Documentation for Jito's governance system",
-  "navigation_order": [
-    "introduction",
-    "proposals",
-    "council"
-  ]
-} 

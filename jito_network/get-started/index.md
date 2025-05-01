@@ -1,10 +1,7 @@
 ---
-title: "Get Started"
-section_type: "header"
-order: 3
-# domain: jitosol
-# navigation_order: [
-#     "stake-sol-for-jitosol",
-#     "buying-or-selling-jitosol"
-#     ]
+title: 'Get Started'
+order: 2
+section_type: 'header'
+subtitle: ''
 ---
+

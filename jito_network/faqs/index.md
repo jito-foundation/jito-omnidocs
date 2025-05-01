@@ -1,7 +1,7 @@
 ---
-title: FAQs Item
-description: test faq
-section_type: header
-order: 4
+title: 'FAQS'
+order: 3
+section_type: 'header'
+subtitle: ''
 ---
- _
+

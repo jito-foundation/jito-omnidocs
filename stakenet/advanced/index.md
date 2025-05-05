@@ -1,7 +1,7 @@
 ---
 title: Advanced
-order: 0
+order: 1
 section_type: expandable
-description: ''
+subtitle: ''
 ---
 

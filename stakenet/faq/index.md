@@ -1,7 +1,7 @@
 ---
 title: Steward UI
 order: 0
-description: ''
+subtitle: ''
 section_type: page
 ---
 

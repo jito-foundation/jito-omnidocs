@@ -1,7 +1,7 @@
 ---
 title: Program Overview
 order: 0
-description: ''
+subtitle: ''
 section_type: page
 ---
 

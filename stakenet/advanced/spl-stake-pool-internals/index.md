@@ -1,7 +1,7 @@
 ---
 title: SPL Stake Pool Internals
-order: 0
-description: ''
+order: 2
+subtitle: ''
 section_type: page
 ---
 

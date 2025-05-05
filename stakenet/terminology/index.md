@@ -1,7 +1,7 @@
 ---
 title: StakeNet Terminology
 order: 0
-description: ''
+subtitle: ''
 section_type: page
 ---
 

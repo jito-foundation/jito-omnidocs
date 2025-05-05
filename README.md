@@ -162,6 +162,57 @@ collections:
 - Link related content between pages
 - Prioritize up-to-date information
 
+## Embedding Code
+
+#### Full-width Code Blocks
+<!-- Method 1: Triple backticks in markdown -->
+```javascript
+const data = { example: "value" };
+```
+
+<!-- Method 2: HTML with code tag + class -->
+<code class="block" data-language="javascript">
+const data = { example: "value" };
+</code>
+
+<!-- Method 3: HTML pre/code combination -->
+<pre><code>
+function example() {
+  return true;
+}
+</code></pre>
+
+#### Inline Code
+<!-- Method 1: Single backticks in markdown -->
+Use `inline code` for variables
+
+<!-- Method 2: HTML with code tag -->
+Use <code>inline code</code> or <code class="inline">forced inline</code>
+
+## Creating Tables
+
+```html
+<!-- Standard markdown table -->
+| Header 1 | Header 2 |
+|----------|----------|
+| Cell 1   | Cell 2   |
+| Cell 3   | Cell 4   |
+
+<!-- HTML table -->
+<table>
+  <tr>
+    <th>Header 1</th>
+    <th>Header 2</th>
+  </tr>
+  <tr>
+    <td>Cell 1</td>
+    <td>Cell 2</td>
+  </tr>
+</table>
+```
+
+All tables are automatically wrapped in responsive containers when rendered.
+
 ## Local Development
 
 To run the documentation locally with Decap CMS:

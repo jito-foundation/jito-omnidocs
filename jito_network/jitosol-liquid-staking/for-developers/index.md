@@ -11,6 +11,7 @@ JitoSOL leverages the native stake pool program developed by Solana Labs. This i
 ### POST /api/v1/validators
 
 To get validator stats for a given epoch, use the following POST request. Note that the current epoch will have MEV rewards set to zero.
+
 Parameters: 
 <code>epoch</code>: int
 
@@ -20,7 +21,7 @@ Parameters:
 
 <u>Example Response:</u>
 
-<code>{
+<pre><code>{
   "validators": [
     {
       "vote_account": "GdRKUZKdiXMEATjddQW6q4W8bPgXRBYJKayfeqdQcEPa",
@@ -42,20 +43,22 @@ Parameters:
       "mev_rewards": 6123234290,
       "rq9qunning_jito": true,
       "active_stake": 88295901191147
-    },</code>
+    }...
+  ]}</code></pre>
 
 ### GET /api/v1/validators/{vote_account}
 
 You can also get MEV rewards for a specific validator by vote account. This will return results for a specific validator, sorted by epoch.
-<code>Parameters</code>: None 
 
-<u>Example request: </u>
+Parameters: None 
+
+<u>Example request:</u>
 
 <code>curl https://kobe.mainnet.jito.network/api/v1/validators/63a15aZm4rphdQJcZfL8oSMPwLDmvUW2dFw3WqZpjxEt</code>
 
 <u>Example response:</u>
 
-<code>[
+<pre><code>[
   {
     "epoch": 608,
     "mev_commission_bps": 10000,
@@ -91,7 +94,7 @@ You can also get MEV rewards for a specific validator by vote account. This will
     "mev_commission_bps": 10000,
     "mev_rewards": 254418752
   },
-]</code>
+]</code></pre>
 
 ### GET /api/v1/jito_stake_over_time 
 
@@ -101,8 +104,7 @@ Gets the percent of Jito Stake per epoch
 
 <code> curl https://kobe.mainnet.jito.network/api/v1/jito_stake_over_time</code>
 
-<u>
-Example Response: </u>
+<u>Example Response: </u>
 
 <code>{
   "stake_ratio_over_time": {
@@ -134,7 +136,7 @@ Gets daily mev rewards for the network for a given epoch
 
 <u>Example response</u>
 
-<code>[
+<pre><code>[
   {
     "day": "2024-01-01 00:00:00.000 UTC",
     "count_mev_tips": 634438,
@@ -149,5 +151,5 @@ Gets daily mev rewards for the network for a given epoch
     "tippers": 22453,
     "validator_tips": 1453.46550912805
   },
-]</code>
+]</code></pre>
 

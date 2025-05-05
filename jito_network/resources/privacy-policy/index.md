@@ -243,7 +243,54 @@ If you are a parent or guardian and believe your child has uploaded personal inf
 
 **Our Lawful Basis for Processing Personal Information**.  If your personal information is subject to the EU General Data Protection Regulation or other related legislation, our processing of your personal information may be supported by the following lawful bases:
 
-<!-- Fallback: type=table -->
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Lawful Basis: Performance of a Contract (i.e., to Provide Our Services to You)</th>
+      <th>Lawful Basis: Legitimate Interest</th>
+      <th>Lawful Basis: Consent</th>
+      <th>Lawful Basis: For Compliance with Legal Obligations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>To Provide the Services or Information Requested</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>To Measure Performance and Carry Out Research</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>For Customer Support</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>For Advertising Purposes</td>
+      <td></td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>For Administrative or Legal Purposes</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td>✓</td>
+    </tr>
+  </tbody>
+</table>
 
 **Supervisory Authority**.  If your personal information is subject to the applicable data protection laws of the European Economic Area, Switzerland, or the United Kingdom, you have the right to lodge a complaint with the competent supervisory authority or attorney general if you believe our processing of your personal information violates applicable law.  
 

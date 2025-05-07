@@ -1,6 +1,6 @@
 ---
 title: Validators
-order: 0
+order: 7
 section_type: expandable
 subtitle: ''
 ---

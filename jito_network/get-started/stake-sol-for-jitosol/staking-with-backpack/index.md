@@ -1,6 +1,6 @@
 ---
 title: 'Staking with Backpack'
-order: 1
+order: 2
 section_type: 'page'
 subtitle: ''
 ---

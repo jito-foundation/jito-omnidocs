@@ -32,7 +32,7 @@ Method: GET
 
 <code>curl "https://jito.network/api/v1/staker_rewards?stake_authority=ABC123&epoch=100&limit=10"</code>
 
-<code>{
+<pre><code>{
   "rewards": [
     {
       "claimant": "HJUv4xr2EvNNLX14PFK16kyftyNW9ydd7WyWKPutV4nJ",
@@ -54,7 +54,7 @@ Method: GET
     }
   ],
   "total_count": 1170170
-}</code>
+}</code></pre>
 
 ### Validator Rewards
 
@@ -82,7 +82,7 @@ Method: GET
 
 <u>Response:</u>
 
-<code>{
+<pre><code>{
   "rewards": [
     {
       "vote_account": "6D2jqw9hyVCpppZexquxa74Fn33rJzzBx38T58VucHx9",
@@ -102,7 +102,7 @@ Method: GET
     }
   ],
   "total_count": 1083
-}</code>
+}</code></pre>
 
 Both endpoints return paginated results and support filtering and sorting options. The response includes the requested rewards data and a total count of matching records.
 

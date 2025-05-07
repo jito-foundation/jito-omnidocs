@@ -1,6 +1,6 @@
 ---
 title: Restaking
-order: 0
+order: 2
 section_type: expandable
 description: ''
 ---

@@ -1,6 +1,6 @@
 ---
 title: 'Staking With Squads'
-order: 3
+order: 4
 section_type: 'page'
 subtitle: ''
 ---

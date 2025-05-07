@@ -1,6 +1,6 @@
 ---
 title: Steward UI
-order: 0
+order: 6
 subtitle: ''
 section_type: page
 ---

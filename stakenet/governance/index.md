@@ -1,6 +1,6 @@
 ---
 title: StakeNet Governance
-order: 0
+order: 3
 subtitle: ''
 section_type: page
 ---

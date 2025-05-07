@@ -1,6 +1,6 @@
 ---
 title: 'Staking with Phantom'
-order: 0
+order: 1
 section_type: 'page'
 subtitle: 'Phantom staking is fast and safe'
 ---

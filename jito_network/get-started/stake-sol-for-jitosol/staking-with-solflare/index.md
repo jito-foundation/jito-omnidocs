@@ -1,6 +1,6 @@
 ---
 title: 'Staking with Solflare'
-order: 2
+order: 3
 section_type: 'page'
 subtitle: ''
 ---

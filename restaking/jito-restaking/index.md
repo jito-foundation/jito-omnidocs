@@ -1,6 +1,6 @@
 ---
 title: Jito (Re)staking
-order: 0
+order: 1
 description: ''
 section_type: page
 ---

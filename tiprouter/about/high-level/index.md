@@ -1,6 +1,6 @@
 ---
 title: Overview
-order: 1
+order: 0
 description: ''
 section_type: page
 ---
@@ -11,7 +11,7 @@ Jito Tip Router NCN is handling operation of distribution of MEV tips generated 
 - Node Operator Client
 - Permissionless Cranker
 
-#### Onchain NCN Program (Jito Tip Router Program):
+### Onchain NCN Program (Jito Tip Router Program):
 
 Onchain NCN program has several components:
 
@@ -28,13 +28,13 @@ Onchain NCN program has several components:
 
 - Reward Payment
 
-#### Node Operator Client
+### Node Operator Client
 
 - Node operators will compute a `meta merkle root` — a merkle root derived from a new merkle tree containing all validator merkle trees.
 - Upload `meta merkle root` on-chain.
 
 
-#### Permissionless Cranker
+### Permissionless Cranker
 
 - Take snapshots of Operator and Vault per epoch.
 

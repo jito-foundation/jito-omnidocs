@@ -15,7 +15,7 @@ The repository follows a structured approach compatible with Decap CMS's nested 
 
 ```
 jito-omnidocs/
-├── jito_network/                        # JitoSOL documentation
+├── jitosol/                        # JitoSOL documentation
 │   ├── introduction-to-jito/            # Introduction to Jito
 │   │   └── index.md                     # Main introduction page
 │   ├── jitosol-liquid-staking/          # JitoSOL liquid staking section
@@ -84,10 +84,10 @@ media_folder: "shared/images"
 public_folder: "/shared/images"
 
 collections:
-  - name: "jito_network"
+  - name: "jitosol"
     label: "JitoSOL Documentation"
     label_singular: 'JitoSOL Doc'
-    folder: "jito_network"
+    folder: "jitosol"
     create: true
     nested:
       depth: 100
@@ -261,7 +261,7 @@ const AdminPage = () => {
       CMS.registerPreviewStyle('/preview.css')
 
       // Register custom preview template
-      CMS.registerPreviewTemplate('jito_network', JitoPreview)
+      CMS.registerPreviewTemplate('jitosol', JitoPreview)
 
       // Initialize the CMS
       CMS.init()

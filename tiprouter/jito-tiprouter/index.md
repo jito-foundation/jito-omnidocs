@@ -16,4 +16,4 @@ Jito Tip Router NCN will assume programmatic operations related to the distribut
 
 ## License
 
-This project is licensed under the Business Source License 1.1 - see the [LICENSE.md](../LICENSE.md) file for details.
+This project is licensed under the Business Source License 1.1 - see the [LICENSE.md](https://github.com/jito-foundation/jito-tip-router/blob/master/LICENSE.md) file for details.

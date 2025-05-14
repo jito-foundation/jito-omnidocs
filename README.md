@@ -178,13 +178,13 @@ function example() {
 #### Inline Code
 
 <!-- Method 1: Single backticks in markdown -->
-To use single backticks for inline code, like `Use \\`inline code\\` for variables`:
+For inline code with single backticks, use the following syntax:
 ```text
 Use `inline code` for variables
 ```
 
 <!-- Method 2: HTML with code tag -->
-To use an HTML `code` tag for inline code, like `Use <code>inline code</code> or <code class="inline">forced inline</code>`:
+For inline code with HTML code tags, use the following syntax:
 ```text
 Use <code>inline code</code> or <code class="inline">forced inline</code>
 ```

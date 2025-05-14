@@ -52,10 +52,10 @@ Each documentation file uses markdown with frontmatter metadata:
 ```md
 ---
 title: "Page Title"
-description: '' #deprecated
-subtitle: 'Brief description of the page content'
-section_type: "page" # Options: page, header, expandable, meta
-order: 10 # Controls display order in navigation
+subtitle: "Optional short description of the page content" # Optional
+section_type: "page" # Options: page, header, expandable
+order: 10 # Controls display order in navigation (0-100)
+mermaid: false # Optional, set to true if the page uses Mermaid diagrams
 ---
 
 # Page Title
@@ -68,11 +68,10 @@ Content starts here...
 - **page**: Regular content page
 - **header**: Section header (typically without content)
 - **expandable**: Page with its own content plus child pages
-- **meta**: Meta information page
 
 ## Decap CMS Configuration
 
-The repository uses Decap CMS's nested collections feature to manage the documentation hierarchy. The configuration looks like this:
+The repository uses Decap CMS's nested collections feature to manage the documentation hierarchy. Each documentation section has its own collection with appropriate media folders. The configuration looks like this:
 
 ```yaml
 backend:

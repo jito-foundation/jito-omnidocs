@@ -1,0 +1,23 @@
+name: Redeploy Vercel
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Trigger Vercel Deployment
+        run: |
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"
+      
+      - name: Wait for deployment
+        run: sleep 30
+      
+      - name: Deployment Status
+        run: echo "Vercel deployment has been triggered. Check your Vercel dashboard for deployment status." 

@@ -36,10 +36,13 @@ jito-omnidocs/
 │       ├── index.md                     # FAQs overview
 │       └── general-faqs/                # General FAQs
 │           └── index.md                 # General FAQs content
-├── stakenet/                            # StakeNet documentation
 ├── governance/                          # Governance documentation
 └── shared/                              # Shared assets
     └── images/                          # Shared images
+        ├── governance/                  # Governance-specific images
+        ├── jitosol/                     # JitoSOL-specific images
+        ├── restaking/                   # Restaking-specific images
+        └── tiprouter/                   # TipRouter-specific images
 ```
 
 ## Documentation File Format
@@ -96,33 +99,15 @@ collections:
     meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "string", hint: "Short description that will appear in navigation and search results"}
+      - {label: "Subtitle", name: "subtitle", widget: "string", hint: "Short optional subtitle"}
       - {label: "Section Type", name: "section_type", widget: "select", options: [
           {label: "Standard Page", value: "page"},
           {label: "Section Header", value: "header"},
-          {label: "Expandable Section", value: "expandable"},
-          {label: "Meta Page", value: "meta"}
+          {label: "Expandable Section", value: "expandable"}
         ], default: "page"}
       - {label: "Order", name: "order", widget: "number", value_type: "int", min: 0, max: 100}
-      - {
-          label: "Content", 
-          name: "body", 
-          widget: "markdown",
-          editor_components: ["code-block"],
-          buttons: [
-            "bold", 
-            "italic", 
-            "code", 
-            "link", 
-            "heading-one", 
-            "heading-two", 
-            "heading-three", 
-            "quote", 
-            "bulleted-list", 
-            "numbered-list"
-          ],
-          modes: ["rich_text", "raw"]
-        }
+      - {label: "Mermaid Diagram?", name: "mermaid", widget: "boolean", required: false, default: false}
+      - {label: "Body", name: "body", widget: "markdown"}
 ```
 
 ## Adding New Documentation
@@ -226,58 +211,39 @@ cd jito-omnidocs
 npx decap-server
 
 # In a separate terminal, run your frontend application
-# Follow setup instructions in your frontend repository
-```
-
-## Integration with Next.js
-
-The documentation is integrated into a Next.js application using one of two approaches:
-
-1. **Direct API Calls**: Making GitHub API calls during build time (getStaticProps/getStaticPaths) to fetch content file by file.
-   - Requires GitHub Personal Access Token for authentication
-   - Higher rate limits (5,000 requests/hour) with proper authentication
-   - Simple setup but may hit rate limits with many pages
-
-2. **Full Repository Clone**: Pre-build step that clones or downloads the entire repository.
-   - Uses `git clone --depth 1` or downloads a zip/tarball via GitHub API
-   - Content accessed via standard Node.js file system operations
-   - Reduces API calls and avoids rate limits
-   - Faster for large documentation sites
-
-The Admin page component initializes Decap CMS with custom preview styles:
-
-```jsx
-import { useEffect } from 'react'
-import JitoPreview from './JitoPreview'
-
-const AdminPage = () => {
-  useEffect(() => {
-    // Using a self-executing async function to load the CMS
-    (async () => {
-      // Import CMS dynamically as a global object
-      const CMS = (await import('decap-cms-app')).default
-
-      // Register preview styles from the CSS file in public directory
-      CMS.registerPreviewStyle('/preview.css')
-
-      // Register custom preview template
-      CMS.registerPreviewTemplate('jitosol', JitoPreview)
-
-      // Initialize the CMS
-      CMS.init()
-    })()
-  }, [])
-
-  return <div id="nc-root" />
-}
-
-export default AdminPage
 ```
 
 ## Deployment
 
 Documentation changes are automatically deployed when merged to the master branch.
 
+### Automatic Deployment with GitHub Actions
+
+This repository is configured with a GitHub Actions workflow that automatically triggers a Vercel deployment whenever changes are pushed to the master branch. The workflow:
+
+1. Sends a request to the Vercel Deploy Hook
+2. Initiates a new build and deployment of the documentation site
+3. No manual intervention is required
+
+You can also manually trigger a deployment from the GitHub Actions tab by running the "Redeploy Vercel" workflow.
+
 ## Questions and Support
 
 For questions about this documentation repository, please contact the Jito team.
+
+## Image Storage and Organization
+
+Images should be stored in the appropriate subdirectory within the `shared/images` folder based on the documentation section they belong to:
+
+- Governance documentation images → `shared/images/governance/`
+- JitoSOL documentation images → `shared/images/jitosol/`
+- Restaking documentation images → `shared/images/restaking/`
+- TipRouter documentation images → `shared/images/tiprouter/`
+
+Always place new images in the directory corresponding to their documentation section rather than in the root `shared/images/` folder. This helps maintain organization as the documentation grows.
+
+When referencing images in markdown files, use paths relative to the root:
+
+```md
+![Image description](/shared/images/jitosol/example-image.png)
+```

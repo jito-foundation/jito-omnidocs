@@ -178,7 +178,7 @@ function example() {
 #### Inline Code
 
 <!-- Method 1: Single backticks in markdown -->
-To use single backticks for inline code, like `Use \`inline code\` for variables`:
+To use single backticks for inline code, like `Use \\`inline code\\` for variables`:
 ```text
 Use `inline code` for variables
 ```
@@ -210,7 +210,6 @@ Use <code>inline code</code> or <code class="inline">forced inline</code>
   </tr>
 </table>
 ```
-
 All tables are automatically wrapped in responsive containers when rendered.
 
 ## Local Development

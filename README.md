@@ -149,29 +149,45 @@ collections:
 ## Embedding Code
 
 #### Full-width Code Blocks
+
 <!-- Method 1: Triple backticks in markdown -->
+To use triple backticks:
+```text
 ```javascript
 const data = { example: "value" };
 ```
 
 <!-- Method 2: HTML with code tag + class -->
+To use an HTML `code` tag with a class:
+```text
 <code class="block" data-language="javascript">
 const data = { example: "value" };
 </code>
+```
 
 <!-- Method 3: HTML pre/code combination -->
+To use an HTML `pre` and `code` tag combination:
+```text
 <pre><code>
 function example() {
   return true;
 }
 </code></pre>
+```
 
 #### Inline Code
+
 <!-- Method 1: Single backticks in markdown -->
+To use single backticks for inline code, like `Use \`inline code\` for variables`:
+```text
 Use `inline code` for variables
+```
 
 <!-- Method 2: HTML with code tag -->
+To use an HTML `code` tag for inline code, like `Use <code>inline code</code> or <code class="inline">forced inline</code>`:
+```text
 Use <code>inline code</code> or <code class="inline">forced inline</code>
+```
 
 ## Creating Tables
 

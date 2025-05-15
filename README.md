@@ -45,6 +45,36 @@ jito-omnidocs/
         └── tiprouter/                   # TipRouter-specific images
 ```
 
+## Folder Naming Conventions
+
+When creating folders within the documentation structure, follow these critical naming rules to ensure compatibility with Decap CMS:
+
+### ⚠️ Important Rule: Avoid Parent Name at the End
+
+**NEVER create a subfolder that ends with the parent collection name**. This causes Decap CMS to break when using nested collections.
+
+For example, if your parent collection is `jitosol`:
+
+✅ **CORRECT folder names**:
+- `jitosol/getting-started/`
+- `jitosol/liquid-staking/`
+- `jitosol/stake-guide/`
+
+❌ **INCORRECT folder names**:
+- `jitosol/intro-to-jitosol/`         (ends with "jitosol")
+- `jitosol/staking-with-jitosol/`     (ends with "jitosol")
+- `jitosol/about-jitosol/`            (ends with "jitosol")
+
+### Recommended Naming Patterns
+
+- Use descriptive, concise folder names
+- Use hyphens to separate words
+- If you need to include the product name, place it at the beginning, not the end
+  - ✅ Use: `jitosol/jitosol-staking-guide/`
+  - ❌ Avoid: `jitosol/staking-guide-jitosol/`
+
+This convention ensures compatibility with Decap CMS's nested collections feature, which has limitations when folders end with their parent collection name.
+
 ## Documentation File Format
 
 Each documentation file uses markdown with frontmatter metadata:

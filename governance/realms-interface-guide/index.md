@@ -1,11 +1,9 @@
 ---
-title: 'Realms Interface Guide'
+title: Realms Interface Guide
+subtitle: ""
+section_type: page
 order: 4
-section_type: 'page'
-subtitle: ''
 ---
-
-
 The Jito DAO operates primarily through two venues: the Forum for discussion and ideation of proposals, and the Realms portal for voting and execution of proposals. 
 
 In order to access the Realms portal, visit gov.jito.network. Because the Jito DAO leverages an individual Realms program, it cannot be found by searching for the DAO on the Realms homepage. 
@@ -32,3 +30,4 @@ The Forum has a list of delegation candidates with a questionnaire giving you in
 
 You can also view a tutorial here: [<u>https://twitter.com/Realms_DAOs/status/1757344471170064567</u>](https://twitter.com/Realms_DAOs/status/1757344471170064567) 
 
+![square](/shared/images/governance/group-39958-1-.png "square")

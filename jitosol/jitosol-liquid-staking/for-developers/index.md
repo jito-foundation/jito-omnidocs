@@ -1,11 +1,9 @@
 ---
-title: 'For Developers'
+title: For Developers
+subtitle: ""
+section_type: page
 order: 5
-section_type: 'page'
-subtitle: ''
 ---
-
-
 JitoSOL leverages the native stake pool program developed by Solana Labs. This is the most secure stake pool implementation on Solana.See their GitHub repo for SDKs and documentation: [link](https://github.com/solana-labs/solana-program-library/tree/master/stake-pool)
 
 ### POST /api/v1/validators
@@ -96,7 +94,7 @@ Parameters: None
   },
 ]</code></pre>
 
-### GET /api/v1/jito_stake_over_time 
+### GET /api/v1/jito_stake_over_time
 
 Gets the percent of Jito Stake per epoch
 
@@ -152,4 +150,3 @@ Gets daily mev rewards for the network for a given epoch
     "validator_tips": 1453.46550912805
   },
 ]</code></pre>
-

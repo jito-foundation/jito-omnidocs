@@ -1,8 +1,8 @@
 ---
-title: 'Unstaking with Phantom'
-order: 0
-section_type: 'page'
-subtitle: ''
+title: Unstaking with Phantom
+subtitle: ""
+section_type: page
+order: 2
 ---
 
 

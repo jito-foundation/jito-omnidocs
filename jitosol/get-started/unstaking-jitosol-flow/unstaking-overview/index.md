@@ -3,7 +3,7 @@ title: Unstaking Overview
 subtitle: We encourage holders to sell on Jupiter to avoid inconvenience
   associated with direct unstaking
 section_type: page
-order: 2
+order: 0
 ---
 JitoSOL can be transferred to SOL via Jupiter or directly. Below is a comparison.
 

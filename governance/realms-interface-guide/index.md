@@ -28,6 +28,4 @@ Alternatively, you can delegate your token voting power. This allows you to reta
 
 The Forum has a list of delegation candidates with a questionnaire giving you insight into their views. 
 
-You can also view a tutorial here: [<u>https://twitter.com/Realms_DAOs/status/1757344471170064567</u>](https://twitter.com/Realms_DAOs/status/1757344471170064567) 
-
-![square](/shared/images/governance/group-39958-1-.png "square")
+You can also view a tutorial here: [<u>https://twitter.com/Realms_DAOs/status/1757344471170064567</u>](https://twitter.com/Realms_DAOs/status/1757344471170064567)

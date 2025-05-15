@@ -311,5 +311,3 @@ and proper books of account shall not be deemed to be kept if there are not kept
 
 76. Subject to provisions of the Memorandum of Association and Articles restricting alterations, in particular Article 77, these Articles may be altered by Tokenholder Vote by notice to the Foundation Company (or to the extent required by law, by Special Resolution).
 77. The Memorandum of Association and/or the Articles shall not be amended so as to modify the rights, powers or duties of the supervisor without the prior written consent of such supervisor, nor shall either be amended to remove or otherwise alter the rights or powers conferred on Tokenholders unless such amendment has been approved by Tokenholder Vote, provided that if a Tokenholder Vote cannot be held within 90 days following notice to the Foundation Company and the Tokenholders, then such amendment may take effect upon the consent of the supervisor.
-
-![box](/shared/images/governance/group-39958-1-.png "box")

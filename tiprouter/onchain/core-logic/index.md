@@ -1,7 +1,7 @@
 ---
 title: Core Logic
 order: 2
-description: ''
+subtitle: ''
 section_type: page
 ---
 

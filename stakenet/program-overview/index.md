@@ -141,7 +141,7 @@ At the start of the next cycle, we move back to Compute Scores, and all those pi
 
 [View in Figma](https://www.figma.com/board/zBcpTOu1zqKIoEnd54sWqH/Steward-Program?node-id=0-1&t=1FK9C2TtNvFEfOU6-1)
 
-![State Machine Diagram](./assets/state-machine-diagram.png)
+![State Machine Diagram](/shared/images/stakenet/state-machine-diagram.png)
 
 ## Validator Management
 

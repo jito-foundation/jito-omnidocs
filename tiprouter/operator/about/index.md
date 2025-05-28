@@ -1,7 +1,7 @@
 ---
 title: Node Operator Client
 order: 0
-description: ''
+subtitle: ''
 section_type: page
 ---
 

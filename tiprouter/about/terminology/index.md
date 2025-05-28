@@ -1,7 +1,7 @@
 ---
 title: Terminology
 order: 1
-description: ''
+subtitle: ''
 section_type: page
 ---
 

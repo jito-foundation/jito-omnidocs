@@ -1,7 +1,7 @@
 ---
 title: Snapshot
 order: 1
-description: ''
+subtitle: ''
 section_type: page
 ---
 

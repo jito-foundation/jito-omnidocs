@@ -15,16 +15,16 @@ The core operations of the Steward Program are permissionless such that any cran
 
 ## Table of Contents
 
-1. [Program Overview](program-overview.md)
-2. [Terminology](./terminology.md)
-3. [Parameters](parameters.md)
-4. [StakeNet UI](./ui.md) (work in progress)
+1. [Program Overview](/stakenet/program-overview/)
+2. [Terminology](/stakenet/terminology/)
+3. [Parameters](/stakenet/parameters/)
+4. [StakeNet UI](/stakenet/ui/) (work in progress)
 5. Developers
-   - [Command-line interface](developers/cli.md)
-   - [Events API](developers/api.md)
-   - [Running a Keeper](developers/keeper-bot-quick-start.md)
+   - [Command-line interface](/stakenet/developers/cli/)
+   - [Events API](/stakenet/developers/api/)
+   - [Running a Keeper](/stakenet/developers/keeper-bot-quick-start/)
 6. Advanced Concepts
-   - [SPL Stake Pool Internals](advanced/spl-stake-pool-internals.md)
-   - [Validator States](advanced/managing-validator-states.md)
-7. [Governance](./governance.md)
-8. [Validator FAQ](./faq.md) (work in progress)
+   - [SPL Stake Pool Internals](/stakenet/advanced/spl-stake-pool-internals/)
+   - [Validator States](/stakenet/advanced/managing-validator-states/)
+7. [Governance](/stakenet/governance/)
+8. [Validator FAQ](/stakenet/faq/) (work in progress)

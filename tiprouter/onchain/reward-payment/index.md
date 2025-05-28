@@ -1,7 +1,7 @@
 ---
 title: Reward Payment
 order: 3
-description: ''
+subtitle: ''
 section_type: page
 ---
 

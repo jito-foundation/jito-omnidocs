@@ -1,7 +1,7 @@
 ---
 title: Scoring System
 order: 0
-subtitle: ''
+subtitle: 'How StakeNet score validators'
 section_type: page
 ---
 
@@ -9,146 +9,136 @@ section_type: page
 
 [In-depth explanation of the scoring system in progress. For now, see Program Overview.]
 
-$$
-`
-\displaylines{
-\text{mev\_commission\_score} =
-\begin{cases}
-1.0 & \text{if } \max(\text{mev\_commission}_{t_1, t_2}) \leq \text{mev\_commission\_bps\_threshold} \\
-0.0 & \text{otherwise}
-\end{cases} \\
-\text{where } t_1 = \text{current\_epoch} - \text{mev\_commission\_range} \\
-\text{and } t_2 = \text{current\_epoch}
+## MEV Commission Score
+
+```
+mev_commission_score = {
+  1.0  if max(mev_commission[t1, t2]) ≤ mev_commission_bps_threshold
+  0.0  otherwise
 }
-`
-$$
+
+where:
+  t1 = current_epoch - mev_commission_range
+  t2 = current_epoch
+```
 
 ---
 
-$$
-`
-\displaylines{
-\text{running\_jito\_score} =
-\begin{cases}
-1.0 & \text{if any MEV commission exists in } t_1 \text{ to } t_2 \\
-0.0 & \text{otherwise}
-\end{cases} \\
-\text{where } t_1 = \text{current\_epoch} - \text{mev\_commission\_range} \\
-\text{and } t_2 = \text{current\_epoch}
+## Running Jito Score
+
+```
+running_jito_score = {
+  1.0  if any MEV commission exists in t1 to t2
+  0.0  otherwise
 }
-`
-$$
+
+where:
+  t1 = current_epoch - mev_commission_range
+  t2 = current_epoch
+```
 
 ---
 
-$$
-`
-\displaylines{
-\text{delinquency\_score} =
-\begin{cases}
-1.0 & \text{if } \left( \frac{\text{vote\_credits}_t}{\text{total\_blocks}_t} \right) > \text{scoring\_delinquency\_threshold\_ratio} \text{ for all } t_1 \leq t \leq t_2 \\
-0.0 & \text{otherwise}
-\end{cases} \\
-\text{where } t_1 = \text{current\_epoch} - \text{epoch\_credits\_range} \\
-\text{and } t_2 = \text{current\_epoch} - 1
+## Delinquency Score
+
+```
+delinquency_score = {
+  1.0  if (vote_credits[t] / total_blocks[t]) > scoring_delinquency_threshold_ratio 
+       for all t1 ≤ t ≤ t2
+  0.0  otherwise
 }
-`
-$$
+
+where:
+  t1 = current_epoch - epoch_credits_range
+  t2 = current_epoch - 1
+```
 
 ---
 
-$$
-`
-\displaylines{
-\text{commission\_score} =
-\begin{cases}
-1.0 & \text{if } \max(\text{commission}_{t_1, t_2}) \leq \text{commission\_threshold} \\
-0.0 & \text{otherwise}
-\end{cases} \\
-\text{where } t_1 = \text{current\_epoch} - \text{commission\_range} \\
-\text{and } t_2 = \text{current\_epoch}
+## Commission Score
+
+```
+commission_score = {
+  1.0  if max(commission[t1, t2]) ≤ commission_threshold
+  0.0  otherwise
 }
-`
-$$
+
+where:
+  t1 = current_epoch - commission_range
+  t2 = current_epoch
+```
 
 ---
 
-$$
-`
-\displaylines{
-\text{historical\_commission\_score} =
-\begin{cases}
-1.0 & \text{if } \max(\text{historical\_commission}_{t_1, t_2}) \leq \text{historical\_commission\_threshold} \\
-0.0 & \text{otherwise}
-\end{cases} \\
-\text{where } t_1 = \text{first\_reliable\_epoch} = 520 \\
-\text{and } t_2 = \text{current\_epoch}
+## Historical Commission Score
+
+```
+historical_commission_score = {
+  1.0  if max(historical_commission[t1, t2]) ≤ historical_commission_threshold
+  0.0  otherwise
 }
-`
-$$
+
+where:
+  t1 = first_reliable_epoch = 520
+  t2 = current_epoch
+```
 
 ---
 
-$$
-`
-\displaylines{
-\text{blacklisted\_score} =
-\begin{cases}
-0.0 & \text{if blacklisted in current epoch} \\
-1.0 & \text{otherwise}
-\end{cases}
+## Blacklisted Score
+
+```
+blacklisted_score = {
+  0.0  if blacklisted in current epoch
+  1.0  otherwise
 }
-`
-$$
+```
 
 ---
 
-$$
-`
-\displaylines{
-\text{superminority\_score} =
-\begin{cases}
-0.0 & \text{if in superminority in current epoch} \\
-1.0 & \text{otherwise}
-\end{cases} \\
+## Superminority Score
+
+```
+superminority_score = {
+  0.0  if in superminority in current epoch
+  1.0  otherwise
 }
-`
-$$
+```
 
 ---
 
-$$
-`
-\displaylines{
-\text{vote\_credits\_ratio} = \frac{\sum_{t=t_1}^{t_2} \text{vote\_credits}_t}{\sum_{t=t_1}^{t_2} \text{total\_blocks}_t} \\
-\text{where } t_1 = \text{current\_epoch} - \text{epoch\_credits\_range} \\
-\text{and } t_2 = \text{current\_epoch} - 1
-}
-`
-$$
+## Vote Credits Ratio
 
-Note: total_blocks is the field in ClusterHistory that tracks how many blocks were created by the cluster in a given epoch. This represents the maximum number of vote credits that a validator can earn. Vote credits are synonymous with epoch credits.
+```
+vote_credits_ratio = sum(vote_credits[t] for t in t1 to t2) / sum(total_blocks[t] for t in t1 to t2)
 
----
+where:
+  t1 = current_epoch - epoch_credits_range
+  t2 = current_epoch - 1
+```
 
-$$
-`
-\displaylines{
-\text{yield\_score} = \text{vote\_credits\_ratio} \times (1 - max(\text{commission}_{t_1, t_2})) \\
-\text{where } t_1 = \text{current\_epoch} - \text{commission\_range} \\
-\text{and } t_2 = \text{current\_epoch}
-}
-`
-$$
-
-Note: Yield score is a relative measure of the yield returned to stakers by the validator, not an exact measure of its APY.
+**Note:** total_blocks is the field in ClusterHistory that tracks how many blocks were created by the cluster in a given epoch. This represents the maximum number of vote credits that a validator can earn. Vote credits are synonymous with epoch credits.
 
 ---
 
-$$
-`
-\displaylines{
-\text{final\_score} = \text{mev\_commission\_score} \times \text{commission\_score} \times \text{historical\_commission\_score} \times \text{blacklisted\_score} \times \text{superminority\_score} \times \text{delinquency\_score} \times \text{running\_jito\_score} \times \text{yield\_score}
-}
-`
-$$
+## Yield Score
+
+```
+yield_score = vote_credits_ratio × (1 - max(commission[t1, t2]))
+
+where:
+  t1 = current_epoch - commission_range
+  t2 = current_epoch
+```
+
+**Note:** Yield score is a relative measure of the yield returned to stakers by the validator, not an exact measure of its APY.
+
+---
+
+## Final Score
+
+```
+final_score = mev_commission_score × commission_score × historical_commission_score × 
+              blacklisted_score × superminority_score × delinquency_score × 
+              running_jito_score × yield_score
+```

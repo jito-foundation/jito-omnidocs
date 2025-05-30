@@ -8,25 +8,25 @@ subtitle: 'JitoSOL has several integrations currently and many others in the pro
 
 ### Margin Protocols:
 
-[Drift](/jitosol/get-started/using-jitosol/drift)
+[Drift](/jitosol/get-started/using-jitosol-flow/drift)
 
-[Mango](/jitosol/get-started/using-jitosol/mango)
+[Mango](/jitosol/get-started/using-jitosol-flow/mango)
 
-[mrgnfi](/jitosol/get-started/using-jitosol/mrgnfi)
+[mrgnfi](/jitosol/get-started/using-jitosol-flow/mrgnfi)
 
-[Solend](/jitosol/get-started/using-jitosol/solend)​​
+[Solend](/jitosol/get-started/using-jitosol-flow/solend)​​
 
 ### **Liquidity Provision:**
 
-[Orca](/jitosol/get-started/using-jitosol/orca)
+[Orca](/jitosol/get-started/using-jitosol-flow/orca)
 
-[Kamino Finance](/jitosol/get-started/using-jitosol/kamino-finance)
+[Kamino Finance](/jitosol/get-started/using-jitosol-flow/kamino-finance)
 
-[Raydium](/jitosol/get-started/using-jitosol/raydium)
+[Raydium](/jitosol/get-started/using-jitosol-flow/raydium)
 
-[Meteora](/jitosol/get-started/using-jitosol/meteora)
+[Meteora](/jitosol/get-started/using-jitosol-flow/meteora)
 
-[Invariant](/jitosol/get-started/using-jitosol/invariant)
+[Invariant](/jitosol/get-started/using-jitosol-flow/invariant)
 
 ### Other DeFi Venues
 

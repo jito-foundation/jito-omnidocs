@@ -36,6 +36,6 @@ In most circumstances, Jupiter represents a superior mechanism to convert JitoSO
 
 Note, the direct unstaking delays are not specific to JitoSOL. These are feature of the Solana protocol and apply to staked SOL regardless of how it is staked. Stake can only be withdrawn at the end of epochs, which are 2-3 days in duration. Read more on this mechanic [here](https://docs.solana.com/cluster/stake-delegation-and-rewards#stake-warmup-cooldown-withdrawal).
 
-If you choose to unstake directly, we have prepared specific guides for [Phantom Wallets](/jitosol/get-started/unstaking-jitosol/unstaking-with-phantom) and [Solflare Wallets](/jitosol/get-started/unstaking-jitosol/unstaking-with-solflare). Please review those guides in detail prior to commencing your unstake. Ensure you understand the process and timing. Once unstaking has started, the SOL is unavailable for several days.
+If you choose to unstake directly, we have prepared specific guides for [Phantom Wallets](/jitosol/get-started/unstaking-jitosol-flow/unstaking-with-phantom) and [Solflare Wallets](/jitosol/get-started/unstaking-jitosol-flow/unstaking-with-solflare). Please review those guides in detail prior to commencing your unstake. Ensure you understand the process and timing. Once unstaking has started, the SOL is unavailable for several days.
 
 For other wallets, please follow the Phantom guide and we can provide additional support in Discord as necessary.

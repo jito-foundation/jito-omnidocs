@@ -36,8 +36,8 @@ Your wallet also needs some balance of SOL to stake. If you want to purchase SOL
 
 Below are generic instructions that should apply to most wallets. If you are having issues, please ask in our [Discord](https://discord.gg/5wGU5Bbz8E).We have wallet-specific guides for Phantom and Solflare. Please review these for step-by-step instructions. 
 
-- ​[Phantom Staking Guide](https://app.gitbook.com/o/HvXfMMBYPChYJzhzKG1h/s/p7fdQASNHD4egpjwd960/~/changes/IlAgqunpRrYzaTygAAP1/get-started/stake-sol-for-jitosol/staking-with-phantom)​
-- ​[Solflare Staking Guide](https://app.gitbook.com/o/HvXfMMBYPChYJzhzKG1h/s/p7fdQASNHD4egpjwd960/~/changes/IlAgqunpRrYzaTygAAP1/get-started/stake-sol-for-jitosol/staking-with-solflare)​
+- ​[Phantom Staking Guide](/jitosol/get-started/stake-sol-for-jitosol-flow/staking-with-phantom/)​
+- ​[Solflare Staking Guide](/jitosol/get-started/stake-sol-for-jitosol-flow/staking-with-solflare/)​
 
 #### Step 3: Connect Your Wallet
 

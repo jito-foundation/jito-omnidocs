@@ -18,7 +18,7 @@ Our Services (as defined below) may facilitate interaction with certain decentra
 
 **An Important Note Regarding Blockchain Technologies: **If you participate in our Services relating to the creation and management of a digital assets, smart contracts will be employed that necessarily collect information, such as your digital wallet address (which some legal jurisdictions may consider personal information), and that information will be stored on a public blockchain that we do not control.  A smart contract is computer code that automatically processes events when certain conditions are met; for example, when a transaction is conducted to add a token to a digital wallet, a smart contract would automatically execute the proposed action.  In these situations, your personal information, such as a digital wallet address, will be stored on that blockchain through the execution of a smart contract and that personal information may not be able to be modified or deleted due to the immutable nature of the blockchain.  
 
-Please make sure to review our [<u>Disclaimer</u>](https://www.jito.network/docs/jitosol/disclaimer/) for more information, including specific terms and obligations for the use of our Services that may include dispute resolutions. 
+Please make sure to review our [<u>Terms of Use</u>](/jitosol/resources/terms-of-use/) for more information, including specific terms and obligations for the use of our Services that may include dispute resolutions. 
 
 **Table of Contents**
 

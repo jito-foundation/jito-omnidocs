@@ -18,8 +18,8 @@ On Solana, stake pools are a collection of one or more validator nodes. In deleg
 
 Stake pools help decentralize the network by delegating stake across many validator nodes. Each stake pool has its own unique validator criteria and delegation strategy, with some pools requiring that validators be geographically decentralized and meet minimum performance criteria in order to be added to the validator set. 
 
-Stakers should not have to compromise between high yields and supporting the network's decentralization goals. JitoSOL achieves both these goals while supporting efficient MEV extraction. Nodes must meet performance and decentralization criteria in order to receive stake from JitoSOL. Reference our [delegation page](/docs/jitosol/jitosol-liquid-staking/stake-delegation) for further details.
+Stakers should not have to compromise between high yields and supporting the network's decentralization goals. JitoSOL achieves both these goals while supporting efficient MEV extraction. Nodes must meet performance and decentralization criteria in order to receive stake from JitoSOL. Reference our [delegation page](/jitosol/jitosol-liquid-staking/stake-delegation) for further details.
 
 ### **Liquidity and DeFi Integrations**
 
-Liquid staking tokens derive utility from their DeFi composability. JitoSOL has several flagship partners at launch and expects to have a broad array of integrations within several months. See our [guide](/docs/jitosol/get-started/using-jitosol/using-overview) to JitoSOL's DeFi applications.
+Liquid staking tokens derive utility from their DeFi composability. JitoSOL has several flagship partners at launch and expects to have a broad array of integrations within several months. See our [guide](/jitosol/get-started/using-jitosol-flow/using-overview) to JitoSOL's DeFi applications.

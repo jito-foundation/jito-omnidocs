@@ -19,6 +19,8 @@ jobs:
       - name: Check for changes
         id: check-changes
         run: |
+          # Fetch master branch to compare against
+          git fetch origin master:master
           if git diff --quiet master..HEAD; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
             echo "No changes detected between fix/docs-updater and master"
@@ -67,7 +69,10 @@ jobs:
       - name: Update existing PR description
         if: steps.check-changes.outputs.has_changes == 'true' && steps.check-pr.outputs.existing_pr != ''
         run: |
-          RECENT_COMMITS=$(git log --oneline master..HEAD --pretty=format:"- %s" | head -5)
+          # Fetch master branch to compare against
+          git fetch origin master:master
+          # Get recent commits with better formatting
+          RECENT_COMMITS=$(git log master..HEAD --oneline --pretty=format:"- %s" | head -5)
           CURRENT_TIME=$(date -u '+%Y-%m-%d %H:%M:%S UTC')
           
           # Create temporary file for PR body

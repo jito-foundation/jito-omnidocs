@@ -1,11 +1,9 @@
 ---
-title: 'Buying or Selling JitoSOL'
+title: Buying or Selling JitoSOL
+subtitle: JitoSOL can be purchased with any mainstream SPL tokens
+section_type: page
 order: 1
-section_type: 'page'
-subtitle: 'JitoSOL can be purchased with any mainstream SPL tokens'
 ---
-
-
 ## Jupiter
 
 Jupiter ([jup.ag](http://jup.ag)) is the recommended venue for any purchases or sales of JitoSOL. The exchange aggregates liquidity across the entire Solana network and suggests the best route based on sizing and token pairs. Trades can also be split automatically across multiple routes if that provides better execution. Jupiter does not currently charge fees. See [here](https://docs.jup.ag/community-guides/how-to-use-jupiter) for additional Jupiter instruction.
@@ -18,5 +16,4 @@ Check the trade price and ensure there is not a slippage warning for poor execut
 
 ## Alternate Venues
 
-JitoSOL is available directly from [Orca](https://www.orca.so/).  Note Jupiter integrates these pools so no need to visit Orca or any other venue directly.
-
+JitoSOL is available directly from [Orca](https://www.orca.so/).  Note Jupiter integrates these pools so no need to visit Orca or any other venue directly

@@ -1,0 +1,71 @@
+name: Auto-create Documentation PR
+on:
+  push:
+    branches: 
+      - fix/docs-updater
+  workflow_dispatch:
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Check if PR already exists
+        id: check-pr
+        run: |
+          # Check for existing open PR from fix/docs-updater to master
+          EXISTING_PR=$(gh pr list --base master --head fix/docs-updater --state open --json number --jq '.[0].number // empty')
+          echo "existing_pr=$EXISTING_PR" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Create PR if none exists
+        if: steps.check-pr.outputs.existing_pr == ''
+        run: |
+          # Get the latest commit message for PR description
+          LATEST_COMMIT=$(git log -1 --pretty=format:"%s" fix/docs-updater)
+          
+          # Create PR
+          gh pr create \
+            --base master \
+            --head fix/docs-updater \
+            --title "Documentation Updates for Review" \
+            --body "🤖 **Automated Documentation Update**
+
+          This PR contains documentation updates from the \`fix/docs-updater\` branch.
+
+          **Latest changes:**
+          - $LATEST_COMMIT
+
+          **Note:** This branch is used by Decap CMS and will be automatically recreated after merging to maintain CMS functionality.
+
+          ---
+          *This PR was created automatically when changes were detected on the \`fix/docs-updater\` branch.*"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Update existing PR description
+        if: steps.check-pr.outputs.existing_pr != ''
+        run: |
+          # Get recent commits for updated description
+          RECENT_COMMITS=$(git log --oneline master..fix/docs-updater --pretty=format:"- %s" | head -5)
+          
+          gh pr edit ${{ steps.check-pr.outputs.existing_pr }} \
+            --body "🤖 **Automated Documentation Update**
+
+          This PR contains documentation updates from the \`fix/docs-updater\` branch.
+
+          **Recent changes:**
+          $RECENT_COMMITS
+
+          **Note:** This branch is used by Decap CMS and will be automatically recreated after merging to maintain CMS functionality.
+
+          ---
+          *This PR was last updated automatically on $(date '+%Y-%m-%d %H:%M:%S UTC').*"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

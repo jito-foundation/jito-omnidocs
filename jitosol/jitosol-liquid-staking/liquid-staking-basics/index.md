@@ -8,8 +8,6 @@ Staking is the process by which a SOL token holder (such as someone who purchase
 
 There are two ways to participate in staking: by directly staking to a validator, or by delegating to a stake pool. In both cases, delegators still control all staked tokens that they may have chosen to stake.
 
-
-
 ### Stake Pools and Liquid Staking
 
 On Solana, stake pools are a collection of one or more validator nodes. In delegating to a stake pool, delegators can stake to many validators at once. Delegators who stake this way will receive a liquid stake pool token (e.g. JitoSOL) in exchange for staking with a pool. In this way, depositors instantly receive a liquid token which can be immediately used for DeFi. 

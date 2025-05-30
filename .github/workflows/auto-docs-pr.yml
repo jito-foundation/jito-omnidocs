@@ -14,6 +14,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: fix/docs-updater
       
       - name: Check if PR already exists
         id: check-pr
@@ -28,7 +29,7 @@ jobs:
         if: steps.check-pr.outputs.existing_pr == ''
         run: |
           # Get the latest commit message for PR description
-          LATEST_COMMIT=$(git log -1 --pretty=format:"%s" fix/docs-updater)
+          LATEST_COMMIT=$(git log -1 --pretty=format:"%s")
           
           # Create PR
           gh pr create \
@@ -37,15 +38,15 @@ jobs:
             --title "Documentation Updates for Review" \
             --body "🤖 **Automated Documentation Update**
 
-          This PR contains documentation updates from the \`fix/docs-updater\` branch.
+This PR contains documentation updates from the \`fix/docs-updater\` branch.
 
-          **Latest changes:**
-          - $LATEST_COMMIT
+**Latest changes:**
+- $LATEST_COMMIT
 
-          **Note:** This branch is used by Decap CMS and will be automatically recreated after merging to maintain CMS functionality.
+**Note:** This branch is used by Decap CMS and will be automatically recreated after merging to maintain CMS functionality.
 
-          ---
-          *This PR was created automatically when changes were detected on the \`fix/docs-updater\` branch.*"
+---
+*This PR was created automatically when changes were detected on the \`fix/docs-updater\` branch.*"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
@@ -53,19 +54,19 @@ jobs:
         if: steps.check-pr.outputs.existing_pr != ''
         run: |
           # Get recent commits for updated description
-          RECENT_COMMITS=$(git log --oneline master..fix/docs-updater --pretty=format:"- %s" | head -5)
+          RECENT_COMMITS=$(git log --oneline master..HEAD --pretty=format:"- %s" | head -5)
           
           gh pr edit ${{ steps.check-pr.outputs.existing_pr }} \
             --body "🤖 **Automated Documentation Update**
 
-          This PR contains documentation updates from the \`fix/docs-updater\` branch.
+This PR contains documentation updates from the \`fix/docs-updater\` branch.
 
-          **Recent changes:**
-          $RECENT_COMMITS
+**Recent changes:**
+$RECENT_COMMITS
 
-          **Note:** This branch is used by Decap CMS and will be automatically recreated after merging to maintain CMS functionality.
+**Note:** This branch is used by Decap CMS and will be automatically recreated after merging to maintain CMS functionality.
 
-          ---
-          *This PR was last updated automatically on $(date '+%Y-%m-%d %H:%M:%S UTC').*"
+---
+*This PR was last updated automatically on $(date '+%Y-%m-%d %H:%M:%S UTC').*"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

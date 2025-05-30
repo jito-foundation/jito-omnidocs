@@ -9,13 +9,13 @@ order: 0
 
 #### Q: How long does unstaking stake?
 
-Users choosing to unstake via the jito.network interface must wait 1-2 epochs (2-5 days) to receive their SOL. This delay is attributable to Solana's underlying design and applies to any staking platform. We suggest users sell their JitoSOL on [Jupiter](https://jup.ag/) to receive instant liquidity and avoid any withdrawal fees. See our detailed article on [unstaking](/jitosol/get-started/unstaking-jitosol/unstaking-overview) JitoSOL.
+Users choosing to unstake via the jito.network interface must wait 1-2 epochs (2-5 days) to receive their SOL. This delay is attributable to Solana's underlying design and applies to any staking platform. We suggest users sell their JitoSOL on [Jupiter](https://jup.ag/) to receive instant liquidity and avoid any withdrawal fees. See our detailed article on [unstaking](/jitosol/get-started/unstaking-jitosol-flow/unstaking-overview) JitoSOL.
 
-For large transactions, double check the slippage on Jupiter. The Jito website will always provide direct unstaking with no slippage except for the 10bps fee and 1-2 epoch waiting period.
+For large transactions, double check the slippage on Jupiter. The Jito website will always provide direct unstaking with no slippage except for the 10bps fee and the 1-2 epoch waiting period.
 
 **Q: How long does staking take?**
 
-Depositors will receive JitoSOL instantly after staking on the Jito website and it begins accruing yield immediately. Here is our step-by-step [staking guide](/jitosol/get-started/stake-sol-for-jitosol/overview).
+Depositors will receive JitoSOL instantly after staking on the Jito website and it begins accruing yield immediately. Here is our step-by-step [staking guide](/jitosol/get-started/stake-sol-for-jitosol-flow/overview/).
 
 ## Yield
 

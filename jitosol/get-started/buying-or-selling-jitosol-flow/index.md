@@ -16,4 +16,4 @@ Check the trade price and ensure there is not a slippage warning for poor execut
 
 ## Alternate Venues
 
-JitoSOL is available directly from [Orca](https://www.orca.so/).  Note Jupiter integrates these pools so no need to visit Orca or any other venue directly
+JitoSOL is available directly from [Orca](https://www.orca.so/).  Note Jupiter integrates these pools so no need to visit Orca or any other venue directly.

@@ -1,0 +1,51 @@
+name: Maintain Docs Updater Branch
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  maintain-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for potential manual branch creation
+        run: |
+          echo "Waiting 20 seconds..."
+          sleep 20
+      
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      
+      - name: Check if fix/docs-updater branch exists
+        id: check-branch
+        run: |
+          if git ls-remote --exit-code --heads origin fix/docs-updater >/dev/null 2>&1; then
+            echo "branch_exists=true" >> $GITHUB_OUTPUT
+            echo "fix/docs-updater branch already exists"
+          else
+            echo "branch_exists=false" >> $GITHUB_OUTPUT
+            echo "fix/docs-updater branch does not exist"
+          fi
+      
+      - name: Create fresh fix/docs-updater branch
+        if: steps.check-branch.outputs.branch_exists == 'false'
+        run: |
+          echo "Creating fresh fix/docs-updater branch from master"
+          git checkout -b fix/docs-updater
+          git push -u origin fix/docs-updater
+          echo "✅ Created fresh fix/docs-updater branch for Decap CMS"
+      
+      - name: Skip creation - branch already exists
+        if: steps.check-branch.outputs.branch_exists == 'true'
+        run: |
+          echo "ℹ️ fix/docs-updater branch already exists, skipping creation"
+          echo "Branch was likely recreated manually or by another process"

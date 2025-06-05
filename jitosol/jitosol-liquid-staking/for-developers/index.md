@@ -4,7 +4,7 @@ subtitle: ""
 section_type: page
 order: 5
 ---
-JitoSOL leverages the native stake pool program developed by Solana Labs. This is the most secure stake pool implementation on Solana.See their GitHub repo for SDKs and documentation: [link](https://github.com/solana-labs/solana-program-library/tree/master/stake-pool)
+JitoSOL leverages the native stake pool program developed by Solana Labs. This is the most secure stake pool implementation on Solana. See their GitHub repo for SDKs and documentation: [link](https://github.com/solana-labs/solana-program-library/tree/master/stake-pool)
 
 ### POST /api/v1/validators
 
@@ -115,7 +115,7 @@ Gets the percent of Jito Stake per epoch
 
 Gets total MEV rewards, Jito stake weight, and MEV rewards per lamport for the network for a given epoch 
 
-<u>Example Request: </u>
+<u>Example Request </u>
 
 <code>CURL -X POST https://kobe.mainnet.jito.network/api/v1/mev_rewards  -H "Content-Type: application/json" -d '{"epoch":600}'</code>
 

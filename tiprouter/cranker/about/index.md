@@ -7,7 +7,8 @@ section_type: page
 
 ## Overview
 
-The Tip Router Keeper is a critical component of the Jito Tip Router system that manages epoch-based operations for validators, operators, and vaults on the Solana blockchain. It orchestrates the complete lifecycle of an epoch, from weight setting to reward distribution, ensuring proper consensus and state transitions.
+The Tip Router Keeper is a critical component of the Jito Tip Router system that manages epoch-based operations for validators, operators, and vaults.
+It orchestrates the complete lifecycle of an epoch, from weight setting to reward distribution, ensuring proper consensus and state transitions.
 
 ## Architecture
 
@@ -15,12 +16,11 @@ The Tip Router Keeper is a critical component of the Jito Tip Router system that
 
 1. **KeeperState** - Manages the state of the keeper across epochs
 2. **Epoch Management** - Handles epoch progression and state transitions
-3. **Metrics System** - Emits comprehensive metrics for monitoring
-4. **Error Handling** - Robust error management with timeouts and retries
 
 ### Key Data Structures
 
 #### KeeperState
+
 The `KeeperState` struct maintains all essential addresses and state information:
 
 ```rust
@@ -60,12 +60,14 @@ The keeper uses the `progress_epoch` function to determine when to advance:
 ## Main Loop Operations
 
 ### A. Progress Epoch
+
 Determines which epoch the keeper should work on based on:
 - Current blockchain epoch
 - Completion status of epochs
 - Stall detection
 
 ### B. Emit NCN Metrics
+
 Collects and emits comprehensive metrics including:
 - Validator information
 - Epoch statistics
@@ -73,15 +75,19 @@ Collects and emits comprehensive metrics including:
 - Account balances
 
 ### C. Register Vaults
+
 Ensures all vaults are properly registered with the Global Vault Registry before processing begins.
 
 ### D. Fetch Keeper State
+
 Updates the internal state with current epoch information and account data.
 
 ### E. Update Epoch State
+
 Synchronizes with on-chain epoch state accounts to maintain consistency.
 
 ### F. Create or Complete State
+
 - Creates new epoch state if none exists
 - Detects and handles completed epochs
 
@@ -100,9 +106,11 @@ match current_state {
 ```
 
 ### H. Emit Epoch Metrics
+
 Provides detailed metrics for the current epoch state and progress.
 
 ### I. Detect Stall
+
 Identifies when the epoch is stuck and needs to progress:
 - Voting completion
 - Insufficient rewards for distribution
@@ -113,12 +121,14 @@ Identifies when the epoch is stuck and needs to progress:
 The keeper emits comprehensive metrics for monitoring and alerting:
 
 ### NCN Metrics
+
 - **Epoch and Slot Information**: Current blockchain state
 - **Validator Data**: Opted-in validators and their stake
 - **Vault Information**: Token amounts, delegation states
 - **Operator Status**: Fee rates, voting status, delegation counts
 
 ### Epoch Metrics
+
 - **State Information**: Current epoch state and progress
 - **Weight Tables**: Vault weights and mint information
 - **Snapshots**: Operator and epoch snapshots
@@ -142,31 +152,6 @@ The keeper supports several operating modes:
 - **Metrics Only** (`metrics_only = true`): Only emit metrics without state changes
 - **Migration Mode** (`run_migration = true`): Special migration operations
 
-### Error Handling
-
-The keeper implements robust error handling:
-
-```rust
-pub async fn check_and_timeout_error<T>(
-    title: String,
-    result: &Result<T>,
-    error_timeout_ms: u64,
-    keeper_epoch: u64,
-    cluster_name: &str,
-) -> bool
-```
-
-- Automatic error detection and logging
-- Configurable timeout periods
-- Metric emission for monitoring
-- Graceful degradation
-
-### Timeouts
-
-Two types of timeouts are implemented:
-
-1. **Error Timeout**: Applied after errors occur
-2. **Keeper Timeout**: Main loop iteration delay
 
 ## Stall Detection
 
@@ -205,35 +190,3 @@ When stalls are detected:
 - Performance optimization
 - Error pattern analysis
 
-## Troubleshooting
-
-### Common Issues
-
-1. **Epoch Stalls**: Check voting completion and reward amounts
-2. **Account Errors**: Verify account addresses and funding
-3. **Network Issues**: Monitor RPC connectivity and performance
-4. **State Inconsistencies**: Verify on-chain state synchronization
-
-### Debugging
-
-- Review error metrics for patterns
-- Check epoch state progression
-- Verify account balances and states
-- Monitor network conditions
-
-## Security Considerations
-
-- The keeper operates with limited privileges
-- All state changes require proper authorization
-- Error handling prevents infinite loops
-- Timeouts prevent resource exhaustion
-- Comprehensive logging for audit trails
-
-## Future Enhancements
-
-Potential areas for improvement:
-- Dynamic timeout adjustment
-- Enhanced stall detection algorithms
-- Improved error recovery mechanisms
-- Advanced metrics and monitoring
-- Performance optimizations

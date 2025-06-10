@@ -62,7 +62,7 @@ The keeper uses the `progress_epoch` function to determine when to advance:
 ### A. Progress Epoch
 
 Determines which epoch the keeper should work on based on:
-- Current blockchain epoch
+- Current epoch
 - Completion status of epochs
 - Stall detection
 
@@ -115,32 +115,6 @@ Identifies when the epoch is stuck and needs to progress:
 - Voting completion
 - Insufficient rewards for distribution
 - Other blocking conditions
-
-## Metrics System
-
-The keeper emits comprehensive metrics for monitoring and alerting:
-
-### NCN Metrics
-
-- **Epoch and Slot Information**: Current blockchain state
-- **Validator Data**: Opted-in validators and their stake
-- **Vault Information**: Token amounts, delegation states
-- **Operator Status**: Fee rates, voting status, delegation counts
-
-### Epoch Metrics
-
-- **State Information**: Current epoch state and progress
-- **Weight Tables**: Vault weights and mint information
-- **Snapshots**: Operator and epoch snapshots
-- **Voting Data**: Ballot box state, votes, and consensus
-- **Rewards**: Base and NCN reward distributions
-
-### Key Metric Categories
-
-1. **Heartbeat Metrics**: Keeper operation status
-2. **Error Metrics**: Failure tracking and debugging
-3. **State Progress**: Epoch advancement tracking
-4. **Financial Metrics**: Reward distribution and balances
 
 ## Configuration and Deployment
 

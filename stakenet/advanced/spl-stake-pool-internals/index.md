@@ -8,7 +8,7 @@ section_type: page
 # SPL Stake Pool: Overview
 
 The [SPL Stake Pool program](https://github.com/solana-program/stake-pool) allows users to delegate stake to multiple validators while maintaining liquidity through pool tokens.
-Thorough documentation of the SPL Stake Pool program can be found [here](https://solana-program-docs.vercel.app/docs/stake-pool). This is meant to be a quick primer, and the Advanced Concepts section contains nuances relevant to the Steward program.
+Thorough documentation of the SPL Stake Pool program can be found [here](https://www.solana-program.com/docs/stake-pool). This is meant to be a quick primer, and the Advanced Concepts section contains nuances relevant to the Steward program.
 
 ## Key Accounts
 

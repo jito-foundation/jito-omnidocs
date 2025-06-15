@@ -8,7 +8,7 @@ section_type: page
 ## Overview
 
 The Tip Router Keeper is a critical component of the Jito Tip Router system that manages epoch-based operations for validators, operators, and vaults.
-It orchestrates the complete lifecycle of an epoch, from weight setting to reward distribution, ensuring proper consensus and state transitions.
+It orchestrates the complete lifecycle of an epoch, from updating vaults, weight setting to reward distribution, ensuring proper consensus and state transitions.
 
 ## Architecture
 
@@ -38,7 +38,7 @@ pub struct KeeperState {
 
 ## Epoch Lifecycle
 
-The keeper follows a well-defined state machine for each epoch:
+The keeper follows state machine for each epoch:
 
 ### State Progression
 
@@ -143,24 +143,3 @@ When stalls are detected:
 - The keeper logs the stall condition
 - Progresses to the next epoch after timeout
 - Continues monitoring for resolution
-
-## Best Practices
-
-### Monitoring
-- Monitor heartbeat metrics for keeper health
-- Track error rates and types
-- Watch epoch progression timing
-- Alert on extended stalls
-
-### Deployment
-- Configure appropriate timeout values
-- Ensure sufficient account funding
-- Monitor resource usage
-- Implement proper logging
-
-### Maintenance
-- Regular state verification
-- Account balance monitoring
-- Performance optimization
-- Error pattern analysis
-

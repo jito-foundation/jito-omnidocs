@@ -2,7 +2,7 @@
 title: "Restaking Accounts"
 subtitle: "An overview of the accounts used in the Jito Restaking program."
 section_type: "page"
-order: 0
+order: 1
 mermaid: true
 ---
 

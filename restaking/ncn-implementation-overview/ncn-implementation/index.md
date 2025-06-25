@@ -1,5 +1,5 @@
 ---
-title: NCN Implementation Guide
+title: NCN Implementation
 order: 0
 subtitle: ''
 section_type: page

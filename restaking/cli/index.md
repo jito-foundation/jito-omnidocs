@@ -1,7 +1,7 @@
 ---
-title: CLI
+title: CLI Usage
 order: 0
-subtitle: ''
+subtitle: 'Command-Line Reference for jito-restaking-cli'
 section_type: page
 ---
 
@@ -9,7 +9,7 @@ section_type: page
 
 This document contains the help content for the `jito-restaking-cli` command-line program.
 
-## `jito-restaking-cli`
+### `jito-restaking-cli`
 
 A CLI for managing restaking and vault operations
 
@@ -41,7 +41,7 @@ A CLI for managing restaking and vault operations
 
 
 
-## `jito-restaking-cli restaking`
+### `jito-restaking-cli restaking`
 
 Restaking program commands
 
@@ -55,7 +55,7 @@ Restaking program commands
 
 
 
-## `jito-restaking-cli restaking config`
+### `jito-restaking-cli restaking config`
 
 Initialize, get, and set the config struct
 
@@ -69,7 +69,7 @@ Initialize, get, and set the config struct
 
 
 
-## `jito-restaking-cli restaking config initialize`
+### `jito-restaking-cli restaking config initialize`
 
 Initialize the config
 
@@ -77,7 +77,7 @@ Initialize the config
 
 
 
-## `jito-restaking-cli restaking config get`
+### `jito-restaking-cli restaking config get`
 
 Get the config
 
@@ -85,7 +85,7 @@ Get the config
 
 
 
-## `jito-restaking-cli restaking config set-admin`
+### `jito-restaking-cli restaking config set-admin`
 
 Set the config admin
 
@@ -97,7 +97,7 @@ Set the config admin
 
 
 
-## `jito-restaking-cli restaking ncn`
+### `jito-restaking-cli restaking ncn`
 
 **Usage:** `jito-restaking-cli restaking ncn <COMMAND>`
 
@@ -120,7 +120,7 @@ Set the config admin
 
 
 
-## `jito-restaking-cli restaking ncn initialize`
+### `jito-restaking-cli restaking ncn initialize`
 
 Initialize NCN
 
@@ -132,7 +132,7 @@ Initialize NCN
 
 
 
-## `jito-restaking-cli restaking ncn initialize-ncn-operator-state`
+### `jito-restaking-cli restaking ncn initialize-ncn-operator-state`
 
 Initialize NCN Operator State
 
@@ -145,7 +145,7 @@ Initialize NCN Operator State
 
 
 
-## `jito-restaking-cli restaking ncn ncn-warmup-operator`
+### `jito-restaking-cli restaking ncn ncn-warmup-operator`
 
 Warmup NCN Operator State
 
@@ -158,7 +158,7 @@ Warmup NCN Operator State
 
 
 
-## `jito-restaking-cli restaking ncn ncn-cooldown-operator`
+### `jito-restaking-cli restaking ncn ncn-cooldown-operator`
 
 NCN Cooldown Operator State
 
@@ -171,7 +171,7 @@ NCN Cooldown Operator State
 
 
 
-## `jito-restaking-cli restaking ncn initialize-ncn-vault-ticket`
+### `jito-restaking-cli restaking ncn initialize-ncn-vault-ticket`
 
 Initialize NCN Vault Ticket
 
@@ -184,7 +184,7 @@ Initialize NCN Vault Ticket
 
 
 
-## `jito-restaking-cli restaking ncn warmup-ncn-vault-ticket`
+### `jito-restaking-cli restaking ncn warmup-ncn-vault-ticket`
 
 Warmup NCN Vault Ticket
 
@@ -197,7 +197,7 @@ Warmup NCN Vault Ticket
 
 
 
-## `jito-restaking-cli restaking ncn cooldown-ncn-vault-ticket`
+### `jito-restaking-cli restaking ncn cooldown-ncn-vault-ticket`
 
 Cooldown NCN Vault Ticket
 
@@ -210,7 +210,7 @@ Cooldown NCN Vault Ticket
 
 
 
-## `jito-restaking-cli restaking ncn ncn-delegate-token-account`
+### `jito-restaking-cli restaking ncn ncn-delegate-token-account`
 
 NCN Delegate Token Account
 
@@ -228,7 +228,7 @@ NCN Delegate Token Account
 
 
 
-## `jito-restaking-cli restaking ncn get`
+### `jito-restaking-cli restaking ncn get`
 
 Get NCN
 
@@ -240,7 +240,7 @@ Get NCN
 
 
 
-## `jito-restaking-cli restaking ncn list`
+### `jito-restaking-cli restaking ncn list`
 
 List all NCNs
 
@@ -248,7 +248,7 @@ List all NCNs
 
 
 
-## `jito-restaking-cli restaking ncn list-ncn-operator-state`
+### `jito-restaking-cli restaking ncn list-ncn-operator-state`
 
 List All Ncn Operator State for a NCN
 
@@ -260,7 +260,7 @@ List All Ncn Operator State for a NCN
 
 
 
-## `jito-restaking-cli restaking ncn list-ncn-vault-ticket`
+### `jito-restaking-cli restaking ncn list-ncn-vault-ticket`
 
 List All Ncn Vault Ticket for a NCN
 
@@ -272,7 +272,7 @@ List All Ncn Vault Ticket for a NCN
 
 
 
-## `jito-restaking-cli restaking ncn ncn-set-admin`
+### `jito-restaking-cli restaking ncn ncn-set-admin`
 
 Set NCN Admin
 
@@ -289,7 +289,7 @@ Set NCN Admin
 
 
 
-## `jito-restaking-cli restaking ncn ncn-set-secondary-admin`
+### `jito-restaking-cli restaking ncn ncn-set-secondary-admin`
 
 Set NCN Secondary Admin
 
@@ -312,7 +312,7 @@ Set NCN Secondary Admin
 
 
 
-## `jito-restaking-cli restaking operator`
+### `jito-restaking-cli restaking operator`
 
 **Usage:** `jito-restaking-cli restaking operator <COMMAND>`
 
@@ -335,7 +335,7 @@ Set NCN Secondary Admin
 
 
 
-## `jito-restaking-cli restaking operator initialize`
+### `jito-restaking-cli restaking operator initialize`
 
 Initialize Operator
 
@@ -347,7 +347,7 @@ Initialize Operator
 
 
 
-## `jito-restaking-cli restaking operator initialize-operator-vault-ticket`
+### `jito-restaking-cli restaking operator initialize-operator-vault-ticket`
 
 Initialize Operator Vault Ticket
 
@@ -360,7 +360,7 @@ Initialize Operator Vault Ticket
 
 
 
-## `jito-restaking-cli restaking operator warmup-operator-vault-ticket`
+### `jito-restaking-cli restaking operator warmup-operator-vault-ticket`
 
 Warmup Operator Vault Ticket
 
@@ -373,7 +373,7 @@ Warmup Operator Vault Ticket
 
 
 
-## `jito-restaking-cli restaking operator cooldown-operator-vault-ticket`
+### `jito-restaking-cli restaking operator cooldown-operator-vault-ticket`
 
 Cooldown Operator Vault Ticket
 
@@ -386,7 +386,7 @@ Cooldown Operator Vault Ticket
 
 
 
-## `jito-restaking-cli restaking operator operator-warmup-ncn`
+### `jito-restaking-cli restaking operator operator-warmup-ncn`
 
 Operator Warmup NCN
 
@@ -399,7 +399,7 @@ Operator Warmup NCN
 
 
 
-## `jito-restaking-cli restaking operator operator-cooldown-ncn`
+### `jito-restaking-cli restaking operator operator-cooldown-ncn`
 
 Operator Cooldown NCN
 
@@ -412,7 +412,7 @@ Operator Cooldown NCN
 
 
 
-## `jito-restaking-cli restaking operator operator-set-admin`
+### `jito-restaking-cli restaking operator operator-set-admin`
 
 Operator Set Admin
 
@@ -429,7 +429,7 @@ Operator Set Admin
 
 
 
-## `jito-restaking-cli restaking operator operator-set-secondary-admin`
+### `jito-restaking-cli restaking operator operator-set-secondary-admin`
 
 Operator Set Secondary Admin
 
@@ -450,7 +450,7 @@ Operator Set Secondary Admin
 
 
 
-## `jito-restaking-cli restaking operator operator-set-fees`
+### `jito-restaking-cli restaking operator operator-set-fees`
 
 Sets the operator fee
 
@@ -463,7 +463,7 @@ Sets the operator fee
 
 
 
-## `jito-restaking-cli restaking operator operator-delegate-token-account`
+### `jito-restaking-cli restaking operator operator-delegate-token-account`
 
 Operator Delegate Token Account
 
@@ -481,7 +481,7 @@ Operator Delegate Token Account
 
 
 
-## `jito-restaking-cli restaking operator get`
+### `jito-restaking-cli restaking operator get`
 
 Get operator
 
@@ -493,7 +493,7 @@ Get operator
 
 
 
-## `jito-restaking-cli restaking operator list`
+### `jito-restaking-cli restaking operator list`
 
 List all operators
 
@@ -501,7 +501,7 @@ List all operators
 
 
 
-## `jito-restaking-cli restaking operator list-operator-vault-ticket`
+### `jito-restaking-cli restaking operator list-operator-vault-ticket`
 
 List Operator Vault Ticket for an Operator
 
@@ -513,7 +513,7 @@ List Operator Vault Ticket for an Operator
 
 
 
-## `jito-restaking-cli restaking operator list-ncn-operator-state`
+### `jito-restaking-cli restaking operator list-ncn-operator-state`
 
 List All Ncn Operator State for a Operator
 
@@ -525,7 +525,7 @@ List All Ncn Operator State for a Operator
 
 
 
-## `jito-restaking-cli vault`
+### `jito-restaking-cli vault`
 
 Vault program commands
 
@@ -538,7 +538,7 @@ Vault program commands
 
 
 
-## `jito-restaking-cli vault config`
+### `jito-restaking-cli vault config`
 
 **Usage:** `jito-restaking-cli vault config <COMMAND>`
 
@@ -552,7 +552,7 @@ Vault program commands
 
 
 
-## `jito-restaking-cli vault config initialize`
+### `jito-restaking-cli vault config initialize`
 
 Creates global config (can only be done once)
 
@@ -565,7 +565,7 @@ Creates global config (can only be done once)
 
 
 
-## `jito-restaking-cli vault config get`
+### `jito-restaking-cli vault config get`
 
 Fetches global config
 
@@ -573,7 +573,7 @@ Fetches global config
 
 
 
-## `jito-restaking-cli vault config set-admin`
+### `jito-restaking-cli vault config set-admin`
 
 Set the config admin
 
@@ -585,7 +585,7 @@ Set the config admin
 
 
 
-## `jito-restaking-cli vault config set-program-fee`
+### `jito-restaking-cli vault config set-program-fee`
 
 Set the program fee
 
@@ -597,7 +597,7 @@ Set the program fee
 
 
 
-## `jito-restaking-cli vault config set-program-fee-wallet`
+### `jito-restaking-cli vault config set-program-fee-wallet`
 
 Set the program fee wallet
 
@@ -609,7 +609,7 @@ Set the program fee wallet
 
 
 
-## `jito-restaking-cli vault vault`
+### `jito-restaking-cli vault vault`
 
 Vault commands
 
@@ -650,7 +650,7 @@ Vault commands
 
 
 
-## `jito-restaking-cli vault vault initialize`
+### `jito-restaking-cli vault vault initialize`
 
 Creates a new vault
 
@@ -668,7 +668,7 @@ Creates a new vault
 
 
 
-## `jito-restaking-cli vault vault create-token-metadata`
+### `jito-restaking-cli vault vault create-token-metadata`
 
 Creates token metadata for the vault's LRT token
 
@@ -683,7 +683,7 @@ Creates token metadata for the vault's LRT token
 
 
 
-## `jito-restaking-cli vault vault update-token-metadata`
+### `jito-restaking-cli vault vault update-token-metadata`
 
 **Usage:** `jito-restaking-cli vault vault update-token-metadata <VAULT> <NAME> <SYMBOL> <URI>`
 
@@ -696,7 +696,7 @@ Creates token metadata for the vault's LRT token
 
 
 
-## `jito-restaking-cli vault vault initialize-vault-update-state-tracker`
+### `jito-restaking-cli vault vault initialize-vault-update-state-tracker`
 
 Starts the vault update cycle
 
@@ -708,7 +708,7 @@ Starts the vault update cycle
 
 
 
-## `jito-restaking-cli vault vault crank-vault-update-state-tracker`
+### `jito-restaking-cli vault vault crank-vault-update-state-tracker`
 
 Cranks the vault update state tracker, needs to be run per operator
 
@@ -721,7 +721,7 @@ Cranks the vault update state tracker, needs to be run per operator
 
 
 
-## `jito-restaking-cli vault vault close-vault-update-state-tracker`
+### `jito-restaking-cli vault vault close-vault-update-state-tracker`
 
 Ends the vault update cycle
 
@@ -734,7 +734,7 @@ Ends the vault update cycle
 
 
 
-## `jito-restaking-cli vault vault mint-vrt`
+### `jito-restaking-cli vault vault mint-vrt`
 
 Mints VRT tokens
 
@@ -748,7 +748,7 @@ Mints VRT tokens
 
 
 
-## `jito-restaking-cli vault vault initialize-operator-delegation`
+### `jito-restaking-cli vault vault initialize-operator-delegation`
 
 Sets up the delegations for an operator
 
@@ -761,7 +761,7 @@ Sets up the delegations for an operator
 
 
 
-## `jito-restaking-cli vault vault delegate-to-operator`
+### `jito-restaking-cli vault vault delegate-to-operator`
 
 Delegates tokens to an operator
 
@@ -775,7 +775,7 @@ Delegates tokens to an operator
 
 
 
-## `jito-restaking-cli vault vault cooldown-operator-delegation`
+### `jito-restaking-cli vault vault cooldown-operator-delegation`
 
 Cooldown delegation for an operator
 
@@ -789,7 +789,7 @@ Cooldown delegation for an operator
 
 
 
-## `jito-restaking-cli vault vault initialize-vault-ncn-ticket`
+### `jito-restaking-cli vault vault initialize-vault-ncn-ticket`
 
 Initialize Vault NCN Ticket
 
@@ -802,7 +802,7 @@ Initialize Vault NCN Ticket
 
 
 
-## `jito-restaking-cli vault vault warmup-vault-ncn-ticket`
+### `jito-restaking-cli vault vault warmup-vault-ncn-ticket`
 
 Warmup Vault NCN Ticket
 
@@ -815,7 +815,7 @@ Warmup Vault NCN Ticket
 
 
 
-## `jito-restaking-cli vault vault cooldown-vault-ncn-ticket`
+### `jito-restaking-cli vault vault cooldown-vault-ncn-ticket`
 
 Cooldown Vault NCN Ticket
 
@@ -828,7 +828,7 @@ Cooldown Vault NCN Ticket
 
 
 
-## `jito-restaking-cli vault vault enqueue-withdrawal`
+### `jito-restaking-cli vault vault enqueue-withdrawal`
 
 Starts the withdrawal process
 
@@ -841,7 +841,7 @@ Starts the withdrawal process
 
 
 
-## `jito-restaking-cli vault vault change-withdrawal-ticket-owner`
+### `jito-restaking-cli vault vault change-withdrawal-ticket-owner`
 
 Change withdrawal ticket owner
 
@@ -858,7 +858,7 @@ Change withdrawal ticket owner
 
 
 
-## `jito-restaking-cli vault vault burn-withdrawal-ticket`
+### `jito-restaking-cli vault vault burn-withdrawal-ticket`
 
 Burns the withdrawal ticket, ending the withdrawal process
 
@@ -870,7 +870,7 @@ Burns the withdrawal ticket, ending the withdrawal process
 
 
 
-## `jito-restaking-cli vault vault get-vault-update-state-tracker`
+### `jito-restaking-cli vault vault get-vault-update-state-tracker`
 
 Gets the update state tracker for a vault
 
@@ -882,7 +882,7 @@ Gets the update state tracker for a vault
 
 
 
-## `jito-restaking-cli vault vault get-operator-delegations`
+### `jito-restaking-cli vault vault get-operator-delegations`
 
 Gets the operator delegations for a vault
 
@@ -894,7 +894,7 @@ Gets the operator delegations for a vault
 
 
 
-## `jito-restaking-cli vault vault get-operator-delegation`
+### `jito-restaking-cli vault vault get-operator-delegation`
 
 Gets the operator delegation for a vault
 
@@ -907,7 +907,7 @@ Gets the operator delegation for a vault
 
 
 
-## `jito-restaking-cli vault vault get-withdrawal-ticket`
+### `jito-restaking-cli vault vault get-withdrawal-ticket`
 
 **Usage:** `jito-restaking-cli vault vault get-withdrawal-ticket <VAULT> [STAKER]`
 
@@ -918,7 +918,7 @@ Gets the operator delegation for a vault
 
 
 
-## `jito-restaking-cli vault vault get`
+### `jito-restaking-cli vault vault get`
 
 Gets a vault
 
@@ -930,7 +930,7 @@ Gets a vault
 
 
 
-## `jito-restaking-cli vault vault list`
+### `jito-restaking-cli vault vault list`
 
 List all vaults
 
@@ -938,7 +938,7 @@ List all vaults
 
 
 
-## `jito-restaking-cli vault vault set-admin`
+### `jito-restaking-cli vault vault set-admin`
 
 Set Admin
 
@@ -955,7 +955,7 @@ Set Admin
 
 
 
-## `jito-restaking-cli vault vault set-capacity`
+### `jito-restaking-cli vault vault set-capacity`
 
 Sets the deposit capacity in the vault
 
@@ -968,7 +968,7 @@ Sets the deposit capacity in the vault
 
 
 
-## `jito-restaking-cli vault vault set-fees`
+### `jito-restaking-cli vault vault set-fees`
 
 Sets the fees in the vault
 
@@ -986,7 +986,7 @@ Sets the fees in the vault
 
 
 
-## `jito-restaking-cli vault vault set-is-paused`
+### `jito-restaking-cli vault vault set-is-paused`
 
 Sets the vault's pause state
 
@@ -1002,7 +1002,7 @@ Sets the vault's pause state
 
 
 
-## `jito-restaking-cli vault vault set-secondary-admin`
+### `jito-restaking-cli vault vault set-secondary-admin`
 
 Set Secondary Admin
 
@@ -1028,7 +1028,7 @@ Set Secondary Admin
 
 
 
-## `jito-restaking-cli vault vault update-vault-balance`
+### `jito-restaking-cli vault vault update-vault-balance`
 
 Update Vault Balance
 
@@ -1040,7 +1040,7 @@ Update Vault Balance
 
 
 
-## `jito-restaking-cli vault vault delegate-token-account`
+### `jito-restaking-cli vault vault delegate-token-account`
 
 Delegate a token account
 
@@ -1055,7 +1055,7 @@ Delegate a token account
 
 
 
-## `jito-restaking-cli vault vault delegated-token-transfer`
+### `jito-restaking-cli vault vault delegated-token-transfer`
 
 Transfer a token account
 

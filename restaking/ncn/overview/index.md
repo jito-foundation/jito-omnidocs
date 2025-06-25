@@ -10,14 +10,13 @@ It is one of typical NCN design (On-Chain NCN Program), so every NCN does not ha
 ## On-Chain NCN Program
 
 NCN consisits of several components:
-
-- [Pricing](/restaking/ncn-design/on-chain-ncn/pricing)
+- Pricing
     - Defines supported tokens and their respective weights in the network, determining how different assets are valued within the NCN ecosystem.
-- [Snapshot](/restaking/ncn-design/on-chain-ncn/snapshot)
+- Snapshot
     - Captures the current state of Vaults, Operators, and Operator Stake Weights at specific intervals to establish consensus baselines.
-- [Core Logic](/restaking/ncn-design/on-chain-ncn/core-logic)
+- Core Logic
     - Implements the fundamental consensus mechanisms that govern how nodes participate and validate output within the network.
-- [Reward Payments](/restaking/ncn-design/on-chain-ncn/reward-payments)
+- Reward Payments
     - Manages how rewards are calculated and distributed to participating operators, vaults and stakers based on their contributions to the network.
 
 

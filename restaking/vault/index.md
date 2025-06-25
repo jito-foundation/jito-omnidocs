@@ -1,6 +1,6 @@
 ---
 title: Vault
-order: 0
+order: 6
 section_type: expandable
 subtitle: ''
 ---

@@ -1,6 +1,6 @@
 ---
 title: CLI Usage
-order: 0
+order: 9
 subtitle: 'Command-Line Reference for jito-restaking-cli'
 section_type: page
 ---

@@ -9,9 +9,9 @@ order: 0
 
 The Jito (Re)Staking protocol facilitates the relationship between three components:
 
-- [NCN](/restaking/basics/ncn)
-- [Operator](/restaking/basics/operator)
-- [Vault](/restaking/basics/vault)
+- [NCN](/restaking/core-concepts/ncn)
+- [Operator](/restaking/core-concepts/operator)
+- [Vault](/restaking/core-concepts/vault)
 
 <figure>
     <img src="/shared/images/restaking/active_stake.png" alt="Active"/>

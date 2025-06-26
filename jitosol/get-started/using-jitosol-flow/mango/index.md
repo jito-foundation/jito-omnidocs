@@ -1,8 +1,8 @@
 ---
-title: 'Mango'
+title: Mango
+subtitle: Kamino provides actively managed solutions for Orca vaults
+section_type: page
 order: 3
-section_type: 'page'
-subtitle: 'Kamino provides actively managed solutions for Orca vaults'
 ---
 
 
@@ -34,6 +34,6 @@ To do this, use the Swap page on Mango to swap SOL for JitoSOL as shown below.
 
 Note, there are risks anytime you are using margin. You can be liquidated and lose your original investment if leverage is too high or JitoSOL has a substantial depeg vs. the SOL price.
 
-Please do your own research and understand the risks of the strategy.
+Please do your own research and understand the risks of the strategy before trying it.
 
 ![Mango 4](/shared/images/jitosol/Mango_4.png)

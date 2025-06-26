@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-order: 30
+order: 20
 subtitle: Getting started with building our sample NCN
 section_type: page
 ---

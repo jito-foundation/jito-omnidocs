@@ -1,6 +1,6 @@
 ---
 title: Building Weather NCN
-order: 40
+order: 30
 subtitle: A hands-on tutorial for building and testing a complete NCN system with voting and consensus
 section_type: page
 ---

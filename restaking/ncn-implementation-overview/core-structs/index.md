@@ -1,6 +1,6 @@
 ---
 title: Core Struct Definitions
-order: 70
+order: 60
 subtitle: Complete reference for all data structures used by the NCN program
 section_type: page
 ---

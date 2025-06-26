@@ -1,6 +1,6 @@
 ---
 title: NCN Keeper
-order: 50
+order: 40
 subtitle: Hands-on guide to NCN keeper setup, configuration, and automation
 section_type: page
 ---

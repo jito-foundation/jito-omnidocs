@@ -1,6 +1,6 @@
 ---
 title: NCN Components
-order: 20
+order: 10
 subtitle: The three essential components that work together to create a Node Consensus Network
 section_type: page
 ---

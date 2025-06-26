@@ -1,6 +1,6 @@
 ---
 title: Operator
-order: 60
+order: 50
 subtitle: Complete guide to running NCN operators and automated consensus voting
 section_type: page
 ---

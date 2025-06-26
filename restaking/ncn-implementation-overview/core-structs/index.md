@@ -1,6 +1,6 @@
 ---
 title: Core Struct Definitions
-order: 60
+order: 70
 subtitle: Complete reference for all data structures used by the NCN program
 section_type: page
 ---
@@ -9,7 +9,7 @@ section_type: page
 
 Here are the definitions for the core data structures used by the NCN program, typically found in the `/core/src` directory. Understanding these structures is key to understanding the program's logic.
 
-### Config
+#### Config
 
 file: `config.rs`
 
@@ -40,7 +40,7 @@ pub struct Config {
 
 - **Explanation**: Holds the associated `ncn`, the `tie_breaker_admin`, and various timing/threshold parameters (`valid_slots_after_consensus`, `epochs_before_stall`, `epochs_after_consensus_before_close`, `starting_valid_epoch`).
 
-### Ballot
+#### Ballot
 
 file: `ballot_box.rs`
 
@@ -60,7 +60,7 @@ pub struct Ballot {
 
 - **Explanation**: Holds the numeric `weather_status` being voted on and a boolean `is_valid` flag to ensure it corresponds to a known status.
 
-### BallotTally
+#### BallotTally
 
 file: `ballot_box.rs`
 
@@ -84,7 +84,7 @@ pub struct BallotTally {
 
 - **Explanation**: Tracks which `ballot` this tally is for, its `index` in the main array, the total `stake_weights` supporting it, and the raw `tally` (count) of votes.
 
-### OperatorVote
+#### OperatorVote
 
 file: `ballot_box.rs`
 
@@ -108,7 +108,7 @@ pub struct OperatorVote {
 
 - **Explanation**: Stores the `operator` pubkey, the current `slot`, their `stake_weights`, and the `ballot_index` they voted for.
 
-### BallotBox
+#### BallotBox
 
 file: `ballot_box.rs`
 
@@ -144,7 +144,7 @@ pub struct BallotBox {
 
 - **Explanation**: Holds metadata (`ncn`, `epoch`, timestamps), vote counts, and arrays for individual operator votes and aggregated tallies.
 
-### ConsensusResult
+#### ConsensusResult
 
 file: `consensus_result.rs`
 
@@ -174,7 +174,7 @@ pub struct ConsensusResult {
 
 - **Explanation**: Stores the `ncn`, `epoch`, the winning `weather_status`, and the `consensus_slot`.
 
-### AccountPayer
+#### AccountPayer
 
 file: `account_payer.rs`
 
@@ -187,7 +187,7 @@ pub struct AccountPayer {}
 
 - **Explanation**: This is a marker struct with no fields. Its associated functions handle deriving the PDA and performing SOL transfers for rent payments using `invoke_signed`.
 
-### EpochMarker
+#### EpochMarker
 
 file: `epoch_marker.rs`
 
@@ -206,7 +206,7 @@ pub struct EpochMarker {
 
 - **Explanation**: Contains the `ncn`, the `epoch` that was closed, and the `slot_closed`. Its existence confirms cleanup completion for that epoch.
 
-### EpochSnapshot
+#### EpochSnapshot
 
 file: `epoch_snapshot.rs`
 
@@ -242,7 +242,7 @@ pub struct EpochSnapshot {
 
 - **Explanation**: Stores metadata (`ncn`, `epoch`, timestamps), counts (`operator_count`, `vault_count`), progress trackers, and the total aggregated `stake_weights` for the epoch.
 
-### OperatorSnapshot
+#### OperatorSnapshot
 
 file: `epoch_snapshot.rs`
 
@@ -273,7 +273,7 @@ pub struct OperatorSnapshot {
 
 - **Explanation**: Contains operator/NCN identifiers, timestamps, status, indices, `operator_fee_bps`, delegation counts/progress, the operator's total `stake_weights`, and a detailed breakdown in `vault_operator_stake_weight`.
 
-### VaultOperatorStakeWeight
+#### VaultOperatorStakeWeight
 
 file: `epoch_snapshot.rs`
 
@@ -291,7 +291,7 @@ pub struct VaultOperatorStakeWeight {
 
 - **Explanation**: Links a `vault` pubkey and `vault_index` to the specific `stake_weight` derived from its delegation to the parent `OperatorSnapshot`.
 
-### StMintEntry
+#### StMintEntry
 
 file: `vault_registry.rs`
 
@@ -314,7 +314,7 @@ pub struct StMintEntry {
 
 - **Explanation**: Stores the `st_mint` address and its assigned voting `weight`. `reserve_switchboard_feed` is unused here.
 
-### VaultEntry
+#### VaultEntry
 
 file: `vault_registry.rs`
 
@@ -338,7 +338,7 @@ pub struct VaultEntry {
 
 - **Explanation**: Stores the `vault` address, the `st_mint` it holds, its assigned `vault_index`, and the `slot_registered`.
 
-### VaultRegistry
+#### VaultRegistry
 
 file: `vault_registry.rs`
 
@@ -362,7 +362,7 @@ pub struct VaultRegistry {
 
 - **Explanation**: Holds the `ncn` identifier, `bump`, and arrays for `st_mint_list` and `vault_list`.
 
-### WeightTable
+#### WeightTable
 
 file: `weight_table.rs`
 
@@ -392,7 +392,7 @@ pub struct WeightTable {
 
 - **Explanation**: Contains metadata (`ncn`, `epoch`, `slot_created`, `vault_count`), a snapshot of the `vault_registry`, and the main `table` holding `WeightEntry` structs with the frozen weights for the epoch.
 
-### EpochAccountStatus
+#### EpochAccountStatus
 
 file: `epoch_state.rs`
 
@@ -417,3 +417,130 @@ pub struct EpochAccountStatus {
 ```
 
 - **Explanation**: Uses `u8` fields to represent the status of various temporary accounts associated with a specific epoch.
+
+#### NCNRewardRouter
+
+file: `ncn_reward_router.rs`
+
+- **Purpose**: The main entry point for routing rewards from NCNs. This router receives rewards and distributes them according to the fee structure.
+- **Definition**:
+
+```rust
+#[derive(Debug, Clone, Copy, Zeroable, Pod, AccountDeserialize, ShankAccount)]
+#[repr(C)]
+pub struct NCNRewardRouter {
+    /// NCN the account is associated with
+    ncn: Pubkey,
+    /// The epoch the account is associated with
+    epoch: PodU64,
+    /// Bump seed for the PDA
+    bump: u8,
+    /// Slot the account was created
+    slot_created: PodU64,
+    /// Total rewards routed (in lamports) - cumulative amount ever processed
+    total_rewards: PodU64,
+    /// Amount of rewards in the reward pool (in lamports) - awaiting distribution
+    reward_pool: PodU64,
+    /// Amount of rewards processed (in lamports) - moved out of reward pool for distribution
+    rewards_processed: PodU64,
+    /// Reserved space for future fields
+    reserved: [u8; 128],
+    /// Last vote index processed during routing (for resuming partial operations)
+    last_vote_index: PodU16,
+    /// Last rewards amount being processed during routing (for resuming partial operations)
+    last_rewards_to_process: PodU64,
+    /// Rewards allocated to the Protocol (ready for distribution)
+    protocol_rewards: PodU64,
+    /// Rewards allocated to the NCN (ready for distribution)
+    ncn_rewards: PodU64,
+    /// Total rewards allocated to operator-vault reward receivers (before individual routing)
+    operator_vault_rewards: PodU64,
+    /// Individual operator reward routes - tracks rewards per operator
+    /// Array size 256 limits the number of operators that can participate in an epoch
+    operator_vault_reward_routes: [OperatorVaultRewardRoute; 256],
+}
+```
+
+- **Explanation**: The router distributes rewards in three tiers: 4% to Protocol, 4% to NCN, and 92% to operator-vault rewards. It supports partial routing through iterations to handle large numbers of operators without hitting transaction limits.
+
+#### OperatorVaultRewardRouter
+
+file: `operator_vault_reward_router.rs`
+
+- **Purpose**: Routes rewards from operators to their associated vaults. This router handles the final stage of reward distribution where operator rewards are further distributed to the vaults they operate.
+- **Definition**:
+
+```rust
+#[derive(Debug, Clone, Copy, Zeroable, Pod, AccountDeserialize, ShankAccount)]
+#[repr(C)]
+pub struct OperatorVaultRewardRouter {
+    /// The operator the router is associated with
+    operator: Pubkey,
+    /// The NCN the router is associated with
+    ncn: Pubkey,
+    /// The epoch the router is associated with
+    epoch: PodU64,
+    /// The bump seed for the PDA
+    bump: u8,
+    /// The slot the router was created
+    slot_created: PodU64,
+    /// The operator's index within the NCN
+    ncn_operator_index: PodU64,
+    /// The total rewards that have been routed (in lamports) - cumulative amount ever processed
+    total_rewards: PodU64,
+    /// The rewards in the reward pool (in lamports) - awaiting distribution
+    reward_pool: PodU64,
+    /// The rewards that have been processed (in lamports) - moved out of reward pool
+    rewards_processed: PodU64,
+    /// Rewards allocated to the operator (in lamports) - operator's fee portion
+    operator_rewards: PodU64,
+    /// The last rewards amount being processed during routing (for resuming partial operations)
+    last_rewards_to_process: PodU64,
+    /// The last vault operator delegation index processed during routing
+    last_vault_operator_delegation_index: PodU16,
+    /// Individual vault reward routes - tracks rewards per vault (limited to 64 vaults)
+    vault_reward_routes: [VaultRewardRoute; 64],
+}
+```
+
+- **Explanation**: The distribution is based on the operator taking their fee percentage first, then remaining rewards are distributed to vaults proportionally by stake weight. It supports partial routing through iterations to handle large numbers of vaults.
+
+#### OperatorVaultRewardRoute
+
+file: `ncn_reward_router.rs`
+
+- **Purpose**: A component structure within `NCNRewardRouter` that tracks rewards allocated to a specific operator within the reward routing system.
+- **Definition**:
+
+```rust
+#[derive(Debug, Clone, Copy, Zeroable, Pod, ShankType)]
+#[repr(C)]
+pub struct OperatorVaultRewardRoute {
+    /// The operator pubkey
+    operator: Pubkey,
+    /// Reward amount allocated to this operator
+    rewards: NCNRewardRouterRewards,
+}
+```
+
+- **Explanation**: Stores the mapping between an operator and their allocated reward amount within the NCN reward routing system.
+
+#### VaultRewardRoute
+
+file: `operator_vault_reward_router.rs`
+
+- **Purpose**: A component structure within `OperatorVaultRewardRouter` that tracks rewards allocated to a specific vault within the operator's reward distribution.
+- **Definition**:
+
+```rust
+#[derive(Debug, Clone, Copy, Zeroable, Pod, ShankType)]
+#[repr(C)]
+pub struct VaultRewardRoute {
+    /// The vault pubkey that will receive rewards
+    vault: Pubkey,
+    /// The amount of rewards allocated to this vault (in lamports)
+    rewards: PodU64,
+}
+```
+
+- **Explanation**: Stores the mapping between a vault and its allocated reward amount within an operator's reward distribution system.

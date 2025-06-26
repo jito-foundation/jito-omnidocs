@@ -17,8 +17,8 @@ The simulation test we'll be creating below can also be found in the [example NC
 
 Before running the simulation test, ensure you have completed the following setup steps:
 
-1.  Build the NCN onchain program using Cargo: `cargo build-sbf --manifest-path program/Cargo.toml --sbf-out-dir integration_tests/tests/fixtures`
-2.  Ensure you have the correct versions installed:
+1. Build the NCN onchain program using Cargo: `cargo build-sbf --manifest-path program/Cargo.toml --sbf-out-dir integration_tests/tests/fixtures`
+2. Ensure you have the correct versions installed:
     - Solana CLI: 2.2.6 (recommended)
     - Rust/Cargo: 1.81 or newer
 
@@ -53,9 +53,11 @@ mod tests {
 
         // 7. VOTING
 
-        // 8. VERIFICATION
+        // 8. REWARDS DISTRIBUTION
 
-        // 9. CLEANUP
+        // 9. VERIFICATION
+
+        // 10. CLEANUP
 
         Ok(())
     }
@@ -141,10 +143,10 @@ let delegations = [
 
 This code does the following:
 
-1.  Gets client handles for interacting with the NCN, Vault, and Restaking programs.
-2.  Defines `OPERATOR_COUNT` to specify how many operators we'll create.
-3.  Sets up `mints`: a list of keypairs representing different SPL token mints and their corresponding voting weights. We use different weights to test the stake-weighting mechanism. `WEIGHT` is likely a constant representing the base unit of weight.
-4.  Defines `delegations`: an array of different token amounts (in lamports, assuming 9 decimals for typical SPL tokens) that vaults will delegate to operators.
+1. Gets client handles for interacting with the NCN, Vault, and Restaking programs.
+2. Defines `OPERATOR_COUNT` to specify how many operators we'll create.
+3. Sets up `mints`: a list of keypairs representing different SPL token mints and their corresponding voting weights. We use different weights to test the stake-weighting mechanism. `WEIGHT` is likely a constant representing the base unit of weight.
+4. Defines `delegations`: an array of different token amounts (in lamports, assuming 9 decimals for typical SPL tokens) that vaults will delegate to operators.
 
 #### 3. NCN Setup
 
@@ -188,10 +190,10 @@ This `add_operators_to_test_ncn` function performs several actions by calling in
 
 The handshake process involves multiple steps:
 
-1.  Creating the operator account itself, managed by its unique admin keypair.
-2.  Initializing the state that tracks the relationship between the NCN and the operator (`do_initialize_ncn_operator_state`).
-3.  Warming up the connection from the NCN's perspective (`do_ncn_warmup_operator`).
-4.  Warming up the connection from the operator's perspective (`do_operator_warmup_ncn`).
+1. Creating the operator account itself, managed by its unique admin keypair.
+2. Initializing the state that tracks the relationship between the NCN and the operator (`do_initialize_ncn_operator_state`).
+3. Warming up the connection from the NCN's perspective (`do_ncn_warmup_operator`).
+4. Warming up the connection from the operator's perspective (`do_operator_warmup_ncn`).
 
 For more information on this, please read the guide [here](/)
 
@@ -286,7 +288,7 @@ Key aspects of the delegation setup:
 
 - Every vault delegates to every operator (except the last one for this example)
 
-* Note that vaults can choose whom to delegate to, they don't have to delegate to all operators
+- Note that vaults can choose whom to delegate to, they don't have to delegate to all operators
 
 - Delegation amounts cycle through the `delegations` array to test different scenarios
 - The last operator intentionally receives zero delegation to test the system's handling of operators without stake
@@ -297,8 +299,8 @@ Each operator accumulates voting power from all the different delegations they r
 **Example:**
 
 - Vault A (holding Alice, weight W) delegates 100 tokens to Operator X. Power contribution: 100 \* W.
-- Vault B (holding Bob, weight 2W) delegates 50 tokens to Operator X. Power contribution: 50 _ 2W = 100 _ W.
-- Operator X's total voting power would be (100 _ W) + (50 _ 2W) = 200 \* W.
+- Vault B (holding Bob, weight 2W) delegates 50 tokens to Operator X. Power contribution: 50 _2W = 100_ W.
+- Operator X's total voting power would be (100 _W) + (50_ 2W) = 200 \* W.
 
 This distributed delegation model enables testing complex scenarios where:
 
@@ -321,8 +323,8 @@ Each operator accumulates voting power from all the different delegations they r
 **Example:**
 
 - Vault A (holding TKN1, weight W) delegates 100 tokens to Operator X. Power contribution: 100 \* W.
-- Vault B (holding TKN2, weight 2W) delegates 50 tokens to Operator X. Power contribution: 50 _ 2W = 100 _ W.
-- Operator X's total voting power would be (100 _ W) + (50 _ 2W) = 200 \* W.
+- Vault B (holding TKN2, weight 2W) delegates 50 tokens to Operator X. Power contribution: 50 _2W = 100_ W.
+- Operator X's total voting power would be (100 _W) + (50_ 2W) = 200 \* W.
 
 This distributed delegation model enables testing complex scenarios where:
 
@@ -386,7 +388,7 @@ The vault registry is a critical data structure that:
 
 Note that this is only initializing the vault registry. The vaults and the supported tokens will be registered in the next steps.
 
-Check out the vault registry struct [here](/restaking/ncn-implementation-overview/core-structs/#vaultregistry)
+Check out the vault registry struct [here](#vaultregistry)
 
 ##### 5.3 Activating Relationships with Time Advancement
 
@@ -466,10 +468,10 @@ for vault in test_ncn.vaults.iter() {
 
 The final configuration step registers each vault with the NCN program:
 
-1.  For each vault created earlier, the system finds its NCN vault ticket PDA (Program Derived Address)
-2.  The vault is registered in the NCN program's vault registry
-3.  This creates the association between the vault and its supported token type
-4.  The registration enables the NCN program to track vault delegations for voting power calculation
+1. For each vault created earlier, the system finds its NCN vault ticket PDA (Program Derived Address)
+2. The vault is registered in the NCN program's vault registry
+3. This creates the association between the vault and its supported token type
+4. The registration enables the NCN program to track vault delegations for voting power calculation
 
 This registration process establishes the complete set of vaults that can contribute to the voting system, creating a closed ecosystem of verified participants.
 
@@ -479,10 +481,10 @@ This registration process establishes the complete set of vaults that can contri
 
 The NCN program configuration establishes a multi-layered security model:
 
-1.  **Authentication Layer**: Only the NCN admin can initialize configuration and register tokens
-2.  **Relationship Layer**: Only vaults and operators with established, active handshakes can participate
-3.  **Time Security Layer**: Enforced waiting periods prevent quick creation and use of malicious actors
-4.  **Registry Layer**: All participants must be registered and tracked in on-chain registries
+1. **Authentication Layer**: Only the NCN admin can initialize configuration and register tokens
+2. **Relationship Layer**: Only vaults and operators with established, active handshakes can participate
+3. **Time Security Layer**: Enforced waiting periods prevent quick creation and use of malicious actors
+4. **Registry Layer**: All participants must be registered and tracked in on-chain registries
 
 This layered approach ensures the integrity of the voting system by validating the identity and relationships of all participants before they can influence the consensus process.
 
@@ -515,7 +517,7 @@ This step initializes the **Epoch State** for the current consensus cycle:
 
 Once initialized, the `EpochState` account becomes the authoritative record of where the system is in the voting process, preventing operations from happening out of order or in duplicate.
 
-You can take a look at the epoch state struct [here](/restaking/ncn-implementation-overview/core-structs/#epochaccountstatus).
+You can take a look at the epoch state struct [here](#epochaccountstatus).
 
 ##### 6.2 Weight Table Initialization and Population
 
@@ -539,18 +541,18 @@ ncn_program_client
 
 The weight table mechanism handles the token weights for the current epoch in two stages:
 
-1.  **Weight Table Initialization**:
+1. **Weight Table Initialization**:
 
-    - Creates a [`WeightTable`](/restaking/ncn-implementation-overview/core-structs/#weighttable) account for the specific epoch using `do_full_initialize_weight_table`. This may involve multiple calls internally to allocate sufficient space.
-    - Allocates space based on the number of supported tokens registered in the [`VaultRegistry`](/restaking/ncn-implementation-overview/core-structs/#vaultregistry).
+    - Creates a [`WeightTable`](#weighttable) account for the specific epoch using `do_full_initialize_weight_table`. This may involve multiple calls internally to allocate sufficient space.
+    - Allocates space based on the number of supported tokens registered in the [`VaultRegistry`](#vaultregistry).
     - Links the table to the NCN and current epoch.
     - Initializes the table structure with empty entries.
 
-2.  **Weight Setting**:
-    - Populates the [`WeightTable`](/restaking/ncn-implementation-overview/core-structs/#weighttable) by calling `do_set_epoch_weights`
-    - Copies the current weights from the [`VaultRegistry`](/restaking/ncn-implementation-overview/core-structs/#vaultregistry) to the epoch-specific `WeightTable`.
+2. **Weight Setting**:
+    - Populates the [`WeightTable`](#weighttable) by calling `do_set_epoch_weights`
+    - Copies the current weights from the [`VaultRegistry`](#vaultregistry) to the epoch-specific `WeightTable`.
     - "Freezes" these weights for the duration of the consensus cycle.
-    - Updates the [`EpochState`](/restaking/ncn-implementation-overview/core-structs/#epochaccountstatus) to mark weight setting as complete.
+    - Updates the [`EpochState`](#epochaccountstatus) to mark weight setting as complete.
     - Creates an immutable record of token weights that will be used for voting.
 
 This two-step process is critical for the integrity of the system as it:
@@ -573,7 +575,7 @@ fixture.add_epoch_snapshot_to_test_ncn(&test_ncn).await?;
 
 The epoch snapshot captures the aggregate state of the entire system:
 
-- Creates an [`EpochSnapshot`](/restaking/ncn-implementation-overview/core-structs/#epochsnapshot) account for the NCN and epoch.
+- Creates an [`EpochSnapshot`](#epochsnapshot) account for the NCN and epoch.
 - Records the total number of operators and vaults expected to participate.
 - Captures the total potential stake weight across all participants (initialized to zero).
 - Stores important metadata like the snapshot creation slot.
@@ -628,7 +630,7 @@ Copy and paste the following code at the bottom of your test function:
 
 This step creates an individual snapshot for each operator in the system:
 
-- For each operator, it creates an [`OperatorSnapshot`](/restaking/ncn-implementation-overview/core-structs/#operatorsnapshot) account linked to the operator, NCN, and epoch.
+- For each operator, it creates an [`OperatorSnapshot`](#operatorsnapshot) account linked to the operator, NCN, and epoch.
 - Records the operator's total delegated stake weight at this moment (initialized to zero).
 - Captures the expected number of vault delegations for the operator.
 - Verifies the operator has active handshakes with the NCN.
@@ -652,17 +654,17 @@ fixture
 This crucial step iterates through each active vault-to-operator delegation and records its contribution to the operator's voting power:
 
 - For each valid delegation found in the Jito Vault program:
-  - Retrieves the corresponding token weight from the epoch's [`WeightTable`](/restaking/ncn-implementation-overview/core-structs/#weighttable).
+  - Retrieves the corresponding token weight from the epoch's [`WeightTable`](#weighttable).
   - Calculates the weighted stake for that delegation (delegation amount \* token weight).
-  - Updates the relevant [`OperatorSnapshot`](/restaking/ncn-implementation-overview/core-structs/#operatorsnapshot) by adding the calculated stake weight.
-  - Stores detailed information about the weighted delegation within the [`OperatorSnapshot`](/restaking/ncn-implementation-overview/core-structs/#operatorsnapshot)'s `vault_operator_stake_weight` array.
-  - Increments the total stake weight in the global [`EpochSnapshot`](/restaking/ncn-implementation-overview/core-structs/#epochsnapshot).
-  - Creates a [`VaultOperatorDelegationSnapshot`](/restaking/ncn-implementation-overview/core-structs/#vaultoperatordelegationsnapshot) account for detailed auditing.
+  - Updates the relevant [`OperatorSnapshot`](#operatorsnapshot) by adding the calculated stake weight.
+  - Stores detailed information about the weighted delegation within the [`OperatorSnapshot`](#operatorsnapshot)'s `vault_operator_stake_weight` array.
+  - Increments the total stake weight in the global [`EpochSnapshot`](#epochsnapshot).
+  - Creates a [`VaultOperatorDelegationSnapshot`](#vaultoperatordelegationsnapshot) account for detailed auditing.
 
 These granular snapshots serve multiple purposes:
 
-- They populate the [`OperatorSnapshot`](/restaking/ncn-implementation-overview/core-structs/#operatorsnapshot) accounts with the actual stake weights used for voting.
-- They update the [`EpochSnapshot`](/restaking/ncn-implementation-overview/core-structs/#epochsnapshot) with the total voting power present in the system for this epoch.
+- They populate the [`OperatorSnapshot`](#operatorsnapshot) accounts with the actual stake weights used for voting.
+- They update the [`EpochSnapshot`](#epochsnapshot) with the total voting power present in the system for this epoch.
 - They provide detailed audit trails of exactly where each operator's voting power originates.
 - They enable verification of correct weight calculation for each delegation.
 - They prevent retroactive manipulation of the voting power distribution.
@@ -680,13 +682,13 @@ fixture.add_ballot_box_to_test_ncn(&test_ncn).await?;
 
 The final preparation step creates the ballot box:
 
-- Initializes a [`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox) account linked to the NCN and epoch using `do_full_initialize_ballot_box`. Similar to the weight table, this may require multiple allocation calls internally.
-- Creates arrays to track operator votes ([`OperatorVote`](/restaking/ncn-implementation-overview/core-structs/#operatorvote)) and ballot tallies ([`BallotTally`](/restaking/ncn-implementation-overview/core-structs/#ballottally)).
+- Initializes a [`BallotBox`](#ballotbox) account linked to the NCN and epoch using `do_full_initialize_ballot_box`. Similar to the weight table, this may require multiple allocation calls internally.
+- Creates arrays to track operator votes ([`OperatorVote`](#operatorvote)) and ballot tallies ([`BallotTally`](#ballottally)).
 - Sets up the data structures for recording and counting votes.
 - Prepares the consensus tracking mechanism.
-- Links the ballot box to the [`EpochState`](/restaking/ncn-implementation-overview/core-structs/#epochaccountstatus) for progress tracking.
+- Links the ballot box to the [`EpochState`](#epochaccountstatus) for progress tracking.
 
-The [`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox) becomes the central repository where all votes are recorded and tallied during the voting process. It is designed to efficiently track:
+The [`BallotBox`](#ballotbox) becomes the central repository where all votes are recorded and tallied during the voting process. It is designed to efficiently track:
 
 - Which operators have voted and what they voted for.
 - The cumulative stake weight behind each voting option (ballot).
@@ -697,17 +699,17 @@ The [`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox
 
 The snapshot system implements several key architectural principles:
 
-1.  **Point-in-Time Consistency**: All snapshots capture the system state relative to the start of the epoch, creating a consistent view based on frozen weights and delegations present at that time.
-2.  **Immutability**: Once taken and populated, snapshots cannot be modified, ensuring the integrity of the voting weights used.
-3.  **Layered Verification**: The system enables verification at multiple levels:
+1. **Point-in-Time Consistency**: All snapshots capture the system state relative to the start of the epoch, creating a consistent view based on frozen weights and delegations present at that time.
+2. **Immutability**: Once taken and populated, snapshots cannot be modified, ensuring the integrity of the voting weights used.
+3. **Layered Verification**: The system enables verification at multiple levels:
     - Aggregate level (`EpochSnapshot`)
     - Participant level (`OperatorSnapshot`)
     - Relationship level (individual weighted delegations within `OperatorSnapshot`, optionally `VaultOperatorDelegationSnapshot`)
-4.  **Defense Against Time-Based Attacks**: By freezing the state (weights and relevant delegations) before voting begins, the system prevents:
+4. **Defense Against Time-Based Attacks**: By freezing the state (weights and relevant delegations) before voting begins, the system prevents:
     - Late stake additions influencing outcomes within the _current_ epoch.
     - Strategic withdrawals affecting voting power _after_ the snapshot.
     - Any form of "stake voting power front-running" within the epoch.
-5.  **Separation of State and Process**:
+5. **Separation of State and Process**:
     - The state (snapshots, weights) is captured separately from the process (voting).
     - This clear separation simplifies reasoning about the system.
     - It enables more effective testing and verification.
@@ -789,19 +791,19 @@ Under the hood, each vote triggers several key operations within the `cast_vote`
 
 - **Verification**:
   - Verifies the operator admin's signature.
-  - Checks that the operator hasn't already voted in this epoch using the [`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox).
-  - Retrieves the operator's [`OperatorSnapshot`](/restaking/ncn-implementation-overview/core-structs/#operatorsnapshot) to confirm eligibility and get its total stake weight.
-  - Ensures the [`EpochState`](/restaking/ncn-implementation-overview/core-structs/#epochaccountstatus) indicates voting is currently allowed.
+  - Checks that the operator hasn't already voted in this epoch using the [`BallotBox`](#ballotbox).
+  - Retrieves the operator's [`OperatorSnapshot`](#operatorsnapshot) to confirm eligibility and get its total stake weight.
+  - Ensures the [`EpochState`](#epochaccountstatus) indicates voting is currently allowed.
 - **Recording**:
-  - Records the vote details (operator, slot, stake weight, ballot choice) in the `operator_votes` array within the [`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox).
+  - Records the vote details (operator, slot, stake weight, ballot choice) in the `operator_votes` array within the [`BallotBox`](#ballotbox).
   - Marks the operator as having voted.
 - **Tallying**:
-  - Finds or creates a [`BallotTally`](/restaking/ncn-implementation-overview/core-structs/#ballottally) for the chosen weather status in the `ballot_tallies` array.
+  - Finds or creates a [`BallotTally`](#ballottally) for the chosen weather status in the `ballot_tallies` array.
   - Adds the operator's full stake weight (from the snapshot) to this tally.
   - Increments the raw vote count for this tally.
 - **Consensus Check**:
-  - Compares the updated tally's stake weight against the total stake weight recorded in the [`EpochSnapshot`](/restaking/ncn-implementation-overview/core-structs/#epochsnapshot).
-  - If the tally now exceeds the consensus threshold (e.g., 66%), it marks consensus as reached in the [`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox) and records the current slot.
+  - Compares the updated tally's stake weight against the total stake weight recorded in the [`EpochSnapshot`](#epochsnapshot).
+  - If the tally now exceeds the consensus threshold (e.g., 66%), it marks consensus as reached in the [`BallotBox`](#ballotbox) and records the current slot.
 
 ##### 7.3 Establishing Consensus Through Majority Voting
 
@@ -826,14 +828,14 @@ for operator_root in test_ncn.operators.iter().take(OPERATOR_COUNT).skip(3) {
 
 The consensus mechanism works as follows:
 
-- The system maintains a running [`BallotTally`](/restaking/ncn-implementation-overview/core-structs/#ballottally) for each unique option voted on.
+- The system maintains a running [`BallotTally`](#ballottally) for each unique option voted on.
 - After each vote, it recalculates the total stake weight supporting the voted option.
-- It compares this stake weight to the total stake weight available in the [`EpochSnapshot`](/restaking/ncn-implementation-overview/core-structs/#epochsnapshot).
+- It compares this stake weight to the total stake weight available in the [`EpochSnapshot`](#epochsnapshot).
 - If an option's stake weight reaches the consensus threshold (e.g., >= 66%), the system:
-  - Marks that `Ballot` as the `winning_ballot` in the [`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox).
+  - Marks that `Ballot` as the `winning_ballot` in the [`BallotBox`](#ballotbox).
   - Records the current `slot` in `slot_consensus_reached`.
   - Updates the `EpochState`.
-  - Creates a persistent [`ConsensusResult`](/restaking/ncn-implementation-overview/core-structs/#consensusresult) account (discussed in Verification).
+  - Creates a persistent [`ConsensusResult`](#consensusresult) account (discussed in Verification).
 - Consensus requires a supermajority to ensure decisions have strong, verifiable support across the network's weighted stake.
 
 ##### 7.4 Vote Processing Architecture
@@ -842,17 +844,17 @@ When an operator casts a vote via the `cast_vote` instruction, the system perfor
 
 - **Authentication**: Verifies the transaction is signed by the correct `operator_admin` keypair associated with the `operator` account.
 - **Authorization & Preconditions**: Confirms that:
-  - The operator exists, is registered with the NCN, and has an active [`OperatorSnapshot`](/restaking/ncn-implementation-overview/core-structs/#operatorsnapshot) for the current `epoch`.
-  - The operator has not already voted in this epoch (checked via [`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox)).
-  - The operator has non-zero stake weight in their [`OperatorSnapshot`](/restaking/ncn-implementation-overview/core-structs/#operatorsnapshot).
-  - The [`EpochState`](/restaking/ncn-implementation-overview/core-structs/#epochaccountstatus) confirms that the snapshotting phase is complete and voting is open.
+  - The operator exists, is registered with the NCN, and has an active [`OperatorSnapshot`](#operatorsnapshot) for the current `epoch`.
+  - The operator has not already voted in this epoch (checked via [`BallotBox`](#ballotbox)).
+  - The operator has non-zero stake weight in their [`OperatorSnapshot`](#operatorsnapshot).
+  - The [`EpochState`](#epochaccountstatus) confirms that the snapshotting phase is complete and voting is open.
 - **Vote Recording**:
-  - Locates an empty slot or confirms the operator hasn't voted in the `operator_votes` array within the [`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox).
-  - Stores the `operator` pubkey, current `slot`, the operator's total `stake_weights` (from [`OperatorSnapshot`](/restaking/ncn-implementation-overview/core-structs/#operatorsnapshot)), and the index corresponding to the chosen ballot within the `ballot_tallies` array.
-  - Increments the `operators_voted` counter in the [`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox).
+  - Locates an empty slot or confirms the operator hasn't voted in the `operator_votes` array within the [`BallotBox`](#ballotbox).
+  - Stores the `operator` pubkey, current `slot`, the operator's total `stake_weights` (from [`OperatorSnapshot`](#operatorsnapshot)), and the index corresponding to the chosen ballot within the `ballot_tallies` array.
+  - Increments the `operators_voted` counter in the [`BallotBox`](#ballotbox).
 - **Ballot Processing & Tallying**:
   - Searches the `ballot_tallies` array for an existing entry matching the `weather_status`.
-  - If found: Adds the operator's `stake_weights` to the `stake_weights` field of the existing [`BallotTally`](/restaking/ncn-implementation-overview/core-structs/#ballottally) and increments the raw `tally` counter.
+  - If found: Adds the operator's `stake_weights` to the `stake_weights` field of the existing [`BallotTally`](#ballottally) and increments the raw `tally` counter.
   - If not found: Initializes a new `BallotTally` entry with the `weather_status`, the operator's `stake_weights`, and a `tally` of 1. Increments `unique_ballots`.
 - **Consensus Calculation & Result Creation**:
   - Retrieves the total `stake_weights` from the `EpochSnapshot`.
@@ -874,22 +876,316 @@ The voting process incorporates several key security features:
   - Voting power is derived directly from snapshotted stake weight, not operator count.
   - Operators with zero snapshotted stake weight cannot vote, preventing attacks based on creating numerous fake operators.
 - **Replay Protection**:
-  - The [`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox) tracks which operators have voted (`operator_votes` array).
+  - The [`BallotBox`](#ballotbox) tracks which operators have voted (`operator_votes` array).
   - Attempts by an operator to vote more than once within the same epoch are rejected.
 - **Time-Bound Voting**:
-  - Votes are only accepted if the [`EpochState`](/restaking/ncn-implementation-overview/core-structs/#epochaccountstatus) indicates the voting phase is active for the specified `epoch`.
+  - Votes are only accepted if the [`EpochState`](#epochaccountstatus) indicates the voting phase is active for the specified `epoch`.
   - While votes might be accepted slightly after consensus is reached (within `valid_slots_after_consensus`), they won't change the already determined outcome.
 - **Authority**: Requires `operator_admin` signature.
 - **Tamper-Proof Tallying**: Uses immutable snapshotted data created _before_ voting began.
-- **Consistent Threshold**: Calculated based on the total stake weight recorded in the [`EpochSnapshot`](/restaking/ncn-implementation-overview/core-structs/#epochsnapshot), providing a fixed target for the epoch.
+- **Consistent Threshold**: Calculated based on the total stake weight recorded in the [`EpochSnapshot`](#epochsnapshot), providing a fixed target for the epoch.
 
 These security measures ensure the voting process remains resilient against various attack vectors and manipulation attempts, maintaining the integrity of the consensus mechanism.
 
-#### 8. Verification
+#### 8. Rewards Distribution
 
-The Verification phase validates that the voting process completed successfully and that the expected consensus was achieved. This critical step confirms the integrity of the entire system by examining the on-chain data structures ([`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox) and [`ConsensusResult`](/restaking/ncn-implementation-overview/core-structs/#consensusresult)) and verifying they contain the expected results.
+After consensus is reached, the NCN system can distribute rewards to participants based on their contributions to the consensus process. The rewards system operates through a multi-layered distribution mechanism that allocates rewards to different stakeholders: the Protocol, the NCN itself, operators, and vaults.
 
-##### 8.1 Ballot Box Verification
+The reward distribution process consists of three main phases:
+
+1. **Router Initialization**: Setting up the infrastructure for reward routing
+2. **NCN Reward Routing and Distributing**: Routing and distributing rewards according to the fee structure to the protocol and the NCN, and to the Operator_Vault couples
+3. **Operator Vault Reward Routing and Distributing**: Routing and distributing rewards to operators and their delegated vaults
+
+##### 8.1 Reward Router Initialization
+
+Before rewards can be distributed, the system must initialize reward routers that manage the flow of rewards to different participants.
+
+Copy and paste the following code at the bottom of your test function:
+
+```rust
+// Setup reward routers for NCN and operators
+{
+    let ncn = test_ncn.ncn_root.ncn_pubkey;
+    let clock = fixture.clock().await;
+    let epoch = clock.epoch;
+
+    ncn_program_client
+        .do_full_initialize_ncn_reward_router(ncn, epoch)
+        .await?;
+
+    for operator_root in test_ncn.operators.iter() {
+        let operator = operator_root.operator_pubkey;
+
+        ncn_program_client
+            .do_initialize_operator_vault_reward_router(ncn, operator, epoch)
+            .await?;
+    }
+}
+```
+
+This step creates the infrastructure for reward distribution:
+
+- **NCN Reward Router**: A primary router that receives all rewards and distributes them according to the configured fee structure. It manages the overall reward pool and calculates allocations for Protocol, NCN, and operator rewards.
+- **Operator Vault Reward Routers**: Individual routers for each operator that manage the distribution of rewards to operators and their associated vaults. These handle the final distribution to operators and their delegated vaults.
+
+The reward routers implement a hierarchical distribution system:
+
+1. All rewards initially flow into the NCN Reward Router
+2. The NCN Reward Router distributes rewards based on fee configurations
+3. Operator-specific rewards flow through Operator Vault Reward Routers
+4. Finally, rewards reach the ultimate recipients (operators and vault holders)
+
+##### 8.2 NCN Reward Routing and Distribution
+
+The first phase of reward distribution involves routing rewards into the NCN system and distributing them according to the configured fee structure.
+
+Copy and paste the following code at the bottom of your test function:
+
+```rust
+// Route rewards into the NCN reward system
+{
+    let ncn = test_ncn.ncn_root.ncn_pubkey;
+    let epoch = fixture.clock().await.epoch;
+
+    const REWARD_AMOUNT: u64 = 1_000_000;
+
+    // Advance the clock to ensure we are in a valid time window for reward distribution.
+    let valid_slots_after_consensus = {
+        let config = ncn_program_client.get_ncn_config(ncn).await?;
+        config.valid_slots_after_consensus()
+    };
+    fixture
+        .warp_slot_incremental(valid_slots_after_consensus + 1)
+        .await?;
+
+    // Send rewards to the NCN reward receiver
+    let ncn_reward_receiver =
+        NCNRewardReceiver::find_program_address(&ncn_program::id(), &ncn, epoch).0;
+
+    fn lamports_to_sol(lamports: u64) -> f64 {
+        lamports as f64 / 1_000_000_000.0
+    }
+
+    let sol_rewards = lamports_to_sol(REWARD_AMOUNT);
+    ncn_program_client
+        .airdrop(&ncn_reward_receiver, sol_rewards)
+        .await?;
+
+    // Route rewards through the NCN reward system
+    ncn_program_client.do_route_ncn_rewards(ncn, epoch).await?;
+    // Should be able to route twice (idempotent operation)
+    ncn_program_client.do_route_ncn_rewards(ncn, epoch).await?;
+
+    let ncn_reward_router = ncn_program_client.get_ncn_reward_router(ncn, epoch).await?;
+
+    // Distribute Protocol Rewards (4% of total)
+    {
+        let rewards = ncn_reward_router.protocol_rewards();
+
+        if rewards > 0 {
+            let config = ncn_program_client.get_ncn_config(ncn).await?;
+            let protocol_fee_wallet = config.fee_config.protocol_fee_wallet();
+
+            let balance_before = {
+                let account = fixture.get_account(protocol_fee_wallet).await?;
+                account.unwrap().lamports
+            };
+
+            println!("Distributing {} of Protocol Rewards", rewards);
+            ncn_program_client
+                .do_distribute_protocol_rewards(ncn, epoch)
+                .await?;
+
+            let balance_after = {
+                let account = fixture.get_account(protocol_fee_wallet).await?;
+                account.unwrap().lamports
+            };
+
+            assert_eq!(
+                balance_after,
+                balance_before + rewards,
+                "Protocol fee wallet balance should increase by the rewards amount"
+            );
+        }
+    }
+
+    // Distribute NCN Rewards (4% of total)
+    {
+        let rewards = ncn_reward_router.ncn_rewards();
+
+        if rewards > 0 {
+            let config = ncn_program_client.get_ncn_config(ncn).await?;
+            let ncn_fee_wallet = config.fee_config.ncn_fee_wallet();
+
+            let balance_before = {
+                let account = fixture.get_account(ncn_fee_wallet).await?;
+                account.unwrap().lamports
+            };
+
+            println!("Distributing {} of NCN Rewards", rewards);
+            ncn_program_client
+                .do_distribute_ncn_rewards(ncn, epoch)
+                .await?;
+
+            let balance_after = {
+                let account = fixture.get_account(ncn_fee_wallet).await?;
+                account.unwrap().lamports
+            };
+
+            assert_eq!(
+                balance_after,
+                balance_before + rewards,
+                "NCN fee wallet balance should increase by the rewards amount"
+            );
+        }
+    }
+
+    // Distribute Operator Vault Rewards (92% of total)
+    {
+        for operator_root in test_ncn.operators.iter() {
+            let operator = operator_root.operator_pubkey;
+
+            let operator_route = ncn_reward_router.operator_vault_reward_route(&operator);
+            let rewards = operator_route.rewards().unwrap_or(0);
+
+            if rewards == 0 {
+                continue;
+            }
+
+            println!("Distribute NCN Reward {}", rewards);
+            ncn_program_client
+                .do_distribute_operator_vault_reward_route(operator, ncn, epoch)
+                .await?;
+        }
+    }
+}
+```
+
+The NCN reward routing process follows these steps:
+
+1. **Timing Validation**: The system waits for the configured `valid_slots_after_consensus` period to ensure proper timing for reward distribution.
+2. **Reward Reception**: Rewards are deposited into the NCN Reward Receiver account, which serves as the entry point for all rewards.
+3. **Fee Calculation**: The system automatically calculates different fee categories based on the NCN configuration:
+   - **Protocol Fees**: 4% allocated to the Protocol for maintaining the underlying restaking infrastructure
+   - **NCN Fees**: 4% retained by the NCN for operational costs
+   - **Operator Vault Rewards**: 92% allocated to operators and their delegated vaults
+
+4. **Distribution Execution**: Each category of rewards is distributed to its respective recipients:
+   - **Protocol Rewards**: Transferred directly to the configured Protocol fee wallet
+   - **NCN Rewards**: Transferred to the NCN's fee wallet
+   - **Operator Vault Rewards**: Routed to individual Operator Vault Reward Routers for further distribution
+
+The distribution is weighted based on the operators' voting participation and stake weights from the consensus process, ensuring that rewards flow proportionally to participants who contributed to achieving consensus.
+
+##### 8.3 Operator Vault Reward Routing
+
+The second phase distributes rewards that were allocated to operators and vaults, managing the final distribution to individual participants.
+
+Copy and paste the following code at the bottom of your test function:
+
+```rust
+// Route rewards to operators and their delegated vaults
+{
+    let ncn = test_ncn.ncn_root.ncn_pubkey;
+    let epoch = fixture.clock().await.epoch;
+
+    for operator_root in test_ncn.operators.iter() {
+        let operator = operator_root.operator_pubkey;
+
+        // Route rewards to operator and vaults
+        ncn_program_client
+            .do_route_operator_vault_rewards(ncn, operator, epoch)
+            .await?;
+        // Should be able to route twice (idempotent operation)
+        ncn_program_client
+            .do_route_operator_vault_rewards(ncn, operator, epoch)
+            .await?;
+
+        let operator_vault_reward_router = ncn_program_client
+            .get_operator_vault_reward_router(operator, ncn, epoch)
+            .await?;
+
+        // Distribute operator's fee portion
+        let operator_rewards = operator_vault_reward_router.operator_rewards();
+        if operator_rewards > 0 {
+            ncn_program_client
+                .do_distribute_operator_rewards(operator, ncn, epoch)
+                .await?;
+        }
+
+        // Distribute rewards to vaults that delegated to this operator
+        for vault_root in test_ncn.vaults.iter() {
+            let vault = vault_root.vault_pubkey;
+
+            let vault_reward_route = operator_vault_reward_router.vault_reward_route(&vault);
+
+            if let Ok(vault_reward_route) = vault_reward_route {
+                let vault_rewards = vault_reward_route.rewards();
+
+                if vault_rewards > 0 {
+                    ncn_program_client
+                        .do_distribute_vault_rewards(vault, operator, ncn, epoch)
+                        .await?;
+                }
+            }
+        }
+    }
+}
+```
+
+The operator vault reward routing process manages distribution at the most granular level:
+
+1. **Operator Fee Calculation**: Each operator's configured fee (basis points) is calculated and retained by the operator. This fee is deducted from the total rewards allocated to that operator before vault distribution.
+2. **Vault Reward Distribution**: The remaining rewards are distributed to vaults that delegated stake to the operator, proportional to their delegation amounts and token weights.
+3. **Proportional Allocation**: Rewards are allocated based on:
+   - **Delegation Weight**: Larger delegations receive proportionally more rewards
+   - **Token Weight**: Different token types contribute different weighted values based on the weight table
+   - **Participation**: Only delegations that contributed to the voting process receive rewards
+4. **Idempotent Operations**: The routing operations are designed to be idempotent, meaning they can be called multiple times without adverse effects, ensuring reliability in distributed systems.
+
+This ensures that the economic incentives align with the security and participation goals of the NCN system.
+
+##### 8.4 Reward Architecture and Considerations
+
+The rewards system implements several key architectural principles:
+
+1. **Multi-Tier Distribution**:
+   - **Infrastructure Level**: Protocol receives 4% fees for maintaining the underlying restaking infrastructure
+   - **Network Level**: NCN receives 4% fees for operating the consensus network
+   - **Operator Level**: Operators receive their configured fee percentage for participation and validation services
+   - **Delegator Level**: Vault holders receive proportional rewards for providing stake
+2. **Proportional Incentives**:
+   - Rewards are distributed proportionally to stake weight contributions from the epoch snapshot
+   - Higher token weights result in higher reward allocations
+   - Active participation in voting is required to receive rewards
+   - Only operators with valid stake delegations can receive rewards
+3. **Configurable Fee Structure**:
+   - Protocol and NCN fees are set at 4% each in the current implementation
+   - Operator fees are individually configurable (e.g., 100 basis points = 1%)
+   - The system supports flexible reward allocation policies through configuration
+4. **Economic Security**:
+   - Reward distribution aligns economic incentives with network security
+   - Participants are rewarded for honest behavior and penalized for non-participation
+   - The system creates sustainable incentives for long-term network health
+   - Rewards are only distributed after consensus is reached
+5. **Transparency and Auditability**:
+   - All reward distributions are recorded on-chain with detailed routing accounts
+   - The calculation methodology is transparent and verifiable through the reward router accounts
+   - Historical reward data enables analysis of network economics
+   - Balance checks ensure accurate reward distribution
+6. **Reliability and Safety**:
+   - Timing constraints ensure rewards are only distributed after consensus finalization
+   - Idempotent operations prevent double-spending or incorrect distributions
+   - Balance verification ensures rewards are correctly transferred to recipients
+
+This comprehensive reward system ensures that all participants in the NCN ecosystem are appropriately compensated for their contributions while maintaining the security and integrity of the consensus mechanism.
+
+#### 9. Verification
+
+The Verification phase validates that the voting process completed successfully and that the expected consensus was achieved. This critical step confirms the integrity of the entire system by examining the on-chain data structures ([`BallotBox`](#ballotbox) and [`ConsensusResult`](#consensusresult)) and verifying they contain the expected results.
+
+##### 9.1 Ballot Box Verification
 
 After voting concludes, we first verify the `BallotBox` to ensure it correctly reflects that consensus was reached and identifies the expected winning ballot.
 
@@ -913,10 +1209,10 @@ The first verification step examines the `BallotBox` account for the completed e
   - `has_winning_ballot()` confirms that the `winning_ballot` field within the `BallotBox` structure is marked as valid.
 - **Consensus Status Check**:
 
-* **Winning Ballot Check**:
+- **Winning Ballot Check**:
   - `has_winning_ballot()` confirms that the `winning_ballot` field within the `BallotBox` structure is marked as valid.
 
-2.  **Consensus Status Check**:
+2. **Consensus Status Check**:
     - `is_consensus_reached()` checks if the `slot_consensus_reached` field is greater than zero, indicating the consensus condition was met during the voting process.
 
 - **Outcome Verification**:
@@ -924,7 +1220,7 @@ The first verification step examines the `BallotBox` account for the completed e
 
 Verifying the `BallotBox` ensures the core voting and tallying mechanism functioned correctly during the active epoch.
 
-##### 8.2 Consensus Result Account Verification
+##### 9.2 Consensus Result Account Verification
 
 Next, we verify the permanently stored `ConsensusResult` account to confirm it accurately records the winning outcome, epoch details, and vote weights, consistent with the `BallotBox`.
 
@@ -963,10 +1259,10 @@ The second verification step examines the `ConsensusResult` account, which serve
   - The test successfully fetches the `ConsensusResult` account using its PDA derived from the NCN pubkey and epoch. Its existence implies consensus was reached and the account was created.
 - **Consensus Status Validation**:
 
-* **Consensus Result Existence & Fetching**:
+- **Consensus Result Existence & Fetching**:
   - The test successfully fetches the `ConsensusResult` account using its PDA derived from the NCN pubkey and epoch. Its existence implies consensus was reached and the account was created.
 
-2.  **Consensus Status Validation**:
+2. **Consensus Status Validation**:
     - `is_consensus_reached()` checks an internal flag derived from stored values (like `consensus_slot` > 0), confirming the outcome is officially recognized.
 
 - **Metadata Verification**:
@@ -981,38 +1277,38 @@ The second verification step examines the `ConsensusResult` account, which serve
 
 Verifying the `ConsensusResult` confirms that the outcome was durably stored with the correct details and consistent with the voting process itself.
 
-##### 8.3 Architecture of Verification and Result Persistence
+##### 9.3 Architecture of Verification and Result Persistence
 
 The verification phase highlights several important architectural features:
 
-1.  **Dual Records**:
+1. **Dual Records**:
     - The system temporarily uses the `BallotBox` during the epoch for active voting and tallying.
     - Upon reaching consensus, it creates a separate, permanent `ConsensusResult` account.
     - This redundancy allows for cleanup while preserving the essential outcome.
-2.  **Separation of Process and Outcome**:
+2. **Separation of Process and Outcome**:
     - The `BallotBox` (process) can eventually be closed to reclaim rent.
     - The `ConsensusResult` (outcome) persists indefinitely as the historical record.
-3.  **Automated Result Creation**:
+3. **Automated Result Creation**:
     - The `ConsensusResult` account is typically created automatically within the `cast_vote` instruction when the consensus threshold is first met. This ensures timely recording without requiring a separate administrative action.
-4.  **Result Immutability**:
+4. **Result Immutability**:
     - The `ConsensusResult` account, once created, is designed to be immutable. It stores the outcome based on the state when consensus was reached.
-5.  **Time and Slot Tracking**:
+5. **Time and Slot Tracking**:
     - Both `BallotBox` and `ConsensusResult` store key timing information (`slot_consensus_reached`, `epoch`). This metadata is crucial for auditing and understanding the system's behavior over time.
 
-##### 8.4 Verification Techniques and Best Practices
+##### 9.4 Verification Techniques and Best Practices
 
 The verification approach demonstrates several best practices:
 
-1.  **Multi-Level Verification**: Testing both the ephemeral process account (`BallotBox`) and the persistent outcome account (`ConsensusResult`) provides comprehensive validation.
-2.  **State Assertions**: Using dedicated helper functions on the deserialized accounts (`has_winning_ballot()`, `is_consensus_reached()`) makes tests more readable and robust against internal representation changes.
-3.  **Equality Assertions**: Using strict equality (`assert_eq!`) for key outcome data (winning status, epoch, weights) ensures exactness.
-4.  **Cross-Structure Validation**: Comparing critical values (like `vote_weight`) between the `BallotBox` and `ConsensusResult` confirms data consistency across different parts of the system.
-5.  **Complete Outcome Validation**: Checking not just the winning choice but also associated metadata (epoch, weights, consensus flags) catches more subtle errors.
-6.  **Clear Reporting**: Outputting verified data (`println!`) provides immediate feedback during test runs.
+1. **Multi-Level Verification**: Testing both the ephemeral process account (`BallotBox`) and the persistent outcome account (`ConsensusResult`) provides comprehensive validation.
+2. **State Assertions**: Using dedicated helper functions on the deserialized accounts (`has_winning_ballot()`, `is_consensus_reached()`) makes tests more readable and robust against internal representation changes.
+3. **Equality Assertions**: Using strict equality (`assert_eq!`) for key outcome data (winning status, epoch, weights) ensures exactness.
+4. **Cross-Structure Validation**: Comparing critical values (like `vote_weight`) between the `BallotBox` and `ConsensusResult` confirms data consistency across different parts of the system.
+5. **Complete Outcome Validation**: Checking not just the winning choice but also associated metadata (epoch, weights, consensus flags) catches more subtle errors.
+6. **Clear Reporting**: Outputting verified data (`println!`) provides immediate feedback during test runs.
 
 This rigorous verification ensures the NCN system reliably achieves and records stake-weighted consensus according to its design.
 
-#### 9. Cleanup
+#### 10. Cleanup
 
 After the core functionality has been tested and verified for a given epoch, the temporary accounts associated with that epoch can be closed to reclaim the SOL locked for rent. The persistent `ConsensusResult` account remains.
 

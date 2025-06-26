@@ -386,7 +386,7 @@ The vault registry is a critical data structure that:
 
 Note that this is only initializing the vault registry. The vaults and the supported tokens will be registered in the next steps.
 
-Check out the vault registry struct [here](#vaultregistry)
+Check out the vault registry struct [here](/restaking/ncn-implementation-overview/#vaultregistry)
 
 ##### 5.3 Activating Relationships with Time Advancement
 
@@ -515,7 +515,7 @@ This step initializes the **Epoch State** for the current consensus cycle:
 
 Once initialized, the `EpochState` account becomes the authoritative record of where the system is in the voting process, preventing operations from happening out of order or in duplicate.
 
-You can take a look at the epoch state struct [here](#epochaccountstatus).
+You can take a look at the epoch state struct [here](/restaking/ncn-implementation-overview/#epochaccountstatus).
 
 ##### 6.2 Weight Table Initialization and Population
 
@@ -541,16 +541,16 @@ The weight table mechanism handles the token weights for the current epoch in tw
 
 1.  **Weight Table Initialization**:
 
-    - Creates a [`WeightTable`](#weighttable) account for the specific epoch using `do_full_initialize_weight_table`. This may involve multiple calls internally to allocate sufficient space.
-    - Allocates space based on the number of supported tokens registered in the [`VaultRegistry`](#vaultregistry).
+    - Creates a [`WeightTable`](/restaking/ncn-implementation-overview/#weighttable) account for the specific epoch using `do_full_initialize_weight_table`. This may involve multiple calls internally to allocate sufficient space.
+    - Allocates space based on the number of supported tokens registered in the [`VaultRegistry`](/restaking/ncn-implementation-overview/#vaultregistry).
     - Links the table to the NCN and current epoch.
     - Initializes the table structure with empty entries.
 
 2.  **Weight Setting**:
-    - Populates the [`WeightTable`](#weighttable) by calling `do_set_epoch_weights`
-    - Copies the current weights from the [`VaultRegistry`](#vaultregistry) to the epoch-specific `WeightTable`.
+    - Populates the [`WeightTable`](/restaking/ncn-implementation-overview/#weighttable) by calling `do_set_epoch_weights`
+    - Copies the current weights from the [`VaultRegistry`](/restaking/ncn-implementation-overview/#vaultregistry) to the epoch-specific `WeightTable`.
     - "Freezes" these weights for the duration of the consensus cycle.
-    - Updates the [`EpochState`](#epochaccountstatus) to mark weight setting as complete.
+    - Updates the [`EpochState`](/restaking/ncn-implementation-overview/#epochaccountstatus) to mark weight setting as complete.
     - Creates an immutable record of token weights that will be used for voting.
 
 This two-step process is critical for the integrity of the system as it:
@@ -573,7 +573,7 @@ fixture.add_epoch_snapshot_to_test_ncn(&test_ncn).await?;
 
 The epoch snapshot captures the aggregate state of the entire system:
 
-- Creates an [`EpochSnapshot`](#epochsnapshot) account for the NCN and epoch.
+- Creates an [`EpochSnapshot`](/restaking/ncn-implementation-overview/#epochsnapshot) account for the NCN and epoch.
 - Records the total number of operators and vaults expected to participate.
 - Captures the total potential stake weight across all participants (initialized to zero).
 - Stores important metadata like the snapshot creation slot.
@@ -628,7 +628,7 @@ Copy and paste the following code at the bottom of your test function:
 
 This step creates an individual snapshot for each operator in the system:
 
-- For each operator, it creates an [`OperatorSnapshot`](#operatorsnapshot) account linked to the operator, NCN, and epoch.
+- For each operator, it creates an [`OperatorSnapshot`](/restaking/ncn-implementation-overview/#operatorsnapshot) account linked to the operator, NCN, and epoch.
 - Records the operator's total delegated stake weight at this moment (initialized to zero).
 - Captures the expected number of vault delegations for the operator.
 - Verifies the operator has active handshakes with the NCN.
@@ -652,17 +652,17 @@ fixture
 This crucial step iterates through each active vault-to-operator delegation and records its contribution to the operator's voting power:
 
 - For each valid delegation found in the Jito Vault program:
-  - Retrieves the corresponding token weight from the epoch's [`WeightTable`](#weighttable).
+  - Retrieves the corresponding token weight from the epoch's [`WeightTable`](/restaking/ncn-implementation-overview/#weighttable).
   - Calculates the weighted stake for that delegation (delegation amount \* token weight).
-  - Updates the relevant [`OperatorSnapshot`](#operatorsnapshot) by adding the calculated stake weight.
-  - Stores detailed information about the weighted delegation within the [`OperatorSnapshot`](#operatorsnapshot)'s `vault_operator_stake_weight` array.
-  - Increments the total stake weight in the global [`EpochSnapshot`](#epochsnapshot).
-  - Creates a [`VaultOperatorDelegationSnapshot`](#vaultoperatordelegationsnapshot) account for detailed auditing.
+  - Updates the relevant [`OperatorSnapshot`](/restaking/ncn-implementation-overview/#operatorsnapshot) by adding the calculated stake weight.
+  - Stores detailed information about the weighted delegation within the [`OperatorSnapshot`](/restaking/ncn-implementation-overview/#operatorsnapshot)'s `vault_operator_stake_weight` array.
+  - Increments the total stake weight in the global [`EpochSnapshot`](/restaking/ncn-implementation-overview/#epochsnapshot).
+  - Creates a [`VaultOperatorDelegationSnapshot`](/restaking/ncn-implementation-overview/#vaultoperatordelegationsnapshot) account for detailed auditing.
 
 These granular snapshots serve multiple purposes:
 
-- They populate the [`OperatorSnapshot`](#operatorsnapshot) accounts with the actual stake weights used for voting.
-- They update the [`EpochSnapshot`](#epochsnapshot) with the total voting power present in the system for this epoch.
+- They populate the [`OperatorSnapshot`](/restaking/ncn-implementation-overview/#operatorsnapshot) accounts with the actual stake weights used for voting.
+- They update the [`EpochSnapshot`](/restaking/ncn-implementation-overview/#epochsnapshot) with the total voting power present in the system for this epoch.
 - They provide detailed audit trails of exactly where each operator's voting power originates.
 - They enable verification of correct weight calculation for each delegation.
 - They prevent retroactive manipulation of the voting power distribution.
@@ -680,13 +680,13 @@ fixture.add_ballot_box_to_test_ncn(&test_ncn).await?;
 
 The final preparation step creates the ballot box:
 
-- Initializes a [`BallotBox`](#ballotbox) account linked to the NCN and epoch using `do_full_initialize_ballot_box`. Similar to the weight table, this may require multiple allocation calls internally.
-- Creates arrays to track operator votes ([`OperatorVote`](#operatorvote)) and ballot tallies ([`BallotTally`](#ballottally)).
+- Initializes a [`BallotBox`](/restaking/ncn-implementation-overview/#ballotbox) account linked to the NCN and epoch using `do_full_initialize_ballot_box`. Similar to the weight table, this may require multiple allocation calls internally.
+- Creates arrays to track operator votes ([`OperatorVote`](/restaking/ncn-implementation-overview/#operatorvote)) and ballot tallies ([`BallotTally`](/restaking/ncn-implementation-overview/#ballottally)).
 - Sets up the data structures for recording and counting votes.
 - Prepares the consensus tracking mechanism.
-- Links the ballot box to the [`EpochState`](#epochaccountstatus) for progress tracking.
+- Links the ballot box to the [`EpochState`](/restaking/ncn-implementation-overview/#epochaccountstatus) for progress tracking.
 
-The [`BallotBox`](#ballotbox) becomes the central repository where all votes are recorded and tallied during the voting process. It is designed to efficiently track:
+The [`BallotBox`](/restaking/ncn-implementation-overview/#ballotbox) becomes the central repository where all votes are recorded and tallied during the voting process. It is designed to efficiently track:
 
 - Which operators have voted and what they voted for.
 - The cumulative stake weight behind each voting option (ballot).
@@ -789,19 +789,19 @@ Under the hood, each vote triggers several key operations within the `cast_vote`
 
 - **Verification**:
   - Verifies the operator admin's signature.
-  - Checks that the operator hasn't already voted in this epoch using the [`BallotBox`](#ballotbox).
-  - Retrieves the operator's [`OperatorSnapshot`](#operatorsnapshot) to confirm eligibility and get its total stake weight.
-  - Ensures the [`EpochState`](#epochaccountstatus) indicates voting is currently allowed.
+  - Checks that the operator hasn't already voted in this epoch using the [`BallotBox`](/restaking/ncn-implementation-overview/#ballotbox).
+  - Retrieves the operator's [`OperatorSnapshot`](/restaking/ncn-implementation-overview/#operatorsnapshot) to confirm eligibility and get its total stake weight.
+  - Ensures the [`EpochState`](/restaking/ncn-implementation-overview/#epochaccountstatus) indicates voting is currently allowed.
 - **Recording**:
-  - Records the vote details (operator, slot, stake weight, ballot choice) in the `operator_votes` array within the [`BallotBox`](#ballotbox).
+  - Records the vote details (operator, slot, stake weight, ballot choice) in the `operator_votes` array within the [`BallotBox`](/restaking/ncn-implementation-overview/#ballotbox).
   - Marks the operator as having voted.
 - **Tallying**:
-  - Finds or creates a [`BallotTally`](#ballottally) for the chosen weather status in the `ballot_tallies` array.
+  - Finds or creates a [`BallotTally`](/restaking/ncn-implementation-overview/#ballottally) for the chosen weather status in the `ballot_tallies` array.
   - Adds the operator's full stake weight (from the snapshot) to this tally.
   - Increments the raw vote count for this tally.
 - **Consensus Check**:
-  - Compares the updated tally's stake weight against the total stake weight recorded in the [`EpochSnapshot`](#epochsnapshot).
-  - If the tally now exceeds the consensus threshold (e.g., 66%), it marks consensus as reached in the [`BallotBox`](#ballotbox) and records the current slot.
+  - Compares the updated tally's stake weight against the total stake weight recorded in the [`EpochSnapshot`](/restaking/ncn-implementation-overview/#epochsnapshot).
+  - If the tally now exceeds the consensus threshold (e.g., 66%), it marks consensus as reached in the [`BallotBox`](/restaking/ncn-implementation-overview/#ballotbox) and records the current slot.
 
 ##### 7.3 Establishing Consensus Through Majority Voting
 
@@ -826,14 +826,14 @@ for operator_root in test_ncn.operators.iter().take(OPERATOR_COUNT).skip(3) {
 
 The consensus mechanism works as follows:
 
-- The system maintains a running [`BallotTally`](#ballottally) for each unique option voted on.
+- The system maintains a running [`BallotTally`](/restaking/ncn-implementation-overview/#ballottally) for each unique option voted on.
 - After each vote, it recalculates the total stake weight supporting the voted option.
-- It compares this stake weight to the total stake weight available in the [`EpochSnapshot`](#epochsnapshot).
+- It compares this stake weight to the total stake weight available in the [`EpochSnapshot`](/restaking/ncn-implementation-overview/#epochsnapshot).
 - If an option's stake weight reaches the consensus threshold (e.g., >= 66%), the system:
-  - Marks that `Ballot` as the `winning_ballot` in the [`BallotBox`](#ballotbox).
+  - Marks that `Ballot` as the `winning_ballot` in the [`BallotBox`](/restaking/ncn-implementation-overview/#ballotbox).
   - Records the current `slot` in `slot_consensus_reached`.
   - Updates the `EpochState`.
-  - Creates a persistent [`ConsensusResult`](#consensusresult) account (discussed in Verification).
+  - Creates a persistent [`ConsensusResult`](/restaking/ncn-implementation-overview/#consensusresult) account (discussed in Verification).
 - Consensus requires a supermajority to ensure decisions have strong, verifiable support across the network's weighted stake.
 
 ##### 7.4 Vote Processing Architecture
@@ -842,17 +842,17 @@ When an operator casts a vote via the `cast_vote` instruction, the system perfor
 
 - **Authentication**: Verifies the transaction is signed by the correct `operator_admin` keypair associated with the `operator` account.
 - **Authorization & Preconditions**: Confirms that:
-  - The operator exists, is registered with the NCN, and has an active [`OperatorSnapshot`](#operatorsnapshot) for the current `epoch`.
-  - The operator has not already voted in this epoch (checked via [`BallotBox`](#ballotbox)).
-  - The operator has non-zero stake weight in their [`OperatorSnapshot`](#operatorsnapshot).
-  - The [`EpochState`](#epochaccountstatus) confirms that the snapshotting phase is complete and voting is open.
+  - The operator exists, is registered with the NCN, and has an active [`OperatorSnapshot`](/restaking/ncn-implementation-overview/#operatorsnapshot) for the current `epoch`.
+  - The operator has not already voted in this epoch (checked via [`BallotBox`](/restaking/ncn-implementation-overview/#ballotbox)).
+  - The operator has non-zero stake weight in their [`OperatorSnapshot`](/restaking/ncn-implementation-overview/#operatorsnapshot).
+  - The [`EpochState`](/restaking/ncn-implementation-overview/#epochaccountstatus) confirms that the snapshotting phase is complete and voting is open.
 - **Vote Recording**:
-  - Locates an empty slot or confirms the operator hasn't voted in the `operator_votes` array within the [`BallotBox`](#ballotbox).
-  - Stores the `operator` pubkey, current `slot`, the operator's total `stake_weights` (from [`OperatorSnapshot`](#operatorsnapshot)), and the index corresponding to the chosen ballot within the `ballot_tallies` array.
-  - Increments the `operators_voted` counter in the [`BallotBox`](#ballotbox).
+  - Locates an empty slot or confirms the operator hasn't voted in the `operator_votes` array within the [`BallotBox`](/restaking/ncn-implementation-overview/#ballotbox).
+  - Stores the `operator` pubkey, current `slot`, the operator's total `stake_weights` (from [`OperatorSnapshot`](/restaking/ncn-implementation-overview/#operatorsnapshot)), and the index corresponding to the chosen ballot within the `ballot_tallies` array.
+  - Increments the `operators_voted` counter in the [`BallotBox`](/restaking/ncn-implementation-overview/#ballotbox).
 - **Ballot Processing & Tallying**:
   - Searches the `ballot_tallies` array for an existing entry matching the `weather_status`.
-  - If found: Adds the operator's `stake_weights` to the `stake_weights` field of the existing [`BallotTally`](#ballottally) and increments the raw `tally` counter.
+  - If found: Adds the operator's `stake_weights` to the `stake_weights` field of the existing [`BallotTally`](/restaking/ncn-implementation-overview/#ballottally) and increments the raw `tally` counter.
   - If not found: Initializes a new `BallotTally` entry with the `weather_status`, the operator's `stake_weights`, and a `tally` of 1. Increments `unique_ballots`.
 - **Consensus Calculation & Result Creation**:
   - Retrieves the total `stake_weights` from the `EpochSnapshot`.
@@ -874,20 +874,20 @@ The voting process incorporates several key security features:
   - Voting power is derived directly from snapshotted stake weight, not operator count.
   - Operators with zero snapshotted stake weight cannot vote, preventing attacks based on creating numerous fake operators.
 - **Replay Protection**:
-  - The [`BallotBox`](#ballotbox) tracks which operators have voted (`operator_votes` array).
+  - The [`BallotBox`](/restaking/ncn-implementation-overview/#ballotbox) tracks which operators have voted (`operator_votes` array).
   - Attempts by an operator to vote more than once within the same epoch are rejected.
 - **Time-Bound Voting**:
-  - Votes are only accepted if the [`EpochState`](#epochaccountstatus) indicates the voting phase is active for the specified `epoch`.
+  - Votes are only accepted if the [`EpochState`](/restaking/ncn-implementation-overview/#epochaccountstatus) indicates the voting phase is active for the specified `epoch`.
   - While votes might be accepted slightly after consensus is reached (within `valid_slots_after_consensus`), they won't change the already determined outcome.
 - **Authority**: Requires `operator_admin` signature.
 - **Tamper-Proof Tallying**: Uses immutable snapshotted data created _before_ voting began.
-- **Consistent Threshold**: Calculated based on the total stake weight recorded in the [`EpochSnapshot`](#epochsnapshot), providing a fixed target for the epoch.
+- **Consistent Threshold**: Calculated based on the total stake weight recorded in the [`EpochSnapshot`](/restaking/ncn-implementation-overview/#epochsnapshot), providing a fixed target for the epoch.
 
 These security measures ensure the voting process remains resilient against various attack vectors and manipulation attempts, maintaining the integrity of the consensus mechanism.
 
 #### 8. Verification
 
-The Verification phase validates that the voting process completed successfully and that the expected consensus was achieved. This critical step confirms the integrity of the entire system by examining the on-chain data structures ([`BallotBox`](#ballotbox) and [`ConsensusResult`](#consensusresult)) and verifying they contain the expected results.
+The Verification phase validates that the voting process completed successfully and that the expected consensus was achieved. This critical step confirms the integrity of the entire system by examining the on-chain data structures ([`BallotBox`](/restaking/ncn-implementation-overview/#ballotbox) and [`ConsensusResult`](/restaking/ncn-implementation-overview/#consensusresult)) and verifying they contain the expected results.
 
 ##### 8.1 Ballot Box Verification
 

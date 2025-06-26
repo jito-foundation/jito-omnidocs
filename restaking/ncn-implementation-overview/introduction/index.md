@@ -43,7 +43,9 @@ Operators are accounts that receive delegated stake from vaults and actively par
 3. Forming the network of active participants who drive the consensus process.
 
 #### 3. Keepers
+
 Keepers are offchain agents that monitor the network and submit onchain instructions to advance the NCN through its lifecycle. They operate autonomously and are fully permissionless. Their responsibilities include:
+
 1. Monitoring the current onchain state.
 2. Executing program instructions to progress through state like voting, post-vote logging and epoch finalization.
 3. Emitting metrics or logs to external systems for observability.

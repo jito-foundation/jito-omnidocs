@@ -663,7 +663,7 @@ This crucial step iterates through each active vault-to-operator delegation and 
 
 These granular snapshots serve multiple purposes:
 
-- They populate the [`OperatorSnapshot`](restaking/ncn-implementation-overview/core-structs/#operatorsnapshot) accounts with the actual stake weights used for voting.
+- They populate the [`OperatorSnapshot`](/restaking/ncn-implementation-overview/core-structs/#operatorsnapshot) accounts with the actual stake weights used for voting.
 - They update the [`EpochSnapshot`](/restaking/ncn-implementation-overview/core-structs/#epochsnapshot) with the total voting power present in the system for this epoch.
 - They provide detailed audit trails of exactly where each operator's voting power originates.
 - They enable verification of correct weight calculation for each delegation.

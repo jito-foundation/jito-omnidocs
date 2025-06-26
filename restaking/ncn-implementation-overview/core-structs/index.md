@@ -417,3 +417,130 @@ pub struct EpochAccountStatus {
 ```
 
 - **Explanation**: Uses `u8` fields to represent the status of various temporary accounts associated with a specific epoch.
+
+### NCNRewardRouter
+
+file: `ncn_reward_router.rs`
+
+- **Purpose**: The main entry point for routing rewards from NCNs. This router receives rewards and distributes them according to the fee structure.
+- **Definition**:
+
+```rust
+#[derive(Debug, Clone, Copy, Zeroable, Pod, AccountDeserialize, ShankAccount)]
+#[repr(C)]
+pub struct NCNRewardRouter {
+    /// NCN the account is associated with
+    ncn: Pubkey,
+    /// The epoch the account is associated with
+    epoch: PodU64,
+    /// Bump seed for the PDA
+    bump: u8,
+    /// Slot the account was created
+    slot_created: PodU64,
+    /// Total rewards routed (in lamports) - cumulative amount ever processed
+    total_rewards: PodU64,
+    /// Amount of rewards in the reward pool (in lamports) - awaiting distribution
+    reward_pool: PodU64,
+    /// Amount of rewards processed (in lamports) - moved out of reward pool for distribution
+    rewards_processed: PodU64,
+    /// Reserved space for future fields
+    reserved: [u8; 128],
+    /// Last vote index processed during routing (for resuming partial operations)
+    last_vote_index: PodU16,
+    /// Last rewards amount being processed during routing (for resuming partial operations)
+    last_rewards_to_process: PodU64,
+    /// Rewards allocated to the Protocol (ready for distribution)
+    protocol_rewards: PodU64,
+    /// Rewards allocated to the NCN (ready for distribution)
+    ncn_rewards: PodU64,
+    /// Total rewards allocated to operator-vault reward receivers (before individual routing)
+    operator_vault_rewards: PodU64,
+    /// Individual operator reward routes - tracks rewards per operator
+    /// Array size 256 limits the number of operators that can participate in an epoch
+    operator_vault_reward_routes: [OperatorVaultRewardRoute; 256],
+}
+```
+
+- **Explanation**: The router distributes rewards in three tiers: 4% to Protocol, 4% to NCN, and 92% to operator-vault rewards. It supports partial routing through iterations to handle large numbers of operators without hitting transaction limits.
+
+### OperatorVaultRewardRouter
+
+file: `operator_vault_reward_router.rs`
+
+- **Purpose**: Routes rewards from operators to their associated vaults. This router handles the final stage of reward distribution where operator rewards are further distributed to the vaults they operate.
+- **Definition**:
+
+```rust
+#[derive(Debug, Clone, Copy, Zeroable, Pod, AccountDeserialize, ShankAccount)]
+#[repr(C)]
+pub struct OperatorVaultRewardRouter {
+    /// The operator the router is associated with
+    operator: Pubkey,
+    /// The NCN the router is associated with
+    ncn: Pubkey,
+    /// The epoch the router is associated with
+    epoch: PodU64,
+    /// The bump seed for the PDA
+    bump: u8,
+    /// The slot the router was created
+    slot_created: PodU64,
+    /// The operator's index within the NCN
+    ncn_operator_index: PodU64,
+    /// The total rewards that have been routed (in lamports) - cumulative amount ever processed
+    total_rewards: PodU64,
+    /// The rewards in the reward pool (in lamports) - awaiting distribution
+    reward_pool: PodU64,
+    /// The rewards that have been processed (in lamports) - moved out of reward pool
+    rewards_processed: PodU64,
+    /// Rewards allocated to the operator (in lamports) - operator's fee portion
+    operator_rewards: PodU64,
+    /// The last rewards amount being processed during routing (for resuming partial operations)
+    last_rewards_to_process: PodU64,
+    /// The last vault operator delegation index processed during routing
+    last_vault_operator_delegation_index: PodU16,
+    /// Individual vault reward routes - tracks rewards per vault (limited to 64 vaults)
+    vault_reward_routes: [VaultRewardRoute; 64],
+}
+```
+
+- **Explanation**: The distribution is based on the operator taking their fee percentage first, then remaining rewards are distributed to vaults proportionally by stake weight. It supports partial routing through iterations to handle large numbers of vaults.
+
+### OperatorVaultRewardRoute
+
+file: `ncn_reward_router.rs`
+
+- **Purpose**: A component structure within `NCNRewardRouter` that tracks rewards allocated to a specific operator within the reward routing system.
+- **Definition**:
+
+```rust
+#[derive(Debug, Clone, Copy, Zeroable, Pod, ShankType)]
+#[repr(C)]
+pub struct OperatorVaultRewardRoute {
+    /// The operator pubkey
+    operator: Pubkey,
+    /// Reward amount allocated to this operator
+    rewards: NCNRewardRouterRewards,
+}
+```
+
+- **Explanation**: Stores the mapping between an operator and their allocated reward amount within the NCN reward routing system.
+
+### VaultRewardRoute
+
+file: `operator_vault_reward_router.rs`
+
+- **Purpose**: A component structure within `OperatorVaultRewardRouter` that tracks rewards allocated to a specific vault within the operator's reward distribution.
+- **Definition**:
+
+```rust
+#[derive(Debug, Clone, Copy, Zeroable, Pod, ShankType)]
+#[repr(C)]
+pub struct VaultRewardRoute {
+    /// The vault pubkey that will receive rewards
+    vault: Pubkey,
+    /// The amount of rewards allocated to this vault (in lamports)
+    rewards: PodU64,
+}
+```
+
+- **Explanation**: Stores the mapping between a vault and its allocated reward amount within an operator's reward distribution system.

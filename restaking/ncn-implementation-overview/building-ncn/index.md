@@ -1183,7 +1183,8 @@ This comprehensive reward system ensures that all participants in the NCN ecosys
 
 #### 9. Verification
 
-After consensus is reached, the NCN system can distribute rewards to participants based on their contributions to the consensus process. The rewards system operates through a multi-layered distribution mechanism that allocates rewards to different stakeholders: the Protocol, the NCN itself, operators, and vaults.
+The Verification phase validates that the voting process completed successfully and that the expected consensus was achieved.
+This critical step confirms the integrity of the entire system by examining the on-chain data structures ([`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox) and [`ConsensusResult`](/restaking/ncn-implementation-overview/core-structs/#consensusresult)) and verifying they contain the expected results.
 
 ##### 9.1 Ballot Box Verification
 

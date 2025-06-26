@@ -71,5 +71,5 @@ Check your wallet and you should see Jito Staked SOL in the amount you chose to 
 
 #### Step 6: Enjoy your JitoSOL
 
-You can use JitoSOL with our DeFi partners (see [guide](/jitosol/get-started/using-jitosol)) or safely accrue yield from stake and MEV rewards.
+You can use JitoSOL with our DeFi partners (see [guide](/jitosol/get-started/using-jitosol-flow/using-overview/)) or safely accrue yield from stake and MEV rewards.
 

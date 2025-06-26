@@ -14,24 +14,24 @@ Our example NCN Program facilitates consensus on a simple "weather status" using
 The program uses several types of accounts:
 
 1.  **Global Accounts**: Initialized once at the start and updated infrequently.
-    - **[`Config`](/restaking/ncn-implementation-overview/#config)**: Stores global settings like epoch timing parameters (`epochs_before_stall`, `epochs_after_consensus_before_close`) and voting validity periods (`valid_slots_after_consensus`).
-    - **[`VaultRegistry`](/restaking/ncn-implementation-overview/#vaultregistry)**: Manages the list of registered vaults and the different types of stake tokens (mints) the NCN supports.
-    - **[`AccountPayer`](/restaking/ncn-implementation-overview/#accountpayer)**: An empty PDA account used to hold SOL temporarily for paying rent during account creation or reallocation.
+    - **[`Config`](/restaking/ncn-implementation-overview/core-structs/#config)**: Stores global settings like epoch timing parameters (`epochs_before_stall`, `epochs_after_consensus_before_close`) and voting validity periods (`valid_slots_after_consensus`).
+    - **[`VaultRegistry`](/restaking/ncn-implementation-overview/core-structs/#vaultregistry)**: Manages the list of registered vaults and the different types of stake tokens (mints) the NCN supports.
+    - **[`AccountPayer`](/restaking/ncn-implementation-overview/core-structs/#accountpayer)**: An empty PDA account used to hold SOL temporarily for paying rent during account creation or reallocation.
 2.  **Per-Consensus Cycle Accounts**: Initialized at the beginning of each epoch and usually closed shortly after the cycle ends.
-    - **[`WeightTable`](/restaking/ncn-implementation-overview/#weighttable)**: Stores the specific voting weights assigned to different stake tokens for the current epoch.
-    - **[`EpochState`](/restaking/ncn-implementation-overview/#epochaccountstatus)**: Tracks the status and progress of the current epoch's consensus cycle.
-    - **[`BallotBox`](/restaking/ncn-implementation-overview/#ballotbox)**: Handles the collection and stake-weighted tallying of votes for the current epoch's decision (e.g., weather status).
-    - **[`EpochSnapshot`](/restaking/ncn-implementation-overview/#epochsnapshot)**: Captures the state of stake delegations at the beginning of the epoch to ensure consistent voting weights throughout the cycle.
-    - **[`OperatorSnapshot`](/restaking/ncn-implementation-overview/#operatorsnapshot)**: Records each operator's total stake weight and delegation breakdown for the current epoch.
-    - **[`ConsensusResult`](/restaking/ncn-implementation-overview/#consensusresult)**: Stores the final outcome (the winning ballot and associated details) for the completed epoch.
-    - **[`EpochMarker`](/restaking/ncn-implementation-overview/#epochmarker)**: A marker account created when all temporary accounts for an epoch have been successfully closed.
+    - **[`WeightTable`](/restaking/ncn-implementation-overview/core-structs/#weighttable)**: Stores the specific voting weights assigned to different stake tokens for the current epoch.
+    - **[`EpochState`](/restaking/ncn-implementation-overview/core-structs/#epochaccountstatus)**: Tracks the status and progress of the current epoch's consensus cycle.
+    - **[`BallotBox`](/restaking/ncn-implementation-overview/core-structs/#ballotbox)**: Handles the collection and stake-weighted tallying of votes for the current epoch's decision (e.g., weather status).
+    - **[`EpochSnapshot`](/restaking/ncn-implementation-overview/core-structs/#epochsnapshot)**: Captures the state of stake delegations at the beginning of the epoch to ensure consistent voting weights throughout the cycle.
+    - **[`OperatorSnapshot`](/restaking/ncn-implementation-overview/core-structs/#operatorsnapshot)**: Records each operator's total stake weight and delegation breakdown for the current epoch.
+    - **[`ConsensusResult`](/restaking/ncn-implementation-overview/core-structs/#consensusresult)**: Stores the final outcome (the winning ballot and associated details) for the completed epoch.
+    - **[`EpochMarker`](/restaking/ncn-implementation-overview/core-structs/#epochmarker)**: A marker account created when all temporary accounts for an epoch have been successfully closed.
 3.  **Component Structures**: These are not separate accounts but important data structures used within the accounts above.
-    - **[`Ballot`](/restaking/ncn-implementation-overview/#ballot)**: Represents a single potential outcome in the consensus process.
-    - **[`BallotTally`](/restaking/ncn-implementation-overview/#ballottally)**: Aggregates votes and stake weight for a specific ballot.
-    - **[`OperatorVote`](/restaking/ncn-implementation-overview/#operatorvote)**: Records a vote cast by a single operator.
-    - **[`VaultOperatorStakeWeight`](/restaking/ncn-implementation-overview/#vaultoperatorstakeweight)**: Tracks the weighted stake from a specific vault to an operator.
-    - **[`StMintEntry`](/restaking/ncn-implementation-overview/#stmintentry)**: Represents a supported token mint and its voting weight in the VaultRegistry.
-    - **[`VaultEntry`](/restaking/ncn-implementation-overview/#vaultentry)**: Represents a registered vault in the VaultRegistry.
+    - **[`Ballot`](/restaking/ncn-implementation-overview/core-structs/#ballot)**: Represents a single potential outcome in the consensus process.
+    - **[`BallotTally`](/restaking/ncn-implementation-overview/core-structs/#ballottally)**: Aggregates votes and stake weight for a specific ballot.
+    - **[`OperatorVote`](/restaking/ncn-implementation-overview/core-structs/#operatorvote)**: Records a vote cast by a single operator.
+    - **[`VaultOperatorStakeWeight`](/restaking/ncn-implementation-overview/core-structs/#vaultoperatorstakeweight)**: Tracks the weighted stake from a specific vault to an operator.
+    - **[`StMintEntry`](/restaking/ncn-implementation-overview/core-structs/#stmintentry)**: Represents a supported token mint and its voting weight in the VaultRegistry.
+    - **[`VaultEntry`](/restaking/ncn-implementation-overview/core-structs/#vaultentry)**: Represents a registered vault in the VaultRegistry.
 
 ### Weather status system
 

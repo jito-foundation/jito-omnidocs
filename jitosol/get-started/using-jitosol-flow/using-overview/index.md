@@ -20,7 +20,7 @@ subtitle: 'JitoSOL has several integrations currently and many others in the pro
 
 [Orca](/jitosol/get-started/using-jitosol-flow/orca)
 
-[Kamino Finance](/jitosol/get-started/using-jitosol-flow/kamino-finance)
+[Kamino Finance](/jitosol/get-started/using-jitosol-flow/kamino)
 
 [Raydium](/jitosol/get-started/using-jitosol-flow/raydium)
 

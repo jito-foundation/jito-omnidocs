@@ -1,5 +1,5 @@
 ---
-title: "Vault"
+title: "Vaults"
 subtitle: "An overview of the Vault component."
 section_type: "page"
 order: 10

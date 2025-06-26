@@ -1,5 +1,5 @@
 ---
-title: "NCN"
+title: "NCNs"
 subtitle: "An overview of the Node Consensus Network (NCN) component."
 section_type: "page"
 order: 30

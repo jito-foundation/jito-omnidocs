@@ -1,5 +1,5 @@
 ---
-title: Operators Overview
+title: Operators
 order: 20
 subtitle: 'Infrastructure providers that run NCN software and manage delegated assets in the Jito Restaking ecosystem'
 section_type: page

@@ -1,7 +1,7 @@
 ---
 title: Vault Accounts
 order: 0
-subtitle: ''
+subtitle: 'An overview of the accounts used in the Jito Vault program.'
 section_type: page
 mermaid: true
 ---

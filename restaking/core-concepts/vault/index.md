@@ -2,7 +2,7 @@
 title: "Vault"
 subtitle: "An overview of the Vault component."
 section_type: "page"
-order: 3
+order: 10
 ---
 
 ## Overview
@@ -90,6 +90,3 @@ let program_id = jito_restaking_program::id();
 let base_pubkey = pubkey!("base pubkey here");
 let vault_pubkey = Vault::find_program_address(&program_id, &base_pubkey).0;
 ```
-
-## References
-- [Vault Accounts](/restaking/vault/vault-accounts)

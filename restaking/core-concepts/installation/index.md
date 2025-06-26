@@ -2,7 +2,7 @@
 title: "Installation"
 subtitle: "How to install the Jito Restaking CLI."
 section_type: "page"
-order: 5
+order: 50
 ---
 
 ## Install CLI

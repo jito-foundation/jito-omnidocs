@@ -101,34 +101,35 @@ Here's the step-by-step process:
     
     ###### Decrease Stake Conditions
     
-    Triggers when:
+    **Triggers when**:
 
     - Current stake exceeds target allocation, OR
     - Validator is marked for instant unstake
     - No transient stake operations pending
 
-    Unstaking Caps Applied:
+    **Unstaking Caps Applied**:
 
     - Scoring Unstake Cap: Limits stake reduction based on performance scoring
     - Instant Unstake Cap: Controls emergency unstaking amounts
     - Stake Deposit Unstake Cap: Manages withdrawal of recent deposits
 
-    Delegation Redistribution:
+    **Delegation Redistribution**:
     For instant unstake scenarios, the system automatically redistributes the validator's delegation percentage to other eligible validators by adjusting their denominators.
     
     ###### Increase Stake Conditions
     
-    Triggers when:
+    **Triggers when**:
 
     - Current stake is below target allocation
     - Sufficient reserve lamports available
     - No transient stake operations pending
 
-    No Action
+    **No Action**
     
     **When current allocation is optimal or constraints prevent changes**
 
-    State Updates
+    ##### State Updates
+
     After determining rebalance type, the system updates:
 
     - Validator lamport balances to reflect new stake levels
@@ -161,31 +162,47 @@ The system supports three types of rebalance operations:
 - When: Current stake allocation is optimal
 - Action: No stake movement required
 
-## Key Components
+## Execution
 
-### Accounts Required: 
+The rebalance system operates on a one-instruction-per-validator model where:
 
-- Config and state accounts for system parameters
-- Validator history for performance data
-- Stake pool and associated accounts
-- Validator's stake and transient stake accounts
-- System programs (clock, rent, stake history, etc.)
+- [Keeper]() calls the rebalance instruction individually for each validator in the pool
+- Each instruction processes a single validator and determines its optimal stake allocation
+The system maintains progress tracking to ensure each validator is processed exactly once per cycle
+Keepers can process validators in any order, allowing for parallel or distributed execution
 
-### Security Features:
+Keeper Implementation
+The keeper automates the rebalance process by:
+Validator Discovery:
 
-- Validator must exist in validator list
-- Vote account ownership verification
-- Minimum delegation and rent requirements enforced
-- Signed instruction execution with proper authority
+Identifies unprogressed validators using get_unprogressed_validators()
+Filters validators that haven't been processed in the current rebalance cycle
+Maintains validator history program compatibility
 
-## Events & Monitoring
+Instruction Generation:
 
-The system emits `RebalanceEvent` for each operation, including:
+Creates individual rebalance instructions for each validator
+Derives required account addresses (stake, transient stake) per validator
+Packages all required accounts for each instruction including:
 
-- Vote account identifier
-- Current epoch
-- Rebalance type (None/Increase/Decrease)
-- Lamports amount involved
-- Decrease operation details
+Config and state accounts
+Validator-specific accounts (vote, stake, transient stake, history)
+System programs and sysvars
 
-This enables tracking and monitoring of all stake rebalancing activities across the pool.
+
+
+Transaction Management:
+
+Packages instructions into optimized transactions (configurable batch size)
+Handles priority fees and compute unit limits
+Submits transactions with retry logic and timeout handling
+Provides execution statistics and monitoring
+
+Parallel Processing:
+Since each validator is processed independently, keepers can:
+
+Run multiple transactions concurrently
+Distribute workload across multiple keeper instances
+Resume processing from any point without duplicating work
+
+This design enables efficient, granular control over stake rebalancing while maintaining system integrity through built-in progress tracking and state validation.

@@ -12,7 +12,7 @@ The best way to do this will be through an automated system to collect informati
 
 ## How It Works
 
-The rebalance system automatically adjusts stake allocation across validators based on performance and pool conditions.
+The [rebalance system](https://github.com/jito-foundation/stakenet/blob/master/programs/steward/src/instructions/rebalance.rs) automatically adjusts stake allocation across validators based on performance and pool conditions.
 Here's the step-by-step process:
 
 1. **State Transition Check**: Automatically transitions between system states based on current conditions and timing parameters

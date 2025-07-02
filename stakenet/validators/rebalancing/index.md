@@ -95,6 +95,32 @@ Here's the step-by-step process:
     - Compares against current validator stake (minus minimum delegation)
     - Tracks validator lamport balances to detect stake deposit deltas
 
+    Target Lamports Calculation
+
+    The system calculates each validator's target stake allocation using a fractional delegation system:
+
+    Delegation Structure: Each validator has a `Delegation` with:
+    - **Numerator**: The validator's share portion
+    - **Denominator**: The total shares in the pool
+
+    Calculation Logic:
+
+    ```
+    Target Lamports = (Pool Lamports * Numerator) / Denominator
+    ```
+
+    Special Cases:
+    - Zero Allocation (numerator = 0): Target is 0 lamports
+    - Equal Distribution (numerator = 1): Target is pool_lamports / denominator
+    - Proportional Allocation (numerator > 1): Uses 128-bit arithmetic to prevent overflow
+
+    Key Features:
+    - Precision Loss: Acceptable loss up to `denominator` lamports due to integer division
+    - Overflow Protection: Uses 128-bit intermediate calculations for larget values
+    - Immovable Stake: Pool lamports input excludes base costs (minimum delegation + rent) since these cannot be redistributed
+
+    This fractional system allows for precise percentage-based allocation while maintaining computation efficiency and preventing arithmetic errors.
+
     ##### Decision Logic
 
     The system determines rebalance type through a three-tier evaluation:

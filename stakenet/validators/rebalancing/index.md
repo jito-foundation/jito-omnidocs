@@ -116,7 +116,7 @@ Here's the step-by-step process:
 
     Key Features:
     - Precision Loss: Acceptable loss up to `denominator` lamports due to integer division
-    - Overflow Protection: Uses 128-bit intermediate calculations for larget values
+    - Overflow Protection: Uses 128-bit intermediate calculations for large values
     - Immovable Stake: Pool lamports input excludes base costs (minimum delegation + rent) since these cannot be redistributed
 
     This fractional system allows for precise percentage-based allocation while maintaining computation efficiency and preventing arithmetic errors.
@@ -175,6 +175,8 @@ The system supports three types of rebalance operations:
     - Target lamports amount
     - Transient seed
 
+Process [`increase_validator_stake`](https://github.com/solana-program/stake-pool/blob/main/program/src/processor.rs#L1497) instruction on `spl-stake-pool` program
+
 ### Decrease Stake
 
 - When: Validator underperforming or stake needs redistribution
@@ -182,6 +184,8 @@ The system supports three types of rebalance operations:
 - Parameters: 
     - Total unstake lamports
     - Decrease components
+
+Process [`decrease_validator_stake_with_reserve`](https://github.com/solana-program/stake-pool/blob/main/program/src/processor.rs#L1180) instruction on `spl-stake-pool` program
 
 ### No Action
 

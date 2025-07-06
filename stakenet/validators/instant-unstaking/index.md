@@ -5,7 +5,7 @@ subtitle: 'Automated validator removal based on performance and fee criteria'
 section_type: page
 ---
 
-All validators are checked for a set of Instant Unstaking criteria, like commission rugs, delinquency, etc. If they hit the criteria, they are marked for the rest of the cycle.
+All validators are checked for a set of Instant Unstaking criteria, like commission thresholds, delinquency, etc. If they hit the criteria, they are marked for the rest of the cycle.
 
 ## Overview
 

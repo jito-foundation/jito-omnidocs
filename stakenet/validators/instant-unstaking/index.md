@@ -111,10 +111,10 @@ let commission_check = commission > 5; // Commission Threshold = 5%
 
 ```rust
 let previous_epoch = current_epoch.saturating_sub(1); // = 499
-let current_epoch = 500;
+let example_current_epoch = 500;
 
 // Get MEV commission for previous and current epoch, take the maximum
-let mev_commission_range = validator.history.mev_commission_range(previous_epoch, current_epoch);
+let mev_commission_range = validator.history.mev_commission_range(previous_epoch, example_current_epoch);
 // Returns [Some(1000), Some(1200)] for epochs 499 and 500
 
 let mev_commission_bps = mev_commission_range

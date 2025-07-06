@@ -56,7 +56,7 @@ In this version 0 of the score formula, there is no weighting of any factor abov
 
 For a breakdown of the formulas used for each score, see the Appendix.
 
-Take a look at the implementation in [score.rs](https://github.com/jito-foundation/stakenet/blob/master/programs/steward/src/score.rs#L14)
+Take a look at the implementation in [score.rs](https://github.com/jito-foundation/stakenet/blob/master/programs/steward/src/score.rs#L88)
 
 ### Compute Delegations
 
@@ -88,7 +88,7 @@ let instant_unstake =
     delinquency_check || commission_check || mev_commission_check || is_blacklisted;
 ```
 
-Take a look at the implementation in [score.rs](https://github.com/jito-foundation/stakenet/blob/master/programs/steward/src/score.rs#L212)
+Take a look at the implementation in [score.rs](https://github.com/jito-foundation/stakenet/blob/master/programs/steward/src/score.rs#L474)
 
 ### Rebalance
 

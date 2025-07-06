@@ -1,7 +1,7 @@
 ---
 title: Instant Unstaking
 order: 2
-subtitle: ''
+subtitle: 'Automated validator removal based on performance and fee criteria'
 section_type: page
 ---
 
@@ -26,7 +26,7 @@ Let's say we're in epoch 500, and we want to evaluate validator at index 42.
 // Current state
 let current_epoch = 500;
 let epoch_start_slot = 216_000_000; // First slot of epoch 500
-let current_slot = 216_000_000; // We're partway through the epoch
+let current_slot = 216_100_000; // We're partway through the epoch
 
 // Validator we're evaluating
 let validator_index = 42;
@@ -131,8 +131,8 @@ let mev_commission_check = mev_commission_bps > 1000; // MEV Commission Threshol
 #### Blacklist Check
 
 ```rust
-let is_blacklisted = config.blacklist.contains(&validator.vote_account);
-// = false (not blacklisted)
+let is_blacklisted = config.validator_history_blacklist.get(validator_index)?;
+// = config.validator_history_blacklist.get(42) = false
 ```
 
 ### Step 5: Final Result

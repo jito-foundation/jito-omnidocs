@@ -10,7 +10,7 @@ Jito StakeNet is a decentralized Solana stake pool manager, blending Validator H
 ## Jito Steward Program
 
 The Steward Program is an Anchor program designed to manage the staking authority for a SPL Stake Pool.
-Using on-chain [validator history](stakenet/validator-history/overview/) the steward selects a set of high-performing validators to delegate to, maintains the desired level of stake on those validators over time, and continuously monitors and re-evaluates the validator set at a set cadence.
+Using on-chain [validator history](/stakenet/validator-history/overview/) the steward selects a set of high-performing validators to delegate to, maintains the desired level of stake on those validators over time, and continuously monitors and re-evaluates the validator set at a set cadence.
 Initially, the validator selection is customized for the JitoSOL stake pool criteria and will be deployed to manage that stake pool.
 Additionally, the steward surfaces this staking algorithm through variable parameters to be decided by [Jito DAO](https://gov.jito.network/dao/Jito).
 In turn, this greatly decentralizes the stake pool operations.

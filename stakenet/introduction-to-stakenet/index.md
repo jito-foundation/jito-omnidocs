@@ -20,18 +20,17 @@ The core operations of the Steward Program are permissionless such that any cran
 ### Table of Contents
 
 1. [Program Overview](/stakenet/jito-steward/program-overview/)
-2. [Terminology](/stakenet/jito-steward/terminology/)
-3. [Parameters](/stakenet/jito-steward/parameters/)
-4. [StakeNet UI](/stakenet/jito-steward/ui/) (work in progress)
-5. Developers
+2. [Parameters](/stakenet/jito-steward/parameters/)
+3. [StakeNet UI](/stakenet/jito-steward/ui/) (work in progress)
+4. Developers
    - [Command-line interface](/stakenet/jito-steward/developers/cli/)
    - [Events API](/stakenet/jito-steward/developers/api/)
    - [Running a Keeper](/stakenet/jito-steward/developers/keeper-bot-quick-start/)
-6. Advanced Concepts
+5. Advanced Concepts
    - [SPL Stake Pool Internals](/stakenet/jito-steward/advanced/spl-stake-pool-internals/)
    - [Validator States](/stakenet/jito-steward/advanced/managing-validator-states/)
-7. [Governance](/stakenet/jito-steward/governance/)
-8. [Validator FAQ](/stakenet/jito-steward/faq/) (work in progress)
+6. [Governance](/stakenet/jito-steward/governance/)
+7. [Validator FAQ](/stakenet/jito-steward/faq/) (work in progress)
 
 
 ## Validator History Program
@@ -42,7 +41,7 @@ By providing a transparent and cryptographically verified record of past actions
 
 ### Table of Contents
 
-1. [Program Overview & Purpose](/stakenet/validator-history/overview/)
+1. [Program Overview](/stakenet/validator-history/overview/)
 2. [Key Features & Capabilities](/stakenet/validator-history/key-features/)
 3. [Technical Architecture](/stakenet/validator-history/technical-architecture/)
 4. [Data Fields Explained](/stakenet/validator-history/data-fields/)

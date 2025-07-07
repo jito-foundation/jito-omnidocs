@@ -1,6 +1,6 @@
 ---
 title: 'Jito Steward Program'
-order: 1
+order: 2
 subtitle: ''
 section_type: 'header'
 ---

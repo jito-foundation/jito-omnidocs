@@ -1,6 +1,6 @@
 ---
 title: 'Validator History Program'
-order: 2
+order: 3
 subtitle: ''
 section_type: 'header'
 ---

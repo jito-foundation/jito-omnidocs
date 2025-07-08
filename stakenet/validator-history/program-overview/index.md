@@ -1,5 +1,5 @@
 ---
-title: Program Overview & Purpose
+title: Program Overview
 order: 0
 subtitle: ''
 section_type: page
@@ -30,7 +30,7 @@ By consolidating this data on-chain with a long historical record, the program e
 ## Role in StakeNet
 
 The Validator History Program serves as the data foundation for StakeNet's autonomous operations.
-The [Steward Program](/stakenet/jito-steward/program-overview/) relies on this historical data to make informed staking decisions, using the comprehensive validator metrics to optimize stake allocation across the network.
+The [Jito Steward Program](/stakenet/jito-steward/program-overview/) relies on this historical data to make informed staking decisions, using the comprehensive validator metrics to optimize stake allocation across the network.
 
 ## Core Accounts
 

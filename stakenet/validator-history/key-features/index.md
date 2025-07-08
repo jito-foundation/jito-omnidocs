@@ -11,7 +11,6 @@ The Validator History Program provides a features designed to make validator dat
 
 **512 Epochs of History**:
     Each validator's historical data spans up to [512 epochs](https://github.com/jito-foundation/stakenet/blob/7ea745985c2e31d43d957ac5885e69b328b6f283/programs/validator-history/src/state.rs#L105), providing approximately 3 years of performance history.
-    This extensive lookback period enables meaningful trend analysis and long-term performance evaluation.
 
 **Circular Buffer Architecture**:
     Data is stored using an efficient [circular buffer](https://github.com/jito-foundation/stakenet/blob/7ea745985c2e31d43d957ac5885e69b328b6f283/programs/validator-history/src/state.rs#L107-L114) that automatically manages storage space.
@@ -34,7 +33,7 @@ Rather than requiring multiple API calls across different data sources, the Vali
 **Network Participation**
 - Gossip network data (IP addresses, ports)
 - Software version history
-- Client type and implementation details
+- Client type
 
 **Stake Information**
 - Total active stake per epoch
@@ -48,7 +47,7 @@ Rather than requiring multiple API calls across different data sources, the Vali
     This design enables seamless integration with other on-chain programs.
 
 **Composability**:
-    The unified account structure allows other programs, like the Steward Program, to easily incorporate historical validator data into their decision-making algorithms without additional infrastructure.
+    The unified account structure allows other programs, like the Jito Steward Program, to easily incorporate historical validator data into their decision-making algorithms without additional infrastructure.
 
 ## On-Chain Verification & Transparency
 
@@ -67,9 +66,6 @@ Rather than requiring multiple API calls across different data sources, the Vali
 
 **Well-Defined Structures**: 
     Clear data structures and access patterns make it easy for developers to integrate validator history into their applications and programs.
-
-**Default Value Handling**:
-    The system intelligently manages null or missing data by using maximum values for each field type, ensuring consistent data interpretation across different use cases.
 
 ## Automated Data Collection
 

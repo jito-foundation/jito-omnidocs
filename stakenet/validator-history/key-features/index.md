@@ -5,7 +5,7 @@ subtitle: ''
 section_type: page
 ---
 
-The Validator History Program provides a features designed to make validator data accessible, reliable, and actionable.
+The Validator History Program provides features designed to make validator data accessible, reliable, and actionable.
 
 ## Historical Data Persistence
 

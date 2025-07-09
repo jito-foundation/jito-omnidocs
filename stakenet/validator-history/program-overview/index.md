@@ -1,7 +1,7 @@
 ---
 title: Program Overview
 order: 0
-subtitle: ''
+subtitle: 'On-chain validator data aggregation and historical tracking'
 section_type: page
 ---
 

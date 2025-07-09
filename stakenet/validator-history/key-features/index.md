@@ -1,7 +1,7 @@
 ---
 title: Key Features & Capabilities
 order: 1
-subtitle: ''
+subtitle: 'Data persistence, aggregation, and transparent validator metrics'
 section_type: page
 ---
 
@@ -57,15 +57,6 @@ Rather than requiring multiple API calls across different data sources, the Vali
 
 **Immutable History**:
     Once written to the blockchain, historical data cannot be altered, providing a reliable and tamper-proof record of validator performance over time.
-
-## Developer-Friendly Architecture
-
-**Zero-Copy Design**:
-    The program uses zero-copy account structures that allow efficient initialization of large data spaces without hitting runtime memory limits.
-    This enables the storage of extensive historical data while maintaining performance.
-
-**Well-Defined Structures**: 
-    Clear data structures and access patterns make it easy for developers to integrate validator history into their applications and programs.
 
 ## Automated Data Collection
 

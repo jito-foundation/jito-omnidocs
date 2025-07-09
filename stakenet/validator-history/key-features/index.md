@@ -1,7 +1,7 @@
 ---
 title: Key Features & Capabilities
 order: 1
-subtitle: ''
+subtitle: 'Data persistence, aggregation, and transparent validator metrics'
 section_type: page
 ---
 

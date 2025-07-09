@@ -1,13 +1,19 @@
 ---
 title: Technical Architecture
 order: 2
-subtitle: ''
+subtitle: 'On-chain data structures and stroage architecture'
 section_type: page
 ---
 
 The Validator History Program employs technical architecture designed for efficient on-chain storage and retrieval of historical validator data.
 
 ## Core Account Structure
+
+### Config Account
+- **Admin Management**: Tracks administrative authorities
+- **Oracle Permissions**: Manages data upload permissions
+- **Program Integration**: Links to [tip distribution program](https://github.com/jito-foundation/jito-programs/blob/master/mev-programs/programs/tip-distribution/Cargo.toml)
+- **Counter Tracking**: Monitors total ValidatorHistory accounts
 
 ### ValidatorHistory Account
 
@@ -19,7 +25,7 @@ The [`ValidatorHistory`](https://github.com/jito-foundation/stakenet/blob/7ea745
 - **Zero-Copy Design**: Implements `bytemuck::{Pod, Zeroable}` traits for efficient memory management
 - **Unique Identifier**: Each account is indexed and linked to a specific vote account
 
-### Circular Buffer Implementation
+#### Circular Buffer Implementation
 
 At the heart of each ValidatorHistory account lies the `CircBuf` - a circular buffer that efficiently manages historical data storage:
 
@@ -33,9 +39,9 @@ At the heart of each ValidatorHistory account lies the `CircBuf` - a circular bu
 The circular buffer prevents account bloat by maintaining a constant size regardless of how much historical data has been collected.
 When new epochs are added beyond the 512-entry limit, the oldest entries are automatically overwritten.
 
-## Data Structure Design
+#### Data Structure Design
 
-### ValidatorHistoryEntry
+##### ValidatorHistoryEntry
 
 Each epoch's data is stored in a [`ValidatorHistoryEntry`](https://github.com/jito-foundation/stakenet/blob/7ea745985c2e31d43d957ac5885e69b328b6f283/programs/validator-history/src/state.rs#L43) struct (128 bytes) containing:
 
@@ -48,7 +54,7 @@ pub mev_commission: u16,         // MEV commission in basis points
 pub mev_earned: u32,             // MEV rewards (stored as 1/100th SOL)
 ```
 
-**Network Information:**
+**Validator Information:**
 
 ```rust
 pub ip: [u8; 4],                 // IPv4 address
@@ -71,19 +77,28 @@ pub epoch: u16,                           // Epoch number
 pub vote_account_last_update_slot: u64,   // Last update slot
 ```
 
-## Configuration and Cluster Data
-
-### Config Account
-- **Admin Management**: Tracks administrative authorities
-- **Oracle Permissions**: Manages data upload permissions
-- **Program Integration**: Links to tip distribution program
-- **Counter Tracking**: Monitors total ValidatorHistory accounts
-
 ### ClusterHistory Account
+
 - **Network Metrics**: Stores cluster-wide statistics
 - **Block Production**: Tracks total blocks per epoch
 - **Timestamp Data**: Records epoch start times
 - **Same Architecture**: Uses identical circular buffer design
+
+#### Data Structure Design
+
+##### ClusterHistoryEntry
+
+Each epoch's data is stored in a [`ClusterHistoryEntry`](https://github.com/jito-foundation/stakenet/blob/7ea745985c2e31d43d957ac5885e69b328b6f283/programs/validator-history/src/state.rs#L802) struct containing:
+
+
+**Cluster Information**
+
+```rust
+pub total_blocks: u32,              // Total blocks
+pub epoch: u16,                     // Epoch number
+pub epoch_start_timestamp: u64      // Timestamp number
+```
+
 
 ## Memory and Performance Optimizations
 

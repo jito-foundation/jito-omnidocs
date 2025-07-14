@@ -10,6 +10,9 @@ The Validator History Program employs technical architecture designed for effici
 ## Core Account Structure
 
 ### Config Account
+
+The [`Config`](https://github.com/jito-foundation/stakenet/blob/7ea745985c2e31d43d957ac5885e69b328b6f283/programs/validator-history/src/state.rs#L18) account defines the global configuration of validator history program.
+
 - **Admin Management**: Tracks administrative authorities
 - **Oracle Permissions**: Manages data upload permissions
 - **Program Integration**: Links to [tip distribution program](https://github.com/jito-foundation/jito-programs/blob/master/mev-programs/programs/tip-distribution/Cargo.toml)
@@ -17,7 +20,7 @@ The Validator History Program employs technical architecture designed for effici
 
 ### ValidatorHistory Account
 
-The [`ValidatorHistory`](https://github.com/jito-foundation/stakenet/blob/7ea745985c2e31d43d957ac5885e69b328b6f283/programs/validator-history/src/state.rs#L359) account serves as the primary data container for each validator, storing comprehensive historical metadata in a single, efficiently organized structure.
+The [`ValidatorHistory`](https://github.com/jito-foundation/stakenet/blob/7ea745985c2e31d43d957ac5885e69b328b6f283/programs/validator-history/src/state.rs#L359) account serves as the primary data container for each validator.
 
 **Key Components:**
 - **Size**: [65,848 bytes](https://github.com/jito-foundation/stakenet/blob/7ea745985c2e31d43d957ac5885e69b328b6f283/programs/validator-history/src/state.rs#L355) per validator account
@@ -78,6 +81,8 @@ pub vote_account_last_update_slot: u64,   // Last update slot
 ```
 
 ### ClusterHistory Account
+
+The [`ClusterHistory`](https://github.com/jito-foundation/stakenet/blob/7ea745985c2e31d43d957ac5885e69b328b6f283/programs/validator-history/src/state.rs#L791) account serves as the primary data for cluster.
 
 - **Network Metrics**: Stores cluster-wide statistics
 - **Block Production**: Tracks total blocks per epoch

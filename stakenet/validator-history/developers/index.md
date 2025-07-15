@@ -1,5 +1,5 @@
 ---
-title: For Developers
+title: Developers
 order: 5
 subtitle: ''
 section_type: page

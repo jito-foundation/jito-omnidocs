@@ -1,7 +1,7 @@
 ---
 title: Integration & Composability
 order: 4
-subtitle: 'Building with validator history data and ecosystem integration patterns'
+subtitle: 'Building with validator history data'
 section_type: page
 ---
 
@@ -32,7 +32,7 @@ pub struct ReadValidatorHistory<'info> {
 
 Programs can find ValidatorHistory accounts using predictable seed derivation:
 - **Seed pattern**: `["validator-history", vote_account_pubkey]`
-- **Program ID**: The Validator History [Program ID]()
+- **Program ID**: The Validator History Program ID (`HistoryJTGbKQD2mRgLZ3XhqHnN811Qpez8X9kCcGHoa`)
 - **Deterministic addresses**: Every vote account has a corresponding ValidatorHistory account
 
 ### Data Parsing Best Practices
@@ -51,55 +51,37 @@ if entry.commission != u8::MAX {
 }
 ```
 
-## Real-World Integration Examples
+## Integration Examples
 
 ### Jito Steward Program
 
-The [Steward Program](/stakenet/jito-steward/program-overview/) serves as the primary example of deep integration with Validator History data:
+The [Jito Steward Program](/stakenet/jito-steward/program-overview/) serves as the primary example of deep integration with Validator History data:
 
-**Performance Scoring**:
-- Uses `epoch_credits_range_normalized()` for consistent performance measurement
-- Analyzes commission history to detect frequent changes
-- Incorporates MEV commission data for comprehensive scoring
+#### Validator Scoring Algorithm:
 
-**Validator Selection**:
-- Filters based on `superminority_latest()` for decentralization
-- Uses historical uptime patterns from epoch credits
-- Considers stake ranking for network security
+- **Vote Credits Score**: Uses `epoch_credits_range_normalized()` to measure consensus participation over multiple epochs
+- **Commission Score**: Analyzes `commission_range()` to evaluate commission stability and competitiveness
+- **MEV Commission Score**: Incorporates `mev_commission_range()` for validators running Jito clients
+- **Historical Perfomance**: Combines multiple epochs of data for robust scoring rather than single-epoch snapshots
 
-**Automated Decision Making**:
-- Real-time access to 512 epochs of historical context
-- Programmatic validator evaluation without external APIs
-- Transparent, on-chain decision criteria
+#### Eligibility Filtering:
 
-### Stake Pool Management
+- **Superminority Check**: Uses `superminority_latest()` to exclude validators that would concentrate stake
+- **Perfomance Thresholds**: Filters validators based on minimum epoch credits requirements
+- **Commission Limits**: Applies maximum commission thresholds from historical data
+- **Blacklist Management**: Maintains on-chain blacklist of problematic validators
 
-**Validator Performance Tracking**:
-```rust
-// Example: Check validator consistency over 30 epochs
-let recent_credits = validator_history.history.epoch_credits_range(
-    current_epoch - 30, 
-    current_epoch
-);
-let avg_performance = calculate_average_performance(&recent_credits);
-```
+#### Stake Allocation Logic:
 
-**Commission Optimization**:
-- Track commission changes over time to identify stable validators
-- Monitor MEV commission policies for enhanced delegator rewards
-- Detect validators with improving performance trends
+- **Score-Based Ranking**: Ranks eligible validators using composite scores from historical data
+- **Diversification**: Considers validator geographic and client distribution from gossip data
+- **Rebalancing**: Uses historical perfomance trends to guide stake reallocation decisions
 
-### MEV Analysis Applications
+#### Automated Decision Making
 
-**Client Adoption Tracking**:
-- Monitor `client_type` distribution across validators
-- Correlate Jito client adoption with MEV earnings
-- Analyze network-wide MEV commission trends
-
-**Earnings Analysis**:
-- Historical MEV earnings patterns by validator
-- Commission impact on total delegator rewards
-- Geographic distribution of MEV-generating validators
+- **512 Epochs of Context**: Leverages full historical depth for informed validator evaluation
+- **Transparent Criteria**: All scoring logic is on-chain and auditable
+- **No External Dependencies**: Entirely self-contained using ValidatorHistory data
 
 ## Development Patterns & Best Practices
 
@@ -121,92 +103,43 @@ let commission_history = validator_history.history.commission_range(
 );
 ```
 
-### Error Handling Patterns
-
-**Missing Data Detection**:
-```rust
-fn is_valid_data<T: PartialEq + From<u8>>(value: T) -> bool 
-where 
-    T: From<u8> + PartialEq,
-{
-    // Check against type's maximum value (default for unset fields)
-    value != T::from(u8::MAX) // Simplified example
-}
-```
-
-**Account State Validation**:
-- Check `is_empty()` before accessing circular buffer data
-- Verify epoch ranges are within buffer bounds
-- Handle incomplete historical records gracefully
-
-### Performance Considerations
-
-**Zero-Copy Benefits**:
-- Direct memory access without deserialization overhead
-- Efficient for programs processing multiple validators
-- Reduced compute unit consumption
-
-**Batch Processing**:
-```rust
-// Process multiple validators efficiently
-for validator_pubkey in validator_list {
-    let validator_history = load_validator_history(validator_pubkey)?;
-    let score = calculate_validator_score(&validator_history);
-    scores.insert(validator_pubkey, score);
-}
-```
-
 ## Integration Architecture Patterns
 
 ### On-Chain Integration
 
 **Direct Program Composition**:
+
 - Programs read ValidatorHistory accounts as additional context
 - Decision-making logic incorporates historical performance
 - Eliminates dependency on external data sources
 
 **State Machine Integration**:
+
 - Validator history informs state transitions
 - Historical context enables sophisticated automation
 - Transparent, verifiable decision criteria
 
 ### Off-Chain Integration
 
-**RPC-Based Access**:
-```typescript
-// Fetch validator history account
-const accountInfo = await connection.getAccountInfo(validatorHistoryPubkey);
-const validatorHistory = ValidatorHistory.decode(accountInfo.data);
-
-// Access historical data
-const recentPerformance = validatorHistory.history.epochCreditsRange(
-  currentEpoch - 10, 
-  currentEpoch
-);
-```
-
 **Analytics and Dashboards**:
-- Real-time validator performance monitoring
-- Historical trend analysis and visualization
-- Comparative validator analysis tools
 
-### Hybrid Approaches
-
-**Cached Historical Analysis**:
-- Combine on-chain current state with off-chain historical processing
-- Build complex analytics while maintaining on-chain verification
-- Optimize for both performance and transparency
+- [Stakenet History Dashboard](https://www.jito.network/stakenet/history/): Interactive validator perfomance monitoring and historical analysis
+- Real-time validator metrics visualization with 512 epochs of data
+- Comparative validator analysis and ranking tools
+- Historical trend analysis across performance dimensions
 
 ## Composability Benefits
 
 ### Single Source of Truth
 
 **Eliminates Data Fragmentation**:
+
 - All validator metrics in one standardized location
 - Consistent data formats across different applications
 - Reduced integration complexity for developers
 
 **Infrastructure Efficiency**:
+
 - No need to maintain separate historical databases
 - Shared data infrastructure across the ecosystem
 - Lower operational costs for validator analysis tools
@@ -214,30 +147,15 @@ const recentPerformance = validatorHistory.history.epochCreditsRange(
 ### Programmable Transparency
 
 **Verifiable Decision Making**:
+
 - All historical data is publicly auditable
 - Algorithm transparency through on-chain logic
 - Reduced trust requirements for automated systems
 
 **Standardized Metrics**:
+
 - Common performance indicators across applications
 - Comparable results between different analysis tools
 - Network-wide consistency in validator evaluation
-
-### Ecosystem Network Effects
-
-**Improved Data Quality**:
-- More users means better data validation
-- Shared responsibility for data accuracy
-- Continuous improvement through community usage
-
-**Reduced Barriers to Innovation**:
-- Lower entry costs for building validator tools
-- Focus on analysis algorithms rather than data collection
-- Faster development cycles for new applications
-
-**Enhanced Network Security**:
-- More sophisticated validator selection across the ecosystem
-- Better distributed decision-making
-- Improved overall network health through informed choices
 
 This composable architecture enables a thriving ecosystem of validator analysis tools, automated stake management systems, and transparent network monitoring applications, all built on a shared foundation of verified historical data.

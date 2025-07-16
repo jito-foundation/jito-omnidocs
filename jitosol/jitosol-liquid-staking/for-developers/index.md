@@ -26,21 +26,27 @@ Parameters:
       "mev_commission_bps": 10000,
       "mev_rewards": 4438669326,
       "running_jito": true,
-      "active_stake": 57968373482697
+      "active_stake": 57968373482697,
+      "priority_fee_commission_bps": 5000,
+      "priority_fee_rewards": 31269273876
     },
     {
       "vote_account": "B6nDYYLc2iwYqY3zdmavMmU9GjUL2hf79MkufviM2bXv",
       "mev_commission_bps": 500,
       "mev_rewards": 9214553780,
       "running_jito": true,
-      "active_stake": 598871747692941
+      "active_stake": 598871747692941,
+      "priority_fee_commission_bps": 5000,
+      "priority_fee_rewards": 94572974753
     },
     {
       "vote_account": "2PpHNHPLseBb4doTu1ajTwAxCrjmu7ubReDHKPrjxi9F",
       "mev_commission_bps": 800,
       "mev_rewards": 6123234290,
-      "rq9qunning_jito": true,
+      "running_jito": true,
       "active_stake": 88295901191147
+      "priority_fee_commission_bps": 5000,
+      "priority_fee_rewards": 85937362840,
     }...
   ]}</code></pre>
 
@@ -60,37 +66,51 @@ Parameters: None
   {
     "epoch": 608,
     "mev_commission_bps": 10000,
-    "mev_rewards": 59355050
+    "mev_rewards": 59355050,
+    "priority_fee_commission_bps": 5000,
+    "priority_fee_rewards": 43328291
   },
   {
     "epoch": 607,
     "mev_commission_bps": 10000,
-    "mev_rewards": 31870726
+    "mev_rewards": 31870726,
+    "priority_fee_commission_bps": 5000,
+    "priority_fee_rewards": 23288520
   },
   {
     "epoch": 605,
     "mev_commission_bps": 10000,
-    "mev_rewards": 535874838
+    "mev_rewards": 535874838,
+    "priority_fee_commission_bps": 5000,
+    "priority_fee_rewards": 388885626
   },
   {
     "epoch": 604,
     "mev_commission_bps": 10000,
-    "mev_rewards": 29926950
+    "mev_rewards": 29926950,
+    "priority_fee_commission_bps": 5000,
+    "priority_fee_rewards": 21809850
   },
   {
     "epoch": 603,
     "mev_commission_bps": 10000,
-    "mev_rewards": 46862475
+    "mev_rewards": 46862475,
+    "priority_fee_commission_bps": 5000,
+    "priority_fee_rewards": 34125000
   },
   {
     "epoch": 602,
     "mev_commission_bps": 10000,
-    "mev_rewards": 939666610
+    "mev_rewards": 939666610,
+    "priority_fee_commission_bps": 5000,
+    "priority_fee_rewards": 682500000
   },
   {
     "epoch": 601,
     "mev_commission_bps": 10000,
-    "mev_rewards": 254418752
+    "mev_rewards": 254418752,
+    "priority_fee_commission_bps": 5000,
+    "priority_fee_rewards": 184687500
   },
 ]</code></pre>
 
@@ -127,6 +147,7 @@ Gets total MEV rewards, Jito stake weight, and MEV rewards per lamport for the n
   "jito_stake_weight_lamports": 287482861698565570,
   "mev_reward_per_lamport": 5.034038244866689e-05
 }</code>
+
 
 ### GET /api/v1/daily_mev_rewards
 

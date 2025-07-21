@@ -127,27 +127,45 @@ Backfills cluster history data for a specific epoch.
 
 #### Stake Distribution by Country
 
-Analyzes JitoSOL stake distribution across countries using IP geolocation.
+Displays JitoSOL stake distribution by country.
 
 ```bash
 ./target/release/validator-history-cli \
-  --json-rpc-url https://api.mainnet-beta.solana.com \
+  --json-rpc-url <JSON_RPC_URL> \
   stake-by-country \
-  --stake-pool StakePoolAddress \
-  --ip-info-token YOUR_IPINFO_TOKEN
+  --stake-pool <STAKE_POOL> \
+  --country <COUNTRY> \
+  --ip-info-token <IP_INFO_TOKEN>
 ```
 
-**Parameters:**
-- `--stake-pool`: Stake pool address (required)
-- `--country`: Specific country to query (optional)
-- `--ip-info-token`: IPInfo API token (required)
+**Description**:
+This command analyzes the geographical distribution of JitoSOL stake across validators worldwide.
+It fetches validator IPs from their history account and determines their countries using IP geolocation.
 
-**View specific country:**
+**Parameters:**
+- `--stake-pool`: The stake pool address to analyze (required)
+- `--country`: Filter results to show only a specific country (optional)
+- `--ip-info-token`: API token for IP geolocation service (required)
+
+To obtain an IP info token, sign up at https://ipinfo.io
+
+##### View all countries:
+
 ```bash
 ./target/release/validator-history-cli \
-  --json-rpc-url https://api.mainnet-beta.solana.com \
-  stake-by-country \
-  --stake-pool StakePoolAddress \
-  --country "United States" \
-  --ip-info-token YOUR_IPINFO_TOKEN
+    --json-rpc-url <JSON_RPC_URL> \
+    stake-by-country \
+    --stake-pool 3DuPtyTAKrxKfHkSPZ5fqCayMcGru1BarAKKTfGDeo2j \
+    --ip-info-token YOUR_IPINFO_TOKEN
+```
+
+##### View specific country:
+
+```bash
+./target/release/validator-history-cli \
+    --json-rpc-url <JSON_RPC_URL> \
+    stake-by-country \
+    --stake-pool 3DuPtyTAKrxKfHkSPZ5fqCayMcGru1BarAKKTfGDeo2j \
+    --country "United States" \
+    --ip-info-token YOUR_IPINFO_TOKEN
 ```

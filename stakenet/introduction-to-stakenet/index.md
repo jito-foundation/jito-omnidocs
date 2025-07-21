@@ -46,4 +46,4 @@ By providing a transparent and cryptographically verified record of past actions
 4. [Data Fields Explained](/stakenet/validator-history/data-fields/)
 5. [Integration & Composability](/stakenet/validator-history/integration/)
 6. [Developers](/stakenet/validator-history/developers/)
-
+   - [Validator History CLI Guide](/stakenet/validator-history/developers/cli/)

@@ -42,6 +42,8 @@ Method: GET
       "epoch": 678,
       "amount": 23308599,
       "claim_status_account": "D6WY3PX2eeyoBCxSybBjH2YoZh7c1pWg5W5DQAj1Lwza"
+      "priority_fee_claim_status_account": "9gUWLZUgkZiKEL4Yt6qJ2nDM33s1pKczCV7nJVg8iEH",
+      "priority_fee_amount": 1165429,
     },
     {
       "claimant": "J9gUWLZUgkZiKEL4Yt6qJ2nDM33s1pKczCV7nJVg8iEH",
@@ -51,6 +53,8 @@ Method: GET
       "epoch": 678,
       "amount": 23307187,
       "claim_status_account": "BuCtcuqrzWEJoP5prgSYiUJKbPzhFZRjPXEzjopZY2cj"
+      "priority_fee_claim_status_account": "HJUv4xr2EvNNLX14PFK16kyftyNW9ydd7WyWKPutV4nJ",
+      "priority_fee_amount": 1165359
     }
   ],
   "total_count": 1170170
@@ -90,7 +94,9 @@ Method: GET
       "mev_commission": 0,
       "num_stakers": 1422,
       "epoch": 678,
-      "claim_status_account": "6m7RcCGGh9bzWuuyVuZYm7jzqp3vv5vCnxWSpsBVN2FY"
+      "claim_status_account": "6m7RcCGGh9bzWuuyVuZYm7jzqp3vv5vCnxWSpsBVN2FY",
+      "priority_fee_commission": 5000,
+      "priority_fee_amount": 35994787863
     },
     {
       "vote_account": "CcaHc2L43ZWjwCHART3oZoJvHLAe9hzT2DJNUpBzoTN1",
@@ -98,11 +104,12 @@ Method: GET
       "mev_commission": 700,
       "num_stakers": 5297,
       "epoch": 678,
-      "claim_status_account": "GpYrV3H9WWkVff6QeMJcePYnFLm7dbpL1ogmPmiHL7VM"
+      "claim_status_account": "GpYrV3H9WWkVff6QeMJcePYnFLm7dbpL1ogmPmiHL7VM",
+      "priority_fee_commission": 5000,
+      "priority_fee_amount": 33378071423
     }
   ],
   "total_count": 1083
 }</code></pre>
 
-Both endpoints return paginated results and support filtering and sorting options. The response includes the requested rewards data and a total count of matching records.
-
+Both endpoints return paginated results and support filtering and sorting options. The response includes the requested rewards data and a total count of matching records. Validator rewards do not have a priority fee claim status account due to the flow of funds in priority fee distribution. Priority fee rewards are sent from the Validator to the priority fee distribution account and a Validator claim is not needed.

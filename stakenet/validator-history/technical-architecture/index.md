@@ -62,7 +62,7 @@ pub mev_earned: u32,             // MEV rewards (stored as 1/100th SOL)
 ```rust
 pub ip: [u8; 4],                 // IPv4 address
 pub version: ClientVersion,      // Software version (major.minor.patch)
-pub client_type: u8,             // 0=Solana Labs, 1=Jito, >1=Other
+pub client_type: u8,             // Client type
 ```
 
 **Stake Data:**

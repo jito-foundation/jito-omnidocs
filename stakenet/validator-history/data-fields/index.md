@@ -55,9 +55,11 @@ Understanding these data fields is essential for effective validator analysis an
 ### Client Type (`client_type`)
 - **What**: Software client implementation identifier
 - **Values**: 
-  - `0` = Solana Labs client
-  - `1` = Jito-Solana client  
-  - `>1` = Other implementations
+  - `0` = Solana Labs
+  - `1` = Jito Labs
+  - `2` = Firedancer
+  - `3` = Agave
+  - `>3` = Other implementations
 - **Why it matters**: Monitor client diversity and Jito adoption rates
 - **Collection**: Derived from version information in gossip messages
 

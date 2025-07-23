@@ -11,10 +11,11 @@ All validators are checked for a set of Instant Unstaking criteria, like commiss
 
 The system automatically identifies validators that should be unstaked immediately based on 4 criteria:
 
-1. **Delinquency**: Poor block production performance
+1. **Delinquency**: Poor block production performance (based on Timely Vote Credits)
 2. **High Commission**: Commission rates above threshold
 3. **High MEV Commission**: MEV commission above threshold
 4. **Blacklisted**: Validator is on a blacklist
+
 
 ## Example Scenario
 
@@ -97,6 +98,13 @@ let delinquency_check = delinquency_ratio < 0.85; // Vote Credits Delinquency Th
 // 0.00035 < 0.85 = true (FAIL - validator is severely delinquent)
 ```
 
+##### What this means:
+
+- Expected: This validator should earn ~15.1 credits/slot if performing optimally
+- Actual: They're only earning ~0.005 credits/slot
+- Performance: Only 0.035% of expected perfomance (far below 85% threshold)
+- Issues: Likey severe downtime, very slow voting, or consistently wrong fork voting
+
 #### Commission Check
 
 ```rust
@@ -178,7 +186,7 @@ emit!(InstantUnstakeComponentsV2 {
 
 ### Delinquency Formula
 
-The delinquency check uses a sophisticated formula that accounts for the TVC (Tip, Vote, Commission) multiplier:
+The delinquency check uses a formula that accounts for the TVC (Timely Vote Credits) multiplier:
 
 
 ```rust
@@ -189,6 +197,7 @@ Where:
 
 - `vote_credits_rate`: validator's credits earned per slot
 - `blocks_produced_rate`: cluster's blocks produced per slot
+- `TVC_MULTIPLIER`: 16 (maximum credits per vote under Timely Vote Credits)
 
 ### MEV Commission Logic
 

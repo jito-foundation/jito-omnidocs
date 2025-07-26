@@ -1,7 +1,7 @@
 ---
-title: Cranker
-order: 1
-section_type: expandable
+title: Permissionless Cranker
+order: 5
+section_type: 'header'
 subtitle: ''
 ---
 

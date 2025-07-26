@@ -1,6 +1,6 @@
 ---
 title: Terminology
-order: 2
+order: 1
 subtitle: ''
 section_type: page
 ---

@@ -1,6 +1,6 @@
 ---
 title: "NCN"
-subtitle: "Learn how to interact with the NCN"
+subtitle: "Learn how to interact with the NCN account"
 section_type: "page"
 order: 2
 ---

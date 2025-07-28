@@ -1,5 +1,5 @@
 ---
-title: "Vault Commands"
+title: "Vault Operations"
 subtitle: "Overview of vault program operations"
 section_type: "page"
 order: 4

@@ -1,9 +1,12 @@
 ---
-title: "NCN"
+title: "NCN Operations"
 subtitle: "Learn how to interact with the NCN account"
 section_type: "page"
 order: 2
 ---
+
+Node Consensus Networks (NCNs) coordinate validation services between operators and vaults in the Jito (Re)staking ecosystem. 
+NCNs manage which operators can participate in validation and which vaults can delegate stake to the network.
 
 ## Basic NCN Operations
 

@@ -1,9 +1,12 @@
 ---
-title: "Operator"
+title: "Operator Operations"
 subtitle: "Learn how to interact with the Operator account"
 section_type: "page"
 order: 3
 ---
+
+Operators provide professional validation services across multiple networks using delegated tokens from vaults.
+They earn fees for their services and can participate in multiple NCNs simultaneously.
 
 ## Basic Operator Operations
 

@@ -1,6 +1,6 @@
 ---
 title: Running a Keeper
-order: 0
+order: 3
 subtitle: ''
 section_type: page
 ---

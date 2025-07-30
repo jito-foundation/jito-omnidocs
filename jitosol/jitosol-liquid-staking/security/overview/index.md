@@ -1,10 +1,9 @@
 ---
 title: 'Overview'
-order: 4
+order: 0
 section_type: 'page'
 subtitle: 'JitoSOL is fully audited and non-custodial'
 ---
-
 
 jitoSOL is built on the stake pool program developed by Solana Labs. The program has been supporting numerous implementations since the network launched and three firms have completed audits ([reports](https://spl.solana.com/stake-pool#security-audits)).
 

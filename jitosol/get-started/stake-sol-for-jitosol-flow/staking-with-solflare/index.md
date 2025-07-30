@@ -2,59 +2,95 @@
 title: 'Staking with Solflare'
 order: 3
 section_type: 'page'
-subtitle: ''
+subtitle: 'Step-by-step guide for staking SOL using Solflare wallet'
 ---
 
+This guide covers how to stake SOL for JitoSOL using Solflare wallet. The process takes just a few minutes and allows you to start earning both staking and MEV rewards.
 
-### Go to [jito.network](https://www.jito.network/staking) and follow the instructions below!
+**Time Required:** 2-5 minutes  
+**Prerequisites:** Solflare wallet with SOL tokens and small amount for transaction fees
 
-#### Step 1: Click the "Select Wallet" button in the top right of the app page
+## Prerequisites
 
-![Stake SOL Solflare 1](/shared/images/jitosol/Stake_SOL_Solflare_1.png)
+### **Getting SOL for Staking**
 
-#### Step 2: Select Solflare from the list
+Your wallet needs some balance of SOL to stake. If you want to purchase SOL and already have assets in your wallet, use [Jupiter](https://jup.ag/) to swap for SOL. For those without existing assets on Solana, SOL can be purchased through exchanges like Coinbase, Kraken, Binance or most popular venues. After purchasing SOL and setting up a Solana wallet, transfer the SOL into your wallet.
 
-![Stake SOL Solflare 7](/shared/images/jitosol/Stake_SOL_Solflare_7.png)
+## Step 1: Connect Your Solflare Wallet
 
-#### Step 3: Select to connect with "Extension"
+Navigate to [jito.network/staking](https://jito.network/staking/) and connect your wallet:
 
-![Stake SOL Solflare 5](/shared/images/jitosol/Stake_SOL_Solflare_5.png)
+![Jito Header Before Connecting](/shared/images/jitosol/wallet-unstake-sol-header-with-connect-button-before-connecting.png)
 
-#### Step 4: Authorize Solflare to Connect
+Click **"Connect Wallet"** in the top right corner.
 
-Click "Connect" to Authorize Solflare to communicate with our site. You may opt to "Trust this app" to prevent future connection requests. It is purely a convenience feature and not required to connect nor receive JitoSOL.
+![Choose Wallet Options](/shared/images/jitosol/wallet-unstake-sol-choose-wallet-options.png)
 
-![Stake SOL Solflare 6](/shared/images/jitosol/Stake_SOL_Solflare_6.png)
+Select **"Solflare"** from the wallet options.
 
-Afterwards, you can confirm your wallet is connected by checking the address in the top right corner of the page (as shown below)
+![Solflare Authorization](/shared/images/jitosol/solflare-connect-wallet-screen.png)
 
-![Stake SOL Solflare 3](/shared/images/jitosol/Stake_SOL_Solflare_3.png)
+Click **"Connect"** to authorize Solflare to communicate with Jito. You may opt to "Trust this app" to prevent future connection requests.
 
-### Step 5: Choose Amount to Stake as JitoSOL
+![Connected Wallet Address](/shared/images/jitosol/solflare-unstake-sol-wallet-address-button.png)
 
-Enter the amount you wish to deposit into JitoSOL in the screen on the right. Ensure the amount is less than your total balance. You should also keep some SOL in your wallet (at least 0.1) for subsequent transaction fees.
+Confirm your wallet is connected by checking the address in the top right corner.
 
-![Stake SOL Solflare 8](/shared/images/jitosol/Stake_SOL_Solflare_8.png)
+## Step 2: Choose Amount and SOL Staking Method
 
-Confirm the amount in Solflare reflects the amount you want to deposit. Then click "Approve".
+Ensure you're on the **"Stake"** tab.
 
-![Stake SOL Solflare 9](/shared/images/jitosol/Stake_SOL_Solflare_9.png)
+![Stake/Unstake Toggle](/shared/images/jitosol/stake-page-toggle-stake-unstake.png)
 
-There should be a pop-up at the button of the screen confirming the operation.
+1. **Enter SOL Amount:** Input the amount of SOL you want to stake
+2. **Choose Method:** Select "Direct Mint" to Mint JitoSOL directly (no slippage)
+3. **Click "Convert to JitoSOL"**
 
-![Stake SOL Solflare 2](/shared/images/jitosol/Stake_SOL_Solflare_2.png)
+![Direct Staking Flow](/shared/images/jitosol/stake-page-stake-section-direct-stake-flow.png)
 
-This will pop-up at the bottom of your interface.
+## Step 3: Complete the Transaction
 
-#### Step 5: Confirm receipt of JitoSOL
+**Wallet Confirmation:**
 
-Check your wallet and you should see Jito Staked SOL in the amount you chose to stake.
+![Solflare Wallet Confirmation](/shared/images/jitosol/staking-page-staking-with-solflare-confirm-stake-tx.png)
 
-*Note: the caution sign is because JitoSOL is recently issued. Read *[*here*](https://app.gitbook.com/o/HvXfMMBYPChYJzhzKG1h/s/p7fdQASNHD4egpjwd960/~/changes/IlAgqunpRrYzaTygAAP1/faqs/solflare-token-alert)* for further details.*
+1. **Review Transaction Details:**
+   - Verify you're receiving JitoSOL (+ amount)
+   - Check SOL being spent (- amount)
+   - Confirm network fees
 
-![Stake SOL Solflare 4](/shared/images/jitosol/Stake_SOL_Solflare_4.png)
+2. **Approve in Solflare:**
+   - Click **"Approve"** in your wallet
+   - Wait for blockchain confirmation
+   - Transaction typically completes in 10-30 seconds
 
-#### Step 6: Enjoy your JitoSOL
+**Success Confirmation:**
 
-You can use JitoSOL with our DeFi partners (see [guide](/jitosol/get-started/using-jitosol-flow/using-overview)) or safely accrue yield from stake and MEV rewards.
+![Success Toast](/shared/images/jitosol/stake-page-toast.png)
+
+3. **Verify Completion:**
+   - Look for success notification
+   - Check JitoSOL appears in your Solflare wallet
+
+## Step 4: Enjoy your JitoSOL
+
+You can use JitoSOL with our DeFi partners (see [guide](/jitosol/get-started/using-jitosol-flow/using-overview/)) or safely accrue yield from stake and MEV rewards.
+
+- Your JitoSOL begins earning staking and MEV rewards right away
+- Rewards are automatically compounded into your JitoSOL balance
+- Track your earnings in the [Rewards section](/jitosol/get-started/viewing-jitosol-rewards/)
+
+## Troubleshooting
+
+**Transaction Failed?**
+- Ensure you have enough SOL for transaction fees (keep ~0.01 SOL)
+- Check your Solflare wallet is properly connected
+- Try refreshing the page and reconnecting
+
+**Need Help?**
+- Review the [main staking overview](/jitosol/get-started/stake-sol-for-jitosol-flow/overview/) for more details
+- Check our [FAQ section](/jitosol/faqs/general-faqs/)
+- Join our [Discord community](https://discord.gg/jitocommunity) for support
+
+Ready to start earning enhanced yields? Your JitoSOL will begin earning rewards immediately after staking!
 

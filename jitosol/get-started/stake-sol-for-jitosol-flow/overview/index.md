@@ -1,75 +1,178 @@
 ---
-title: 'Overview'
-order: 0
+title: 'Staking SOL for JitoSOL'
+order: 1
 section_type: 'page'
-subtitle: 'Starting earning yield on your SOL in under 5 minutes'
+subtitle: 'Start earning staking and MEV rewards in under 5 minutes'
 ---
 
+## Quick Start Guide
 
-#### Go to [jito.network](https://www.jito.network/staking) and follow the instructions below!
+JitoSOL is a liquid staking token that allows you to earn both staking rewards and MEV (Maximum Extractable Value) rewards while maintaining the ability to use your tokens in DeFi. This guide will walk you through the simple process of staking your SOL.
 
-### **Setup Wallet**
+**Time Required:** 2-5 minutes  
+**Prerequisites:** Solana wallet with SOL tokens and small amount for transaction fees
 
-The first step is having a wallet with SOL tokens. JitoSOL is currently integrated with the wallets shown below. If you don't have an existing wallet, we recommend setting up with Phantom ([setup instructions](https://help.phantom.app/hc/en-us/articles/8071074929043-How-to-create-a-new-wallet)) or Solflare ([instructions](https://solflare.com/)).Current wallet integrations
+### Step 1: Prepare Your Wallet
 
-![stakeSolForJitoSol 1](/shared/images/jitosol/stakeSolForJitoSol_1.png)
+**Supported Wallets:**
+- [Phantom](https://phantom.app/) (Recommended for beginners)
+- [Solflare](https://solflare.com/) 
+- [Backpack](https://backpack.app/)
+- [Ledger](https://www.ledger.com/) (via browser extension)
+- [Squads](https://squads.so/) (Multi-signature)
+- [Fireblocks](https://www.fireblocks.com/) (Institutional)
 
-### **Ledger Integration**
+**What You Need:**
+- A Solana wallet with SOL tokens to stake
+- Small amount of SOL for transaction fees (keep ~0.01 SOL minimum)
+- If you don't have SOL: Purchase from exchanges like Coinbase, Kraken, or Binance
 
-JitoSOL is fully compatible with Ledger wallets used through browser extensions. Follow the instructions and approve the transactions when prompted on your device after clicking "Accept" in your browser wallet.
+**Getting SOL:**
+- **If you have other crypto:** Use [Jupiter](https://jup.ag/) to swap for SOL
+- **If you're new to crypto:** Buy SOL directly from major exchanges and transfer to your wallet
 
-### **Acquire SOL for Staking**
+### Step 2: Access the Staking Interface
 
-Your wallet also needs some balance of SOL to stake. If you want to purchase SOL and already have assets in your wallet, use [Jupiter](https://jup.ag/) to swap for SOL.For those without existing assets on Solana, SOL can be purchased through exchanges like Coinbase, Kraken, Binance or most popular venues. After purchasing SOL and setting up a Solana wallet (see above), transfer the SOL into your wallet.
+1. **Navigate to Jito Staking:** Go to [jito.network/staking](https://jito.network/staking/)
 
-### Connect Wallet to Jito
+2. **Select Stake Tab:** Ensure you're on the "Stake" tab (not "Unstake")
 
-#### Step 1: Click the "Select Wallet" button in the top right of the app page.
+![Stake/Unstake Toggle](/shared/images/jitosol/stake-page-toggle-stake-unstake.png)
 
-![stakeSolForJitoSol 2](/shared/images/jitosol/stakeSolForJitoSol_2.png)
+3. **Connect Your Wallet:** 
+   - Click **"Connect Wallet"** in the top right corner
+   - Select your wallet type from the list
+   - Approve the connection request in your wallet
 
-#### Step 2: Select your preferred wallet from the list.
+4. **Verify Connection:** 
+   - Your wallet address should appear in the top right corner
+   - Your available assets should be visible in the interface
 
-![stakeSolForJitoSol 1](/shared/images/jitosol/stakeSolForJitoSol_1.png)
+**Need Wallet-Specific Help?**
+- [Phantom Staking Guide](/jitosol/get-started/stake-sol-for-jitosol-flow/staking-with-phantom/)
+- [Solflare Staking Guide](/jitosol/get-started/stake-sol-for-jitosol-flow/staking-with-solflare/)
+- [Fireblocks Guide](/jitosol/get-started/stake-sol-for-jitosol-flow/stake-with-fireblocks/)
+- [Squads Guide](/jitosol/get-started/stake-sol-for-jitosol-flow/staking-with-squads/)
 
-#### Note: Detailed Instructions for Phantom/Solflare
+### Step 3: Choose Your Method
 
-Below are generic instructions that should apply to most wallets. If you are having issues, please ask in our [Discord](https://discord.gg/5wGU5Bbz8E).We have wallet-specific guides for Phantom and Solflare. Please review these for step-by-step instructions. 
+The interface offers multiple ways to get JitoSOL:
 
-- ​[Phantom Staking Guide](https://app.gitbook.com/o/HvXfMMBYPChYJzhzKG1h/s/p7fdQASNHD4egpjwd960/~/changes/IlAgqunpRrYzaTygAAP1/get-started/stake-sol-for-jitosol-flow/staking-with-phantom)​
-- ​[Solflare Staking Guide](https://app.gitbook.com/o/HvXfMMBYPChYJzhzKG1h/s/p7fdQASNHD4egpjwd960/~/changes/IlAgqunpRrYzaTygAAP1/get-started/stake-sol-for-jitosol-flow/staking-with-solflare)​
+![Direct Staking Flow](/shared/images/jitosol/stake-page-stake-section-direct-stake-flow.png)
 
-#### Step 3: Connect Your Wallet
+**Method 1: Direct SOL Staking (Most Common)**
+1. **Enter SOL Amount:** Input the amount of SOL you want to stake
+2. **Choose Method:** Select between "Direct Mint" or "via Jupiter"
+   - **Direct Mint:** Mint JitoSOL directly via Stake Pool contract
+   - **via Jupiter:** Swap SOL for JitoSOL via Jupiter DEX
+3. **Review Exchange:** Check how much JitoSOL you'll receive
+4. **Execute:** Click "Convert to JitoSOL"
 
-With Phantom: Authorize your wallet to connect with our site by clicking the "Connect Button"
+**Method 2: Convert Other Assets**
+- **Convert SPL Tokens:** Use other tokens in your wallet (WBTC, kySOL, Bonk, etc.) by clicking on the token dropdown
+- **Convert Stake Accounts:** Convert existing SOL stake accounts to JitoSOL by clicking on the stake accounts row.
 
-![stakeSolForJitoSol 6](/shared/images/jitosol/stakeSolForJitoSol_6.png)
+![SPL Token Options](/shared/images/jitosol/stake-page-stake-section-convert-spl-token-options.png)
 
-Afterwards, you can confirm your wallet is connected by checking the address in the top right corner of the page (as shown below)
+**Method 3: Convert SOL to JitoSOL via Jupiter Integration**
+For any supported token, you can convert via Jupiter:
 
-![stakeSolForJitoSol 5](/shared/images/jitosol/stakeSolForJitoSol_5.png)
+![Convert to JitoSOL via Jupiter](/shared/images/jitosol/stake-page-stake-section-via-jup-flow.png)
 
-*Wallet connection confirmation in the top right corner with the address blacked out.*
+1. **Select Source Token:** Choose from your available assets
+2. **Set Amount:** Enter the amount to convert
+3. **Review Route:** Jupiter shows the best conversion path
+4. **Execute Swap:** Complete the transaction to receive JitoSOL
 
-#### Step 4: Choose Amount to Stake as JitoSOL
+### Step 4: Complete the Transaction
 
-Enter the amount you wish to deposit into JitoSOL in the screen on the right. Ensure the amount is less than your total balance. You should also keep some SOL in your wallet (at least 0.1) for subsequent transaction fees.
+**Wallet Confirmation:**
 
-![stakeSolForJitoSol 4](/shared/images/jitosol/stakeSolForJitoSol_4.png)
+![Wallet Confirmation](/shared/images/jitosol/stake-page-wallet-confirm-deposit-via-direct-mint.png)
 
-Confirm the amount in Phantom reflects the amount you want to deposit. Then click "Approve".
+1. **Review Transaction Details:**
+   - Verify you're receiving JitoSOL (+ amount)
+   - Check SOL being spent (- amount)
+   - Confirm network fees
+   - If on a ledger, check the transaction hash in the toast at the bottom of the left to make sure it matches your Ledger.
 
-![stakeSolForJitoSol 3](/shared/images/jitosol/stakeSolForJitoSol_3.png)
+2. **Approve in Wallet:**
+   - Click "Confirm" in your wallet
+   - Wait for blockchain confirmation
+   - Transaction typically completes in 10-30 seconds
 
-There should be a pop-up at the button of the screen confirming the operation. This will pop-up at the bottom of your interface.
+**Success Confirmation:**
 
-#### Step 5: Confirm receipt of JitoSOL
+![Success Toast](/shared/images/jitosol/stake-page-toast.png)
 
-Check your wallet and you should see Jito Staked SOL in the amount you chose to stake.
+3. **Verify Completion:**
+   - Look for success notification
+   - Check JitoSOL appears in your wallet
+   - Your JitoSOL balance represents staked SOL plus accumulated rewards
 
-![stakeSolForJitoSol 2](/shared/images/jitosol/stakeSolForJitoSol_2.png)
+**Start Earning Immediately:**
+- Your JitoSOL begins earning staking and MEV rewards right away
+- Rewards are automatically compounded into your JitoSOL balance
+- Track your earnings in the [Rewards section](/jitosol/get-started/viewing-jitosol-rewards)
 
-#### Step 6: Enjoy your JitoSOL
+## What Happens Next?
 
-You can use JitoSOL with our DeFi partners (see [guide](/jitosol/get-started/using-jitosol-flow/using-overview)) or safely accrue yield from stake and MEV rewards.
+### Automatic Reward Earning
+- **Staking Rewards:** Earn standard Solana network staking yields
+- **MEV Rewards:** Additional rewards from Jito's MEV infrastructure
+- **Compounding:** All rewards automatically increase your JitoSOL value
+
+### Using Your JitoSOL
+- **Hold and Earn:** Simply hold JitoSOL to accrue rewards
+- **DeFi Integration:** Use in lending protocols, DEXs, and yield farming
+- **Instant Liquidity:** Trade on exchanges like Jupiter anytime
+- **No Lock-up:** Unlike direct staking, no waiting periods
+
+### Next Steps
+- **Track Performance:** Use the [Rewards interface](/jitosol/get-started/viewing-jitosol-rewards/) to monitor earnings
+- **Explore DeFi:** Check out [DeFi opportunities](/jitosol/user-guides/defi-page-guide/) with JitoSOL
+- **Learn More:** Read about [managing your stakes](/jitosol/user-guides/managing-your-stakes/)
+
+## Staking Options Summary
+
+**Direct SOL Staking:**
+- ✅ Most straightforward path from SOL to JitoSOL
+- ✅ Choose between Direct Mint or Jupiter routing
+- ✅ No slippage on Direct Mint option
+
+**SPL Token Conversion:**
+- ✅ Convert other assets (WBTC, USDC, Bonk, etc.) to JitoSOL
+- ✅ Jupiter integration for best swap routes
+- ✅ Convenient one-step process
+
+**Stake Account Conversion:**
+- ✅ Convert existing SOL stake accounts to liquid JitoSOL
+- ✅ Maintain staking rewards while gaining liquidity
+- ✅ No waiting periods for conversion
+
+## Key Benefits Recap
+
+✅ **Earn 2 Types of Rewards:** Staking + MEV  
+✅ **Maintain Liquidity:** Use JitoSOL in DeFi or trade anytime  
+✅ **Multiple Entry Points:** SOL, SPL tokens, or stake accounts
+✅ **No Activation Lock-up Period:** Unlike direct staking  
+✅ **Automatic Compounding:** Rewards reinvest automatically  
+
+## Troubleshooting
+
+**Transaction Failed?**
+- Ensure you have enough SOL for transaction fees
+- Check your wallet is properly connected
+- Try refreshing the page and reconnecting
+
+**Don't See JitoSOL?**
+- Check if your wallet auto-detects new tokens
+- Manually add the JitoSOL token address if needed
+- Refresh your wallet or try reconnecting
+
+**Need Help?**
+- Review our [FAQ section](/jitosol/faqs/)
+- Check wallet-specific guides above
+
+Ready to start earning enhanced yields on your SOL? Head to [jito.network/staking](https://jito.network/staking/) now!
 

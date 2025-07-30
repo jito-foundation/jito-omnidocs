@@ -1,6 +1,6 @@
 ---
 title: Steward CLI Guide
-order: 0
+order: 2
 subtitle: 'Commands and operations for Steward management'
 section_type: page
 ---

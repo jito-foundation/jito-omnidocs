@@ -1,8 +1,8 @@
 ---
-title: 'Solend'
-order: 8
+title: 'Save (Solend)'
+order: 6
 section_type: 'page'
-subtitle: ''
+subtitle: 'Decentralized lending protocol with JitoSOL support (Formerly Solend)'
 ---
 
 

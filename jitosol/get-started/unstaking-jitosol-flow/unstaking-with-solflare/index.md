@@ -2,106 +2,151 @@
 title: 'Unstaking with Solflare'
 order: 1
 section_type: 'page'
-subtitle: ''
+subtitle: 'Step-by-step guide for delayed unstaking using Solflare wallet'
 ---
 
+This guide covers the **delayed unstaking** process using Solflare wallet. For most users, we recommend [instant trading via Jupiter](/jitosol/get-started/unstaking-jitosol-flow/unstaking-overview/#option-1-instant-trading-recommended) instead.
 
-### Step 1: Click the "Select Wallet" button in the top right of the app page
+**Time Required:** Initial setup (5-10 minutes) + waiting period (up to 2 days)  
+**Fee:** 0.1% unstaking fee
 
-![Stake SOL Solflare 1](/shared/images/jitosol/Stake_SOL_Solflare_1.png)
+## Step 1: Connect Your Solflare Wallet
 
-### Step 2: Select Solflare from the list
+Navigate to [jito.network/staking](https://jito.network/staking/) and connect your wallet:
 
-![Unstaking with SolFlare 12](/shared/images/jitosol/Unstaking_with_SolFlare_12.png)
+![Jito Header Before Connecting](/shared/images/jitosol/wallet-unstake-sol-header-with-connect-button-before-connecting.png)
 
-### Step 3: Select to connect with "Extension"
+Click **"Connect Wallet"** in the top right corner.
 
-![Unstaking with SolFlare 8](/shared/images/jitosol/Unstaking_with_SolFlare_8.png)
+![Choose Wallet Options](/shared/images/jitosol/wallet-unstake-sol-choose-wallet-options.png)
 
-### Step 4: Authorize Solflare to Connect
+Select **"Solflare"** from the wallet options.
 
-Click "Connect" to Authorize Solflare to communicate with our site. You may opt to "Trust this app" to prevent future connection requests. It is purely a convenience feature and not required to connect nor receive JitoSOL.
+![Solflare Connection Method](/shared/images/jitosol/solflare-unstake-sol-wallet-address-button.png)
 
-![Unstaking with SolFlare 9](/shared/images/jitosol/Unstaking_with_SolFlare_9.png)
+Select to connect.
 
-Afterwards, you can confirm your wallet is connected by checking the address in the top right corner of the page (as shown below)
+![Solflare Authorization](/shared/images/jitosol/solflare-connect-wallet-screen.png)
 
-![Unstaking with SolFlare 2](/shared/images/jitosol/Unstaking_with_SolFlare_2.png)
+Click **"Connect"** to authorize Solflare to communicate with Jito. You may opt to "Trust this app" to prevent future connection requests.
 
-### Step 5: Choose Amount to Unstake into SOL
+![Connected Wallet Address](/shared/images/jitosol/solflare-unstake-sol-wallet-address-button.png)
 
-![Unstaking with SolFlare 1](/shared/images/jitosol/Unstaking_with_SolFlare_1.png)
+Confirm your wallet is connected by checking the address in the top right corner.
 
-You will receive an alert informing you on the unstake process. Click Start if you want to proceed.
+## Step 2: Choose Delayed Unstaking Option
 
-![Unstaking with SolFlare 17](/shared/images/jitosol/Unstaking_with_SolFlare_17.png)
+On the staking page, select the **"Unstake"** tab and choose the delayed unstaking option:
 
-Confirm the amount in Solflare reflects the amount you want to withdraw. Then click "Approve".
+![Delayed Unstaking Process](/shared/images/jitosol/stake-page-unstake-section-delayed-unstake-flow.png)
 
-![Unstaking with SolFlare 11](/shared/images/jitosol/Unstaking_with_SolFlare_11.png)
+- Enter the amount of JitoSOL you want to unstake
+- Choose **"Delayed in X days"** showing 0.1% fee
+- Click **"Unstake SOL"** to initiate the process
 
-There should be a pop-up at the button of the screen confirming the operation.
+![Delayed Unstaking Confirmation](/shared/images/jitosol/stake-page-confirm-modal-delayed-flow-unstake-jitosol.png)
 
-![Unstaking with SolFlare 3](/shared/images/jitosol/Unstaking_with_SolFlare_3.png)
+The interface provides detailed step-by-step instructions and links to wallet-specific guides.
 
-### Step 6: Find Stake Accounts in Solflare
+## Step 3: Access Staking in Solflare
 
-The full-tab Solflare must be used for staking operations. Open this via the Expand button in the top right of Solflare browser extension.
+After initiating unstaking, you need to manage your stake accounts in Solflare.
 
-![Unstaking with SolFlare 10](/shared/images/jitosol/Unstaking_with_SolFlare_10.png)
+![Solflare Staking Options Overview](/shared/images/jitosol/solfare-unstake-sol-staking-options-step-1.png)
 
-Click Staking in the middle of the top menu bar
+Simply click the **"Staking"** tab in the bottom navigation of your Solflare wallet to access your stake accounts.
 
-![Unstaking with SolFlare 6](/shared/images/jitosol/Unstaking_with_SolFlare_6.png)
+## Step 4: View Your Stake Accounts
 
-Select Native Staking in the lower menu bar
+![Solflare Full Stakes List](/shared/images/jitosol/solfare-unstake-sol-staking-options-step-1-full-list.png)
 
-![Unstaking with SolFlare 19](/shared/images/jitosol/Unstaking_with_SolFlare_19.png)
+The full list shows all your stake accounts with their current status. You may have multiple accounts in various denominations with different statuses:
+- **Active**: Currently earning rewards, needs to be unstaked
+- **Unstaked**: Ready to withdraw
+- Various validators with different APY rates
 
-Your stake accounts will be listed as shown below. There may be anywhere from 1 to 10+ accounts listed in various denominations.
+## Step 5: Unstake Active Stakes
 
-![Unstaking with SolFlare 20](/shared/images/jitosol/Unstaking_with_SolFlare_20.png)
+For any stakes showing as **"Active"**, you need to unstake them:
 
-### Step 7: Manually Undelegate the Accounts
+![Solflare Active Stake Details](/shared/images/jitosol/solfare-unstake-sol-unstake-active-sol-step-2.png)
 
-You must undelegate each "Active" (or "Activating") account to being the withdrawal process. After clicking the account, you will see the below interface. Select Undelegate.
+1. **Click on the active stake account** - You'll see details including the validator, APY, and total stake
 
-![Unstaking with SolFlare 14](/shared/images/jitosol/Unstaking_with_SolFlare_14.png)
+![Solflare Unstake Review](/shared/images/jitosol/solfare-unstake-sol-unstake-active-sol-review-step-3.png)
 
-Confirm the undelegation when prompted.
+2. **Review the unstaking details** - Check the validator, time to unstake, and network fees
+3. **Click the yellow "Review" button** when ready
 
-![Unstaking with SolFlare 16](/shared/images/jitosol/Unstaking_with_SolFlare_16.png)
+![Solflare Unstake Confirmation](/shared/images/jitosol/solfare-unstake-sol-unstake-active-sol-confirm-step-4.png)
 
-Your account will now be shown as Deactivating
+4. **Confirm the unstaking transaction** - Review all details and click **"Confirm"**
 
-![Unstaking with SolFlare 7](/shared/images/jitosol/Unstaking_with_SolFlare_7.png)
+![Solflare Now Unstaking Status](/shared/images/jitosol/solfare-unstake-sol-active-sol-now-unstaking-step-4.png)
 
-#### Note: You will need to repeat this step for every account listed as "Active" or "Activating" in order to start the unstaking process.
+After confirmation, your stake will show as **"Unstaking"** with a countdown timer showing time remaining.
 
-### Step 8: Wait 2-4 days
+**Important:** You must unstake each active stake account individually.
 
-The stake needs to be withdrawn from validators and there is a unstaking protocol implemented by Solana that lasts from 2-4 days. This applies for any staking method (read more [here](https://docs.solana.com/cluster/stake-delegation-and-rewards#stake-warmup-cooldown-withdrawal)). You can check in Solflare anytime to see the stake status. Once "inactive", it can be withdrawn.
+## Step 6: Wait for Epoch Completion
 
-### Step 9: Withdraw SOL
+**Waiting Period:** Up to 2 days (1 Solana epoch)
 
-Your stake will be shown as Inactive when available for withdrawal.
+The stake needs to cool down due to Solana's protocol requirements. This applies to all unstaking methods, not just JitoSOL. You can check the status in Solflare. Once it shows **"Unstaked"**, it's ready to withdraw.
 
-![Unstaking with SolFlare 4](/shared/images/jitosol/Unstaking_with_SolFlare_4.png)
+## Step 7: Withdraw Your SOL
 
-Select Withdraw to complete the process
+Once your stakes show as **"Unstaked"**:
 
-![Unstaking with SolFlare 18](/shared/images/jitosol/Unstaking_with_SolFlare_18.png)
+![Solflare Unstaked SOL Ready](/shared/images/jitosol/solfare-unstake-sol-inactive-sol-step-1a.png)
 
-Decide how much you would like to withdraw. We recommend most users select "Withdraw everything and close account". This will maximize the SOL you receive.
+Your stake will be shown as **"Unstaked"** when available for withdrawal. You'll see the amount and validator details.
 
-![Unstaking with SolFlare 13](/shared/images/jitosol/Unstaking_with_SolFlare_13.png)
+![Solflare Withdraw Interface](/shared/images/jitosol/solfare-unstake-sol-inactive-sol-withdraw-step-2a.png)
 
-Confirm the withdrawal once you've decided how much to take out.
+1. **Click "Withdraw"** to start the withdrawal process
+2. **Review the withdrawal details** - Check the token amount, destination, and network fees
 
-![Unstaking with SolFlare 15](/shared/images/jitosol/Unstaking_with_SolFlare_15.png)
+![Solflare Withdraw Confirmation](/shared/images/jitosol/solfare-unstake-sol-inactive-sol-withdraw-confirm-step-3a.png)
 
-### Step 10: Use your SOL
+3. **Confirm the withdrawal** - Click **"Confirm"** to complete the process
 
-You can confirm the withdrawal in your activity tab. Your unstaked amount will be included in the SOL balance in your wallet.
+Your SOL will now be available as regular SOL in your wallet for immediate use.
 
-![Unstaking with SolFlare 5](/shared/images/jitosol/Unstaking_with_SolFlare_5.png)
+## Key Points to Remember
+
+- ⚠️ **Multiple Accounts**: You may have multiple stake accounts to unstake and withdraw individually
+- ⏰ **Timing**: The up to 2-day wait is a Solana protocol requirement, not specific to JitoSOL
+- 🔄 **Process**: This is irreversible once initiated -- Jito removes your stake from the pool immediately
+- 💰 **Fees**: 0.1% unstaking fee applies to the delayed method
+- ⏱️ **Timer Display**: Solflare shows a countdown timer for unstaking progress
+
+## Need Instant Access?
+
+If you can't wait up to 2 days, consider [instant trading via Jupiter](/jitosol/get-started/unstaking-jitosol-flow/unstaking-overview/#option-1-instant-trading-recommended) instead:
+- ✅ Immediate settlement
+- ✅ Single transaction
+- ✅ Convert to any token, not just SOL
+
+## Troubleshooting
+
+**Don't see your stake accounts?**
+- Ensure you've initiated unstaking from the Jito website first
+- Click the "Staking" tab in the bottom navigation of your Solflare wallet
+- Refresh your wallet if needed
+
+**Stakes still showing as Active?**
+- You must manually unstake each Active stake account
+- This step cannot be skipped. It's required by Solana's protocol
+
+**Can't find the Staking section?**
+- Look for the "Staking" tab in the bottom navigation bar of your wallet
+- The tab should be visible alongside "Tokens", "Stocks", "Earn", and "Collect"
+
+**Unstaking timer not showing?**
+- Refresh the Solflare interface
+- The timer shows remaining time until withdrawal is available
+
+**Need additional help?**
+- Review the [main unstaking overview](/jitosol/get-started/unstaking-jitosol-flow/unstaking-overview/)
+- Join our [Discord community](https://discord.gg/jitocommunity) for support

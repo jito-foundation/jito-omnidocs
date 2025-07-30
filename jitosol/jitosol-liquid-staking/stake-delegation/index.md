@@ -2,63 +2,81 @@
 title: 'Stake Delegation'
 order: 2
 section_type: 'page'
-subtitle: 'JitoSOL is delegated to validators based on high performance and network resiliency'
+subtitle: 'JitoSOL delegation criteria and methodology'
 ---
 
+## Overview
 
-### Overview
+The aim of Jito's Liquid Staking is to decentralize the network and improve the performance of the Solana blockchain. Validators that meet the minimum criteria may become eligible for a stake delegation. Stakenet automates this process using transparent scoring algorithms and safety mechanisms.
 
-The aim of Jito Foundation's Liquid Staking is to decentralize the network and improve the performance of the Solana Blockchain. Validators which meet the minimum criteria may become eligible for a stake delegation.
+See current delegates at [jito.network/stakepool](https://www.jito.network/stakepool/Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb/).
 
-See the current delegates [here](https://www.jito.network/stakepool/Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb/).
+## Delegation requirements
 
-### Delegation Goals
-- Support high quality network operators.
-- Improve Solana's decentralization. Jito does not delegate within the superminority.
-- Deliver high yields to JitoSOL holders to incentivize increasing stake on the network
-- Encourage the adoption of the Jito-Solana's validator client. This client benefits the network by increasing staking yields and discouraging spam
+Validators must meet all of the following binary criteria to be eligible for delegation (subject to change):
 
-### Delegation Requirements
-
-There may be changes to the delegation requirements and/or weights over time based on tokenholder voting. Changes will be communicated in advance along with significant shifts in stake weight.
-
-High level, validators must meet a set of binary criteria (step 1). The top 200 validators meeting those criteria will then be selected for delegation (step 2).
-
-In order to receive a delegation, validators must meet the following requirements: 
-
-- Run MEV-enabled client
-- Retain a MEV commission rate ≤ 10%
-- Not belong to the validator superminority
+- Run the Jito MEV-enabled client (have MEV commission in the last 10 epochs)
+- MEV commission ≤ 10% (evaluated over the last 10 epochs)
+- Validator commission ≤ 5% (evaluated over the last 30 epochs)
+- Historical commission ≤ 50% (across all validator history)
+- Not belong to the validator superminority (top 33.3% of total stake)
 - Not run unsafe consensus modifications
+- Not blacklisted by governance
+- Maintain ≥ 5 epochs of continuous voting with ≥ 5,000 SOL minimum stake
+- Vote on ≥ 85% of expected slots (evaluated over the last 30 epochs)
 
-### Scoring Mechanism
-- Validators that pass the above criteria will be ranked on performance. The top 200 will be chosen for delegation. If 200 validators do not meet the binary criteria, the pool will be split across all those who do.
-- The performance score is average epoch credits for the last 20 epochs, adjusted for max validator commission during that period.
+Failing any single criterion results in an overall score of zero, making the validator ineligible for delegation.
 
-### Rebalancing
+## Scoring mechanism
 
-Pool churn is capped at 7.5% of TVL per every 10 epoch cycle based on performance-based rebalancing. This is required since each stake movement has a negative impact on JitoSOL yield. Unstaking for non-performance reasons has a higher limit.
+Validators that pass all binary criteria are ranked using a performance-based yield score:
 
-Criteria for immediate exclusion from the pool
+```
+yield_score = (average_vote_credits / average_blocks) * (1 - commission)
+```
 
-- 0 epoch credits (i.e. delinquent for an entire epoch)
-- MEV or validator commission increased to greater than 10%
-- Validators behaving maliciously. This includes tip stealing and vote lagging
+Where:
+- `average_vote_credits` = vote credits earned over the last 30 epochs
+- `average_blocks` = total blocks produced by the cluster over the last 30 epochs  
+- `commission` = maximum commission over the last 30 epochs (as decimal, e.g., 0.05 for 5%)
 
-Performance Rebalancing
+The overall score is calculated as the product of all binary eligibility factors and the yield score. The top 200 validators by overall score are selected for delegation in each 10-epoch cycle.
 
-- Unstake up to 7.5% of the pool in the following order: (i) Validators no longer ineligible, (ii) lowest performance score
-- Stake application: Using the available deposits from unstaking, stake is applied in order of performance score to the highest rated validators based on performance until each is at the target delegation (JitoSOL TVL / 200).
+## Delegation methodology
 
-<u>Sample Scores:</u>
+- Each selected validator receives a target allocation of 1/200th of the total pool
+- Target allocations are percentage-based and scale automatically with pool growth
+- New deposits increase all validators' target stake proportionally
 
-Here are scores for all validators starting from epoch 480 ([<u>link</u>](https://docs.google.com/spreadsheets/d/1EIqeYB323f2JppzB49bZlEg0XfjfH02882GNMKgcEKA/edit?usp=sharing)). This sheet will be updated every 10 epochs. You can check your fulfillment of the binary criteria and performance rank versus others. A more formal UI will be developed over time but this should provide transparency in the interim.
+## Rebalancing and safety caps
 
-### StakeNet
+To protect JitoSOL yield, the system limits the amount of stake that can be moved per cycle:
 
-JitoSOL is moving to a novel stake pool management product: Jito StakeNet. Please see this [blog post](https://www.jito.network/blog/a-deep-dive-into-stakenet/) for details. This will be transitioned in over the next 1-2 months.
+| Rebalancing type | Maximum unstake per cycle |
+|------------------|---------------------------|
+| Performance-based rebalancing | 7.5% of total pool |
+| Instant unstake triggers | 10% of total pool |
+| Stake deposit management | 10% of total pool |
 
-### Questions
+Priority is given to removing stake from the lowest-performing validators first.
 
-For questions or feedback on this process, please ask in the #stake-pool-delegation channel of Jito’s Discord ([<u>link</u>](https://discord.gg/jito)). We’d like to understand how validators feel about this system and how it could be improved.
+## Instant unstaking criteria
+
+The system evaluates validators each epoch for immediate removal based on:
+
+- Delinquency: Voting on less than 70% of expected slots (lower threshold than the 85% scoring requirement)
+- Commission manipulation: Increasing commission above 5% or MEV commission above 10%
+- Blacklist addition by governance
+
+Validators meeting these criteria are unstaked within the same epoch, subject to the 10% cap.
+
+## Parameters and transparency
+
+All delegation parameters are stored on-chain and can be viewed at [jito.network/stakenet/steward/config](https://jito.network/stakenet/steward/config) or queried using the steward CLI.
+
+Changes to delegation requirements and parameters may occur based on Jito DAO governance decisions. The community will be notified in advance of any significant changes.
+
+## Questions
+
+For questions or feedback on the delegation process, please visit the #stake-pool-delegation channel on [Jito's Discord](https://discord.gg/jito).
 

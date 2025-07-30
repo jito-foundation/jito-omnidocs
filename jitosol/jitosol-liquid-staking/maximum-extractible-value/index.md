@@ -5,7 +5,6 @@ section_type: 'page'
 subtitle: 'What is MEV and how does JitoSOL benefit from it?'
 ---
 
-
 ## MEV Explained
 
 Maximum extractable value (MEV) describes profit opportunities priveledged entities can extract attributable to the specific order of transaction execution. For example, a large swap on Orca can lower the pool’s price below that of Raydium or Serum. Traders will race to profit from that price difference and this arbitrage is considered MEV.

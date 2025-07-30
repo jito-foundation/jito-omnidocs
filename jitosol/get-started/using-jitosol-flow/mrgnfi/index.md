@@ -1,20 +1,58 @@
 ---
-title: 'mrgnfi'
+title: 'marginfi'
 order: 5
 section_type: 'page'
-subtitle: ''
+subtitle: 'Leading Solana lending protocol with $400M+ TVL and JitoSOL integration'
 ---
 
+marginfi is one of Solana's largest and most established lending protocols with over $400 million in deposits. The platform offers lending, borrowing, and leveraged staking strategies using JitoSOL as collateral.
 
-mrgnfi is a spot borrow and lending app on Solana. They have integrated JitoSOL. You can borrow USDC or other assets against the value of your JitoSOL. 
+## JitoSOL Integration
 
-**Levered Staking**
+marginfi fully supports JitoSOL with competitive loan-to-value ratios and yield opportunities.
 
-You can also use mrgnfi for levered staking on JitoSOL. This involves depositing JitoSOL, borrowing SOL against that value, converting the borrowed SOL into JitoSOL, depositing it and withdrawing more SOL in a circular loop. The effect of this is to amplify the staking returns from JitoSOL.
+## Core Strategies
 
-Regular returns on JitoSOL are 6-8%. This method can produce returns of 15% or greater, albeit with some risk. Read more about the concept [here](https://blog.texture.finance/leveraged_staking_oct22/) and please make sure you understand the risks before initiating any DeFi strategies.
+### **Basic Lending**
+1. **Deposit JitoSOL** to earn interest + points
+2. **Maintain Liquidity** while earning staking rewards
+3. **Borrow Assets** against JitoSOL collateral (up to 77% LTV)
 
-**Link**
+### **Leveraged Staking (Advanced)**
 
-Access the app [here](https://app.marginfi.com/) and documentation is [here](https://docs.marginfi.com/).
+marginfi enables sophisticated leveraged staking strategies:
 
+**The Loop Strategy**:
+1. Deposit JitoSOL as collateral
+2. Borrow SOL against JitoSOL value  
+3. Convert borrowed SOL to more JitoSOL
+4. Repeat process to amplify exposure
+
+**Example**:
+- Start with 100 JitoSOL
+- Borrow 70 SOL (70% LTV)
+- Convert to ~57 more JitoSOL  
+- Total position: ~157 JitoSOL
+- **Amplified yield**: Instead of 7.5% on 100 JitoSOL, earn on 157 JitoSOL
+- **Cost**: SOL borrowing rate (~7.7%)
+
+## Getting Started
+
+1. **Visit marginfi**: <https://app.marginfi.com/>
+2. **Connect Wallet**: Link your Solana wallet
+3. **Deposit JitoSOL**: Start earning immediately
+4. **Monitor Health**: Keep position health above 25% to avoid liquidation
+5. **Optimize Strategy**: Adjust based on borrowing costs vs. staking yields
+
+### **Safety Tips**
+- **Start Small**: Test strategies with smaller amounts first
+- **Monitor Rates**: SOL borrow rates can change based on utilization
+- **Health Buffer**: Maintain health ratio well above liquidation threshold
+- **Market Conditions**: Be aware during high volatility periods
+
+## Resources
+
+- **Platform**: <https://app.marginfi.com/>
+- **Documentation**: <https://docs.marginfi.com/>
+
+**Risk Warning**: Leveraged strategies can result in liquidation and loss of funds. Interest rates fluctuate based on market conditions. Always understand the risks before engaging in leveraged positions.

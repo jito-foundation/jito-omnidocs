@@ -1,6 +1,6 @@
 ---
 title: 'Github + Other Links'
-order: 0
+order: 3
 section_type: 'page'
 subtitle: ''
 ---

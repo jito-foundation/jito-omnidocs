@@ -2,7 +2,7 @@
 title: 'Technical FAQs'
 subtitle: 'Technical questions about JitoSOL mechanics and implementation'
 section_type: 'page'
-order: 2
+order: 10
 ---
 
 ## JitoSOL Token Mechanics
@@ -37,7 +37,7 @@ JitoSOL holders receive rewards automatically through the appreciating exchange 
 
 **Q: Can the JitoSOL exchange rate ever go down?**
 
-Under normal circumstances, the JitoSOL exchange rate should only increase as rewards accumulate. However, theoretically it could decrease in extreme scenarios:
+Under normal circumstances, the JitoSOL exchange rate is designed to increase as rewards accumulate. However, it could decrease in extreme scenarios:
 
 - **Validator Slashing**: If validators in the pool are slashed for malicious behavior (though slashing does not really exist right now on Solana)
 - **Smart Contract Issues**: Critical bugs in the stake pool program (mitigated by multiple security firms have audited the stake pool program to ensure total safety of funds)
@@ -72,6 +72,8 @@ Where:
 - `commission` = maximum commission over the last 30 epochs (as decimal, e.g., 0.05 for 5%)
 
 The top 200 validators by overall score are selected for delegation in each 10-epoch cycle.
+
+*StakeNet parameters and thresholds are subject to change through Jito DAO governance.*
 
 **Q: What happens if a validator in the Jito pool performs poorly?**
 

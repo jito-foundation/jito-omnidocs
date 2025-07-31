@@ -2,7 +2,7 @@
 title: 'Troubleshooting'
 subtitle: 'Common issues and solutions when using JitoSOL'
 section_type: 'page'
-order: 1
+order: 20
 ---
 
 ## Transaction Issues

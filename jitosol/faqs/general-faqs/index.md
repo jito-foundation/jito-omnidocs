@@ -40,7 +40,7 @@ MEV rewards naturally fluctuate based on market activity:
 
 **Q: Can my JitoSOL ever lose value compared to SOL?**
 
-Under normal conditions, no. JitoSOL is designed to appreciate against SOL as rewards accumulate. The only theoretical scenarios for value loss would be extreme events like massive validator slashing (which currently doesn't exist on Solana) or critical smart contract bugs.
+Under normal conditions, JitoSOL is designed to appreciate against SOL as rewards accumulate. The only scenarios for value loss would be extreme events like massive validator slashing (which currently doesn't exist on Solana) or critical smart contract bugs.
 
 ## Fees
 
@@ -59,8 +59,8 @@ JitoSOL deposits the SOL with a carefully selected group of validators. These va
 **Q: How does Jito choose which validators to stake with?**
 
 Jito uses an automated system called **StakeNet** that selects the top 200 validators based on performance, fees, and reliability. The system checks things like:
-- Low commission rates (under 5%)
-- Good voting performance (over 85% of expected votes)
+- Low commission rates
+- Good voting performance
 - Running Jito's MEV software
 - Not being too large (to help decentralization)
 

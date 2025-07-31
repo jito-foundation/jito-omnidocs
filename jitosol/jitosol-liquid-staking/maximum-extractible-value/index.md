@@ -1,6 +1,6 @@
 ---
 title: 'Maximum Extractable Value'
-order: 1
+order: 10
 section_type: 'page'
 subtitle: 'What is Solana MEV and how does JitoSOL benefit from it?'
 ---

@@ -1,6 +1,6 @@
 ---
 title: 'Privacy Policy'
-order: 2
+order: 30
 section_type: 'page'
 subtitle: ''
 ---

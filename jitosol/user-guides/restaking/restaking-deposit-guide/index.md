@@ -22,7 +22,7 @@ order: 2
 
 ## Step 1: Access the Restaking Interface
 
-1. Navigate to [jito.network/restaking/](https://jito.network/restaking/)
+1. Navigate to [jito.network/restaking/](https://www.jito.network/restaking/)
 2. Click "Connect Wallet" in the top right
 3. Select your wallet type and approve connection
 4. Ensure you're on the correct network (Solana mainnet)
@@ -129,7 +129,7 @@ The restaking interface provides a convenient toggle to switch between two depos
 
 ![Restaking Dashboard - My Vaults](/shared/images/jitosol/restaking-dashboard-my-vaults-vrts.png)
 
-- Navigate to [jito.network/restaking/dashboard/](https://jito.network/restaking/dashboard/)
+- Navigate to [jito.network/restaking/dashboard/](https://www.jito.network/restaking/dashboard/)
 - Your dashboard shows all active positions under "My Vaults"
 - Each row displays:
   - **Vault Name** (e.g., bzSOL Vault, rstSOL Vault)
@@ -164,4 +164,4 @@ Your VRT tokens can be:
 - Never lose access to your VRT tokens (they're required for withdrawals)
 - Check compatibility before using VRTs in external DeFi protocols
 
-This guide covers the basic deposit process. For withdrawal instructions, see the [Restaking Withdrawal Guide](/jitosol/get-started/restaking/restaking-withdrawal-guide). Always do your own research and understand the risks before depositing significant amounts. 
+This guide covers the basic deposit process. For withdrawal instructions, see the [Restaking Withdrawal Guide](/jitosol/user-guides/restaking/restaking-withdrawal-guide/). Always do your own research and understand the risks before depositing significant amounts. 

@@ -1,6 +1,6 @@
 ---
-title: 'Restaking'
+title: 'Restaking Guides'
 subtitle: 'Comprehensive guides for using Jito Restaking'
 section_type: 'expandable'
-order: 5
+order: 10
 ---

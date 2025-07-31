@@ -5,11 +5,9 @@ section_type: 'page'
 subtitle: 'JitoSOL integrates with 20+ leading Solana DeFi protocols for enhanced yield opportunities'
 ---
 
-JitoSOL has extensive integrations across the Solana DeFi ecosystem, with over 40% of JitoSOL supply actively used as collateral and liquidity provision. JitoSOL has **16M SOL TVL** and **180,000 holders** as of July 2025.
+JitoSOL has extensive integrations across the Solana DeFi ecosystem, with over 40% of JitoSOL supply actively used as collateral and liquidity provision. JitoSOL has 16M SOL TVL and 180,000 holders as of July 2025.
 
 ### **Lending & Borrowing Protocols:**
-
-[Kamino Finance](/jitosol/get-started/using-jitosol-flow/kamino) - Automated vault management and lending protocol with over $2.7B+ TVL as of July 2025
 
 [marginfi](/jitosol/get-started/using-jitosol-flow/mrgnfi) - Leading lending protocol
 
@@ -26,6 +24,8 @@ JitoSOL has extensive integrations across the Solana DeFi ecosystem, with over 4
 [Meteora](/jitosol/get-started/using-jitosol-flow/meteora) - Dynamic liquidity market maker (DLMM) with innovative features
 
 [Invariant](/jitosol/get-started/using-jitosol-flow/invariant) - Concentrated liquidity AMM with high capital efficiency
+
+[Kamino Finance](/jitosol/get-started/using-jitosol-flow/kamino) - Automated vault management and lending protocol
 
 ### **Specialized Platforms:**
 

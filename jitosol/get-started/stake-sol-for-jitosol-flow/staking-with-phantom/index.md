@@ -5,100 +5,95 @@ section_type: 'page'
 subtitle: 'Step-by-step guide for staking SOL using Phantom wallet'
 ---
 
-This guide covers how to stake SOL for JitoSOL using Phantom wallet. The process takes just a few minutes and allows you to start earning both staking and MEV rewards.
-
 **Time Required:** 2-5 minutes  
-**Prerequisites:** Phantom wallet with SOL tokens and small amount for transaction fees
+**Prerequisites:** Phantom wallet with SOL
 
 ## Prerequisites
 
-### **Getting SOL for Staking**
+**What You Need:**
+- SOL to stake (purchase from Coinbase, Kraken, or Binance if needed)
+- Small amount of SOL for transaction fees
 
-Your wallet needs some balance of SOL to stake. If you want to purchase SOL and already have assets in your wallet, use [Jupiter](https://jup.ag/) to swap for SOL. For those without existing assets on Solana, SOL can be purchased through exchanges like Coinbase, Kraken, Binance or most popular venues. After purchasing SOL and setting up a Solana wallet, transfer the SOL into your wallet.
+**Ledger Users:** If using Phantom with Ledger:
+1. Connect Ledger and open Solana app
+2. Connect via Phantom browser extension
+3. Approve transactions on your Ledger device when prompted
 
-### **Ledger Integration**
+## Step 1: Connect Phantom Wallet
 
-JitoSOL is fully compatible with Ledger wallets used through browser extensions. If you're using a Ledger with Phantom:
-1. Connect your Ledger device to your computer
-2. Open the Solana app on your Ledger
-3. Use Phantom browser extension to connect to your Ledger
-4. Follow the instructions and approve transactions on your Ledger device when prompted
-
-## Step 1: Connect Your Phantom Wallet
-
-Navigate to [jito.network/staking](https://jito.network/staking/) and connect your wallet:
+1. Go to [jito.network/staking](https://www.jito.network/staking/)
 
 ![Jito Header Before Connecting](/shared/images/jitosol/wallet-unstake-sol-header-with-connect-button-before-connecting.png)
 
-Click **"Connect Wallet"** in the top right corner.
+2. Click **"Connect Wallet"** in the top right corner
 
 ![Choose Wallet Options](/shared/images/jitosol/wallet-unstake-sol-choose-wallet-options.png)
 
-Select **"Phantom"** from the wallet options.
+3. Select **"Phantom"** from the wallet options
 
 ![Phantom Connection Prompt](/shared/images/jitosol/phantom-unstake-sol-connect-wallet.png)
 
-Click **"Connect"** to authorize Phantom to connect with Jito.
+4. Click **"Connect"** to authorize the connection
 
 ![Connected Wallet Address](/shared/images/jitosol/phantom-unstake-sol-wallet-address-button.png)
 
-Confirm your wallet is connected by checking the address in the top right corner.
+5. Verify your wallet address appears in the top right corner
 
-## Step 2: Choose Amount and SOL Staking Method
+## Step 2: Stake SOL via Direct Mint
 
-Ensure you're on the **"Stake"** tab. 
+1. Ensure you're on the **"Stake"** tab
 
 ![Stake/Unstake Toggle](/shared/images/jitosol/stake-page-toggle-stake-unstake.png)
 
-1. **Enter SOL Amount:** Input the amount of SOL you want to stake
-2. **Choose Method:** Select "Direct Mint" to Mint JitoSOL directly (no slippage)
-3. **Click "Convert to JitoSOL"**
+2. Enter SOL amount to stake
+3. Select **"Direct Mint"** (recommended due to no slippage)
+4. Review JitoSOL amount you'll receive
+5. Click **"Convert to JitoSOL"**
 
 ![Direct Staking Flow](/shared/images/jitosol/stake-page-stake-section-direct-stake-flow.png)
 
-## Step 3: Complete the Transaction
+**Other Options:** You can also convert existing stake accounts or other SPL tokens (USDC, USDT, mSOL, etc.) to JitoSOL. See the [main staking overview](/jitosol/get-started/stake-sol-for-jitosol-flow/overview/) for details on these methods.
 
-**Wallet Confirmation:**
+## Step 3: Complete Transaction
 
 ![Phantom Wallet Confirmation](/shared/images/jitosol/stake-page-wallet-confirm-deposit-via-direct-mint.png)
 
-1. **Review Transaction Details:**
-   - Verify you're receiving JitoSOL (+ amount)
-   - Check SOL being spent (- amount)
-   - Confirm network fees
+**Review Transaction:**
+- Check JitoSOL amount you'll receive (+ amount)
+- Verify SOL being spent (- amount)
+- Confirm network fees
 
-2. **Approve in Phantom:**
-   - Click **"Confirm"** in your wallet
-   - Wait for blockchain confirmation
-   - Transaction typically completes in 10-30 seconds
-
-**Success Confirmation:**
+**Approve in Phantom:**
+1. Click **"Confirm"** in your Phantom wallet
+2. Wait for blockchain confirmation (typically 10-30 seconds)
 
 ![Success Toast](/shared/images/jitosol/stake-page-toast.png)
 
-3. **Verify Completion:**
-   - Look for success notification
-   - Check JitoSOL appears in your Phantom wallet
-   - Your JitoSOL balance represents staked SOL plus accumulated rewards
+**Verify Success:**
+- Look for success notification
+- Check JitoSOL appears in your Phantom wallet
+- Your JitoSOL balance represents staked SOL plus accumulated rewards
 
-## Step 4: Enjoy your JitoSOL
+## What Happens Next
 
-You can use JitoSOL with our DeFi partners (see [guide](/jitosol/get-started/using-jitosol-flow/using-overview/)) or safely accrue yield from stake and MEV rewards.
+**Immediate Benefits:**
+- Start earning staking and MEV rewards immediately
+- Rewards automatically compound into your JitoSOL's value
+- Track earnings in the [Rewards section](/jitosol/get-started/viewing-jitosol-rewards/)
 
-- Your JitoSOL begins earning staking and MEV rewards right away
-- Rewards are automatically compounded into your JitoSOL balance
-- Track your earnings in the [Rewards section](/jitosol/get-started/viewing-jitosol-rewards/)
+**Using JitoSOL:**
+- Hold to accrue rewards
+- Use in DeFi protocols (see [guide](/jitosol/get-started/using-jitosol-flow/using-overview/) or go to our [DeFi opportunities page](https://www.jito.network/defi/))
+- Trade anytime
 
 ## Troubleshooting
 
 **Transaction Failed?**
-- Ensure you have enough SOL for transaction fees (keep ~0.01 SOL)
-- Check your Phantom wallet is properly connected
-- Try refreshing the page and reconnecting
+- Ensure sufficient SOL for fees (~0.01 SOL minimum)
+- Check Phantom wallet connection
+- Refresh page and reconnect
 
 **Need Help?**
-- Review the [main staking overview](/jitosol/get-started/stake-sol-for-jitosol-flow/overview/) for more details
-- Check our [FAQ section](/jitosol/faqs/general-faqs/)
-- Join our [Discord community](https://discord.gg/jitocommunity) for support
-
-Ready to start earning enhanced yields? Your JitoSOL will begin earning rewards immediately after staking!
+- Review [main staking overview](/jitosol/get-started/stake-sol-for-jitosol-flow/overview/)
+- Check [FAQ section](/jitosol/faqs/general-faqs/)
+- Join [Discord community](https://discord.gg/jitocommunity)

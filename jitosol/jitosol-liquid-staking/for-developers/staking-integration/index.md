@@ -1,8 +1,8 @@
 ---
-title: 'Staking Integration Code'
+title: 'Staking Integration'
 subtitle: 'Code examples for integrating JitoSOL staking functionality'
 section_type: 'page'
-order: 1
+order: 20
 ---
 
 ## Developer Integration Guide

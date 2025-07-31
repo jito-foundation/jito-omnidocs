@@ -43,7 +43,7 @@ The primary method for exiting restaking positions follows a three-step process:
 
 ![Restaking Dashboard - My Vaults](/shared/images/jitosol/restaking-dashboard-my-vaults-vrts.png)
 
-1. Navigate to [jito.network/restaking/dashboard/](https://jito.network/restaking/dashboard/)
+1. Navigate to [jito.network/restaking/dashboard/](https://www.jito.network/restaking/dashboard/)
 2. Connect your wallet if not already connected
 3. Locate the vault position you want to exit in the "My Vaults" section
 4. Click the **"Initiate Withdrawal"** button next to your chosen position

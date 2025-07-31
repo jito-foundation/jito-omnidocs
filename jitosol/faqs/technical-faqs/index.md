@@ -9,7 +9,7 @@ order: 2
 
 **Q: How is the JitoSOL exchange rate calculated?**
 
-The JitoSOL exchange rate is calculated using the standard SPL stake pool formula:
+The JitoSOL exchange rate can be calculated using the standard SPL stake pool formula:
 
 ```
 Exchange Rate = Total Pool Lamports / Pool Token Supply
@@ -19,7 +19,7 @@ Where:
 - **Total Pool Lamports**: The total amount of SOL staked in the pool (including accumulated rewards)
 - **Pool Token Supply**: The total supply of JitoSOL tokens in circulation
 
-This calculation is performed on-chain by the SPL stake pool program. As staking and MEV rewards accumulate in the pool, the total pool lamports increase while the token supply remains constant, causing the exchange rate to appreciate over time.
+As staking and MEV rewards accumulate in the pool, the total pool lamports increase while the token supply remains constant, causing the exchange rate to appreciate over time.
 
 **Q: When exactly do rewards get distributed to JitoSOL holders?**
 
@@ -127,7 +127,7 @@ MEV rewards fluctuate based on:
 You can track MEV rewards using several methods:
 
 **Jito Rewards Interface:**
-- Visit [jito.network/staking/?mode=rewards_view](https://jito.network/staking/?mode=rewards_view)
+- Visit [jito.network/staking/?mode=rewards_view](https://www.jito.network/staking/?mode=rewards_view)
 - Shows **YTD Estimated MEV Rewards** as a separate metric from total rewards
 - Displays cumulative MEV rewards over different timeframes (7d, 30d, 180d, 1y, YTD, All)
 - Export options available for CSV downloads with MEV breakdowns
@@ -190,7 +190,7 @@ Yes, JitoSOL is widely accepted as collateral in major Solana lending protocols:
 - **Supported Protocols**: Most major Solana lending platforms accept JitoSOL
 - **Loan-to-Value**: Typically competitive with other liquid staking tokens
 - **Liquidation Risk**: Standard liquidation mechanics apply based on JitoSOL price
-- **Yield**: You continue earning staking+MEV rewards while using as collateral
+- **Rewards**: You continue earning staking+MEV rewards while using as collateral
 
 Always check the specific protocol's documentation for current LTV ratios and supported assets.
 
@@ -244,8 +244,6 @@ JitoSOL doesn't maintain a fixed peg, it appreciates against SOL as rewards accu
 - **Liquidity Provision**: Deep liquidity pools on Jupiter and other DEXs help maintain efficient pricing
 - **Redemption Backstop**: Direct unstaking always available at exact on-chain rate
 
-The goal is appreciation, not pegging, making JitoSOL a yield-bearing asset rather than a stable representation of SOL.
-
 **Q: How does StakeNet ensure decentralization and transparency?**
 
 **On-Chain Decision Making:**
@@ -263,7 +261,7 @@ The goal is appreciation, not pegging, making JitoSOL a yield-bearing asset rath
 - Anyone can run a keeper to help maintain the system
 
 **Transparency Tools:**
-- Current parameters viewable at [jito.network/stakenet/steward/config](https://jito.network/stakenet/steward/config)
+- Current parameters viewable at [jito.network/stakenet/steward/config](https://www.jito.network/stakenet/steward/config)
 - Event API: `https://kobe.mainnet.jito.network/api/v1/steward_events`
 - Real-time validator selection and scoring visible on-chain
 

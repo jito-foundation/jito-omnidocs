@@ -1,10 +1,9 @@
 ---
 title: 'Deployed Programs'
-order: 1
+order: 10
 section_type: 'page'
 subtitle: ''
 ---
-
 
 Jito Network will be using the Solana Program Library deployed stake pool program at address SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy. 
 

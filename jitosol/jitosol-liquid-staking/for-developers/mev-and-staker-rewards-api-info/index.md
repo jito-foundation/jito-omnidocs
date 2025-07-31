@@ -1,6 +1,6 @@
 ---
-title: 'MEV Rewards & Claims API'
-order: 5
+title: 'MEV & Claims API'
+order: 0
 section_type: 'page'
 subtitle: 'Individual reward claims, validator commissions, and distribution mechanics'
 ---

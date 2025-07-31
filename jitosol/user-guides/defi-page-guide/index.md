@@ -1,13 +1,13 @@
 ---
 title: 'DeFi Page Guide'
-order: 6
+order: 0
 section_type: 'page'
 subtitle: 'Educational guide to understanding the Jito DeFi page interface.'
 ---
 
 ## Understanding the DeFi Page
 
-The [jito.network/defi](https://jito.network/defi/) page displays third-party DeFi protocols where JitoSOL is supported.
+The [jito.network/defi](https://www.jito.network/defi/) page displays third-party DeFi protocols where JitoSOL is supported.
 
 **⚠️ Important Disclaimers:**
 - All DeFi activities involve significant risks including potential total loss of funds

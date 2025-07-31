@@ -1,5 +1,5 @@
 ---
-title: 'Stake Delegation'
+title: 'Delegation Criteria'
 order: 2
 section_type: 'page'
 subtitle: 'JitoSOL delegation criteria and methodology'
@@ -72,11 +72,10 @@ Validators meeting these criteria are unstaked within the same epoch, subject to
 
 ## Parameters and transparency
 
-All delegation parameters are stored on-chain and can be viewed at [jito.network/stakenet/steward/config](https://jito.network/stakenet/steward/config) or queried using the steward CLI.
+All delegation parameters are stored on-chain and can be viewed at [jito.network/stakenet/steward/config](https://www.jito.network/stakenet/steward/config) or queried using the steward CLI.
 
 Changes to delegation requirements and parameters may occur based on Jito DAO governance decisions. The community will be notified in advance of any significant changes.
 
 ## Questions
 
-For questions or feedback on the delegation process, please visit the #stake-pool-delegation channel on [Jito's Discord](https://discord.gg/jito).
-
+For questions or feedback on the delegation process, please visit the #stake-pool-delegation channel on [Jito's Discord](https://discord.gg/jito). 

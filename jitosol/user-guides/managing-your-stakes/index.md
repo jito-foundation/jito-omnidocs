@@ -1,6 +1,6 @@
 ---
 title: 'Managing Your Stake Accounts'
-order: 2
+order: 40
 section_type: 'page'
 subtitle: 'Utility for SOL stake account holders to manage and convert stakes.'
 ---
@@ -9,7 +9,7 @@ subtitle: 'Utility for SOL stake account holders to manage and convert stakes.'
 
 **This page is for holders of native SOL stake accounts, not JitoSOL holders.** If you already have JitoSOL, you don't need this page - your JitoSOL automatically earns rewards and can be traded anytime.
 
-The [Jito Manage page](https://jito.network/manage/) is a utility for users who have existing SOL stake accounts. You can:
+The [Jito Manage page](https://www.jito.network/manage/) is a utility for users who have existing SOL stake accounts. You can:
 - View and manage your current stake accounts
 - Deactivate and withdraw existing stakes  
 - **Convert stake accounts to JitoSOL** for liquid staking benefits
@@ -25,7 +25,7 @@ The [Jito Manage page](https://jito.network/manage/) is a utility for users who 
 ## How to Use the Manage Page
 
 ### Getting Started
-1. **Visit the page:** Go to [jito.network/manage](https://jito.network/manage/)
+1. **Visit the page:** Go to [jito.network/manage](https://www.jito.network/manage/)
 2. **Connect wallet:** Click "Connect Wallet" and select your preferred wallet
 3. **View stake accounts:** See all your SOL stake accounts organized by status
 

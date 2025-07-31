@@ -5,44 +5,41 @@ section_type: page
 order: 2
 ---
 
-This guide covers the **delayed unstaking** process using Phantom wallet. For most users, we recommend [instant trading via Jupiter](/jitosol/get-started/unstaking-jitosol-flow/unstaking-overview/#option-1-instant-trading-recommended) instead.
+This guide covers **delayed unstaking** using Phantom wallet. For most users, we recommend [instant trading via Jupiter](/jitosol/get-started/unstaking-jitosol-flow/unstaking-overview/#option-1-instant-trading-recommended) instead.
 
-**Time Required:** Initial setup (5 minutes) + waiting period (up to 2 days)  
+**Time Required:** Setup (5 minutes) + waiting period (up to 2 days)  
 **Fee:** 0.1% unstaking fee
 
 ## Step 1: Connect Your Phantom Wallet
 
-Navigate to [jito.network/staking](https://jito.network/staking/) and connect your wallet:
+1. Go to [jito.network/staking](https://www.jito.network/staking/)
 
 ![Jito Header Before Connecting](/shared/images/jitosol/wallet-unstake-sol-header-with-connect-button-before-connecting.png)
 
-Click **"Connect Wallet"** in the top right corner.
+2. Click **"Connect Wallet"** in the top right corner
 
 ![Choose Wallet Options](/shared/images/jitosol/wallet-unstake-sol-choose-wallet-options.png)
 
-Select **"Phantom"** from the wallet options.
+3. Select **"Phantom"** from the wallet options
 
 ![Phantom Connection Prompt](/shared/images/jitosol/phantom-unstake-sol-connect-wallet.png)
 
-Click **"Connect"** to authorize Phantom to connect with Jito.
+4. Click **"Connect"** to authorize the connection
 
 ![Connected Wallet Address](/shared/images/jitosol/phantom-unstake-sol-wallet-address-button.png)
 
-Confirm your wallet is connected by checking the address in the top right corner.
+5. Verify your wallet address appears in the top right corner
 
 ## Step 2: Choose Delayed Unstaking Option
 
-On the staking page, select the **"Unstake"** tab and choose the delayed unstaking option:
+1. Select the **"Unstake"** tab
+2. Enter JitoSOL amount to unstake
+3. Choose **"Delayed in X days"** (shows 0.1% fee)
+4. Click **"Unstake SOL"**
 
 ![Delayed Unstaking Process](/shared/images/jitosol/stake-page-unstake-section-delayed-unstake-flow.png)
 
-- Enter the amount of JitoSOL you want to unstake
-- Choose **"Delayed in X days"** showing 0.1% fee
-- Click **"Unstake SOL"** to initiate the process
-
 ![Delayed Unstaking Confirmation](/shared/images/jitosol/stake-page-confirm-modal-delayed-flow-unstake-jitosol.png)
-
-The interface provides detailed step-by-step instructions and links to wallet-specific guides.
 
 ## Step 3: Access SOL in Your Phantom Wallet
 
@@ -50,7 +47,7 @@ After initiating unstaking, your stake account will appear in Phantom. Navigate 
 
 ![Phantom Home Screen Options](/shared/images/jitosol/phantom-unstake-sol-option-step-1.png)
 
-Click on **Solana (SOL)** in your wallet to access the detailed view where you can manage your stakes.
+Click on **Solana (SOL)** to access the detailed view.
 
 ![Phantom SOL Detail Page](/shared/images/jitosol/phantom-unstake-sol-detail-page-step-2.png)
 
@@ -62,9 +59,9 @@ In the SOL detail page, you'll see your stake accounts:
 
 ![Phantom Stakes with Active](/shared/images/jitosol/phantom-unstake-sol-your-stakes-with-active-step-3a.png)
 
-Your stakes will be listed with their current status:
-- **Active**: Currently earning rewards, needs to be deactivated
-- **Activating**: In the process of becoming active
+**Stake Status:**
+- **Active**: Earning rewards, needs deactivation
+- **Activating**: Becoming active
 - **Deactivating**: Cooling down, will become inactive at next epoch
 - **Inactive**: Ready to withdraw
 
@@ -74,15 +71,13 @@ For any stakes showing as **"Active"**, you need to deactivate them:
 
 ![Phantom Deactivate Process](/shared/images/jitosol/phantom-unstake-sol-active-unstake-deactivate-step-4a.png)
 
-1. **Select the active stake account**
-2. **Click "Unstake"** to begin deactivation
-3. **Confirm the transaction** in Phantom
-
-After deactivation is initiated, you'll see confirmation:
+1. Select the active stake account
+2. Click **"Unstake"** to begin deactivation
+3. Confirm the transaction
 
 ![Phantom Deactivated Confirmation](/shared/images/jitosol/phantom-unstake-sol-active-unstaked-deactivated-confirmed-step-5a.png)
 
-**Important:** You must deactivate each active stake account individually.
+**Note:** Deactivate each active stake account individually.
 
 ## Step 6: Wait for Epoch Completion
 
@@ -93,32 +88,29 @@ The stake needs to cool down due to Solana's protocol requirements. This applies
 ## Step 7: Withdraw Your SOL
 
 Once your stakes show as **"Inactive"**:
+1. Select the inactive stake account
+2. Click **"Withdraw Stake"**
+3. Confirm the withdrawal transaction
 
 ![Phantom Withdraw Stake](/shared/images/jitosol/phantom-unstake-sol-withdraw-stake-step-4.png)
 
-1. **Select the inactive stake account**
-2. **Click "Withdraw Stake"**
-3. **Confirm the withdrawal transaction**
-
-After successful withdrawal:
-
 ![Phantom Withdraw Confirmed](/shared/images/jitosol/phantom-unstake-sol-withdraw-confirmed-step-5.png)
 
-Your SOL will now be available as regular SOL in your wallet for immediate use.
+SOL will then be available as regular SOL in your wallet.
 
-## Key Points to Remember
+## Key Points
 
-- ⚠️ **Multiple Accounts**: You may have multiple stake accounts to deactivate and withdraw individually
-- ⏰ **Timing**: The up to 2-day wait is a Solana protocol requirement, not specific to JitoSOL
-- 🔄 **Process**: This is irreversible once initiated -- Jito removes your stake from the pool immediately
-- 💰 **Fees**: 0.1% unstaking fee applies to the delayed method
+- **Multiple Accounts**: You may have multiple stake accounts to process individually
+- **Timing**: Up to 2-day wait is a Solana protocol requirement
+- **Process**: Irreversible once initiated
+- **Fees**: 0.1% unstaking fee applies
 
 ## Need Instant Access?
 
 If you can't wait up to 2 days, consider [instant trading via Jupiter](/jitosol/get-started/unstaking-jitosol-flow/unstaking-overview/#option-1-instant-trading-recommended) instead:
-- ✅ Immediate settlement
-- ✅ Single transaction
-- ✅ Convert to any token, not just SOL
+- Immediate settlement
+- Single transaction
+- Convert to any token, not just SOL
 
 ## Troubleshooting
 
@@ -131,6 +123,6 @@ If you can't wait up to 2 days, consider [instant trading via Jupiter](/jitosol/
 - You must manually deactivate each Active stake account
 - This step cannot be skipped. It's required by Solana's protocol
 
-**Need additional help?**
-- Review the [main unstaking overview](/jitosol/get-started/unstaking-jitosol-flow/unstaking-overview/)
-- Join our [Discord community](https://discord.gg/jitocommunity) for support
+**Need help?**
+- Review [unstaking overview](/jitosol/get-started/unstaking-jitosol-flow/unstaking-overview/)
+- Join [Discord community](https://discord.gg/jitocommunity)

@@ -2,7 +2,7 @@
 title: 'JitoSOL Glossary'
 subtitle: 'Key terms and definitions for understanding JitoSOL'
 section_type: 'page'
-order: 5
+order: 0
 ---
 
 ## Core Terms
@@ -10,11 +10,14 @@ order: 5
 **JitoSOL**
 A liquid staking token representing staked SOL in the Jito stake pool. Earns staking + MEV rewards while remaining tradeable and usable in DeFi.
 
+**JTO**
+Governance token for the Jito Network and DAO. JTO holders can vote on protocol proposals, parameter changes, and fee structures.
+
 **Exchange Rate**
 Current value of JitoSOL relative to SOL. Starts at 1:1 and increases over time as staking and MEV rewards accumulate in the token price.
 
 **MEV (Maximum Extractable Value)**
-Additional profit from reordering, including, or excluding transactions within blocks. Jito captures MEV through validator auction mechanisms and shares it with JitoSOL holders.
+Additional profit from reordering, including, or excluding transactions within blocks. Also known as Maximal Extractable Value. Jito captures MEV through validator auction mechanisms and shares it with JitoSOL holders.
 
 **Stake Pool**
 Smart contract that aggregates SOL from many users and delegates to multiple validators. Built on Solana Labs' audited Stake Pool program.
@@ -37,7 +40,7 @@ Jito's automated validator selection and management system that uses on-chain pe
 On-chain program that continuously evaluates validators and automatically rebalances stake allocation to optimize network security and returns.
 
 **Jito Interceptor**
-Protection mechanism that applies during the 10-hour cooldown period after staking, ensuring continuous yield while preventing exploitation.
+Protection mechanism that applies during the 10-hour cooldown period after staking, ensuring continuous rewards while preventing exploitation.
 
 ## Fees and Rewards
 
@@ -48,15 +51,15 @@ Protection mechanism that applies during the 10-hour cooldown period after staki
 0.1% fee charged only for direct unstaking via the Jito website. Avoided by trading JitoSOL on DEXs like Jupiter.
 
 **Validator Commission**
-Fees charged by individual validators (typically 0-10%). Jito selects validators with competitive rates to maximize user returns.
+Fees charged by individual validators (typically 0-5% for Jito-selected validators). Jito selects validators with competitive rates to maximize user returns.
 
 **APY (Annual Percentage Yield)**
-Current yearly return rate including both staking rewards and MEV rewards, compounded automatically in the JitoSOL price.
+Estimated annual percentage yield based on recent performance, including both staking rewards and MEV rewards. Historical performance does not guarantee future results.
 
 ## DeFi Terms
 
 **Yield Farming**
-Using JitoSOL in DeFi protocols (lending, liquidity pools) to earn additional rewards beyond base staking returns.
+Using JitoSOL in DeFi protocols (lending, liquidity pools) to earn additional rewards beyond base returns.
 
 **Impermanent Loss**
 Potential loss when providing JitoSOL to liquidity pools if the relative price changes compared to the paired token.
@@ -84,13 +87,13 @@ Advanced bridging technology that preserves JitoSOL's native properties and meta
 Users maintain full control of their funds through smart contracts without relying on centralized intermediaries.
 
 **Smart Contract Risk**
-Potential for bugs or vulnerabilities in code affecting user funds. Mitigated through multiple audits of the Stake Pool program.
+Potential for bugs or vulnerabilities in code affecting user funds. Mitigated through multiple security audits, including nine audits of the underlying SPL Stake Pool program.
 
 **Validator Risk**
 Impact of individual validator performance, downtime, or poor behavior on overall pool returns.
 
 **Slashing Risk**
-Theoretical penalty for severe validator misconduct. Risk is distributed across multiple validators and historically minimal on Solana.
+Theoretical penalty for severe validator misconduct. Risk is distributed across multiple validators. Slashing is currently not implemented on Solana.
 
 ## Operational Terms
 
@@ -118,10 +121,10 @@ Traditional direct staking to validators without receiving a liquid token, requi
 Category of tokens like JitoSOL that represent staked positions while maintaining tradability and DeFi utility.
 
 **TVL (Total Value Locked)**
-Total amount of SOL currently staked in the Jito pool, indicating protocol size and adoption.
+Approximate total amount of SOL currently staked in the Jito pool, indicating protocol size and adoption.
 
 **Fair Value**
-Theoretical direct conversion rate between JitoSOL and SOL without market premiums or discounts.
+Theoretical direct conversion rate between JitoSOL and SOL without market premiums or discounts. Calculated based on the stake pool's exchange rate.
 
 ## Network Terms
 
@@ -133,5 +136,9 @@ Transaction that fails to be included in a block, requiring retry. Common during
 
 **Block Space**
 Limited transaction capacity per block. High demand can cause competition and congestion.
+
+## Important Notice
+
+These definitions are for informational purposes only and do not constitute financial advice. Cryptocurrency staking involves risks including potential loss of funds. Past performance does not guarantee future results. Users should conduct their own research and consider their risk tolerance before participating in any staking activities.
 
 For detailed explanations and current rates, see the relevant documentation sections.

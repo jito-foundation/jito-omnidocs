@@ -1,6 +1,6 @@
 ---
 title: 'Terms of Use'
-order: 1
+order: 10
 section_type: 'page'
 subtitle: ''
 ---

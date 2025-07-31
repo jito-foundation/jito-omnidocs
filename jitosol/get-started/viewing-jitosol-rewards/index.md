@@ -5,66 +5,44 @@ section_type: 'page'
 subtitle: 'Learn how to track your staking and MEV rewards over time.'
 ---
 
-## Understanding Your JitoSOL Rewards
-
-JitoSOL automatically earns both staking rewards and MEV (Maximum Extractable Value) rewards. The rewards interface provides tracking tools to help you monitor your earnings.
+JitoSOL automatically earns both staking rewards and MEV rewards. The rewards interface provides tracking tools to help you monitor your earnings.
 
 **Important:** All reward values are approximate and for informational purposes only.
 
-### How to Access Your Rewards
+## How to Access Your Rewards
 
-1. **Navigate to the Staking Page:** Go to [jito.network/staking/?mode=rewards_view](https://jito.network/staking/?mode=rewards_view).
+1. Go to [jito.network/staking/?mode=rewards_view](https://www.jito.network/staking/?mode=rewards_view)
+2. Connect your wallet
 
-2. **Connect Your Wallet:** Click the "Connect Wallet" button in the top right corner and choose your preferred wallet (Phantom, Solflare, Backpack, etc.).
+## Key Metrics
 
-3. **View Your Rewards Dashboard:** The interface shows:
-   - **JitoSOL Balance Chart** - Your balance over time with timeframe filters
-   - **MEV Rewards Section** - Key reward metrics and cumulative rewards chart
-   - **JitoSOL Activity** - Recent transaction history
-   - **Export Options** - Download reward data as CSV files
+**Balance Tracking**
+- JitoSOL balance with historical chart
+- USD value of your position
+- Balance growth over time
 
-## Key Metrics Displayed
+**Reward Metrics**  
+- All time estimated total rewards
+- Year-to-date reward earnings
+- Year-to-date estimated MEV rewards
 
-### Balance Tracking
-- **JitoSOL Balance** - Your current JitoSOL holdings with historical chart
-- **USD Value** - Current dollar value of your position
-- **Balance Growth** - Visual chart showing balance changes over time
+## Export Data
 
-### Reward Metrics  
-- **All Time Estimated Total Rewards** - Cumulative rewards since you started holding JitoSOL
-- **YTD Total Rewards** - Year-to-date reward earnings
-- **YTD Estimated MEV Rewards** - Estimated MEV portion of your rewards
+Download CSV files for record keeping:
+- All time complete history
+- Previous year data
+- Current year YTD data
 
-### Chart Features
-- **Timeframe Filters:** 7d, 30d, 180d, 1y, YTD, All
-- **Balance Chart:** Shows JitoSOL balance growth over time
-- **Rewards Chart:** Displays cumulative rewards earned
-
-## Export Functionality
-
-### CSV Downloads
-You can export your reward data for record keeping:
-
-- **All Time** - Complete reward history
-- **Previous Year** - Full year data (e.g., 2024)  
-- **Current Year YTD** - Year-to-date data (e.g., 2025 YTD)
-
-**Important Notes:**
-- Approximate values for informational purposes only
-- Does not account for JitoSOL used in DeFi protocols
-- Useful for tax planning and performance tracking
+**Note:** Does not track JitoSOL used in DeFi protocols.
 
 ## How Rewards Work
 
-### Automatic Compounding
+**Automatic Compounding**
 - JitoSOL value increases automatically as rewards are earned
-- No need to manually claim or reinvest rewards
-- Includes both Solana staking rewards and MEV rewards
+- No manual claiming required
+- Includes both Solana staking rewards (~5-7% APY) and MEV rewards (~1-2% APY)
 
-### Reward Sources
-- **Staking Rewards:** Standard Solana network yields (~5-7% APY)
-- **MEV Rewards:** Additional yield from transaction optimization (~1-2% APY)  
-- **Combined APY:** Total return from both sources
+## Troubleshooting
 
 ### Important Limitations
 - **Approximate Values:** All calculations are estimates for informational purposes
@@ -90,9 +68,7 @@ You can export your reward data for record keeping:
 
 ## Additional Resources
 
-- **Manage Stakes:** Visit [/manage](https://jito.network/manage/) to convert existing stake accounts
-- **View History:** Check [/history](https://jito.network/history/) for complete JitoSOL transaction history  
-- **FAQ Section:** Review our [FAQ section](/jitosol/faqs/) for common issues
-- **Get Help:** Join [Jito Discord](https://discord.gg/jitocommunity) for community support
-
-The rewards interface gives you a clear view of your JitoSOL performance and earning history to help track your staking returns. 
+- **Manage Stakes:** [jito.network/manage](https://www.jito.network/manage/) to convert stake accounts
+- **Transaction History:** [jito.network/history](https://www.jito.network/history/) for complete history  
+- **FAQ:** [FAQ section](/jitosol/general-faqs/) for common issues
+- **Support:** [Jito Discord](https://discord.gg/jitocommunity) 

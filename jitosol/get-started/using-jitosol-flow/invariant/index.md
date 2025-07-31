@@ -29,11 +29,11 @@ Invariant offers concentrated liquidity pools with JitoSOL, allowing liquidity p
 
 ## Getting Started
 
-1. **Visit Platform**: <https://invariant.app/liquidity>
-2. **Connect Wallet**: Link your Solana wallet
-3. **Select Pool**: Choose JitoSOL pairing
-4. **Set Range**: Configure price range for liquidity
-5. **Deposit**: Add liquidity and start earning
+1. Visit <https://invariant.app/liquidity>
+2. Connect your Solana wallet
+3. Choose JitoSOL pairing
+4. Configure price range for liquidity
+5. Add liquidity and start earning
 
 ## Resources
 

@@ -2,7 +2,7 @@
 title: 'Maximum Extractable Value'
 order: 1
 section_type: 'page'
-subtitle: 'What is MEV and how does JitoSOL benefit from it?'
+subtitle: 'What is Solana MEV and how does JitoSOL benefit from it?'
 ---
 
 ## MEV Explained

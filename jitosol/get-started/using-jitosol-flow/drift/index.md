@@ -29,10 +29,10 @@ Drift Protocol is an open-source decentralized exchange built on Solana, offerin
 
 ## Getting Started
 
-1. **Visit Platform**: <https://app.drift.trade/>
-2. **Connect Wallet**: Link your Solana wallet
-3. **Deposit JitoSOL**: Add as collateral to your account
-4. **Start Trading**: Use for perpetuals or spot trading
+1. Visit <https://app.drift.trade/>
+2. Connect your Solana wallet
+3. Deposit JitoSOL as collateral to your account
+4. Use for perpetuals or spot trading
 
 ## Resources
 

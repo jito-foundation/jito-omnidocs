@@ -2,7 +2,7 @@
 title: Validator Performance API
 subtitle: "Network analytics, validator rankings, and stake pool metrics"
 section_type: page
-order: 6
+order: 10
 ---
 
 ### 1. `/api/v1/validators`  `GET | POST`

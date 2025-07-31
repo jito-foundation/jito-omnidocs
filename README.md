@@ -24,8 +24,11 @@ jito-omnidocs/
 │   │   │   └── index.md                 # Liquid staking basics content
 │   │   ├── maximum-extractable-value-basic/ # MEV basics
 │   │   │   └── index.md                 # MEV basics content
-│   │   └── stake-delegation/            # Stake delegation information
-│   │       └── index.md                 # Stake delegation content
+│   │   └── stake-pool-operations/       # Stake pool operations
+│   │       ├── delegation-criteria/     # Delegation criteria
+│   │       │   └── index.md             # Delegation criteria content
+│   │       └── automated-management/    # Automated management via Stakenet
+│   │           └── index.md             # Automated management content
 │   ├── get-started/                     # Getting started guides
 │   │   ├── index.md                     # Getting started overview
 │   │   ├── stake_sol_for_jitosol/       # Guide to stake SOL for JitoSOL

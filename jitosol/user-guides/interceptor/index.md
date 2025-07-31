@@ -1,6 +1,6 @@
 ---
 title: 'Jito Interceptor Program'
-order: 4
+order: 20
 section_type: 'page'
 subtitle: 'Understanding the Interceptor protection system for stake account deposits.'
 ---
@@ -46,7 +46,7 @@ Interceptor protects against "toxic flow" - when other liquid staking protocols 
 
 ## Managing Your Intercepted Stakes
 
-Visit [jito.network/interceptor](https://jito.network/interceptor/) to see pending deposits with countdown timers:
+Visit [jito.network/interceptor](https://www.jito.network/interceptor/) to see pending deposits with countdown timers:
 
 ![Interceptor Features](/shared/images/jitosol/interceptor-page-list-of-intercepted-stakes.png)
 

@@ -5,24 +5,24 @@ section_type: 'page'
 subtitle: 'Solana''s leading DEX with concentrated liquidity and JitoSOL pools'
 ---
 
-Orca is one of Solana's largest DEXes with over $26 billion in 2024 trading volume and $40M+ in LP fees generated. The platform offers multiple JitoSOL liquidity pools through their Whirlpools concentrated liquidity system.
+Orca is one of Solana's largest DEXes with over $40M+ in LP fees generated. The platform offers multiple JitoSOL liquidity pools through their concentrated liquidity system.
 
 ## JitoSOL Pools
 
 View all available JitoSOL pools at <https://www.orca.so/pools?tokens=J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn>
 
-### **Popular Pairs**
+**Popular Pairs**
 - **JitoSOL-SOL**: Stable pair with minimal impermanent loss
 - **JitoSOL-mSOL**: LST-to-LST with dual staking rewards
 - **JitoSOL-USDC**: Earn fees on JitoSOL trading activity
 
 ## Getting Started
 
-1. **Visit Orca**: <https://www.orca.so/pools/>
-2. **Connect Wallet**: Link your Solana wallet
-3. **Select Pool**: Choose from available JitoSOL pairs
-4. **Set Price Range**: Use Orca's "Passive" option for beginners
-5. **Deposit**: Add liquidity and start earning fees
+1. Visit <https://www.orca.so/pools/>
+2. Connect your Solana wallet
+3. Select from available JitoSOL pairs
+4. Set price range (use "Passive" option for beginners)
+5. Deposit liquidity and start earning fees
 
 ![Orca 1](/shared/images/jitosol/Orca_1.webp)
 
@@ -39,7 +39,7 @@ View all available JitoSOL pools at <https://www.orca.so/pools?tokens=J1toso1uCk
 
 ## Yield Sources
 
-- **JitoSOL Staking Rewards**: Continue earning staking rewards and MEV rewards on your JitoSOL
+- **JitoSOL Staking Rewards**: Continue earning staking rewards and MEV rewards
 - **Trading Fees**: Earn from swaps in your price range
 - **Potential Incentives**: Additional rewards during campaigns
 

@@ -66,7 +66,7 @@ Additional assets will be supported as the network expands.
 ## Using the Restaking Interface
 
 ### Accessing Restaking
-1. Navigate to [jito.network/restaking/](https://jito.network/restaking/)
+1. Navigate to [jito.network/restaking/](https://www.jito.network/restaking/)
 2. Connect your Solana wallet (Phantom, Solflare, etc.)
 3. Review available vaults and their strategies
 
@@ -167,9 +167,9 @@ Jito Restaking has been audited by multiple security firms:
 - Understanding of restaking risks and **two-epoch withdrawal cooldown**
 
 ### Useful Resources
-- [Restaking Dashboard](https://jito.network/restaking/dashboard/) - Monitor your positions
-- [Vault Explorer](https://jito.network/restaking/vaults/) - Browse available vaults
-- [NCN Directory](https://jito.network/restaking/ncns/) - View supported networks
-- [Node Operator List](https://jito.network/restaking/node-operators/) - See infrastructure providers
+- [Restaking Dashboard](https://www.jito.network/restaking/dashboard/) - Monitor your positions
+- [Vault Explorer](https://www.jito.network/restaking/vaults/) - Browse available vaults
+- [NCN Directory](https://www.jito.network/restaking/ncns/) - View supported networks
+- [Node Operator List](https://www.jito.network/restaking/node-operators/) - See infrastructure providers
 
 This overview provides the foundation for understanding Jito Restaking. For specific instructions on using the interface, see the individual user guides for depositing and withdrawing. 

@@ -38,17 +38,17 @@ Hawksight is an LP optimization protocol that manages liquidity provider positio
 
 ## Getting Started
 
-1. **Visit Platform**: <https://www.hawksight.co/>
-2. **Connect Wallet**: Link your Solana wallet
-3. **Choose Strategy**: Select JitoSOL-SOL or JitoSOL-mSOL
-4. **Deposit**: Add liquidity to optimized strategy
-5. **Monitor**: Track performance through analytics
+1. Visit <https://www.hawksight.co/>
+2. Connect your Solana wallet
+3. Choose JitoSOL-SOL or JitoSOL-mSOL strategy
+4. Add liquidity to optimized strategy
+5. Track performance through analytics
 
 ## Resources
 
 - **Platform**: <https://www.hawksight.co/>
 - **Documentation**: <https://hawksight.gitbook.io/whitepaper/>
 
-**Important**: Understand all risks and fees before depositing. DYOR and start with smaller amounts to test strategies.
+**Important**: Understand all risks and fees before depositing. Start with smaller amounts to test strategies.
 
 **Best For**: LP providers seeking professional-grade optimization without active management requirements.

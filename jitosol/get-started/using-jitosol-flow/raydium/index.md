@@ -5,23 +5,23 @@ section_type: 'page'
 subtitle: 'Hybrid DEX with concentrated liquidity and solid platform for new token launches'
 ---
 
-Raydium is a leading Solana DEX with over $2.3B+ TVL that combines automated market making with central limit order books. It's become the primary platform for meme coin launches and offers concentrated liquidity pools for JitoSOL.
+Raydium is a leading Solana DEX with over $2.3B+ TVL that combines automated market making with central limit order books.
 
 ## JitoSOL Integration
 
 **Primary Pool**: JitoSOL-SOL concentrated liquidity
-- Efficient for stable pairs like JitoSOL-SOL
 - Earn trading fees + staking rewards
 - Lower slippage than traditional AMMs
+- Efficient for stable pairs like JitoSOL-SOL
 
 ![Raydium](/shared/images/jitosol/Raydium.png)
 
 ## Getting Started
 
-1. **Visit Platform**: <https://raydium.io/clmm/pools/>
-2. **Find JitoSOL Pool**: Search for JitoSOL-SOL pair
-3. **Provide Liquidity**: Set price range and deposit
-4. **Earn Rewards**: Trading fees + JitoSOL staking yield
+1. Visit <https://raydium.io/clmm/pools/>
+2. Search for JitoSOL-SOL pair
+3. Set price range and deposit liquidity
+4. Earn trading fees + JitoSOL staking yield
 
 ## Key Features
 
@@ -33,7 +33,7 @@ Raydium is a leading Solana DEX with over $2.3B+ TVL that combines automated mar
 
 ## Kamino Alternative
 
-For hands-off management, Kamino offers automated Raydium vaults:
+For automated management, Kamino offers Raydium vaults:
 - **JitoSOL-SOL Vault**: $34M+ TVL with automated optimization
 - Professional rebalancing and fee compounding
 
@@ -41,5 +41,3 @@ For hands-off management, Kamino offers automated Raydium vaults:
 
 - **Platform**: <https://raydium.io/>
 - **CLMM Guide**: <https://docs.raydium.io/raydium/liquidity-providers/providing-concentrated-liquidity-clmm>
-
-**Note**: Raydium's strength in new token launches makes it ideal for accessing emerging opportunities while earning on your JitoSOL position.

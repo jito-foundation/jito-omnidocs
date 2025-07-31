@@ -30,11 +30,11 @@ Meteora's **JitoSOL-SOL stable dynamic pool**:
 
 ## Getting Started
 
-1. **Visit Pool**: <https://app.meteora.ag/pools/jitoSOL-SOL>
-2. **Connect Wallet**: Link your Solana wallet  
-3. **Choose Strategy**: Select distribution strategy
-4. **Deposit**: Add JitoSOL and SOL to the pool
-5. **Earn**: Collect trading fees + staking rewards
+1. Visit <https://app.meteora.ag/pools/jitoSOL-SOL>
+2. Connect your Solana wallet  
+3. Choose distribution strategy
+4. Add JitoSOL and SOL to the pool
+5. Collect trading fees + staking rewards
 
 ## Yield Sources
 

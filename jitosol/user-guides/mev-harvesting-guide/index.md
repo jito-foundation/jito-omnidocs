@@ -90,4 +90,4 @@ MEV rewards are distributed frequently in small amounts.
 
 ## Need Help?
 
-**Questions?** Visit our [Discord community](https://discord.com/invite/jitocommunity) for support.
+**Questions?** Visit our [Discord community](https://discord.gg/jitocommunity) for support.

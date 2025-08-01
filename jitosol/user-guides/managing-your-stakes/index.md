@@ -124,4 +124,4 @@ Deactivation completes at the start of the next epoch, which can take up to 2 da
 
 **Transaction failing?** Ensure you have enough SOL for transaction fees (~0.00008 SOL as shown in screenshots).
 
-**Questions about the process?** Visit our [Discord community](https://discord.com/invite/jitocommunity) for support.
+**Questions about the process?** Visit our [Discord community](https://discord.gg/jitocommunity) for support.

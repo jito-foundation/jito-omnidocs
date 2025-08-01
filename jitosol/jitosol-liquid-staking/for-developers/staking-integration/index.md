@@ -187,6 +187,6 @@ The repository includes:
 ## Support
 
 For integration support:
-- [Jito Discord](https://discord.gg/jitocommunity)
+- [Jito Discord](https://discord.gg/jito)
 
 This guide provides both assisted (library-based) and manual transaction building approaches. For production applications, transaction confirmation, and user experience considerations. 

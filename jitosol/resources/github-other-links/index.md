@@ -12,7 +12,7 @@ Staking Site: [link](https://www.jito.network/)
 
 Medium: [link](https://medium.com/@Jito-Foundation)
 
-Discord: [link](https://discord.gg/jito)
+Discord: [link](https://discord.gg/jitocommunity)
 
 Jito Foundation Docs (validators, etc.): [link](https://www.jito.network/docs/hub/)
 

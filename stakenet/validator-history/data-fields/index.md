@@ -37,7 +37,7 @@ Understanding these data fields is essential for effective validator analysis an
   - `2` = Firedancer
   - `3` = Agave
   - `>3` = Other implementations
-- **Why it matters**: Monitor client diversity and Jito adoption rates
+- **Why it matters**: Monitor client diversity
 - **Collection**: Derived from version information in gossip messages
 
 ## Client Version (`version`)
@@ -50,7 +50,6 @@ Understanding these data fields is essential for effective validator analysis an
 - **What**: Validator's IPv4 address as a 4-byte array
 - **Why it matters**: Enables network topology analysis and geographic distribution studies
 - **Collection**: Extracted from gossip ContactInfo messages
-
 
 ## Superminority Status (`is_superminority`)
 - **What**: Boolean indicator of superminority membership (0 = false, 1 = true)

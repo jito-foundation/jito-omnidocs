@@ -21,6 +21,14 @@ Build CLI binary from root directory:
 cargo build -p validator-history-cli --release
 ```
 
+Check the version
+
+```bash
+./target/release/validator-history-cli --version
+
+# validator-history-cli 0.1.0
+```
+
 ### Configuration Commands
 
 #### Initialize Config
@@ -69,6 +77,7 @@ Displays validator history entries for a specific epoch with summary statistics.
 
 **Parameters:**
 - `--epoch`: Epoch to get status for (optional, defaults to current epoch)
+- `--print-json`: Printing validator history in JSON format
 
 **Output includes:**
 - Commission data
@@ -93,6 +102,7 @@ Displays complete history for a single validator across epochs.
 **Parameters:**
 - `validator`: Validator vote account address (required), you can find vote account [here](https://www.jito.network/stakenet/history/)
 - `--start-epoch`: Starting epoch for history display (optional)
+- `--print-json`: Printing validator history in JSON format
 
 #### View Cluster History Status
 
@@ -103,6 +113,9 @@ Displays cluster-wide block production history.
   --json-rpc-url 'https://api.mainnet-beta.solana.com' \
   cluster-history-status
 ```
+
+**Parameters**
+- `--print-json`: Printing validator history in JSON format
 
 ### Maintenance Commands
 

@@ -1,16 +1,44 @@
 ---
 title: 'Invariant'
-order: 1
+order: 7
 section_type: 'page'
-subtitle: ''
+subtitle: 'Concentrated liquidity DEX with high capital efficiency'
 ---
 
+Invariant offers concentrated liquidity pools with JitoSOL, allowing liquidity providers to earn staking rewards, MEV rewards, and trading fees simultaneously.
 
-Invariant offers several [concentrated liquidity](https://docs.invariant.app/docs/what_is/concentrated_liquidity) pools including JitoSOL tokens. Liquidity providers in these pools will earn the staking and MEV rewards from JitoSOL in addition to trading fees associated with pool transactions.
+## JitoSOL Pools
+
+**Available Pairs**: JitoSOL paired with various tokens including SOL, mSOL, and stablecoins
+
+**Benefits**:
+- Earn JitoSOL staking + MEV rewards
+- Collect trading fees from pool activity
+- High capital efficiency through concentrated liquidity
 
 ![invariant](/shared/images/jitosol/invariant.png)
 
-To supply JitoSOL liquidity to Invariant, go to their [site](https://invariant.app/pool) and deposit JitoSOL along with the another token. Here is their [tutorial](https://docs.invariant.app/docs/how_to_add_remove_liquidity). Consider pairing JitoSOL with mSOL or stSOL if you want to earn staking rewards on both assets plus trading fees with minimal risk of impermanent loss.
+## Strategy Recommendations
 
-Please read through Invariant [documentation](https://docs.invariant.app/docs/) and understand all the risks prior to using their protocol.
+**Low Risk**: Pair JitoSOL with **mSOL** or **stSOL**
+- Both assets earn staking rewards
+- Minimal impermanent loss risk
+- Trading fees as bonus yield
 
+**Moderate Risk**: JitoSOL-SOL pools for correlated asset exposure
+
+## Getting Started
+
+1. Visit <https://invariant.app/liquidity>
+2. Connect your Solana wallet
+3. Choose JitoSOL pairing
+4. Configure price range for liquidity
+5. Add liquidity and start earning
+
+## Resources
+
+- **Platform**: <https://invariant.app/liquidity>
+- **Documentation**: <https://docs.invariant.app/docs/>
+- **Tutorial**: <https://docs.invariant.app/docs/tutorial/tutorial_user_guide/how_to_add_liquidity>
+
+**Best For**: Users seeking high capital efficiency and willing to actively manage concentrated liquidity positions.

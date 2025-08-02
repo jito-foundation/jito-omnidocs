@@ -1,6 +1,6 @@
 ---
 title: 'Github + Other Links'
-order: 0
+order: 50
 section_type: 'page'
 subtitle: ''
 ---
@@ -12,9 +12,9 @@ Staking Site: [link](https://www.jito.network/)
 
 Medium: [link](https://medium.com/@Jito-Foundation)
 
-Discord: [link](https://discord.gg/jito)
+Discord: [link](https://discord.gg/jitocommunity)
 
-Jito Foundation Docs (validators, etc.): [link](https://jito-foundation.gitbook.io/mev/)
+Jito Foundation Docs (validators, etc.): [link](https://www.jito.network/docs/hub/)
 
 Jito Labs Docs (block engine): [link](https://docs.jito.wtf)
 

@@ -1,0 +1,30 @@
+{
+  "name": "jito-docs-validator",
+  "version": "1.0.0",
+  "description": "Documentation structure validator for Jito Omnidocs",
+  "main": "validate-docs-structure.js",
+  "bin": {
+    "validate-docs": "./validate-docs-structure.js"
+  },
+  "scripts": {
+    "validate": "node validate-docs-structure.js",
+    "validate:critical": "node validate-docs-structure.js --only-critical",
+    "test": "node validate-docs-structure.js --path ."
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "yaml": "^2.3.4"
+  },
+  "keywords": [
+    "documentation",
+    "validation",
+    "jito",
+    "markdown",
+    "structure"
+  ],
+  "author": "Jito Foundation",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 

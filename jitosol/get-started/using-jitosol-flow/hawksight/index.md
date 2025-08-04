@@ -2,15 +2,53 @@
 title: 'Hawksight'
 order: 9
 section_type: 'page'
-subtitle: ''
+subtitle: 'LP optimization protocol for maximizing returns and minimizing impermanent loss'
 ---
 
+Hawksight is an LP optimization protocol that manages liquidity provider positions to maximize profit and minimize impermanent loss through automated strategies and analytics tools.
 
-Hawksight is LP optimizing protocol. The platform can be used to manage LP positions to maximize profit and minimize IL. There are default strategies available as well as analytics and tools to setup bespoke strategies.
+## JitoSOL Strategies
 
-Hawksight composes on top of two Orca markets currently: [JitoSOL-SOL](https://www.hawksight.co/strategy/orca-sol-jitosol) and [JitoSOL-mSOL](https://www.hawksight.co/strategy/orca-msol-jitosol).
+**Active Pools**:
+- **JitoSOL-SOL** on Orca: <https://www.hawksight.co/strategy/orca-sol-jitosol>
+- **JitoSOL-mSOL** on Orca: <https://www.hawksight.co/strategy/orca-msol-jitosol>
 
 ![hawkeye](/shared/images/jitosol/hawkeye.png)
 
-Please read their [docs](https://hawksight.gitbook.io/whitepaper/) and understand all relevant risks/fees prior to depositing into any DeFi app. 
+## Key Features
 
+**Automated Management**: 
+- Position optimization and rebalancing
+- Impermanent loss minimization
+- Profit maximization strategies
+
+**Analytics Tools**:
+- Performance tracking and analysis
+- Custom strategy development
+- Risk assessment metrics
+
+**Default Strategies**: Pre-built optimized strategies for common pairs
+
+## Benefits for JitoSOL
+
+- **Enhanced Yields**: Optimized fee collection beyond base staking rewards
+- **Reduced IL**: Active management minimizes impermanent loss
+- **Automated**: Set-and-forget approach to LP management
+- **Flexible**: Custom strategies available for advanced users
+
+## Getting Started
+
+1. Visit <https://www.hawksight.co/>
+2. Connect your Solana wallet
+3. Choose JitoSOL-SOL or JitoSOL-mSOL strategy
+4. Add liquidity to optimized strategy
+5. Track performance through analytics
+
+## Resources
+
+- **Platform**: <https://www.hawksight.co/>
+- **Documentation**: <https://hawksight.gitbook.io/whitepaper/>
+
+**Important**: Understand all risks and fees before depositing. Start with smaller amounts to test strategies.
+
+**Best For**: LP providers seeking professional-grade optimization without active management requirements.

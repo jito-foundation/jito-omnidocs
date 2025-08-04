@@ -2,33 +2,48 @@
 title: 'Using JitoSOL Overview'
 order: 0
 section_type: 'page'
-subtitle: 'JitoSOL has several integrations currently and many others in the process of being added'
+subtitle: 'JitoSOL integrates with 20+ leading Solana DeFi protocols for enhanced yield opportunities'
 ---
 
+JitoSOL has extensive integrations across the Solana DeFi ecosystem, with over 40% of JitoSOL supply actively used as collateral and liquidity provision. JitoSOL has 16M SOL TVL and 180,000 holders as of July 2025.
 
-### Margin Protocols:
+### **Lending & Borrowing Protocols:**
 
-[Drift](/jitosol/get-started/using-jitosol-flow/drift)
+[marginfi](/jitosol/get-started/using-jitosol-flow/mrgnfi) - Leading lending protocol
 
-[Mango](/jitosol/get-started/using-jitosol-flow/mango)
+[Drift](/jitosol/get-started/using-jitosol-flow/drift) - Cross-margined perpetuals and spot trading
 
-[mrgnfi](/jitosol/get-started/using-jitosol-flow/mrgnfi)
+[Save](/jitosol/get-started/using-jitosol-flow/save) - Decentralized lending protocol 
 
-[Solend](/jitosol/get-started/using-jitosol-flow/solend)​​
+### **Liquidity Provision & DEXs:**
 
-### **Liquidity Provision:**
+[Raydium](/jitosol/get-started/using-jitosol-flow/raydium) - Solana's largest DEX and go-to for new token launches
 
-[Orca](/jitosol/get-started/using-jitosol-flow/orca)
+[Orca](/jitosol/get-started/using-jitosol-flow/orca) - Leading DEX with concentrated liquidity and excellent UX
 
-[Kamino Finance](/jitosol/get-started/using-jitosol-flow/kamino)
+[Meteora](/jitosol/get-started/using-jitosol-flow/meteora) - Dynamic liquidity market maker (DLMM) with innovative features
 
-[Raydium](/jitosol/get-started/using-jitosol-flow/raydium)
+[Invariant](/jitosol/get-started/using-jitosol-flow/invariant) - Concentrated liquidity AMM with high capital efficiency
 
-[Meteora](/jitosol/get-started/using-jitosol-flow/meteora)
+[Kamino Finance](/jitosol/get-started/using-jitosol-flow/kamino) - Automated vault management and lending protocol
 
-[Invariant](/jitosol/get-started/using-jitosol-flow/invariant)
+### **Specialized Platforms:**
 
-### Other DeFi Venues
+[Hawksight](/jitosol/get-started/using-jitosol-flow/hawksight) - LP optimization and automated strategies
 
-Jito is committed to providing best-in-class integrations for JitoSOL. There is ongoing work with many flagship DeFi projects. If you have favorites, please let us know in [Discord](https://discord.gg/5wGU5Bbz8E) so we can prioritize those venues.
+### **Getting Started:**
 
+1. **For Beginners**: Start with [Kamino](/jitosol/get-started/using-jitosol-flow/kamino) vaults for automated yield farming
+2. **For Active Traders**: Try [marginfi](/jitosol/get-started/using-jitosol-flow/mrgnfi) for lending/borrowing or [Drift](/jitosol/get-started/using-jitosol-flow/drift) for trading
+3. **For Liquidity Providers**: Use [Raydium](/jitosol/get-started/using-jitosol-flow/raydium) for new opportunities or [Orca](/jitosol/get-started/using-jitosol-flow/orca) for stable pairs
+4. **For Automated LP**: Let [Kamino](/jitosol/get-started/using-jitosol-flow/kamino) manage concentrated liquidity positions automatically
+
+### **Risk Considerations:**
+
+All DeFi protocols carry smart contract risks. JitoSOL itself is built on the audited Solana Labs Stake Pool program with 9+ security audits. Each integration has its own risk profile - always DYOR before depositing funds.
+
+### **New Integrations:**
+
+Jito actively works with leading Solana protocols to expand JitoSOL utility. Recent growth includes expanded lending options and automated vault strategies. 
+
+Have a protocol you'd like to see integrated? Let us know in [Discord](https://discord.gg/jitocommunity).

@@ -1,22 +1,59 @@
 ---
 title: 'Orca'
-order: 6
+order: 3
 section_type: 'page'
-subtitle: 'Earning trading fees and JitoSOL''s base yield with Orca pools'
+subtitle: 'Solana''s leading DEX with concentrated liquidity and JitoSOL pools'
 ---
 
+Orca is one of Solana's largest DEXes with over $40M+ in LP fees generated. The platform offers multiple JitoSOL liquidity pools through their concentrated liquidity system.
 
-JitoSOL has many Orca liquidity pools for yield farming. See the full list [here](https://www.orca.so/whirlpools/browse?tokenMint=J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn).
+## JitoSOL Pools
 
-To provide liquidity in these pools, navigate to [Orca](https://www.orca.so/whirlpools/browse?tokenMint=J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn), connect your wallet and select your preferred pool.
+View all available JitoSOL pools at <https://www.orca.so/pools?tokens=J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn>
+
+**Popular Pairs**
+- **JitoSOL-SOL**: Stable pair with minimal impermanent loss
+- **JitoSOL-mSOL**: LST-to-LST with dual staking rewards
+- **JitoSOL-USDC**: Earn fees on JitoSOL trading activity
+
+## Getting Started
+
+1. Visit <https://www.orca.so/pools/>
+2. Connect your Solana wallet
+3. Select from available JitoSOL pairs
+4. Set price range (use "Passive" option for beginners)
+5. Deposit liquidity and start earning fees
 
 ![Orca 1](/shared/images/jitosol/Orca_1.webp)
 
-The pools are setup as Whirlpools, which require a user-defined price range. Orca will suggest a range when depositing. Less active traders should consider the "Passive" option suggested by Orca. Read more on Whirlpools price [ranges](https://docs.orca.so/orca-for-liquidity-providers/master#how-are-the-preset-price-ranges-calculated-and-how-do-you-create-a-custom-range).
+## Pools
+
+**Concentrated Liquidity**: Focus your capital in specific price ranges for higher efficiency
+
+**Price Range Options**:
+- **Passive**: Wide range, lower maintenance
+- **Stable**: Tight range for correlated assets
+- **Custom**: Set your own parameters
 
 ![Orca 2](/shared/images/jitosol/Orca_2.png)
 
-After depositing, you will begin earning fees on JitoSOL trades in addition to the token's staking and MEV yield. Jito cannot endorse Orca. Please do your own research and understand the risks of liquidity provision prior to any deposit. Orca documentation [here](https://docs.orca.so/orca-for-liquidity-providers/how-to-provide-liquidity-on-orca).
+## Yield Sources
 
-Kamino offers an actively managed vault ontop of whirlpools. That may be a good option for more passive yield farming. Read more at this link.
+- **JitoSOL Staking Rewards**: Continue earning staking rewards and MEV rewards
+- **Trading Fees**: Earn from swaps in your price range
+- **Potential Incentives**: Additional rewards during campaigns
 
+## Kamino Integration
+
+For automated management, consider [Kamino's](/jitosol/get-started/using-jitosol-flow/kamino/) Orca-based vaults that handle:
+- Automatic rebalancing
+- Fee compounding  
+- Range optimization
+
+## Resources
+
+- **Platform**: <https://www.orca.so/>
+- **Documentation**: <https://docs.orca.so/>
+- **JitoSOL Pools**: <https://www.orca.so/pools?tokens=J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn>
+
+**Risk Note**: Providing liquidity involves impermanent loss risk.

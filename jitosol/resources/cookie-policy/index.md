@@ -1,6 +1,6 @@
 ---
 title: 'Cookie Policy'
-order: 0
+order: 20
 section_type: 'page'
 subtitle: ''
 ---

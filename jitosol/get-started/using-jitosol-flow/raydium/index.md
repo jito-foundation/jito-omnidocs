@@ -1,20 +1,43 @@
 ---
 title: 'Raydium'
-order: 7
+order: 2
 section_type: 'page'
-subtitle: 'Earning trading fees and JitoSOL''s base yield with Raydium pools'
+subtitle: 'Hybrid DEX with concentrated liquidity and solid platform for new token launches'
 ---
 
+Raydium is a leading Solana DEX with over $2.3B+ TVL that combines automated market making with central limit order books.
 
-JitoSOL is listed on Raydium. There is one pool now (JitoSOL-SOL) but if you want to see others please let us know in Discord.
+## JitoSOL Integration
 
-To provide liquidity in these pools, navigate to [Raydium](https://raydium.io/clmm/pools/), connect your wallet and select your preferred pool.
+**Primary Pool**: JitoSOL-SOL concentrated liquidity
+- Earn trading fees + staking rewards
+- Lower slippage than traditional AMMs
+- Efficient for stable pairs like JitoSOL-SOL
 
 ![Raydium](/shared/images/jitosol/Raydium.png)
 
-The pools are organized to provide concentrated liquidity. This is more efficient for stable pairs like JitoSOL-SOL. Here is Raydium's [guide to providing concentrated liquidity](https://docs.raydium.io/raydium/liquidity-providers/providing-concentrated-liquidity-clmm). Please do your own research and understand the risks of liquidity provision prior to any deposit. 
+## Getting Started
 
-After depositing, you will begin earning fees on JitoSOL trades in addition to the token's staking and MEV yield. 
+1. Visit <https://raydium.io/clmm/pools/>
+2. Search for JitoSOL-SOL pair
+3. Set price range and deposit liquidity
+4. Earn trading fees + JitoSOL staking yield
 
-**Kamino offers an actively managed vault ontop of whirlpools.** That may be a good option for more passive yield farming. Read more at this link.
+## Key Features
 
+**Concentrated Liquidity**: Focus capital in specific price ranges for higher efficiency
+
+**Permissionless Farms**: Anyone can create liquidity pools and bootstrap tokens
+
+**Hybrid Model**: Combines AMM with order book liquidity from OpenBook
+
+## Kamino Alternative
+
+For automated management, Kamino offers Raydium vaults:
+- **JitoSOL-SOL Vault**: $34M+ TVL with automated optimization
+- Professional rebalancing and fee compounding
+
+## Resources
+
+- **Platform**: <https://raydium.io/>
+- **CLMM Guide**: <https://docs.raydium.io/raydium/liquidity-providers/providing-concentrated-liquidity-clmm>

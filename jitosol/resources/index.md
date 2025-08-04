@@ -1,6 +1,6 @@
 ---
 title: 'Resources'
-order: 4
+order: 5
 section_type: 'header'
 subtitle: ''
 ---

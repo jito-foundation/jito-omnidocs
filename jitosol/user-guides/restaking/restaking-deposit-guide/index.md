@@ -9,13 +9,14 @@ order: 2
 
 **Prerequisites:**
 - Solana wallet connected (Phantom, Solflare, etc.)
-- Sufficient assets for deposit (SOL, JitoSOL, or mSOL)
+- Sufficient assets for deposit (e.g. SOL or JitoSOL)
 - Small amount of SOL for transaction fees
 - Understanding of restaking risks and two-epoch withdrawal cooldown
 
 **Important Reminders:**
-- The restaking protocol charges a 4% fee on rewards and 0.1% (10 bps) withdrawal fee
+- The (re)staking protocol charges a 4% fee on rewards and 0.1% (10 bps) withdrawal fee
 - Individual vaults may have additional deposit, withdrawal, and reward fees
+- Operators may also apply fees for their services.  
 - Program fee of 0.10% also applies on withdrawals (as shown in interface)
 - Start with small amounts to learn the interface and mechanics
 - Always check vault-specific fee structures before depositing
@@ -29,16 +30,16 @@ order: 2
 
 ## Step 2: Choose Your Approach
 
-The restaking interface provides a convenient toggle to switch between two deposit approaches:
+The (re)staking interface provides a convenient toggle to switch between two deposit approaches:
 
 ![Restaking Deposit - Asset Selection](/shared/images/jitosol/restaking-start-restaking-asset-view.png)
 
 **Path 1: Select Asset First (Tokens Tab)**
-- Choose your token (SOL, JitoSOL, mSOL, etc.) from your wallet
+- Choose your token (SOL, JitoSOL, etc.) from your wallet
 - Browse vaults that support your selected asset
 - Compare strategies and expected returns
 
-![Restaking Deposit - Vault Selection](/shared/images/jitosol/restaking-start-restaking-vault-view.png)
+![(Re)staking Deposit - Vault Selection](/shared/images/jitosol/restaking-start-restaking-vault-view.png)
 
 **Path 2: Select Vault First (Vaults Tab)**  
 - Browse all available vaults and their strategies
@@ -74,7 +75,7 @@ The restaking interface provides a convenient toggle to switch between two depos
 
 ## Step 4: Enter Deposit Details
 
-![Restaking Deposit - Enter Amount](/shared/images/jitosol/restaking-start-restaking-start-deposit-screen.png)
+![(Re)staking Deposit - Enter Amount](/shared/images/jitosol/restaking-start-restaking-start-deposit-screen.png)
 
 **Specify Deposit Amount:**
 - Enter the amount of assets you want to deposit in the input field

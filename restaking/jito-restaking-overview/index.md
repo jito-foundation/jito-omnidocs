@@ -5,7 +5,7 @@ section_type: "page"
 order: 0
 ---
 
-**Jito (Re)staking** is a staking protocol for decentralized networks called node consensus networks (NCNs) on Solana. It provides a framework for deploying NCNs and staking SPL tokens to them, with flexibility baked in at every level. Altogether, Jito (Re)staking is a coordination protocol for developers to build external networks that use the Solana runtime to enforce custom proof of stake protocol.
+**Jito (Re)staking** is staking infrastructure for decentralized networks called node consensus networks (NCNs) on Solana. It provides a framework for deploying NCNs and staking SPL tokens to them, with flexibility baked in at every level. Altogether, Jito (Re)staking is a coordination protocol for developers to use the Solana runtime to enforce custom proof of stake protocol for external networks.
 
 The protocol coordinates stake and rewards between three main participants: NCNs, Vaults, and Operators. Developers register NCNs with custom rules. Operators perform arbitrary logic defined by the NCN, whether that’s processing data, orchestrating or coordination tasks, running models, or verifying offchain inputs. Vaults hold staked SPL tokens and delegate them to Operators. NCNs, Operators, and Vaults can define who they interact with and under what conditions.  
 
@@ -26,11 +26,16 @@ This split enables scalability and flexibility for developers while retaining cr
 
 ### Node Consensus Network (NCN)
 
-An NCN is a decentralized network that reaches consensus on offchain data or workloads and updates onchain state. These networks may include oracle networks, DePIN services, bridges, co-processors, or new chains. In most cases, NCNs will include their own custom onchain programs to handle proof submissions, verify work, and distribute rewards. Consensus can take place onchain or offchain.
+NCNs are a set of node operators and onchain programs that reach consensus on offchain workloads and enforce onchain state transitions. In most cases, NCNs will include their own custom onchain programs to handle proof submissions, verify work, and distribute rewards. Consensus can take place onchain or offchain. 
+
+For example, oracle networks, DePINs, bridges, DeFi apps, or entire blockchains can deploy an NCN to achieve consensus on an arbitrary result and finalize and distribute rewards, payments, and penalties. 
+
+NCNs build custom staking mechanisms and use (re)staked assets for economic security, ensuring node operators have an economic commitment to follow protocol and maintain operation. 
+
 
 ### Vaults
 
-Vaults serve as deposit pools that hold staked tokens (e.g. JitoSOL) and issue vault receipt tokens (VRTs) representing those positions. Vaults opt into supporting specific NCNs and delegate stake to approved operators. Users retain ownership of their stake via VRTs.
+Vaults serve as deposit pools that hold SPL tokens (e.g. JitoSOL) and issue vault receipt tokens (VRTs) representing those positions. Vaults opt into supporting specific NCNs and delegate stake to approved operators. Users retain ownership of their stake via liquid VRTs.
 
 Each vault defines key parameters, including how much stake is allocated to each node operator.
 

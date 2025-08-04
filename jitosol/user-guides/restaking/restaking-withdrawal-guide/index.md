@@ -1,6 +1,6 @@
 ---
-title: 'Restaking Withdrawal Guide'
-subtitle: 'Step-by-step guide for withdrawing assets from restaking vaults'
+title: '(Re)staking Withdrawal Guide'
+subtitle: 'Step-by-step guide for withdrawing assets from (re)staking vaults'
 section_type: 'page'
 order: 3
 ---
@@ -8,7 +8,7 @@ order: 3
 ## Understanding Withdrawals
 
 **Standard Withdrawal Process:**
-The primary method for exiting restaking positions follows a three-step process:
+The primary method for exiting (re)staking positions follows a three-step process:
 1. **Initiate withdrawal** - Choose amount and start cooldown
 2. **Two-epoch cooldown period** - Wait approximately 4-5 days  
 3. **Complete withdrawal** - Claim your assets after cooldown
@@ -39,9 +39,9 @@ The primary method for exiting restaking positions follows a three-step process:
 - Consider current epoch timing when initiating withdrawals
 - Account for potential network congestion affecting transaction speed
 
-## Step 1: Access Your Restaking Position
+## Step 1: Access Your (Re)staking Position
 
-![Restaking Dashboard - My Vaults](/shared/images/jitosol/restaking-dashboard-my-vaults-vrts.png)
+![(Re)staking Dashboard - My Vaults](/shared/images/jitosol/restaking-dashboard-my-vaults-vrts.png)
 
 1. Navigate to [jito.network/restaking/dashboard/](https://www.jito.network/restaking/dashboard/)
 2. Connect your wallet if not already connected
@@ -50,7 +50,7 @@ The primary method for exiting restaking positions follows a three-step process:
 
 ## Step 2: Initiate Withdrawal
 
-![Restaking Withdrawal - Enter Amount](/shared/images/jitosol/restaking-initiate-withdrawal-screen.png)
+![(Re)staking Withdrawal - Enter Amount](/shared/images/jitosol/restaking-initiate-withdrawal-screen.png)
 
 **Select Withdrawal Amount:**
 - Choose between partial or full withdrawal from your position
@@ -108,9 +108,9 @@ The primary method for exiting restaking positions follows a three-step process:
 
 **Track Progress:**
 
-![Restaking Dashboard -- In Withdrawal](/shared/images/jitosol/restaking-dashboard-in-progress-withdrawals.png)
+![(Re)staking Dashboard -- In Withdrawal](/shared/images/jitosol/restaking-dashboard-in-progress-withdrawals.png)
 
-- Monitor unbonding status on your restaking dashboard
+- Monitor unbonding status on your (re)staking dashboard
 - Check the **"In Withdrawal"** section for progress updates
 - Each withdrawal shows:
   - **Asset type** being withdrawn (e.g., JitoSOL, JTO)
@@ -132,7 +132,7 @@ The primary method for exiting restaking positions follows a three-step process:
 
 **Claim Your Assets:**
 
-![Restaking Complete Withdrawal](/shared/images/jitosol/restaking-complete-withdrawal-burn-withdrawal-ticket.png)
+![(Re)staking Complete Withdrawal](/shared/images/jitosol/restaking-complete-withdrawal-burn-withdrawal-ticket.png)
 
 - Go to the "In Withdrawal" section of your dashboard
 - Find your withdrawal marked as "Ready to Withdraw"

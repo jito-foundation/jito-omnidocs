@@ -1,6 +1,6 @@
 ---
 title: 'Unstaking with Solflare'
-order: 1
+order: 20
 section_type: 'page'
 subtitle: 'Step-by-step guide for delayed unstaking using Solflare wallet'
 ---

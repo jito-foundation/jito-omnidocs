@@ -2,7 +2,7 @@
 title: Unstaking with Phantom
 subtitle: "Step-by-step guide for delayed unstaking using Phantom wallet"
 section_type: page
-order: 2
+order: 10
 ---
 
 This guide covers **delayed unstaking** using Phantom wallet. For most users, we recommend [instant trading via Jupiter](/jitosol/get-started/unstaking-jitosol-flow/unstaking-overview/#option-1-instant-trading-recommended) instead.

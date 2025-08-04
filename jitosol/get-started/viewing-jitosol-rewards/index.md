@@ -40,7 +40,7 @@ Download CSV files for record keeping:
 **Automatic Compounding**
 - JitoSOL value increases automatically as rewards are earned
 - No manual claiming required
-- Includes both Solana staking rewards (~5-7% APY) and MEV rewards (~1-2% APY)
+- Includes both Solana staking rewards (\~5-7% APY) and MEV rewards (\~1-2% APY)
 
 ## Troubleshooting
 

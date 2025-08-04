@@ -27,14 +27,9 @@ Upgrade keys for this program are owned by Solana Foundation. Leveraging this pr
 Stake pool address: 
 
 - Mainnet: Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb
-- Testnet:
+- Testnet: Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb
 
-Upgrade Authority:
+Pool mint address:
 
-- Mainnet: 6iQKfEyhr3bZMotVkW6beNZz5CPAkiwvgV2CTje9pVSS
-- Testnet:
-
-Treasury: 
-
-- Mainnet: 9eZbWiHsPRsxLSiHxzg2pkXsAuQMwAjQrda7C7e21Fw6
-- Testnet:
+- Mainnet: J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn
+- Testnet: J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn

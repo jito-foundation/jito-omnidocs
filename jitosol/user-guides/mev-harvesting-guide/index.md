@@ -42,7 +42,7 @@ The [Jito Harvest page](https://www.jito.network/harvest/) allows stake account 
 4. **Select accounts:** Toggle on the stake accounts you want to claim from
 5. **Choose reward type:** 
    - Keep toggle off for SOL rewards
-   - Turn on "Convert Mev to JitoSOL" to receive liquid staking tokens instead
+   - Turn on "Convert MEV to JitoSOL" to receive liquid staking tokens instead
 6. **Confirm harvest:** Click "Harvest MEV as SOL" to proceed
 
 ### The Harvest Process
@@ -69,7 +69,7 @@ The [Jito Harvest page](https://www.jito.network/harvest/) allows stake account 
 **Stake Account MEV:** Manual claiming required, only works with Jito-enabled validators
 **JitoSOL MEV:** Automatic inclusion, no manual claiming needed, benefits from all Jito validators
 
-**Converting to JitoSOL:** If you toggle "Convert Mev to JitoSOL", your claimed MEV becomes liquid staking tokens that:
+**Converting to JitoSOL:** If you toggle "Convert MEV to JitoSOL", your claimed MEV becomes liquid staking tokens that:
 - Earn ongoing staking + MEV rewards automatically
 - Can be used in DeFi or traded anytime
 - Don't require validator-specific Jito client participation

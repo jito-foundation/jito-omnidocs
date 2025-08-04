@@ -23,13 +23,7 @@ JitoSOL has extensive integrations across the Solana DeFi ecosystem, with over 4
 
 [Meteora](/jitosol/get-started/using-jitosol-flow/meteora) - Dynamic liquidity market maker (DLMM) with innovative features
 
-[Invariant](/jitosol/get-started/using-jitosol-flow/invariant) - Concentrated liquidity AMM with high capital efficiency
-
 [Kamino Finance](/jitosol/get-started/using-jitosol-flow/kamino) - Automated vault management and lending protocol
-
-### **Specialized Platforms:**
-
-[Hawksight](/jitosol/get-started/using-jitosol-flow/hawksight) - LP optimization and automated strategies
 
 ### **Getting Started:**
 

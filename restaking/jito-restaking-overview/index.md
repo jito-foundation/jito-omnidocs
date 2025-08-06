@@ -1,6 +1,6 @@
 ---
 title: "Jito Restaking"
-subtitle: "A multi-asset staking protocol for node consensus networks (NCNs)."
+subtitle: "Liquid staking infrastructure on Solana."
 section_type: "page"
 order: 0
 ---

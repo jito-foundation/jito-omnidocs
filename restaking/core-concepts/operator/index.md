@@ -1,7 +1,7 @@
 ---
 title: Operators
 order: 20
-subtitle: 'Infrastructure providers that run NCN software and manage delegated assets in the Jito Restaking ecosystem'
+subtitle: 'Infrastructure providers that run NCN software and accept delegated assets in the Jito (Re)staking ecosystem'
 section_type: page
 ---
 

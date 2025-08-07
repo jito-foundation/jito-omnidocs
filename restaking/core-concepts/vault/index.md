@@ -9,7 +9,7 @@ order: 10
 
 ### The Vault Account:
 
-- Serves as the repository for supported token and VRT (Vault Receipt Token).
+- Serves as the repository for supported tokens and VRTs (Vault Receipt Tokens).
 - Tracks the state of tokens deposits, withdrawals, and delegate assets.
 - Manages a set of administrative roles, responsible for different aspects of vault operations.
 

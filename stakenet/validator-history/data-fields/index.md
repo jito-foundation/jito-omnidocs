@@ -51,6 +51,16 @@ Understanding these data fields is essential for effective validator analysis an
 - **Why it matters**: Enables network topology analysis and geographic distribution studies
 - **Collection**: Extracted from gossip ContactInfo messages
 
+## Merkle Root Upload Authority (`merkle_root_upload_authority`)
+- **What**: The authority of uploading Validator's MEV Tip Distribution Account's merkle root
+- **Values**:
+  - `0` = Unset
+  - `1` = Other
+  - `2` = Old Jito Labs
+  - `3` = TipRouter
+  - `4` = DNE (Does Not Exist)
+- **Why it matters**: In order to calculate `merkle_root_authority_score`. If the authority is not `2` or `3`, the validator will be the target as unstaked
+
 ## Superminority Status (`is_superminority`)
 - **What**: Boolean indicator of superminority membership (0 = false, 1 = true)
 - **Why it matters**: Critical for network decentralization and security analysis
@@ -73,5 +83,35 @@ Understanding these data fields is essential for effective validator analysis an
 - **Why it matters**: Indicates validator's MEV generation capability and additional rewards
 - **Example**: Value of 150 = 1.50 SOL earned in MEV rewards
 - **Collection**: Aggregated from tip distribution data
+
+## Priority Fee Commission (`priority_fee_commission`)
+- **What**: Priority Fee commission rate in basis points
+- **Why it matters**: Shows validator's Priority Fee sharing policy with delegators
+
+## Priority Fee Tips (`priority_fee_tips`)
+- **What**: Priority Fee tips that were transferred to the priority fee distribution account in lamports
+- **Why it matters**: Used to calculate the validator's realized commission rate - the actual percentage the vaulidator kept versus distributed to stakers
+
+## Total Priority Fees (`total_priority_fees`)
+- **What**: The total priority fees that the validator earned for the epoch in lamports
+- **Why it matters**: 
+  Combined with priority fee tips, this determines the validator's realized commission rate.
+  The realized commission shows what percentage the validator actually kept (total fees minus tips distributed) versus their configured rate
+
+## Blocks Produced (`blocks_produced`)
+- **What**: The final number of blocks that the validator produced during an epoch
+
+## Block Data Updated At Slot (`block_data_updated_at_slot`)
+- **What**: The last slot the block data was last updated at
+
+## Priority Fee Merkle Root Upload Authority (`priority_fee_merkle_root_upload_authority`)
+- **What**: The authority of uploading Validator's Priority Fee Distribution Account's merkle root
+- **Values**:
+  - `0` = Unset
+  - `1` = Other
+  - `2` = Old Jito Labs
+  - `3` = TipRouter
+  - `4` = DNE (Does Not Exist)
+- **Why it matters**: To calculate `priority_fee_merkle_root_authority_score`. If the authority is not `2` or `3`, the validator will be the target as unstaked
 
 Understanding these data fields enables developers to build sophisticated validator analysis tools, stake pool managers to make informed decisions, and network participants to monitor validator performance transparently.

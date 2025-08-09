@@ -29,7 +29,10 @@ cargo build -p steward-cli --release
 Displays all parameters of this Steward configuration.
 
 ```bash
-./target/release/steward-cli --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 view-config --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv
+./target/release/steward-cli \
+  --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 \
+  view-config \
+  --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv
 ```
 
 ### View State
@@ -37,16 +40,34 @@ Displays all parameters of this Steward configuration.
 Displays high level Steward internal operations including current state, total number of validators in the pool, next cycle epoch, etc.
 
 ```bash
-./target/release/steward-cli --json-rpc-url $(solana config get | grep "RPC URL" | awk '{print $3}') view-state --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv
+./target/release/steward-cli \
+  --json-rpc-url $(solana config get | grep "RPC URL" | awk '{print $3}') \
+  view-state \
+  --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
+  --print-json
 ```
+
+**Parameters**
+- `steward-config`: Steward account public key
+- `print-json`: Printing steward state in JSON format
 
 ### View State of Single Validator
 
 Displays state of a single Validator.
 
 ```bash
-./target/release/steward-cli --json-rpc-url $(solana config get | grep "RPC URL" | awk '{print $3}') view-state --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv --vote-account J1to1yufRnoWn81KYg1XkTWzmKjnYSnmE2VY8DGUJ9Qv
+./target/release/steward-cli \
+  --json-rpc-url $(solana config get | grep "RPC URL" | awk '{print $3}') \
+  view-state \
+  --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
+  --vote-account J1to1yufRnoWn81KYg1XkTWzmKjnYSnmE2VY8DGUJ9Qv \
+  --print-json
 ```
+
+**Parameters**
+- `steward-config`: Steward account public key
+- `vote-account`:  Optional vote account to view the state of
+- `print-json`: Printing steward state in JSON format
 
 Output:
 
@@ -113,8 +134,19 @@ Marked for immediate removal: false
 ### View State of All Validators
 
 ```bash
-./target/release/steward-cli --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 --json-rpc-url $(solana config get | grep "RPC URL" | awk '{print $3}') view-state --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv --verbose
+./target/release/steward-cli \
+  --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 \
+  --json-rpc-url $(solana config get | grep "RPC URL" | awk '{print $3}') \
+  view-state \
+  --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
+  --verbose \
+  --print-json
 ```
+
+**Parameters**
+- `steward-config`: Steward account public key
+- `verbose`: Views the steward state for all validators in the pool
+- `print-json`: Printing steward state in JSON format
 
 ### View Next Index To Remove
 

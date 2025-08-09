@@ -64,6 +64,16 @@ Creates cluster history account with proper reallocation.
 
 ### Data Query Commands
 
+#### View Configuration
+
+Displays the configuration of Validator History Program
+
+```bash
+./target/release/validator-history-cli \
+  --json-rpc-url 'https://api.mainnet-beta.solana.com' \
+  get-config
+```
+
 #### Cranker Status
 
 Displays validator history entries for a specific epoch with summary statistics.

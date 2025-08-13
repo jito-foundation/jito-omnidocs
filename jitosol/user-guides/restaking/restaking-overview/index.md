@@ -7,7 +7,7 @@ order: 1
 
 ## What is Jito (Re)staking?
 
-Jito (Re)staking is staking infrastructure on Solana. It allows external networks to build staking protocol on Solana and enables users to (re)stake JitoSOL and other SPL tokens across these networks, simultaneously. (Re)staked assets provide economic security to these networks and earn rewards, creating opportunities for additional yield beyond traditional staking.
+Jito (Re)staking is liquid staking infrastructure on Solana. It allows external networks to build staking protocol on Solana and enables users to (re)stake JitoSOL and other SPL tokens across these networks, simultaneously. (Re)staked assets provide economic security to these networks and earn rewards, creating opportunities for additional yield beyond traditional staking.
 
 ## Terminology
 

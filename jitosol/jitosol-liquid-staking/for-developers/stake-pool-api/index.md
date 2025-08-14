@@ -49,7 +49,52 @@ Field reference:
 
 ---
 
-### 2. `/api/v1/validators/{vote_account}`  `GET`
+### 2. `/api/v1/jitosol_validators`  `GET | POST`
+
+Returns JitoSOL stake pool validators for a given epoch (defaults to latest). Only includes validators that are actively part of the JitoSOL validator set.
+
+| Query / JSON Field | Type | Required | Description |
+|--------------------|------|----------|-------------|
+| `epoch`            | `u64`| no       | Epoch to query. Omit for latest |
+
+Example `curl`:
+```bash
+curl -X POST \
+  https://kobe.mainnet.jito.network/api/v1/jitosol_validators \
+  -H 'Content-Type: application/json' \
+  -d '{ "epoch":600, "limit":3 }'
+```
+
+Example response:
+```json
+{
+  "validators": [
+    {
+      "vote_account": "CviQXDMPZPVAZ5qgVGN2gSBSD9GqqwRt7VZidoHMpArr",
+      "mev_commission_bps": 10000,
+      "mev_rewards": 3204800942,
+      "priority_fee_commission_bps": null,
+      "priority_fee_rewards": null,
+      "running_jito": true,
+      "active_stake": 47753222427851
+    },
+    // …
+  ]
+}
+```
+Field reference:
+| Field | Description |
+|-------|-------------|
+| `mev_commission_bps` | Validator’s MEV commission in basis-points |
+| `priority_fee_commission_bps` | Priority-fee commission (bps) |
+| `mev_rewards` | Post-commission MEV lamports paid to validator + stakers |
+| `priority_fee_rewards` | Post-commission priority-fee lamports |
+| `running_jito` | `true` if validator is running Jito-Solana |
+| `active_stake` | Lamports actively staked with this validator |
+
+---
+
+### 3. `/api/v1/validators/{vote_account}`  `GET`
 Returns historical reward data for a single validator, sorted by epoch (desc).
 
 Example:
@@ -72,7 +117,7 @@ Response slice:
 
 ---
 
-### 3. `/api/v1/jito_stake_over_time`  `GET | POST`
+### 4. `/api/v1/jito_stake_over_time`  `GET | POST`
 Returns a map of epoch → percentage of **all Solana stake** that is delegated to Jito-running validators.
 
 ```bash
@@ -89,7 +134,7 @@ curl https://kobe.mainnet.jito.network/api/v1/jito_stake_over_time
 
 ---
 
-### 4. `/api/v1/mev_rewards`  `GET | POST`
+### 5. `/api/v1/mev_rewards`  `GET | POST`
 Network-level statistics for a single epoch.
 
 | Field | Description |
@@ -106,7 +151,7 @@ curl -X POST https://kobe.mainnet.jito.network/api/v1/mev_rewards -H 'Content-Ty
 
 ---
 
-### 5. `/api/v1/daily_mev_rewards`  `GET`
+### 6. `/api/v1/daily_mev_rewards`  `GET`
 Aggregated MEV tips per calendar day.
 ```bash
 curl https://kobe.mainnet.jito.network/api/v1/daily_mev_rewards

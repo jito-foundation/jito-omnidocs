@@ -1,8 +1,8 @@
 ---
 title: Steward API
-subtitle: "steward state"
+subtitle: "Steward program event monitoring "
 section_type: page
-order: 10
+order: 20
 ---
 
 ## API Endpoints

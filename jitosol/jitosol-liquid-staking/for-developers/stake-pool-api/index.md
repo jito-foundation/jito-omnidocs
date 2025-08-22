@@ -5,22 +5,46 @@ section_type: page
 order: 10
 ---
 
-### 1. `/api/v1/validators`  `GET | POST`
-Returns validator state for a given epoch (defaults to latest). The current epoch will always report `mev_rewards = 0` because rewards settle at epoch boundary.
+### 1. Validators
 
-| Query / JSON Field | Type | Required | Description |
-|--------------------|------|----------|-------------|
-| `epoch`            | `u64`| no       | Epoch to query. Omit for latest |
+**Purpose**: Returns validator state for a given epoch (defaults to latest). The current epoch will always report `mev_rewards = 0` because rewards settle at epoch boundary.
 
-Example `curl`:
+**Endpoint**: `/api/v1/validators`
+
+**Method**: `GET or POST`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter | Type   | Required | Default | Description                    |
+| --------- | ------ | -------- |-------- | ------------------------------ |
+| `epoch`   | number | No       | -       | Filter by specific epoch       |
+
+
+#### Response Fields
+
+| Field                         | Type    | Description                                              |
+| ----------------------------- |-------- | -------------------------------------------------------- |
+| `vote_account`                | string  | Validator vote account public key                        |
+| `mev_commission_bps`          | number  | Validator’s MEV commission in basis-points               |
+| `mev_rewards`                 | number  | Post-commission MEV lamports paid to validator + stakers |
+| `priority_fee_commission_bps` | number  | Priority-fee commission (bps)                            |
+| `priority_fee_rewards`        | number  | Post-commission priority-fee lamports                    |
+| `running_jito`                | boolean | `true` if validator is running Jito-Solana               |
+| `active_stake`                | number  | Lamports actively staked with this validator             |
+
+#### Example Request
+
 ```bash
 curl -X POST \
   https://kobe.mainnet.jito.network/api/v1/validators \
   -H 'Content-Type: application/json' \
-  -d '{"epoch":600, "limit":3}'
+  -d '{ "epoch":600 }'
 ```
 
-Example response:
+#### Example Response
+
 ```json
 {
   "validators": [
@@ -37,35 +61,49 @@ Example response:
   ]
 }
 ```
-Field reference:
-| Field | Description |
-|-------|-------------|
-| `mev_commission_bps` | Validator’s MEV commission in basis-points |
-| `priority_fee_commission_bps` | Priority-fee commission (bps) |
-| `mev_rewards` | Post-commission MEV lamports paid to validator + stakers |
-| `priority_fee_rewards` | Post-commission priority-fee lamports |
-| `running_jito` | `true` if validator is running Jito-Solana |
-| `active_stake` | Lamports actively staked with this validator |
 
 ---
 
-### 2. `/api/v1/jitosol_validators`  `GET | POST`
+### 2. JitoSOL Validators
 
-Returns JitoSOL stake pool validators for a given epoch (defaults to latest). Only includes validators that are actively part of the JitoSOL validator set.
+**Purpose**: Returns JitoSOL stake pool validators for a given epoch (defaults to latest). Only includes validators that are actively part of the JitoSOL validator set.
 
-| Query / JSON Field | Type | Required | Description |
-|--------------------|------|----------|-------------|
-| `epoch`            | `u64`| no       | Epoch to query. Omit for latest |
+**Endpoint**: `/api/v1/jitosol_validators` 
 
-Example `curl`:
+**Method**: `GET | POST`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter | Type   | Required | Default | Description                    |
+| --------- | ------ | -------- |-------- | ------------------------------ |
+| `epoch`   | number | No       | -       | Filter by specific epoch       |
+
+#### Response Fields
+
+| Field                         | Type    | Description                                              |
+| ----------------------------- |-------- | -------------------------------------------------------- |
+| `vote_account`                | string  | Validator vote account public key                        |
+| `mev_commission_bps`          | number  | Validator’s MEV commission in basis-points               |
+| `mev_rewards`                 | number  | Post-commission MEV lamports paid to validator + stakers |
+| `priority_fee_commission_bps` | number  | Priority-fee commission (bps)                            |
+| `priority_fee_rewards`        | number  | Post-commission priority-fee lamports                    |
+| `running_jito`                | boolean | `true` if validator is running Jito-Solana               |
+| `active_stake`                | number  | Lamports actively staked with this validator             |
+
+
+#### Example Request
+
 ```bash
 curl -X POST \
   https://kobe.mainnet.jito.network/api/v1/jitosol_validators \
   -H 'Content-Type: application/json' \
-  -d '{ "epoch":600, "limit":3 }'
+  -d '{ "epoch":600 }'
 ```
 
-Example response:
+#### Example Response
+
 ```json
 {
   "validators": [
@@ -82,26 +120,43 @@ Example response:
   ]
 }
 ```
-Field reference:
-| Field | Description |
-|-------|-------------|
-| `mev_commission_bps` | Validator’s MEV commission in basis-points |
-| `priority_fee_commission_bps` | Priority-fee commission (bps) |
-| `mev_rewards` | Post-commission MEV lamports paid to validator + stakers |
-| `priority_fee_rewards` | Post-commission priority-fee lamports |
-| `running_jito` | `true` if validator is running Jito-Solana |
-| `active_stake` | Lamports actively staked with this validator |
 
 ---
 
-### 3. `/api/v1/validators/{vote_account}`  `GET`
-Returns historical reward data for a single validator, sorted by epoch (desc).
+### 3. Validator Historical Reward
 
-Example:
+**Purpose**: Returns historical reward data for a single validator, sorted by epoch (desc).
+
+**Endpoint**: `/api/v1/validators/{vote_account}`
+
+**Method**: `GET`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter | Type   | Required | Default | Description                    |
+| --------- | ------ | -------- |-------- | ------------------------------ |
+
+
+#### Response Fields
+
+| Field                         | Type    | Description                                              |
+| ----------------------------- |-------- | -------------------------------------------------------- |
+| `epoch`                       | number  | The epoch when these rewards were earned                 |
+| `mev_commission_bps`          | number  | Validator’s MEV commission in basis-points               |
+| `mev_rewards`                 | number  | Post-commission MEV lamports paid to validator + stakers |
+| `priority_fee_commission_bps` | number  | Priority-fee commission (bps)                            |
+| `priority_fee_rewards`        | number  | Post-commission priority-fee lamports                    |
+
+#### Example Request
+
 ```bash
 curl https://kobe.mainnet.jito.network/api/v1/validators/GdRKUZKdiXMEATjddQW6q4W8bPgXRBYJKayfeqdQcEPa
 ```
-Response slice:
+
+#### Example Response
+
 ```json
 [
   {
@@ -117,12 +172,35 @@ Response slice:
 
 ---
 
-### 4. `/api/v1/jito_stake_over_time`  `GET | POST`
-Returns a map of epoch → percentage of **all Solana stake** that is delegated to Jito-running validators.
+### 4. Jito Stake Over Time
+
+**Purpose**: Returns a map of epoch → percentage of **all Solana stake** that is delegated to Jito-running validators.
+
+**Endpoint**: `/api/v1/jito_stake_over_time`
+
+**Method**: `GET | POST`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter | Type   | Required | Default | Description                    |
+| --------- | ------ | -------- |-------- | ------------------------------ |
+
+#### Response Fields
+
+| Field                   | Type    | Description                                                                                                           |
+| ----------------------- |-------- | --------------------------------------------------------------------------------------------------------------------- |
+| `stake_ratio_over_time` | object  | Map of epoch → decimal ratio representing the percentage of total Solana stake delegated to Jito validators (0.0-1.0) |
+
+#### Example Request
 
 ```bash
 curl https://kobe.mainnet.jito.network/api/v1/jito_stake_over_time
 ```
+
+#### Example Response
+
 ```json
 {
   "stake_ratio_over_time": {
@@ -134,30 +212,84 @@ curl https://kobe.mainnet.jito.network/api/v1/jito_stake_over_time
 
 ---
 
-### 5. `/api/v1/mev_rewards`  `GET | POST`
-Network-level statistics for a single epoch.
+### 5. MEV Rewards
 
-| Field | Description |
-|-------|-------------|
-| `epoch` | Epoch queried |
-| `total_network_mev_lamports` | MEV paid (after protocol fee) across **all** validators |
-| `jito_stake_weight_lamports` | Total Jito-validator active stake |
-| `mev_reward_per_lamport` | Average MEV per staked lamport |
+**Purpose**: Network-level statistics for a single epoch.
 
-Example:
+**Endpoint**: `/api/v1/mev_rewards`
+
+**Method**: `GET | POST`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter | Type   | Required | Default | Description                    |
+| --------- | ------ | -------- |-------- | ------------------------------ |
+| `epoch`   | number | No       | -       | Filter by specific epoch       |
+
+#### Response Fields
+
+| Field                        | Type    | Description                                                                                                                                       |
+| ---------------------------- |-------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `epoch`                      | number  | The epoch number for which MEV rewards data is provided                                                                                           |
+| `total_network_mev_lamports` | number  | Total MEV rewards generated across the entire Solana network during this epoch, measured in lamports                                              |
+| `jito_stake_weight_lamports` | number  | Total amount of stake (in lamports) delegated to validators running Jito software during this epoch                                               |
+| `mev_reward_per_lamport`     | number  | MEV rewards earned per lamport of stake for Jito validators in this epoch (calculated as total_network_mev_lamports / jito_stake_weight_lamports) |
+
+#### Example Request
+
 ```bash
-curl -X POST https://kobe.mainnet.jito.network/api/v1/mev_rewards -H 'Content-Type: application/json' -d '{"epoch":600}'
+curl -X POST https://kobe.mainnet.jito.network/api/v1/mev_rewards -H 'Content-Type: application/json' -d '{ "epoch": 600 }'
+```
+
+#### Example Response
+
+```json
+{
+  "epoch": 600,
+  "total_network_mev_lamports": 19630470685094,
+  "jito_stake_weight_lamports": 273972433518536409,
+  "mev_reward_per_lamport": 0.0000716512622565213
+}
 ```
 
 ---
 
-### 6. `/api/v1/daily_mev_rewards`  `GET`
-Aggregated MEV tips per calendar day.
+### 6. Daily MEV Rewards
+
+**Purpose**: Aggregated MEV tips per calendar day.
+
+**Endpoint**: `/api/v1/daily_mev_rewards`
+
+**Method**: `GET`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter | Type   | Required | Default | Description                    |
+| --------- | ------ | -------- |-------- | ------------------------------ |
+
+#### Response Fields
+
+| Field            | Type    | Description                                                                                                |
+| ---------------- |-------- | ---------------------------------------------------------------------------------------------------------- |
+| `day`            | string  | The calendar date in UTC format (YYYY-MM-DD HH:MM:SS.sss UTC) for which the MEV rewards data is aggregated |
+| `count_mev_tips` | number  | Total number of individual MEV tip transactions that occurred on this day                                  |
+| `jito_tips`      | number  | Total amount of MEV tips paid to Jito (in SOL) on this day                                                 |
+| `tippers`        | number  | Total number of unique accounts that submitted MEV tips on this day                                        |
+| `validator_tips` | number  | Total amount of MEV tips distributed to validators (in SOL) on this day                                    |
+
+
+#### Example Request
+
 ```bash
 curl https://kobe.mainnet.jito.network/api/v1/daily_mev_rewards
 ```
 
-Response:
+#### Example Response
+
 ```json
 [
   {

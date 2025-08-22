@@ -5,6 +5,8 @@ section_type: page
 order: 10
 ---
 
+## API Endpoints
+
 ### 1. Validators
 
 **Purpose**: Returns validator state for a given epoch (defaults to latest). The current epoch will always report `mev_rewards = 0` because rewards settle at epoch boundary.
@@ -310,6 +312,252 @@ curl https://kobe.mainnet.jito.network/api/v1/daily_mev_rewards
 ```
 
 ---
+
+### 7. Stake Pool Stats
+
+**Purpose**: Stake pool analytics including TVL, APY, validator count, supply metrics, and aggregated MEV rewards over time.
+
+**Endpoint**: `/api/v1/stake_pool_stats`
+
+**Method**: `GET` or `POST`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter            | Type   | Required | Default.     | Description                                                       |
+| -------------------- | ------ | -------- |------------- | ----------------------------------------------------------------- |
+| `bucket_type`        | string | No       | "Daily".     | Time bucket aggregation type. Currently only "Daily" is supported |
+| `range_filter`       | object | No       | Last 7 days  | Date range filter with `start` and `end` DateTime fields          |
+| `range_filter.start` | string | No       | 7 days ago   | Start date in ISO 8601 format (e.g., "2025-08-15T22:55:06Z")      |
+| `range_filter.end`   | string | No       | Now.         | End date in ISO 8601 format (e.g., "2025-08-22T22:55:06Z")        |
+| `sort_by`            | object | No       | Default sort | Sort configuration object                                         |
+| `sort_by.field`      | string | No       | "BlockTime"  | Sort field. Currently only "BlockTime" is supported               |
+| `sort_by.order`      | string | No.      | "Asc"        | Sort order: "Asc" or "Desc"                                       |
+
+#### Response Fields
+
+| Field                    | Type   | Description                                                            |
+| ------------------------ |------- | ---------------------------------------------------------------------- |
+| `aggregated_mev_rewards` | number | Total aggregated MEV rewards across all time periods (in lamports)     |
+| `mev_rewards`            | array  | Time series data of MEV rewards with integer data points               |
+| `tvl`                    | array  | Time series data of Total Value Locked in the stake pool (in lamports) |
+| `apy`                    | array  | Time series data of Annual Percentage Yield as decimal values          |
+| `num_validators`         | array  | Time series data of validator count in the stake pool                  |
+| `supply`                 | array  | Time series data of JitoSOL token supply as decimal values             |
+
+
+#### Example Request
+
+```bash
+curl -X POST \
+  https://kobe.mainnet.jito.network/api/v1/stake_pool_stats \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "bucket_type": "Daily",
+    "range_filter": {
+      "start": "2025-08-15T00:00:00Z",
+      "end": "2025-08-16T00:00:00Z"
+    },
+    "sort_by": {
+      "field": "BlockTime",
+      "order": "Asc"
+    }
+  }'
+```
+
+#### Example Response
+
+```json
+{
+  "aggregated_mev_rewards": 17917503591959,
+  "mev_rewards": [
+    {
+      "data": 841552703382,
+      "date": "2025-08-15T22:55:06Z"
+    },
+    {
+      "data": 5244986563088,
+      "date": "2025-08-16T23:20:47Z"
+    }
+  ],
+  "tvl": [
+    {
+      "data": 15209213875510266,
+      "date": "2025-08-15T22:55:06Z"
+    },
+    {
+      "data": 15211604884230567,
+      "date": "2025-08-16T23:20:47Z"
+    }
+  ],
+  "apy": [
+    {
+      "data": 0.07184861225308525,
+      "date": "2025-08-15T22:55:06Z"
+    },
+    {
+      "data": 0.07184861239211937,
+      "date": "2025-08-16T23:20:47Z"
+    }
+  ],
+  "num_validators": [
+    {
+      "data": 1040,
+      "date": "2025-08-15T22:55:06Z"
+    },
+    {
+      "data": 1040,
+      "date": "2025-08-16T23:20:47Z"
+    }
+  ],
+  "supply": [
+    {
+      "data": 12420237.336776868,
+      "date": "2025-08-15T22:55:06Z"
+    },
+    {
+      "data": 12422189.896316852,
+      "date": "2025-08-16T23:20:47Z"
+    }
+  ]
+}
+```
+
+---
+
+### 8. MEV Commission Average Overtime
+
+**Purpose**: Returns stake-weighted average MEV commission rates by epoch for all Jito-running validators.
+
+**Endpoint**: `/api/v1/mev_commission_average_overtime`
+
+**Method**: `GET`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter | Type | Required | Default | Description |
+| --------- | ------ | -------- |-------- | ------------------------------ |
+
+#### Response Fields
+
+| Field                              | Type   | Description                                                         |
+| ---------------------------------- |------- | ------------------------------------------------------------------- |
+| `average_mev_commission_over_time` | object | Map of epoch numbers to stake-weighted average MEV commission rates |
+
+#### Calculation Method
+
+The average MEV commission is calculated as a **stake-weighted average**:
+
+1. **Filter**: Only includes validators running Jito (`running_jito: true`)
+2. **Weight by Stake**: Each validator's commission rate is weighted by their active stake amount
+3. **Aggregate by Epoch**: Results are grouped and averaged per epoch
+4. **Formula**: `(Sum of [MEV Commission × Active Stake]) / (Sum of Active Stake)`
+
+This provides a more accurate representation of the effective commission rate experienced by stakers, as validators with more stake have proportionally more influence on the average.
+
+#### Example Request
+
+```bash
+curl https://kobe.mainnet.jito.network/api/v1/mev_commission_average_overtime
+```
+
+#### Example Response
+
+```json
+{
+  "aggregated_mev_rewards": 841552703382,
+  "mev_rewards": [
+    {
+      "data": 841552703382,
+      "date": "2025-08-15T22:55:06Z"
+    }
+  ],
+  "tvl": [
+    {
+      "data": 15209213875510266,
+      "date": "2025-08-15T22:55:06Z"
+    }
+  ],
+  "apy": [
+    {
+      "data": 0.07184861225308525,
+      "date": "2025-08-15T22:55:06Z"
+    }
+  ],
+  "num_validators": [
+    {
+      "data": 1040,
+      "date": "2025-08-15T22:55:06Z"
+    }
+  ],
+  "supply": [
+    {
+      "data": 12420237.336776868,
+      "date": "2025-08-15T22:55:06Z"
+    }
+  ]
+}
+```
+
+---
+
+### 9. JitoSOL/SOL Ratio
+
+**Purpose**: Retrieve the historical exchange ratio between JitoSOL and SOL over time.
+
+***Endpoint**: `/api/v1/jitosol_sol_ratio`  
+
+**Method**: `GET` or `POST`  
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter            | Type   | Required | Default     | Description                                                  |
+|--------------------- | ------ | -------- | ----------- |------------------------------------------------------------- |
+| `range_filter`       | object | No       | Last 7 days | Date range filter with `start` and `end` DateTime fields     |
+| `range_filter.start` | string | No       | 7 days ago  | Start date in ISO 8601 format (e.g., "2025-08-15T00:00:00Z") |
+| `range_filter.end`   | string | No       | Now         | End date in ISO 8601 format (e.g., "2025-08-22T00:00:00Z")   |
+
+#### Response Fields
+
+
+| Field    | Type   | Description                                        |
+| -------- | ------ | -------------------------------------------------- |
+| `ratios` | array  | Time series data of JitoSOL to SOL exchange ratios |
+
+#### Example Request
+
+```bash
+curl -X POST \
+  https://kobe.mainnet.jito.network/api/v1/jitosol_sol_ratio \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "range_filter": {
+      "start": "2025-08-15T00:00:00Z",
+      "end": "2025-08-16T00:00:00Z"
+    }
+  }'
+```
+
+#### Example Response
+
+```json
+{
+  "ratios": [
+    {
+      "data": 1.224550985871672,
+      "date": "2025-08-15T22:55:06Z"
+    }
+  ]
+}
+```
+
+---
+
 
 ## Notes & Caveats
 * The **current epoch** always reports `mev_rewards = 0` because rewards are finalized at epoch-close.

@@ -461,7 +461,7 @@ This provides a more accurate representation of the effective commission rate ex
 #### Example Request
 
 ```bash
-curl https://kobe.mainnet.jito.network/api/v1/mev_commission_average_overtime
+curl https://kobe.mainnet.jito.network/api/v1/mev_commission_average_over_time
 ```
 
 #### Example Response

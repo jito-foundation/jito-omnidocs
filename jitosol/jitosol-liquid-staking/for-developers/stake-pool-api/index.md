@@ -430,7 +430,7 @@ curl -X POST \
 
 **Purpose**: Returns stake-weighted average MEV commission rates by epoch for all Jito-running validators.
 
-**Endpoint**: `/api/v1/mev_commission_average_overtime`
+**Endpoint**: `/api/v1/mev_commission_average_over_time`
 
 **Method**: `GET`
 

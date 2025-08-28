@@ -73,15 +73,8 @@ order: 20
 #### Example Request
 
 ```bash
-curl -X POST \
-  https://kobe.mainnet.jito.network/api/v1/steward_events \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "event_type": "ScoreComponents",
-    "epoch": 837,
-    "limit": 50,
-    "skip": 0
-  }'
+ curl -X POST \
+  https://kobe.mainnet.jito.network/api/v1/steward_events?event_type=ScoreComponents | jq
 ```
 
 #### Example Response

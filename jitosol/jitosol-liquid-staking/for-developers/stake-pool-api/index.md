@@ -1,6 +1,6 @@
 ---
-title: Validator Performance API
-subtitle: "Network analytics, validator rankings, and stake pool metrics"
+title: Validator API
+subtitle: "Network analytics, validator rankings, and stake pool APY metrics"
 section_type: page
 order: 10
 ---
@@ -436,11 +436,6 @@ curl -X POST \
 
 **Base URL**: `https://kobe.mainnet.jito.network`
 
-#### Query Parameters
-
-| Parameter | Type | Required | Default | Description |
-| --------- | ------ | -------- |-------- | ------------------------------ |
-
 #### Response Fields
 
 | Field                              | Type   | Description                                                         |
@@ -558,6 +553,96 @@ curl -X POST \
 
 ---
 
+## Frontend APY Calculation
+
+The Jito frontend calculates the current APY displayed to users by fetching historical stake pool data and using the most recent available data point.
+
+### Jito Frontend Implementation
+
+Here's how the Jito frontend retrieves and processes APY data:
+
+```javascript
+export default async function handler(req, res) {
+  const apiUrl = 'https://kobe.mainnet.jito.network/api/v1/stake_pool_stats'
+
+  // Set up start and end dates
+  const start = new Date('2022-10-31T00:00:00Z') // Launch date
+  const end = new Date()
+
+  const statsRequest = {
+    bucket_type: 'Daily',
+    range_filter: {
+      start: start.toISOString(),
+      end: end.toISOString(),
+    },
+    sort_by: {
+      field: 'BlockTime',
+      order: 'Asc',
+    },
+  }
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(statsRequest),
+    })
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+
+    const data = await response.json()
+
+    if (data) {
+      const {
+        aggregated_mev_rewards: aggregatedMevRewards,
+        apy,
+        mev_rewards: mevRewards,
+        num_validators: numValidators,
+        supply,
+        tvl,
+      } = data
+
+      const camelCaseData = {
+        getStakePoolStats: {
+          aggregatedMevRewards,
+          apy,
+          mevRewards,
+          numValidators,
+          supply,
+          tvl,
+        },
+      }
+
+      res.status(200).json(camelCaseData)
+    } else {
+      res.status(200).json(data)
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error)
+    res.status(500).json({ message: `Error fetching data: ${error.message}` })
+  }
+}
+```
+
+### APY Selection Logic
+
+To display the current APY on the frontend:
+
+1. **Fetch Complete History**: The API call retrieves all historical data from JitoSOL's launch date (October 31, 2022) to the present
+2. **Select Most Recent**: The frontend uses the most recent data point from the `apy` array
+3. **Display Current Rate**: This most recent APY value represents the current annualized yield rate shown to users
+
+The `apy` field in the response contains time-series data where each entry includes:
+- `data`: The APY as a decimal value (e.g., 0.07184861225308525 = ~7.18%)
+- `date`: The timestamp when this APY was calculated
+
+Note that the stake_pool_stats endpoint returns smoothed values when requesting for periods longer than 10 epochs. Hence, the APY data we show on our frontend is smoothed.
+
+---
 
 ## Notes & Caveats
 * The **current epoch** always reports `mev_rewards = 0` because rewards are finalized at epoch-close.

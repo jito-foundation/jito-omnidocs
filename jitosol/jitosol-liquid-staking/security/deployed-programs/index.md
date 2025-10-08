@@ -5,7 +5,7 @@ section_type: 'page'
 subtitle: ''
 ---
 
-Jito Network will be using the Solana Program Library deployed stake pool program at address SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy. 
+Jito Network uses the Solana Program Library deployed stake pool program at address `SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy` on Mainnet. 
 
 Audits: 
 
@@ -20,16 +20,29 @@ Audits:
     - Review commit hash [<code>3dd6767</code>](https://github.com/solana-labs/solana-program-library/tree/3dd67672974f92d3b648bb50ee74f4747a5f8973)​
     - Report [https://solana.com/SolanaKudelskiStakePoolAudit.pdf](https://solana.com/SolanaKudelskiStakePoolAudit.pdf)​
 
-Upgrade keys for this program are owned by Solana Foundation. Leveraging this program provides minimal risk compared to deploying or writing our own stake pool implementation, in case of a network fork or loss of funds. 
+Upgrade keys for this program are owned by a committee of Solana Staking Ecosystem participants. Leveraging this program provides minimal risk compared to deploying or writing our own stake pool implementation, in case of a network fork or loss of funds. 
 
-### Jito Stake pool addresses
+### Jito Stake Pool Addresses
 
-Stake pool address: 
+All networks use the SPL Stake Pool program at `SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy`.
 
-- Mainnet: Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb
-- Testnet: Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb
+**Mainnet & Testnet:**
 
-Pool mint address:
+- Stake Pool: `Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb`
+- JitoSOL Mint: `J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn`
 
-- Mainnet: J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn
-- Testnet: J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn
+**Devnet:**
+
+The Devnet deployment on `SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy` is deployed to an outdated version (v0.6.4) and no longer upgradable. For up-to-date testing, use:
+
+- Program: `DPoo15wWDqpPJJtS2MUZ49aRxqz5ZaaJCJP4z8bLuib`
+- Stake Pool: `JitoY5pcAxWX6iyP2QdFwTznGb8A99PRCUCVVxB46WZ`
+- JitoSOL Mint: `J1tos8mqbhdGcF3pgj4PCKyVjzWSURcpLZU7pPGHxSYi`
+
+
+### Interceptor Program
+
+The Jito Interceptor program manages stake account deposits with a time-decaying fee mechanism to protect against toxic flow. For details, see the [Interceptor user guide](/jitosol/user-guides/interceptor/).
+
+- Mainnet: `5TAiuAh3YGDbwjEruC1ZpXTJWdNDS7Ur7VeqNNiHMmGV`
+- Testnet & Devnet: `2KVTQFqDBoq1BZhYf6NVUYbrTf7Ff2e3UMWf6jRT5GHV`

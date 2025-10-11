@@ -51,27 +51,29 @@ The StakeNet system provides additional protection by automatically removing und
 Jito uses **StakeNet**, an automated validator selection system with transparent on-chain criteria:
 
 **Binary Requirements (must meet ALL):**
-- Run the Jito MEV-enabled client (have MEV commission in the last 10 epochs)
-- MEV commission ≤ 10% (evaluated over the last 10 epochs)
+- Run the Jito MEV-enabled client (have MEV commission in the last 30 epochs)
+- MEV commission ≤ 10% (evaluated over the last 30 epochs)
 - Validator commission ≤ 5% (evaluated over the last 30 epochs)
 - Historical commission ≤ 50% (across all validator history)
 - Not belong to the validator superminority (top 33.3% of total stake)
 - Not run unsafe consensus modifications
+- Using acceptable Tip Distribution merkle root upload authority (TipRouter or OldJito)
 - Not blacklisted by governance
 - Maintain ≥ 5 epochs of continuous voting with ≥ 5,000 SOL minimum stake
-- Vote on ≥ 85% of expected slots (evaluated over the last 30 epochs)
+- Vote on ≥ 97% of expected slots in each of the last 30 epochs
 
-**Scoring Formula:**
-```
-yield_score = (average_vote_credits / average_blocks) * (1 - commission)
-```
+**Scoring System:**
 
-Where:
-- `average_vote_credits` = vote credits earned over the last 30 epochs
-- `average_blocks` = total blocks produced by the cluster over the last 30 epochs  
-- `commission` = maximum commission over the last 30 epochs (as decimal, e.g., 0.05 for 5%)
+Validators that pass all binary criteria are ranked using a 4-tier hierarchical scoring system with the following priority order:
 
-The top 200 validators by overall score are selected for delegation in each 10-epoch cycle.
+1. **Inflation commission** (highest priority): Lower commission validators are always preferred
+2. **MEV commission**: Among validators with equal inflation commission, lower MEV commission is preferred
+3. **Validator age**: Among validators equal on commissions, older validators (more epochs with vote credits) are preferred
+4. **Vote credits ratio**: Among validators equal on all above, higher performance is preferred
+
+The 4-tier score ensures that differences in higher-priority tiers (like inflation commission) always dominate lower-priority tiers. This raw score is then multiplied by all binary eligibility factors - if any factor is zero, the final score becomes zero.
+
+The top 400 validators by overall score are selected for delegation in each 10-epoch cycle.
 
 *StakeNet parameters and thresholds are subject to change through Jito DAO governance.*
 
@@ -87,13 +89,14 @@ The StakeNet system automatically handles underperforming validators:
 - **Delinquency**: Voting on <70% of expected slots
 - **Commission manipulation**: Increasing above 5% validator or 10% MEV commission
 - **Blacklist addition** by governance
+- **Unacceptable Tip Distribution merkle root upload authority**
 - Maximum 10% of total pool can be instantly unstaked per epoch
 
 **Q: How often does Jito rebalance stake between validators?**
 
 - **Regular Rebalancing**: Every 10 epochs (approximately 20-30 days)
 - **Instant Unstaking**: Evaluated every epoch for critical issues
-- **Target Allocation**: Each selected validator gets 1/200th of the total pool
+- **Target Allocation**: Each selected validator gets 1/400th of the total pool
 - **Safety Caps**: Various limits protect against excessive stake movement
 
 ## MEV and Priority Fee Distribution

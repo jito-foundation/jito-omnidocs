@@ -22,7 +22,6 @@ Validators must meet all of the following binary criteria to be eligible for del
 - Not belong to the validator superminority (top 33.3% of total stake)
 - Not run unsafe consensus modifications
 - Using acceptable Tip Distribution merkle root upload authority (TipRouter or OldJito)
-- Using acceptable Priority Fee merkle root upload authority
 - Not blacklisted by governance
 - Maintain ≥ 5 epochs of continuous voting with ≥ 5,000 SOL minimum stake
 - Vote on ≥ 97% of expected slots in each of the last 30 epochs
@@ -68,7 +67,6 @@ The system evaluates validators each epoch for immediate removal based on:
 - Commission manipulation: Increasing commission above 5% or MEV commission above 10%
 - Blacklist addition by governance
 - Using unacceptable Tip Distribution merkle root upload authority
-- Using unacceptable Priority Fee merkle root upload authority
 
 Validators meeting any of these criteria are unstaked within the same epoch, subject to the 10% cap.
 

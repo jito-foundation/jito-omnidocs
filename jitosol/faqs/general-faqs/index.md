@@ -58,7 +58,7 @@ JitoSOL deposits the SOL with a carefully selected group of validators. These va
 
 **Q: How does Jito choose which validators to stake with?**
 
-Jito uses an automated system called **StakeNet** that selects the top 200 validators based on performance, fees, and reliability. The system checks things like:
+Jito uses an automated system called **StakeNet** that selects the top 400 validators based on performance, fees, and reliability. The system checks things like:
 - Low commission rates
 - Good voting performance
 - Running Jito's MEV software

@@ -15,36 +15,35 @@ See current delegates at [jito.network/stakepool](https://www.jito.network/stake
 
 Validators must meet all of the following binary criteria to be eligible for delegation (subject to change):
 
-- Run the Jito MEV-enabled client (have MEV commission in the last 10 epochs)
-- MEV commission ≤ 10% (evaluated over the last 10 epochs)
+- Run the Jito MEV-enabled client (have MEV commission in the last 30 epochs)
+- MEV commission ≤ 10% (evaluated over the last 30 epochs)
 - Validator commission ≤ 5% (evaluated over the last 30 epochs)
 - Historical commission ≤ 50% (across all validator history)
 - Not belong to the validator superminority (top 33.3% of total stake)
 - Not run unsafe consensus modifications
+- Using acceptable Tip Distribution merkle root upload authority (TipRouter or OldJito)
 - Not blacklisted by governance
 - Maintain ≥ 5 epochs of continuous voting with ≥ 5,000 SOL minimum stake
-- Vote on ≥ 85% of expected slots (evaluated over the last 30 epochs)
+- Vote on ≥ 97% of expected slots in each of the last 30 epochs
 
 Failing any single criterion results in an overall score of zero, making the validator ineligible for delegation.
 
 ## Scoring mechanism
 
-Validators that pass all binary criteria are ranked using a performance-based yield score:
+Validators that pass all binary criteria are ranked using a 4-tier hierarchical scoring system. The score is encoded as a 64-bit value with the following priority order:
 
-```
-yield_score = (average_vote_credits / average_blocks) * (1 - commission)
-```
+1. **Inflation commission** (highest priority): Lower commission validators are always preferred
+2. **MEV commission**: Among validators with equal inflation commission, lower MEV commission is preferred
+3. **Validator age**: Among validators equal on commissions, older validators (more epochs with vote credits) are preferred
+4. **Vote credits ratio**: Among validators equal on all above, higher performance is preferred
 
-Where:
-- `average_vote_credits` = vote credits earned over the last 30 epochs
-- `average_blocks` = total blocks produced by the cluster over the last 30 epochs  
-- `commission` = maximum commission over the last 30 epochs (as decimal, e.g., 0.05 for 5%)
+The 4-tier score ensures that differences in higher-priority tiers (like inflation commission) always dominate lower-priority tiers. This raw score is then multiplied by all binary eligibility factors - if any factor is zero, the final score becomes zero.
 
-The overall score is calculated as the product of all binary eligibility factors and the yield score. The top 200 validators by overall score are selected for delegation in each 10-epoch cycle.
+The top 400 validators by overall score are selected for delegation in each 10-epoch cycle.
 
 ## Delegation methodology
 
-- Each selected validator receives a target allocation of 1/200th of the total pool
+- Each selected validator receives a target allocation of 1/400th of the total pool
 - Target allocations are percentage-based and scale automatically with pool growth
 - New deposits increase all validators' target stake proportionally
 
@@ -64,11 +63,12 @@ Priority is given to removing stake from the lowest-performing validators first.
 
 The system evaluates validators each epoch for immediate removal based on:
 
-- Delinquency: Voting on less than 70% of expected slots (lower threshold than the 85% scoring requirement)
+- Delinquency: Voting on less than 70% of expected slots (lower threshold than the 97% scoring requirement)
 - Commission manipulation: Increasing commission above 5% or MEV commission above 10%
 - Blacklist addition by governance
+- Using unacceptable Tip Distribution merkle root upload authority
 
-Validators meeting these criteria are unstaked within the same epoch, subject to the 10% cap.
+Validators meeting any of these criteria are unstaked within the same epoch, subject to the 10% cap.
 
 ## Parameters and transparency
 

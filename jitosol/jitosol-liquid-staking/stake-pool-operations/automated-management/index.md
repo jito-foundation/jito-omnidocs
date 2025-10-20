@@ -40,11 +40,11 @@ The system operates with on-chain programs making decisions and off-chain keeper
 
 ## How stake rebalancing works
 
-1. **Scoring phase** – Every 10 epochs, the Steward evaluates over 1,000 validators  
-2. **Target calculation** – The top 200 validators (configurable) are selected, each receiving an equal target allocation  
-3. **Monitoring** – Keepers continuously update validator performance data  
+1. **Scoring phase** – Every 10 epochs, the Steward evaluates over 1,000 validators
+2. **Target calculation** – The top 400 validators (configurable) are selected, each receiving an equal target allocation
+3. **Monitoring** – Keepers continuously update validator performance data
 4. **Instant unstake evaluation** – Each epoch, validators that meet certain negative criteria are marked for immediate removal from the pool
-5. **Rebalancing** – Keepers execute stake delegation and undelegation transactions to move validators toward their targets, subject to safety caps  
+5. **Rebalancing** – Keepers execute stake delegation and undelegation transactions to move validators toward their targets, subject to safety caps
 6. **Cycle repetition** – The process continues until the next scoring phase
 
 All parameters governing this process are stored on-chain and can be modified through Jito DAO governance.

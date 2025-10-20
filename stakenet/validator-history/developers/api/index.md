@@ -13,7 +13,7 @@ This endpoint allows you to fetch all validator histories by vote account
 
 ### Endpoint
 
-`GET https://kobe.mainnet.jito.network//api/v1/validator_history/{vote_account}`
+`GET https://kobe.mainnet.jito.network/api/v1/validator_history/{vote_account}`
 
 ### Parameters
 

@@ -1,6 +1,6 @@
 ---
 title: Validator History CLI Guide
-order: 0
+order: 1
 subtitle: 'Commands and operations for Validator History management'
 section_type: page
 ---

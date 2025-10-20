@@ -1,11 +1,11 @@
 ---
-title: Steward API Documentation
+title: Steward API
 order: 1
 subtitle: ''
 section_type: page
 ---
 
-# Steward API Documentation
+# Steward API
 
 ## Events Endpoint
 

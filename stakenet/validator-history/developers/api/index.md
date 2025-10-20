@@ -19,7 +19,7 @@ This endpoint allows you to fetch all validator histories by vote account
 
 | Parameter    | Type    | Required | Description                                         |
 | ------------ | ------- | -------- | --------------------------------------------------- |
-| epoch        | Integer | No       | Filter events by epoch number                       |
+| epoch        | Integer | No       | Filter validator history entry by epoch number      |
 
 
 ### Example Request: Get a validator's scores

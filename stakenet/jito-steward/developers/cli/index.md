@@ -57,7 +57,7 @@ Transient Stake Account: C2AurJCKxp5Q8DbaZ84aiSUiKKazqgRVsUiTiihqNYui
 Steward List Index: 3
 Overall Rank: 441
 Score: 0
-Yield Score: 912832510
+Raw Score: 0
 Passing Eligibility Criteria: No
 Target Delegation Percent: 0.0%
 
@@ -82,13 +82,13 @@ Marked for immediate removal: false
 
 `Steward List Index`: Position in the Steward list, 1-1 with spl-stake-pool `ValidatorList`
 
-`Overall Rank`: Validator's rank among all validators, indicating priority for stake if Target is nonzero, and priority for unstaking if target is zero
+`Overall Rank`: Validator's rank among all validators (based on raw_score), indicating staking priority if Target is nonzero, and unstaking priority if target is zero
 
 `Passing Eligibility Criteria`: Indicates if validator meets binary eligibility requirements
 
-`Score`: Validator's overall score
+`Score`: Validator's final score (0 if any eligibility criteria failed, otherwise equals raw_score)
 
-`Yield Score`: Validator's relative yield score
+`Raw Score`: Validator's 4-tier hierarchical score before binary filters applied
 
 `Target Delegation Percent`: Share of the stake pool TVL this validator is targeted to receive. Not a guaranteed amount - dependent on staking and unstaking priority.
 
@@ -211,23 +211,23 @@ Marked for immediate removal: false
   --authority-keypair-path ../../credentials/stakenet_test.json \
   --steward-config-keypair-path ../../credentials/steward_config.json \
   --stake-pool 3DuPtyTAKrxKfHkSPZ5fqCayMcGru1BarAKKTfGDeo2j \
-  --mev-commission-range 10 \
+  --mev-commission-range 30 \
   --epoch-credits-range 30 \
   --commission-range 30 \
   --mev-commission-bps-threshold 1000 \
   --commission-threshold 5 \
   --historical-commission-threshold 50 \
-  --scoring-delinquency-threshold-ratio 0.85 \
+  --scoring-delinquency-threshold-ratio 0.97 \
   --instant-unstake-delinquency-threshold-ratio 0.70 \
-  --num-delegation-validators 200 \
+  --num-delegation-validators 400 \
   --scoring-unstake-cap-bps 750 \
   --instant-unstake-cap-bps 1000 \
   --stake-deposit-unstake-cap-bps 1000 \
-  --compute-score-slot-range 50000 \
-  --instant-unstake-epoch-progress 0.50 \
+  --compute-score-slot-range 10000 \
+  --instant-unstake-epoch-progress 0.90 \
   --instant-unstake-inputs-epoch-progress 0.50 \
-  --num-epochs-between-scoring 3 \
-  --minimum-stake-lamports 100000000000 \
+  --num-epochs-between-scoring 10 \
+  --minimum-stake-lamports 5000000000000 \
   --minimum-voting-epochs 5
 ```
 

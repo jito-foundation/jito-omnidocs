@@ -18,9 +18,9 @@ A Solana program that maintains historical performance data for validators. It r
 
 **Cycle**: A period of time (currently 10 epochs) in the Steward Program during which validators are selected and delegations are managed. The scores and validator selections are fixed for the duration of a cycle.
 
-**Validator Score**: A numerical representation of a validator's performance and desirability within the Steward Program.
+**Validator Score**: The final score used for delegation eligibility, calculated by multiplying the raw_score by all binary eligibility filters. If any binary criterion fails (returns 0), the validator score becomes 0, making the validator ineligible for delegation.
 
-**Yield Score**: A component of the validator score that represents the validator's efficiency in generating rewards for delegators, taking into account factors like epoch credits and commission.
+**Raw Score**: A 4-tier hierarchical score (64-bit encoded) that ranks validators based on: (1) inflation commission, (2) MEV commission, (3) validator age, and (4) vote credits performance. This score is calculated before binary eligibility filters are applied and is used for determining unstaking priority and ranking validators.
 
 **Rebalancing**: The process of adjusting stake allocations among validators to maintain desired proportions or react to performance changes.
 

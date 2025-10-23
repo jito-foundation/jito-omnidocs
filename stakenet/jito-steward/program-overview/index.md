@@ -131,7 +131,7 @@ If the target is less, we attempt to undelegate stake:
 When undelegating stake, we want to protect against massive unstaking events due to bugs or network anomalies, to preserve yield. There are two considerations with this:
 There are 3 main reasons we may want to unstake. We want to identify when each of these cases happen, and let some amount of unstaking happen for each case throughout a cycle.
 
-- the pool is out of line with the ideal top 200 validators and should be rebalanced,
+- the pool is out of line with the ideal validator set (top N validators by score, configurable) and should be rebalanced,
 - a validator is marked for instant unstake, or
 - a validator gets a stake deposit putting it far above the target delegation.
 
@@ -139,7 +139,7 @@ We want to run the rebalance step in parallel across all validators, meaning the
 
 To address 1: we set a cap for each unstake condition, and track the amount unstaked for that condition per cycle. (scoring_unstake_cap, instant_unstake_cap, stake_deposit_unstake_cap)
 
-To address 2: in each instruction, we calculate how much this validator is able to be unstaked in real-time, based on the current balances of all validators, unstaking caps, and which validators would be “ahead” in priority for unstaking before caps are hit. (Lower yield_score = higher priority). If all the “worse” validators will be unstaked and hit the caps before this one can, no unstaking is done on this validator.
+To address 2: in each instruction, we calculate how much this validator is able to be unstaked in real-time, based on the current balances of all validators, unstaking caps, and which validators would be "ahead" in priority for unstaking before caps are hit. (Lower raw_score = higher unstaking priority). If all the "worse" validators will be unstaked and hit the caps before this one can, no unstaking is done on this validator.
 
 For each validator, its active stake balance in lamports is then saved. In the next epoch, any lamports above this can be assumed to be a stake deposit, and can be unstaked.
 

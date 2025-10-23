@@ -20,49 +20,79 @@ The state machine represents the progress throughout a cycle (10-epoch period fo
 
 ### Compute Scores
 
-At the start of a 10 epoch cycle (“the cycle”), all validators are scored. We save the overall score, which combines yield performance as well as binary criteria for eligibility, and we also save the yield-only score.
+At the start of a 10 epoch cycle ("the cycle"), all validators are scored. The scoring system uses a 4-tier hierarchical ranking combined with binary eligibility criteria.
 
-The `score` is for determining eligibility to be staked in the pool, the `yield_score` determines the unstaking order (who gets unstaked first, lowest to highest).
+#### Binary Eligibility Criteria
 
-The following metrics are used to calculate the `score` and `yield_score`:
+All validators must meet the following binary criteria to be eligible for delegation (each is scored as 1.0 if passing, 0.0 if failing):
 
-- `mev_commission_score`: If max mev commission in `mev_commission_range` epochs is less than threshold, score is 1.0, else 0
-- `commission_score`: If any commission within the individual's validator history exceeds the historical_commission_threshold, score it 0.0, else 1.0. This effectively bans validators who have performed commission manipulation.
+- `mev_commission_score`: If max MEV commission in `mev_commission_range` epochs is less than or equal to threshold, score is 1.0, else 0.0
+- `commission_score`: If max commission in `commission_range` epochs is less than or equal to threshold, score is 1.0, else 0.0
+- `historical_commission_score`: If any commission within the validator's entire history exceeds the `historical_commission_threshold`, score is 0.0, else 1.0. This effectively bans validators who have performed commission manipulation.
 - `blacklisted_score`: If validator is blacklisted, score is 0.0, else 1.0
-- `superminority_score`: If validator is not in the superminority, score is 1.0, else 0.0
-- `delinquency_score`: If delinquency is not > threshold in any epoch, score is 1.0, else 0.0
-- `running_jito_score`: If validator has a mev commission in the last 10 epochs, score is 1.0, else 0.0
+- `superminority_score`: If validator is not in the superminority (top 33.3% by stake), score is 1.0, else 0.0
+- `delinquency_score`: If delinquency is not greater than threshold in any epoch within `epoch_credits_range`, score is 1.0, else 0.0
+- `running_jito_score`: If validator has a MEV commission in the last `mev_commission_range` epochs, score is 1.0, else 0.0
+- `merkle_root_upload_authority_score`: If validator is using an acceptable Tip Distribution merkle root upload authority (TipRouter or OldJito), score is 1.0, else 0.0
+- `priority_fee_commission_score`: If validator's average realized priority fee commission is less than or equal to threshold, score is 1.0, else 0.0
+- `priority_fee_merkle_root_upload_authority_score`: If validator is using an acceptable priority fee merkle root upload authority, score is 1.0, else 0.0
 
 > Note: All data comes from the `ValidatorHistory` account for each validator.
 
-To formula to calculate the `score` and `yield_score`:
+#### 4-Tier Hierarchical Ranking
+
+Validators that pass all binary criteria are ranked using a 4-tier hierarchical scoring system encoded as a 64-bit value:
+
+1. **Inflation Commission** (Tier 1 - Highest Priority, bits 56-63): Lower validator commission is always preferred. This tier uses the maximum commission observed in the `commission_range`, inverted so lower commission = higher score.
+
+2. **MEV Commission** (Tier 2, bits 42-55): Among validators with equal inflation commission, lower MEV commission is preferred. This tier uses the average MEV commission over `mev_commission_range` epochs, inverted so lower commission = higher score.
+
+3. **Validator Age** (Tier 3, bits 25-41): Among validators equal on commissions, older validators (more epochs with non-zero vote credits) are preferred. This rewards validator longevity and reliability.
+
+4. **Vote Credits Ratio** (Tier 4 - Lowest Priority, bits 0-24): Among validators equal on all above tiers, higher performance (vote credits relative to total blocks) is preferred.
+
+The 4-tier score ensures that differences in higher-priority tiers always dominate lower-priority tiers. For example, a validator with 1% commission will always rank higher than one with 2% commission, regardless of their MEV commission, age, or performance.
+
+#### Final Score Calculation
+
+The final score is calculated by multiplying the 4-tier raw score by all binary eligibility factors:
 
 ```rust
-let yield_score = (average_vote_credits / average_blocks)
-    * (1. - commission);
+// Calculate 4-tier raw score (encoded as u64)
+let raw_score = encode_validator_score(
+    commission_max,      // Tier 1: Max commission (0-100)
+    mev_commission_avg,  // Tier 2: Avg MEV commission (0-10000 bps)
+    validator_age,       // Tier 3: Age in epochs
+    vote_credits_avg     // Tier 4: Normalized vote credits
+);
 
-let score = mev_commission_score
+// Apply binary filters
+let score = raw_score
+    * mev_commission_score
     * commission_score
+    * historical_commission_score
     * blacklisted_score
     * superminority_score
     * delinquency_score
     * running_jito_score
-    * yield_score
+    * merkle_root_upload_authority_score
+    * priority_fee_commission_score
+    * priority_fee_merkle_root_upload_authority_score;
 ```
 
-As a validator, in order to receive a high score for JitoSOL, you must meet these binary eligibility criteria, and return a high rate of rewards to your stakers. The eligibility criteria ensure that we're delegating to validators that meet some important properties for decentralization, Solana network health, operator quality, and MEV sharing. The yield score is an objective way to compare validators' relative yield and ensure we're returning a competitive APY to JitoSOL holders, which in turn attracts more stake to delegate to validators.
+If any binary criterion fails (score = 0), the final score becomes zero, making the validator ineligible for delegation. This ensures all validators in the pool meet essential requirements for decentralization, network health, operator quality, and MEV/priority fee sharing.
 
-In this version 0 of the score formula, there is no weighting of any factor above any other, because it is a product of all factors. But because all factors besides `yield_score` will only be `1.0` or `0.0`, yield is the main factor for determining validator ranking assuming all eligibility criteria is met. Even if one of the eligibility factors is not met, or the score is not high enough to be selected for the pool delegation, it is still advantageous to have a high `yield_score` as it is used for ranking which validators to unstake first.
+The hierarchical ranking ensures that validators are compared fairly across multiple dimensions, with the most important factors (commissions) taking precedence over secondary factors (age, performance). This creates strong incentives for validators to maintain low commissions while rewarding longevity and performance as tiebreakers.
 
-For a breakdown of the formulas used for each score, see the Appendix.
+For a detailed breakdown of the formulas used for each score component, see the [Scoring System](../validators/scoring-system/index.md) page.
 
-Take a look at the implementation in [score.rs](https://github.com/jito-foundation/stakenet/blob/master/programs/steward/src/score.rs#L88)
+Take a look at the implementation in [score.rs](https://github.com/jito-foundation/stakenet/blob/master/programs/steward/src/score.rs)
 
 ### Compute Delegations
 
 Once all the validators are scored, we need to calculate the stake distribution we will be aiming for during this cycle.
 
-The top 200 of these validators by overall score will become our validator set, with each receiving 1/200th of the share of the pool. If there are fewer than 200 validators eligible (having a non-zero score), the “ideal” validators are all of the eligible validators.
+The top validators by overall score will become our validator set (the number is configurable via the `num_delegation_validators` parameter, currently set to 400). Each selected validator receives an equal share of the pool (1/400th when 400 validators are selected). If there are fewer eligible validators (having a non-zero score) than the target number, all eligible validators are included in the delegation set.
 
 At the end of this step, we have a list of target delegations, representing proportions of the share of the pool, not fixed lamport amounts.
 

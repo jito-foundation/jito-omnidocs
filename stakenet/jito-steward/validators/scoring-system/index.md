@@ -103,7 +103,7 @@ delinquency_score = {
 where:
   t1 = current_epoch - epoch_credits_range
   t2 = current_epoch - 1
-  scoring_delinquency_threshold_ratio = 0.85
+  scoring_delinquency_threshold_ratio = 0.97
   TVC_MULTIPLIER = 1000 (Turbine Vote Credits multiplier)
 ```
 

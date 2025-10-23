@@ -82,7 +82,7 @@ Marked for immediate removal: false
 
 `Steward List Index`: Position in the Steward list, 1-1 with spl-stake-pool `ValidatorList`
 
-`Overall Rank`: Validator's rank among all validators (based on raw_score), indicating staking priority if Target is nonzero, and unstaking priority if target is zero
+`Overall Rank`: Validator's rank among all validators, indicating staking priority if Target is nonzero (based on score), and unstaking priority if target is zero (based on raw_score)
 
 `Passing Eligibility Criteria`: Indicates if validator meets binary eligibility requirements
 

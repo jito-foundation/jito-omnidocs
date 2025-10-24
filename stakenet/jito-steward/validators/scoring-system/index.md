@@ -220,7 +220,9 @@ where:
 ```
 
 **Range**: 0-100 (8 bits)
+
 **Inverted**: Lower commission = higher score
+
 **Purpose**: Prioritizes validators with lower inflation commissions. A validator with 0% commission scores 100, while 5% commission scores 95.
 
 ---
@@ -280,7 +282,9 @@ where:
 ```
 
 **Range**: 0-33,554,431 (25 bits)
+
 **Direct**: Higher performance = higher score
+
 **Purpose**: Among validators equal on all other tiers, rewards better performance. This is a relative measure of validator reliability and vote participation, not an exact APY measure.
 
 ---

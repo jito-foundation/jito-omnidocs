@@ -29,8 +29,8 @@ This endpoint allows you to retrieve various events related to the Steward progr
 
 Most relevant to validators:
 
-- `ScoreComponents`: Validator scoring details. Emitted once every 10 epochs
-- `InstantUnstakeComponents`: Information about instant unstaking events
+- `ScoreComponentsV4`: Validator scoring details using the 4-tier hierarchical scoring system. Emitted once every 10 epochs
+- `InstantUnstakeComponentsV3`: Information about instant unstaking events
 - `RebalanceEvent`: Details about stake rebalancing operations
 
 Updates to overall state:
@@ -43,34 +43,74 @@ Updates to overall state:
 
 ### Example Request: Get a validator's scores
 
-`GET https://kobe.mainnet.jito.network/api/v1/steward_events?vote_account=J1to3PQfXidUUhprQWgdKkQAMWPJAEqSJ7amkBDE9qhF&event_type=ScoreComponents`
+`GET https://kobe.mainnet.jito.network/api/v1/steward_events?vote_account=J1to3PQfXidUUhprQWgdKkQAMWPJAEqSJ7amkBDE9qhF&event_type=ScoreComponentsV4`
 
 ```json
 {
   "events": [
-  {
-    "signature": "5N3hVRpuqsiXCiChrm3GuaWRfi2zZMYAkx6jnM3YTocAC5RBTsrukk4ghFHeCyZawC7Ca72i7fo8TNg2MsG1zXP7",
-    "event_type": "ScoreComponents",
-    "vote_account": "J1to3PQfXidUUhprQWgdKkQAMWPJAEqSJ7amkBDE9qhF",
-    "timestamp": "2024-08-20T06:18:46Z",
-    "data": {
-      "score": 0.9763466522227435,
-      "yield_score": 0.9763466522227435,
-      "mev_commission_score": 1.0,
-      "blacklisted_score": 1.0,
-      "superminority_score": 1.0,
-      "delinquency_score": 1.0,
-      "running_jito_score": 1.0,
-      "commission_score": 1.0,
-      "historical_commission_score": 1.0,
-      "vote_credits_ratio": 0.9763466522227435
+    {
+      "signature": "5N3hVRpuqsiXCiChrm3GuaWRfi2zZMYAkx6jnM3YTocAC5RBTsrukk4ghFHeCyZawC7Ca72i7fo8TNg2MsG1zXP7",
+      "event_type": "ScoreComponentsV4",
+      "vote_account": "J1to3PQfXidUUhprQWgdKkQAMWPJAEqSJ7amkBDE9qhF",
+      "timestamp": "2024-08-20T06:18:46Z",
+      "data": {
+        "score": 7260571231234567890,
+        "raw_score": 7260571231234567890,
+        "commission_max": 5,
+        "mev_commission_avg": 800,
+        "validator_age": 1250,
+        "vote_credits_avg": 9650000,
+        "mev_commission_score": 1,
+        "blacklisted_score": 1,
+        "superminority_score": 1,
+        "delinquency_score": 1,
+        "running_jito_score": 1,
+        "commission_score": 1,
+        "historical_commission_score": 1,
+        "merkle_root_upload_authority_score": 1,
+        "priority_fee_commission_score": 1,
+        "priority_fee_merkle_root_upload_authority_score": 1,
+        "details": {
+          "max_mev_commission": 1000,
+          "max_mev_commission_epoch": 658,
+          "superminority_epoch": 65535,
+          "delinquency_ratio": 0.98,
+          "delinquency_epoch": 65535,
+          "max_commission": 5,
+          "max_commission_epoch": 659,
+          "max_historical_commission": 10,
+          "max_historical_commission_epoch": 520,
+          "avg_priority_fee_commission": 450,
+          "max_priority_fee_commission_epoch": 658
+        }
+      },
+      "epoch": 659
     },
-    "epoch": 659
-  },
-  ...
+    ...
   ]
 }
 ```
+
+**ScoreComponentsV4 Fields:**
+
+- `score`: Final score (u64). If 0, validator is ineligible. Otherwise, equals `raw_score`
+- `raw_score`: 4-tier encoded score before binary filters applied
+- `commission_max`: Maximum inflation commission observed (0-100, Tier 1 component)
+- `mev_commission_avg`: Average MEV commission in basis points (0-10000, Tier 2 component)
+- `validator_age`: Number of epochs with non-zero vote credits (Tier 3 component)
+- `vote_credits_avg`: Scaled vote credits ratio (Tier 4 component)
+- Binary eligibility scores (1 = pass, 0 = fail):
+  - `mev_commission_score`: MEV commission check
+  - `commission_score`: Recent commission check
+  - `historical_commission_score`: Historical commission check
+  - `blacklisted_score`: Blacklist check
+  - `superminority_score`: Superminority check
+  - `delinquency_score`: Voting delinquency check
+  - `running_jito_score`: Running Jito MEV client check
+  - `merkle_root_upload_authority_score`: Tip distribution authority check
+  - `priority_fee_commission_score`: Priority fee commission check
+  - `priority_fee_merkle_root_upload_authority_score`: Priority fee authority check
+- `details`: Additional scoring details for debugging and transparency
 
 ### Example Request: See stake movements by epoch
 

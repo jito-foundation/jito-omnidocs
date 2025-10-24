@@ -240,7 +240,9 @@ where:
 ```
 
 **Range**: 0-10000 basis points (14 bits)
+
 **Inverted**: Lower commission = higher score
+
 **Purpose**: Among validators with equal inflation commission, prefers those with lower MEV commissions. Uses ceiling division to be more strict.
 
 ---

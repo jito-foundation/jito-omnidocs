@@ -34,6 +34,7 @@ order: 10
 | `priority_fee_commission_bps` | number  | Priority-fee commission (bps)                            |
 | `priority_fee_rewards`        | number  | Post-commission priority-fee lamports                    |
 | `running_jito`                | boolean | `true` if validator is running Jito-Solana               |
+| `running_bam`                 | boolean | `true` if validator is running BAM                       |
 | `active_stake`                | number  | Lamports actively staked with this validator             |
 
 #### Example Request
@@ -57,7 +58,8 @@ curl -X POST \
       "priority_fee_commission_bps": 5000,
       "priority_fee_rewards": 31269273876,
       "active_stake": 57968373482697,
-      "running_jito": true
+      "running_jito": true,
+      "running_bam": false,
     }
     // …
   ]
@@ -70,7 +72,7 @@ curl -X POST \
 
 **Purpose**: Returns JitoSOL stake pool validators for a given epoch (defaults to latest). Only includes validators that are actively part of the JitoSOL validator set.
 
-**Endpoint**: `/api/v1/jitosol_validators` 
+**Endpoint**: `/api/v1/jitosol_validators`
 
 **Method**: `GET | POST`
 
@@ -92,6 +94,7 @@ curl -X POST \
 | `priority_fee_commission_bps` | number  | Priority-fee commission (bps)                            |
 | `priority_fee_rewards`        | number  | Post-commission priority-fee lamports                    |
 | `running_jito`                | boolean | `true` if validator is running Jito-Solana               |
+| `running_bam`                 | boolean | `true` if validator is running BAM                       |
 | `active_stake`                | number  | Lamports actively staked with this validator             |
 
 
@@ -116,6 +119,7 @@ curl -X POST \
       "priority_fee_commission_bps": null,
       "priority_fee_rewards": null,
       "running_jito": true,
+      "running_bam": false,
       "active_stake": 47753222427851
     },
     // …
@@ -503,9 +507,9 @@ curl https://kobe.mainnet.jito.network/api/v1/mev_commission_average_over_time
 
 **Purpose**: Retrieve the historical exchange ratio between JitoSOL and SOL over time.
 
-***Endpoint**: `/api/v1/jitosol_sol_ratio`  
+***Endpoint**: `/api/v1/jitosol_sol_ratio`
 
-**Method**: `GET` or `POST`  
+**Method**: `GET` or `POST`
 
 **Base URL**: `https://kobe.mainnet.jito.network`
 

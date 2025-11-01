@@ -507,7 +507,7 @@ curl https://kobe.mainnet.jito.network/api/v1/mev_commission_average_over_time
 
 **Purpose**: Retrieve the historical exchange ratio between JitoSOL and SOL over time.
 
-***Endpoint**: `/api/v1/jitosol_sol_ratio`
+**Endpoint**: `/api/v1/jitosol_sol_ratio`
 
 **Method**: `GET` or `POST`
 

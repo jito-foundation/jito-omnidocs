@@ -147,6 +147,7 @@ For developers who need more control or want to understand the underlying mechan
 **Manual Unstaking:**
 - Create approval instruction for token transfer
 - Find suitable validator stake account within the pool
+  - *Tip: Use the [Preferred Withdraw Validator List API](/jitosol/jitosol-liquid-staking/for-developers/stake-pool-api#10-preferred-withdraw-validator-list) to get optimal validators for withdrawal that minimize rebalancing needs*
 - Create temporary stake account for receiving unstaked funds
 - Build `WithdrawStake` instruction (instruction index 10)
 - Handle all required account metas and signers

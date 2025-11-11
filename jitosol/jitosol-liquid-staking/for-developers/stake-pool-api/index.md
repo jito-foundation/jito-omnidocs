@@ -86,16 +86,17 @@ curl -X POST \
 
 #### Response Fields
 
-| Field                         | Type    | Description                                              |
-| ----------------------------- |-------- | -------------------------------------------------------- |
-| `vote_account`                | string  | Validator vote account public key                        |
-| `mev_commission_bps`          | number  | Validator’s MEV commission in basis-points               |
-| `mev_rewards`                 | number  | Post-commission MEV lamports paid to validator + stakers |
-| `priority_fee_commission_bps` | number  | Priority-fee commission (bps)                            |
-| `priority_fee_rewards`        | number  | Post-commission priority-fee lamports                    |
-| `running_jito`                | boolean | `true` if validator is running Jito-Solana               |
-| `running_bam`                 | boolean | `true` if validator is running BAM                       |
-| `active_stake`                | number  | Lamports actively staked with this validator             |
+| Field                         | Type    | Description                                                                   |
+| ----------------------------- |-------- | ----------------------------------------------------------------------------- |
+| `vote_account`                | string  | Validator vote account public key                                             |
+| `mev_commission_bps`          | number  | Validator’s MEV commission in basis-points                                    |
+| `mev_rewards`                 | number  | Post-commission MEV lamports paid to validator + stakers                      |
+| `priority_fee_commission_bps` | number  | Priority-fee commission (bps)                                                 |
+| `priority_fee_rewards`        | number  | Post-commission priority-fee lamports                                         |
+| `running_jito`                | boolean | `true` if validator is running Jito-Solana                                    |
+| `running_bam`                 | boolean | `true` if validator is running BAM                                            |
+| `active_stake`                | number  | Lamports actively staked with this validator                                  |
+| `jito_sol_active_lamports`    | number  | Active stake lamports delegated to this validator from the JitoSOL stake-pool |
 
 
 #### Example Request
@@ -120,7 +121,8 @@ curl -X POST \
       "priority_fee_rewards": null,
       "running_jito": true,
       "running_bam": false,
-      "active_stake": 47753222427851
+      "active_stake": 47753222427851,
+      "jito_sol_active_lamports": 3282880
     },
     // …
   ]

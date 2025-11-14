@@ -574,7 +574,7 @@ curl -X POST \
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `min_stake_threshold` | number | No | 10000 | **Denominated in SOL.** Minimum stake threshold. Only validators with withdrawable stake above this threshold will be included |
-| `limit` | number | No | 50 | Number of validators to return in the response (max recommended: 100) |
+| `limit` | number | No | 50 | Number of validators to return in the response |
 | `randomized` | boolean | No | false | Whether to randomize the order of validators. Use this when you want to minimize the chance of unstaking from the same validators as other clients. Useful in multisig or durable nonce scenarios where transactions are sitting for extended periods of time |
 
 **Important:** Query parameters are denominated in SOL for convenience.
@@ -639,43 +639,6 @@ curl "https://kobe.mainnet.jito.network/api/v1/preferred_withdraw_validator_list
   }
 ]
 ```
-
-#### Use Cases
-
-**Minimizing Rebalancing Operations**
-
-The primary use case is to withdraw stake in a way that reduces subsequent rebalancing needs. By withdrawing from lower-ranked validators (those on the borderline of delegation), the stake pool maintains better alignment with its target delegation strategy without requiring additional rebalancing transactions.
-
-**Multisig Withdrawal Scenarios**
-
-When multiple clients or signers are coordinating withdrawals with partially signed transactions, use randomization to avoid conflicts. This prevents situations where multiple partially signed transactions compete to withdraw from the same validator, which could cause transaction failures or conflicts.
-
-**Large Withdrawal Operations**
-
-For withdrawing significant amounts while minimizing pool disruption, use the `min_stake_threshold` parameter to find validators with sufficient withdrawable stake.
-
-#### Important Notes
-
-**Validator Ranking Strategy**
-- The list prioritizes **lower-ranked validators** (those on the borderline of delegation)
-- These are validators the pool would naturally reduce stake from during rebalancing
-- Withdrawing from them preemptively reduces the need for future rebalancing operations
-- This strategy helps maintain optimal APY by keeping stake concentrated on higher-performing validators
-
-**Randomization for Multisig Scenarios**
-- Set `randomized=true` when dealing with multisig wallets or partially signed transactions
-- Prevents multiple clients from simultaneously attempting to withdraw from the same validators
-- Reduces transaction conflicts and failures in distributed signing scenarios
-- Each request returns a different randomized order to distribute withdrawal targets
-
-**Stake Thresholds**
-- The `withdrawable_lamports` value accounts for minimum stake requirements
-- Validators maintain sufficient operational stake after withdrawals
-- Default threshold of 10,000 SOL ensures only validators with adequate stake are included
-
-**Data Availability**
-- Data is cached with a 60-second lifespan for optimal performance
-- Real-time on-chain state may differ slightly from cached values
 
 ---
 

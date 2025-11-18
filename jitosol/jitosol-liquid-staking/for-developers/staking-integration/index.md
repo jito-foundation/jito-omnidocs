@@ -15,6 +15,7 @@ This guide shows how to integrate JitoSOL staking and unstaking functionality us
 npm install @solana/spl-stake-pool
 npm install @solana/web3.js
 npm install @solana/spl-token
+npm install @jito-foundation/stake-deposit-interceptor-sdk
 ```
 
 ## Basic Setup
@@ -100,6 +101,51 @@ async function unstakeJitoSOL(amount: number, userWallet: any, useReserve: boole
 }
 ```
 
+### Depositing Stake Accounts with Interceptor
+
+When depositing existing stake accounts (as opposed to native SOL), the Jito Interceptor program handles the transaction. The interceptor implements a 10-hour cooldown period with a time-decaying fee to protect against toxic flow. For more details, see the [Interceptor user guide](/jitosol/user-guides/interceptor/).
+
+```typescript
+import { depositStake } from '@jito-foundation/stake-deposit-interceptor-sdk'
+
+async function depositStakeAccount(
+  stakeAccount: PublicKey, 
+  validatorVote: PublicKey,
+  userWallet: any
+) {
+  // Get deposit instructions from interceptor SDK
+  const { instructions, signers } = await depositStake(
+    connection,
+    userWallet.publicKey,      // payer for deposit receipt rent
+    JITO_STAKE_POOL_ADDRESS,   // stake pool to deposit into
+    userWallet.publicKey,      // authorized withdrawer/staker
+    validatorVote,             // validator vote account for the stake
+    stakeAccount,              // stake account to deposit
+    null                       // poolTokenReceiverAccount (optional, will create associated token account if not provided)
+  )
+  
+  // Create and send transaction
+  const transaction = new Transaction()
+  transaction.add(...instructions)
+  
+  const { blockhash } = await connection.getLatestBlockhash('finalized')
+  transaction.recentBlockhash = blockhash
+  transaction.feePayer = userWallet.publicKey
+  
+  // Sign with any additional signers
+  if (signers.length > 0) {
+    transaction.sign(...signers)
+  }
+  
+  const signedTransaction = await userWallet.signTransaction(transaction)
+  const signature = await connection.sendRawTransaction(signedTransaction.serialize())
+  
+  return signature
+}
+```
+
+**Note:** When depositing stake accounts, JitoSOL tokens are minted and held by the interceptor program's vault, not immediately sent to your wallet. A deposit receipt is created that will be auto-claimed after the 10-hour cooldown (with no fees) or and can be claimed earlier with a time-decaying fee. For SDK documentation and claiming examples, see the [@jito-foundation/stake-deposit-interceptor-sdk](https://github.com/jito-foundation/stake-deposit-interceptor/tree/master/package).
+
 ## Getting Pool Information
 
 ```typescript
@@ -181,6 +227,7 @@ The repository includes:
 
 - [Solana Stake Pool Documentation](https://spl.solana.com/stake-pool)
 - [SPL Stake Pool TypeScript SDK](https://github.com/solana-program/stake-pool/tree/main/clients/js-legacy)
+- [Jito Interceptor SDK](https://github.com/jito-foundation/stake-deposit-interceptor/tree/master/package) - TypeScript SDK for stake account deposits
 - [JitoSOL Stake/Unstake Reference Implementation](https://github.com/jito-foundation/jito-stake-unstake-reference)
 - [Jito Network Documentation](https://docs.jito.network/)
 

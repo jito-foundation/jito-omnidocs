@@ -114,5 +114,7 @@ Native SOL deposits don't create the same toxic flow issues that Interceptor pre
 ## Additional Resources
 
 - **[Interceptor GitHub Repository](https://github.com/jito-foundation/stake-deposit-interceptor)** - Open source code and technical documentation
+- **[Interceptor SDK Documentation](https://github.com/jito-foundation/stake-deposit-interceptor/tree/master/package)** - TypeScript SDK for developers integrating stake deposits
+- **[Developer Integration Guide](/jitosol/jitosol-liquid-staking/for-developers/staking-integration/)** - Code examples for staking integrations
 - **[Jito Discord](https://discord.gg/jitocommunity)** - Community support and updates
 - **Security Audits:** [Certora Report](https://github.com/jito-foundation/stake-deposit-interceptor/blob/master/Certora_interceptor_security_report.pdf) and [OffsideLabs Report](https://github.com/jito-foundation/stake-deposit-interceptor/blob/master/OffsideLabs_interceptor_report.pdf)

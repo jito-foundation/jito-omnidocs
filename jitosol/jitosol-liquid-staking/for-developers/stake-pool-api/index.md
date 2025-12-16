@@ -559,6 +559,89 @@ curl -X POST \
 
 ---
 
+### 10. Preferred Withdraw Validator List
+
+**Purpose**: Retrieve a list of validators with lower rank (borderline of delegation) that are optimal candidates for withdrawal operations. These validators have sufficient withdrawable stake while being the least impactful to remove stake from. Withdrawing from these validators minimizes rebalancing needs and helps maintain optimal APY for the stake pool.
+
+**Endpoint**: `/api/v1/preferred_withdraw_validator_list`
+
+**Method**: `GET`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `min_stake_threshold` | number | No | 10000 | **Denominated in SOL.** Minimum stake threshold. Only validators with withdrawable stake above this threshold will be included |
+| `limit` | number | No | 50 | Number of validators to return in the response |
+| `randomized` | boolean | No | false | Whether to randomize the order of validators. Use this when you want to minimize the chance of unstaking from the same validators as other clients. Useful in multisig or durable nonce scenarios where transactions are sitting for extended periods of time |
+
+**Important:** Query parameters are denominated in SOL for convenience.
+
+#### Response Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `rank` | number | The position of the validator in the ranked list (1-indexed) |
+| `vote_account` | string | The validator's vote account public key |
+| `withdrawable_lamports` | number | **Denominated in lamports.** Amount of lamports available for withdrawal from this validator (1 SOL = 1,000,000,000 lamports) |
+| `stake_account` | string | The validator's stake account address from the stake pool |
+
+**Important:** Response amounts are denominated in lamports, not SOL.
+
+#### Example Request
+
+```bash
+# Get default list (50 lower-ranked validators optimal for withdrawal)
+curl "https://kobe.mainnet.jito.network/api/v1/preferred_withdraw_validator_list"
+
+# Get top 20 lower-ranked validators with at least 5,000 SOL withdrawable stake
+curl "https://kobe.mainnet.jito.network/api/v1/preferred_withdraw_validator_list?min_stake_threshold=5000&limit=20"
+
+# Get randomized list for multisig scenarios to avoid transaction conflicts
+curl "https://kobe.mainnet.jito.network/api/v1/preferred_withdraw_validator_list?limit=30&randomized=true"
+```
+
+#### Example Response
+
+```json
+[
+  {
+    "rank": 1,
+    "vote_account": "J2nUHEAgZFRyuJbFjdqPrAa9gyWDuc7hErtDQHPhsYRp",
+    "withdrawable_lamports": 95000000000000,
+    "stake_account": "6USTT5jBUBRgZMGRkG7QX2S5MjQ8wVwSYMRfRRhJMqDj"
+  },
+  {
+    "rank": 2,
+    "vote_account": "Certusm1sa411sMpV9FPqU5dXAYhmmhygvxJ23S6hJ24",
+    "withdrawable_lamports": 87500000000000,
+    "stake_account": "3kxSvADSt7N8LKNRVK5DW7xNVQRszK3VUvkUPMmJPcWo"
+  },
+  {
+    "rank": 3,
+    "vote_account": "DfXygSm4jCyNCybVYYK6DwvWqjKee8pbDmJGcLWNDXjh",
+    "withdrawable_lamports": 73200000000000,
+    "stake_account": "8ZfVWmhFZHCRvU7uuS9MbVbxDtB1uH7kdUPnnPFKoQRi"
+  },
+  {
+    "rank": 4,
+    "vote_account": "HxRrsnbc6K8CdEo3LCTrSUkFaDDxv9BdJsTDzBKnUVWH",
+    "withdrawable_lamports": 65000000000000,
+    "stake_account": "AyPMvRePEuQuaBQn2JHXWVkGmUGQpCfgKQCBPBxyqbia"
+  },
+  {
+    "rank": 5,
+    "vote_account": "EARNynHRWg6GfwJBmRAYa9C1zDa6Vq7AWTLS2hZaL9a",
+    "withdrawable_lamports": 52000000000000,
+    "stake_account": "FJemUNBmezZ5FFKpQQFvag4g9x4TjBKN7tCnQPJzUXQ7"
+  }
+]
+```
+
+---
+
 ## Frontend APY Calculation
 
 The Jito frontend calculates the current APY displayed to users by fetching historical stake pool data and using the most recent available data point.

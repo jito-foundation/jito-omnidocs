@@ -646,7 +646,7 @@ curl "https://kobe.mainnet.jito.network/api/v1/preferred_withdraw_validator_list
 
 ---
 
-### 11. BAM Delegation Metrics
+### 11. BAM Epoch Metrics
 
 **Purpose**: Returns BAM delegation metrics for a given epoch.
 
@@ -670,8 +670,8 @@ curl "https://kobe.mainnet.jito.network/api/v1/preferred_withdraw_validator_list
 | `available_bam_delegation_stake`| number  | Total JitoSOL stake available for BAM delegation in lamports                  |
 | `bam_stake`                     | number  | Total stake amount of BAM eligible validators in lamports                     |
 | `eligible_bam_validator_count`  | number  | Eligible BAM validator count                                                  |
-| `epoch`                         | number  | Validator vote account public key                                             |
-| `jito_sol_stake`                | number  | Epoch number                                                                  |
+| `epoch`                         | number  | Epoch number                                                                  |
+| `jito_sol_stake`                | number  | Total Jitosol stake amount                                                    |
 | `timestamp`                     | number  | Timestamp                                                                     |
 | `total_stake`                   | number  | Total stake amount of all validators in lamports                              |
 

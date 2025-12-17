@@ -42,6 +42,7 @@ This endpoint allows you to fetch all validator histories by vote account
             "mev_commission": 800,
             "epoch_credits": 6901581,
             "commission": 4,
+            "client_type_id": 6,
             "client_type": "BAM",
             "version": "2.3.11",
             "ip": "88.211.250.188",

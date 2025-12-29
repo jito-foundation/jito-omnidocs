@@ -26,16 +26,18 @@ order: 10
 
 #### Response Fields
 
-| Field                         | Type    | Description                                              |
-| ----------------------------- |-------- | -------------------------------------------------------- |
-| `vote_account`                | string  | Validator vote account public key                        |
-| `mev_commission_bps`          | number  | Validator’s MEV commission in basis-points               |
-| `mev_rewards`                 | number  | Post-commission MEV lamports paid to validator + stakers |
-| `priority_fee_commission_bps` | number  | Priority-fee commission (bps)                            |
-| `priority_fee_rewards`        | number  | Post-commission priority-fee lamports                    |
-| `running_jito`                | boolean | `true` if validator is running Jito-Solana               |
-| `running_bam`                 | boolean | `true` if validator is running BAM                       |
-| `active_stake`                | number  | Lamports actively staked with this validator             |
+| Field                          | Type    | Description                                                   |
+| ------------------------------ |-------- | ------------------------------------------------------------- |
+| `vote_account`                 | string  | Validator vote account public key                             |
+| `mev_commission_bps`           | number  | Validator’s MEV commission in basis-points                    |
+| `mev_rewards`                  | number  | Post-commission MEV lamports paid to validator + stakers      |
+| `priority_fee_commission_bps`  | number  | Priority-fee commission (bps)                                 |
+| `priority_fee_rewards`         | number  | Post-commission priority-fee lamports                         |
+| `running_jito`                 | boolean | `true` if validator is running Jito-Solana                    |
+| `running_bam`                  | boolean | `true` if validator is running BAM                            |
+| `active_stake`                 | number  | Lamports actively staked with this validator                  |
+| `jito_directed_stake_target`   | boolean | Whether or not this is a jito directed stake target validator |
+| `jito_directed_stake_lamports` | number  | Total stake amount in lamports for Jito directed stake        |
 
 #### Example Request
 
@@ -60,6 +62,8 @@ curl -X POST \
       "active_stake": 57968373482697,
       "running_jito": true,
       "running_bam": false,
+      "jito_directed_stake_target": null,
+      "jito_directed_stake_lamports": null,
     }
     // …
   ]
@@ -638,6 +642,206 @@ curl "https://kobe.mainnet.jito.network/api/v1/preferred_withdraw_validator_list
     "stake_account": "FJemUNBmezZ5FFKpQQFvag4g9x4TjBKN7tCnQPJzUXQ7"
   }
 ]
+```
+
+---
+
+### 11. BAM Epoch Metrics
+
+**Purpose**: Returns BAM delegation metrics for a given epoch.
+
+**Endpoint**: `/api/v1/bam_delegation_metrics`
+
+**Method**: `GET`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter | Type   | Required | Default | Description                    |
+| --------- | ------ | -------- |-------- | ------------------------------ |
+| `epoch`   | number | Yes      | -       | Filter by specific epoch       |
+
+#### Response Fields
+
+| Field                           | Type    | Description                                                                   |
+| ------------------------------- |-------- | ----------------------------------------------------------------------------- |
+| `allocation_bps`                | number  | Allocation tier based on JIP-28 in BPS                                        |
+| `available_bam_delegation_stake`| number  | Total JitoSOL stake available for BAM delegation in lamports                  |
+| `bam_stake`                     | number  | Total stake amount of BAM eligible validators in lamports                     |
+| `eligible_bam_validator_count`  | number  | Eligible BAM validator count                                                  |
+| `epoch`                         | number  | Epoch number                                                                  |
+| `jitosol_stake`                | number  | Total Jitosol stake amount                                                    |
+| `timestamp`                     | number  | Timestamp                                                                     |
+| `total_stake`                   | number  | Total stake amount of all validators in lamports                              |
+
+
+#### Example Request
+
+```bash
+curl -X GET \
+  https://kobe.mainnet.jito.network/api/v1/bam_epoch_metrics?epoch=895
+```
+
+#### Example Response
+
+```json
+{
+  "bam_epoch_metrics": {
+    "allocation_bps": 3000,
+    "available_bam_delegation_stake": 4206990925405254,
+    "bam_stake": 14856675235224159,
+    "eligible_bam_validator_count": 49,
+    "epoch": 895,
+    "jitosol_stake": 14023303084684180,
+    "timestamp": 1765846141,
+    "total_stake": 417067545601353217
+  }
+}
+```
+
+---
+
+### 12. BAM Validators
+
+**Purpose**: Returns a list of BAM validators for a given epoch, including their eligibility status and stake-related metrics.
+
+**Endpoint**: `/api/v1/bam_validators`
+
+**Method**: `GET`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter | Type   | Required | Default | Description                    |
+| --------- | ------ | -------- |-------- | ------------------------------ |
+| `epoch`   | number | Yes      | -       | Filter by specific epoch       |
+
+#### Response Fields
+
+| Field                           | Type    | Description                                                                   |
+| ------------------------------- |-------- | ----------------------------------------------------------------------------- |
+| `active_stake`                  | number  | Active stake in lamports                                                      |
+| `epoch`                         | number  | Epoch number                                                                  |
+| `identity_account`              | string  | Identity account public key                                                   |
+| `is_eligible`                   | boolean | Is eligible validator for BAM delegation                                      |
+| `ineligibility_reason`          | string  | The reason of ineligibility                                                   |
+| `timestamp`                     | number  | Timestamp                                                                     |
+| `vote_account`                  | string  | Vote account public key                                                       |
+
+
+#### Example Request
+
+```bash
+curl -X GET \
+  https://kobe.mainnet.jito.network/api/v1/bam_validators?epoch=895
+```
+
+#### Example Response
+
+```json
+{
+  "bam_validators": [
+    {
+      "active_stake": 550051344710010,
+      "epoch": 895,
+      "identity_account": "6XKqyUVUcpe3CNucjF6gk5zonJDqNGvob6kaTy4Ps1U",
+      "is_eligible": true,
+      "ineligibility_reason": null,
+      "timestamp": 1765846137,
+      "vote_account": "SKRuTecmFDZHjs2DxRTJNEK7m7hunKGTWJiaZ3tMVVA"
+    },
+    ...
+  ]
+}
+```
+
+---
+
+### 13. BAM Delegation Blacklist
+
+**Purpose**: Returns a list of vote accounts that are blacklisted from BAM delegation.
+
+**Endpoint**: `/api/v1/bam_delegation_blacklist`
+
+**Method**: `GET`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter | Type   | Required | Default | Description                    |
+| --------- | ------ | -------- |-------- | ------------------------------ |
+| N/A       | N/A    | N/A      | N/A     | No query parameters.           |
+
+#### Response Fields
+
+| Field                           | Type    | Description               |
+| ------------------------------- |-------- | ------------------------- |
+| `added_epoch`                   | number  | Epoch number              |
+| `vote_account`                  | string  | Vote account public key   |
+
+
+#### Example Request
+
+```bash
+curl -X GET \
+  https://kobe.mainnet.jito.network/api/v1/bam_delegation_blacklist
+```
+
+#### Example Response
+
+```json
+[
+  {
+    "vote_account": "12345......",
+    "added_epoch": 892
+  }
+]
+```
+
+---
+
+### 14. BAM Validator Scoring
+
+**Purpose**: Returns the scoring components of a specific validator
+
+**Endpoint**: `/api/v1/bam_validator_score`
+
+**Method**: `GET`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter      | Type    | Required | Default | Description                     |
+| -------------- | ------- | -------- |-------- | ------------------------------- |
+| `epoch`        | number  | Yes      | -       | Filter by specific epoch        |
+| `vote_account` | string  | Yes      | -       | Filter by specific vote account |
+
+#### Response Fields
+
+| Field          | Type    | Description               |
+| -------------- |-------- | ------------------------- |
+| `vote_account` | string  | Vote account public key   |
+| `score`        | number  | Score number              |
+
+
+#### Example Request
+
+```bash
+curl -X GET \
+  https://kobe.mainnet.jito.network/api/v1/bam_validator_score?epoch=902&vote_account=48oxpSHQkM4sdXUY9NQ8KnEtebzZbyk8uUT7JRdVQNuf
+```
+
+#### Example Response
+
+```json
+{
+  "vote_account": "48oxpSHQkM4sdXUY9NQ8KnEtebzZbyk8uUT7JRdVQNuf",
+  "score": 1
+}
 ```
 
 ---

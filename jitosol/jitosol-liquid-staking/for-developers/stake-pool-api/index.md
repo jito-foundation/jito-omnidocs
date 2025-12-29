@@ -671,7 +671,7 @@ curl "https://kobe.mainnet.jito.network/api/v1/preferred_withdraw_validator_list
 | `bam_stake`                     | number  | Total stake amount of BAM eligible validators in lamports                     |
 | `eligible_bam_validator_count`  | number  | Eligible BAM validator count                                                  |
 | `epoch`                         | number  | Epoch number                                                                  |
-| `jito_sol_stake`                | number  | Total Jitosol stake amount                                                    |
+| `jitosol_stake`                | number  | Total Jitosol stake amount                                                    |
 | `timestamp`                     | number  | Timestamp                                                                     |
 | `total_stake`                   | number  | Total stake amount of all validators in lamports                              |
 
@@ -704,7 +704,7 @@ curl -X GET \
 
 ### 12. BAM Validators
 
-**Purpose**: Returns BAM validators
+**Purpose**: Returns a list of BAM validators for a given epoch, including their eligibility status and stake-related metrics.
 
 **Endpoint**: `/api/v1/bam_validators`
 
@@ -761,7 +761,7 @@ curl -X GET \
 
 ### 13. BAM Delegation Blacklist
 
-**Purpose**: Returns BAM delegation blacklist
+**Purpose**: Returns a list of vote accounts that are blacklisted from BAM delegation.
 
 **Endpoint**: `/api/v1/bam_delegation_blacklist`
 
@@ -773,6 +773,7 @@ curl -X GET \
 
 | Parameter | Type   | Required | Default | Description                    |
 | --------- | ------ | -------- |-------- | ------------------------------ |
+| N/A       | N/A    | N/A      | N/A     | No query parameters.           |
 
 #### Response Fields
 
@@ -792,12 +793,12 @@ curl -X GET \
 #### Example Response
 
 ```json
-{
+[
   {
     "vote_account": "12345......",
     "added_epoch": 892
   }
-}
+]
 ```
 
 ---
@@ -838,10 +839,8 @@ curl -X GET \
 
 ```json
 {
-  {
-    "vote_account": "48oxpSHQkM4sdXUY9NQ8KnEtebzZbyk8uUT7JRdVQNuf",
-    "score": 1
-  }
+  "vote_account": "48oxpSHQkM4sdXUY9NQ8KnEtebzZbyk8uUT7JRdVQNuf",
+  "score": 1
 }
 ```
 

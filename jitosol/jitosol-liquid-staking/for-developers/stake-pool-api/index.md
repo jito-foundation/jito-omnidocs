@@ -802,6 +802,51 @@ curl -X GET \
 
 ---
 
+### 14. BAM Validator Scoring
+
+**Purpose**: Returns the scoring components of a specific validator
+
+**Endpoint**: `/api/v1/bam_validator_score`
+
+**Method**: `GET`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Query Parameters
+
+| Parameter      | Type    | Required | Default | Description                     |
+| -------------- | ------- | -------- |-------- | ------------------------------- |
+| `epoch`        | number  | Yes      | -       | Filter by specific epoch        |
+| `vote_account` | string  | Yes      | -       | Filter by specific vote account |
+
+#### Response Fields
+
+| Field          | Type    | Description               |
+| -------------- |-------- | ------------------------- |
+| `vote_account` | string  | Vote account public key   |
+| `score`        | number  | Score number              |
+
+
+#### Example Request
+
+```bash
+curl -X GET \
+  https://kobe.mainnet.jito.network/api/v1/bam_validator_score?epoch=902&vote_account=48oxpSHQkM4sdXUY9NQ8KnEtebzZbyk8uUT7JRdVQNuf
+```
+
+#### Example Response
+
+```json
+{
+  {
+    "vote_account": "48oxpSHQkM4sdXUY9NQ8KnEtebzZbyk8uUT7JRdVQNuf",
+    "score": 1
+  }
+}
+```
+
+---
+
 ## Frontend APY Calculation
 
 The Jito frontend calculates the current APY displayed to users by fetching historical stake pool data and using the most recent available data point.

@@ -68,3 +68,57 @@ curl -X GET \
 ```
 
 ---
+
+### 2. Claim
+
+**Purpose**: Returns the claim proof and details required to claim BAM boost rewards for a specific validator
+
+**Endpoint**: `/api/v1/claim/{network}/{epoch}/{identity_account}`
+
+**Method**: `GET`
+
+**Base URL**: `https://kobe.mainnet.jito.network`
+
+#### Path Parameters
+
+| Parameter          | Type   | Required | Description                                      |
+| ------------------ | ------ | -------- | ------------------------------------------------ |
+| `network`          | string | Yes      | Network name (e.g., `mainnet`)                   |
+| `epoch`            | number | Yes      | Epoch number for the claim                       |
+| `identity_account` | string | Yes      | Validator identity public key                    |
+
+#### Response Fields
+
+| Field                  | Type       | Description                                           |
+| ---------------------- | ---------- | ----------------------------------------------------- |
+| `amount`               | number     | Claimable amount in lamports                          |
+| `claimant`             | string     | Public key of the claimant                            |
+| `proof`                | number[][] | Merkle proof as array of 32-byte arrays               |
+| `merkle_root`          | number[]   | 32-byte merkle root                                   |
+| `distributor_address`  | string     | Merkle distributor program address                    |
+| `claim_status_address` | string     | Account address tracking the claim status             |
+
+#### Example Request
+
+```bash
+curl -X GET \
+  https://kobe.mainnet.jito.network/api/v1/claim/mainnet/915/5zuNci3TV79w6zLoJZzbZujMvkVZb2FcSPhgv9aT24AK
+```
+
+#### Example Response
+
+```json
+{
+    "amount": 1014322740,
+    "claimant": "5zuNci3TV79w6zLoJZzbZujMvkVZb2FcSPhgv9aT24AK",
+    "proof": [
+        [...],
+        [...]
+    ],
+    "merkle_root": [...],
+    "distributor_address": "CCRhL2ynYebEzxLWNUHCcEXrKqmJa2jJjnZrr7bDbgnb",
+    "claim_status_address": "FYvKEnv3i36SwNRwFTvAKaQH8oo1F3EFTGfVc55oVkqm"
+}
+```
+
+> **Note**: The `proof` array in the example response is truncated for readability. The actual response contains all proof nodes required for merkle verification.

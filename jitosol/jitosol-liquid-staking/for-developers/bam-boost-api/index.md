@@ -1,9 +1,11 @@
 ---
 title: BAM Boost API
-subtitle: "BAM Boost"
+subtitle: "JIP 31 BAM Early Adopter Subsidy Programme"
 section_type: page
 order: 40
 ---
+
+## API Endpoints
 
 ### 1. BAM Boost Validators
 

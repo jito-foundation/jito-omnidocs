@@ -122,5 +122,3 @@ curl -X GET \
     "claim_status_address": "FYvKEnv3i36SwNRwFTvAKaQH8oo1F3EFTGfVc55oVkqm"
 }
 ```
-
-> **Note**: The `proof` array in the example response is truncated for readability. The actual response contains all proof nodes required for merkle verification.

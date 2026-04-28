@@ -5,7 +5,7 @@ section_type: page
 order: 26
 ---
 
-## Frequently Asked Questions
+# Frequently Asked Questions
 
 **Can I pay more to go before a maker transaction?**
 

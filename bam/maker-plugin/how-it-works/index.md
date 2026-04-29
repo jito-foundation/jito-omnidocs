@@ -72,4 +72,4 @@ Validated maker transactions are held in a dedicated buffer, separate from the r
 - If a higher seqno for the same market has already been buffered, the new entry is marked stale immediately.
 - At scheduling time (each auction round tick), stale entries are dropped.
 
-The result: no matter how many updates a maker sends within one auction round, **only one update per market reaches the validator. Because only the latest one is scheduled, the plugin is to always forward the freshest update.**
+The result: no matter how many updates a maker sends within one auction round, **only one update per market reaches the validator. Because only the latest one is scheduled, the plugin always forwards the freshest update.**

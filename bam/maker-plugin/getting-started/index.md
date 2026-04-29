@@ -65,7 +65,7 @@ There is no connection handshake. Send and forget. Retransmitting the same packe
 
 ### Blockhash
 
-Refresh your blockhash every 30–60 seconds via `getRecentBlockhash`. Transactions that fail the age check are dropped silently during buffering.
+Refresh your blockhash every 30–60 seconds via `getLatestBlockhash` (the Solana JSON-RPC method for fetching a fresh blockhash). Transactions that fail the age check are dropped silently during buffering.
 
 ---
 

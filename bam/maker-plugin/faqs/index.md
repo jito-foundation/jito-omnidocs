@@ -2,10 +2,10 @@
 title: FAQs
 subtitle: Common questions about the Maker Plugin.
 section_type: page
-order: 26
+order: 23
 ---
 
-## Frequently Asked Questions
+# FAQs
 
 **Can I pay more to go before a maker transaction?**
 
@@ -13,7 +13,7 @@ No. Phase 1 (maker transactions) always drains before Phase 2 (bundles + regular
 
 **Does every BAM node run the maker plugin?**
 
-At launch, the maker priority plugin will be available on BAM leaders connected to BAM nodes in the following regions: [insert regions here]
+At launch, the maker priority plugin will be available on BAM leaders connected to BAM nodes in select regions.
 
 **Are maker transactions visible onchain?**
 

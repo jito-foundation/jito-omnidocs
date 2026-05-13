@@ -39,5 +39,3 @@ All DeFi protocols carry smart contract risks. JitoSOL itself is built on the au
 ### **New Integrations:**
 
 Jito actively works with leading Solana protocols to expand JitoSOL utility. Recent growth includes expanded lending options and automated vault strategies. 
-
-Have a protocol you'd like to see integrated? Let us know in [Discord](https://discord.gg/jitocommunity).

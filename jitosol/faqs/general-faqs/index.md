@@ -1,7 +1,6 @@
 ---
 title: General FAQs
-subtitle: This page is being continuously developed. If your question is not
-  listed, please ask in Jito's Discord so we know to add it here.
+subtitle: This page is being continuously developed.
 section_type: page
 order: 0
 ---

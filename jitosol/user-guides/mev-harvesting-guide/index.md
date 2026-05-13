@@ -87,7 +87,3 @@ Converting gives you liquid staking benefits and automatic future MEV rewards, v
 
 **"Why are the amounts so small?"**
 MEV rewards are distributed frequently in small amounts.
-
-## Need Help?
-
-**Questions?** Visit our [Discord community](https://discord.gg/jitocommunity) for support.

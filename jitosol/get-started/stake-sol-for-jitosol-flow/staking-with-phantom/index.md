@@ -96,4 +96,3 @@ subtitle: 'Step-by-step guide for staking SOL using Phantom wallet'
 **Need Help?**
 - Review [main staking overview](/jitosol/get-started/stake-sol-for-jitosol-flow/overview/)
 - Check [FAQ section](/jitosol/faqs/general-faqs/)
-- Join [Discord community](https://discord.gg/jitocommunity)

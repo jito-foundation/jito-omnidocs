@@ -125,4 +125,3 @@ If you can't wait up to 2 days, consider [instant trading via Jupiter](/jitosol/
 
 **Need help?**
 - Review [unstaking overview](/jitosol/get-started/unstaking-jitosol-flow/unstaking-overview/)
-- Join [Discord community](https://discord.gg/jitocommunity)

@@ -141,4 +141,3 @@ Consider [instant trading via Jupiter](/jitosol/get-started/unstaking-jitosol-fl
 
 **Need help?**
 - Review [unstaking overview](/jitosol/get-started/unstaking-jitosol-flow/unstaking-overview/)
-- Join [Discord community](https://discord.gg/jitocommunity)

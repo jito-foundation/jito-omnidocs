@@ -83,11 +83,10 @@ Solutions:
 **Q: Jito website loading slowly or not responding?**
 
 Solutions:
-1. Check [Jito Discord](https://discord.gg/jitocommunity) for status updates
-2. Clear browser cache for jito.network
-3. Try incognito mode
-4. Test on mobile browser
-5. Wait 10-15 minutes if high traffic
+1. Clear browser cache for jito.network
+2. Try incognito mode
+3. Test on mobile browser
+4. Wait 10-15 minutes if high traffic
 
 ## Mobile Device Issues
 
@@ -102,10 +101,6 @@ Solutions:
 6. Clear app cache in device settings
 
 ## Getting Additional Help
-
-For ongoing issues:
-
-[Jito Discord](https://discord.gg/jitocommunity)
 
 Include when asking for help:
 - Transaction signature (88-character string)

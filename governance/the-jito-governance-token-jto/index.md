@@ -99,5 +99,5 @@ The chart below shows how the circulating supply of JTO tokens will evolve over 
 
 ---
 
-Keep up with the latest from Jito Network! For more insights and conversations, join our [Discord](https://discord.gg/jito) and [Telegram](https://t.me/+csIgnEQMCHhiYjVh), follow us on [X](https://twitter.com/jito_sol), and check out the [blog](https://www.jito.network/blog/) for ongoing updates and product information.
+Keep up with the latest from Jito Network! For more insights and conversations, join our [Telegram](https://t.me/+csIgnEQMCHhiYjVh), follow us on [X](https://twitter.com/jito_sol), and check out the [blog](https://www.jito.network/blog/) for ongoing updates and product information.
 

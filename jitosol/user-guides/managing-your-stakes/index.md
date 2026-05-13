@@ -123,5 +123,3 @@ Deactivation completes at the start of the next epoch, which can take up to 2 da
 **Stake accounts not showing?** Make sure you're connected to the wallet that owns the stake accounts.
 
 **Transaction failing?** Ensure you have enough SOL for transaction fees (~0.00008 SOL as shown in screenshots).
-
-**Questions about the process?** Visit our [Discord community](https://discord.gg/jitocommunity) for support.

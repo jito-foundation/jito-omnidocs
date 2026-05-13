@@ -75,7 +75,3 @@ Validators meeting any of these criteria are unstaked within the same epoch, sub
 All delegation parameters are stored on-chain and can be viewed at [jito.network/stakenet/steward/config](https://www.jito.network/stakenet/steward/config) or queried using the steward CLI.
 
 Changes to delegation requirements and parameters may occur based on Jito DAO governance decisions. The community will be notified in advance of any significant changes.
-
-## Questions
-
-For questions or feedback on the delegation process, please visit the #stake-pool-delegation channel on [Jito's Discord](https://discord.gg/jito). 

@@ -123,7 +123,6 @@ Review the transaction details and approve in your wallet to initiate the unstak
 
 **Direct unstaking seems complex?**
 - Use our wallet-specific guides for step-by-step instructions
-- For additional help, join our [Discord](https://discord.gg/jitocommunity)
 - Most users find Jupiter conversion much simpler
 
 ## Summary

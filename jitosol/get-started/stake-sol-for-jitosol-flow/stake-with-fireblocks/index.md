@@ -12,5 +12,5 @@ JitoSOL's is integrated with Fireblocks for secure institutional custody.
 - Follow the traditional workflow on [jito.network](https://www.jito.network/staking) and assets will be minted to your account.
 - JitoSOL is included in the Fireblocks asset list and it will be shown like SOL or any other SPL token.
 
-Please open a ticket in our discord if any issues. Jito maintains a Fireblocks account and can provide real-time support through the process.
+Jito maintains a Fireblocks account and can provide real-time support through the process.
 

@@ -5,7 +5,7 @@ A Node.js script to validate the Jito Omnidocs documentation structure according
 ## Installation
 
 ```bash
-npm install
+yarn install
 ```
 
 ## Usage
@@ -40,16 +40,16 @@ node validate-docs-structure.js --skip-naming
 node validate-docs-structure.js --skip-order
 ```
 
-### Using npm scripts
+### Using yarn scripts
 ```bash
 # Run all validations
-npm run validate
+yarn validate
 
 # Run only critical validations
-npm run validate:critical
+yarn validate:critical
 
 # Test the validator
-npm test
+yarn test
 ```
 
 ## Validation Rules
@@ -90,7 +90,7 @@ For GitHub Actions or other CI/CD systems, use the `--only-critical` flag to run
 # Example GitHub Action step
 - name: Validate Documentation Structure
   run: |
-    npm install
+    yarn install --frozen-lockfile
     node validate-docs-structure.js --only-critical
 ```
 
@@ -127,7 +127,7 @@ Summary: 2 errors, 0 warnings
    ---
    ```
 
-2. **Missing dependencies**: Run `npm install` to install required packages
+2. **Missing dependencies**: Run `yarn install` to install required packages
 
 3. **Permission errors**: Make sure the script has read permissions for all directories
 

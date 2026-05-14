@@ -6,18 +6,46 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  detect-changes:
     runs-on: ubuntu-latest
+    outputs:
+      bam: ${{ steps.filter.outputs.bam }}
+      main: ${{ steps.filter.outputs.main }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-      
-      - name: Trigger Vercel Deployment
-        run: |
-          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"
-      
-      - name: Wait for deployment
-        run: sleep 30
-      
-      - name: Deployment Status
-        run: echo "Vercel deployment has been triggered. Check your Vercel dashboard for deployment status." 
+        uses: actions/checkout@v4
+
+      - name: Detect changed paths
+        if: github.event_name == 'push'
+        uses: dorny/paths-filter@v4
+        id: filter
+        with:
+          predicate-quantifier: 'every'
+          filters: |
+            bam:
+              - 'bam/**'
+            main:
+              - '**'
+              - '!bam/**'
+
+  deploy-bam:
+    needs: detect-changes
+    if: github.event_name == 'workflow_dispatch' || needs.detect-changes.outputs.bam == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger bam.dev Vercel deployment
+        run: curl -fsS -X POST "${{ secrets.VERCEL_BAM_DEPLOY_HOOK_URL }}"
+
+      - name: Deployment status
+        run: echo "bam.dev Vercel deployment triggered. Check the Vercel dashboard for status."
+
+  deploy-main:
+    needs: detect-changes
+    if: github.event_name == 'workflow_dispatch' || needs.detect-changes.outputs.main == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger main docs Vercel deployment
+        run: curl -fsS -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"
+
+      - name: Deployment status
+        run: echo "Main docs Vercel deployment triggered. Check the Vercel dashboard for status."

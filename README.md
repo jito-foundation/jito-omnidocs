@@ -262,17 +262,14 @@ npx decap-server
 
 ## Deployment
 
-Documentation changes are automatically deployed when merged to the master branch.
+Documentation changes are automatically deployed when merged to the master branch. This repo backs more than one site, and the deploy workflow routes builds based on which paths changed:
 
-### Automatic Deployment with GitHub Actions
+- Changes under `bam/` deploy to the BAM docs site
+- Changes elsewhere deploy to the main docs site
 
-This repository is configured with a GitHub Actions workflow that automatically triggers a Vercel deployment whenever changes are pushed to the master branch. The workflow:
+Manual redeploys can be triggered from the GitHub Actions tab via the "Redeploy Vercel" workflow.
 
-1. Sends a request to the Vercel Deploy Hook
-2. Initiates a new build and deployment of the documentation site
-3. No manual intervention is required
-
-You can also manually trigger a deployment from the GitHub Actions tab by running the "Redeploy Vercel" workflow.
+Adding a new top-level section defaults to the main docs site. If a new section should deploy somewhere else, reach out to a maintainer to set up routing.
 
 ## Questions and Support
 

@@ -12,8 +12,8 @@
     "test": "node validate-docs-structure.js --path ."
   },
   "dependencies": {
-    "commander": "^11.1.0",
-    "yaml": "^2.3.4"
+    "commander": "11.1.0",
+    "yaml": "2.8.3"
   },
   "keywords": [
     "documentation",

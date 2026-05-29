@@ -74,20 +74,21 @@ where:
 
 ---
 
-### Running Jito Score
+### Running BAM Score
 
 ```
-running_jito_score = {
-  1.0  if any MEV commission exists in [t1, t2]
+running_bam_score = {
+  1.0  if bam_connected_count >= max(0, jito_bam_minimum_epochs - missed_epochs)
   0.0  otherwise
 }
 
 where:
-  t1 = current_epoch - mev_commission_range
-  t2 = current_epoch
+  window    = [(current_epoch - 1) - jito_bam_window_epochs, current_epoch - 1]  (inclusive)
+  bam_connected_count = number of epochs in window where is_bam_connected == 1
+  missed_epochs       = number of epochs in window where BAM data was not uploaded (None)
 ```
 
-**Purpose**: Ensures validators are running the Jito MEV-enabled client.
+**Purpose**: Ensures validators are connected to BAM (Block Auction Mechanism) with sufficient consistency. Missing data reduces the effective threshold rather than penalizing the validator.
 
 ---
 
@@ -305,7 +306,7 @@ final_score = raw_score
   × blacklisted_score
   × superminority_score
   × delinquency_score
-  × running_jito_score
+  × running_bam_score
   × merkle_root_upload_authority_score
   × priority_fee_commission_score
   × priority_fee_merkle_root_upload_authority_score

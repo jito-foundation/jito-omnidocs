@@ -75,8 +75,10 @@ Understanding these data fields is essential for effective validator analysis an
 - **Collection**: Aggregated from tip distribution data
 
 ## Is BAM Connected (`is_bam_connected`)
-- **What**: Whether this validator is connected to BAM
+- **What**: Whether this validator is connected to BAM ((Block Assembly Marketplace))
+- **Why it matters**: Used to compute the `running_bam` score, which checks if a validator has maintained BAM connectivity for at least a minimum number of epochs within a rolling window. Validators that do not meet the threshold are excluded from delegation.
 - **Example**: A value of 0 = not connected, 1 = connected
 - **Collection**: Aggregated from Kobe API
+- **Usage**: Evaluated over a configurable window (`jito_bam_window_epochs`); validators must be connected for at least `jito_bam_minimum_epochs` out of the window to qualify. Epochs with missing data reduce the effective threshold rather than counting as disconnected.
 
 Understanding these data fields enables developers to build sophisticated validator analysis tools, stake pool managers to make informed decisions, and network participants to monitor validator performance transparently.

@@ -88,7 +88,7 @@ where:
   missed_epochs       = number of epochs in window where BAM data was not uploaded (None)
 ```
 
-**Purpose**: Ensures validators are connected to BAM (Block Auction Mechanism) with sufficient consistency. Missing data reduces the effective threshold rather than penalizing the validator.
+**Purpose**: Ensures validators are connected to BAM (Block Assembly Marketplace) with sufficient consistency. Missing data reduces the effective threshold rather than penalizing the validator.
 
 ---
 

@@ -74,4 +74,9 @@ Understanding these data fields is essential for effective validator analysis an
 - **Example**: Value of 150 = 1.50 SOL earned in MEV rewards
 - **Collection**: Aggregated from tip distribution data
 
+## Is BAM Connected (`is_bam_connected`)
+- **What**: Whether this validator is connected to BAM
+- **Example**: A value of 0 = not connected, 1 = connected
+- **Collection**: Aggregated from Kobe API
+
 Understanding these data fields enables developers to build sophisticated validator analysis tools, stake pool managers to make informed decisions, and network participants to monitor validator performance transparently.

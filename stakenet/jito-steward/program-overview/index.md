@@ -32,7 +32,7 @@ All validators must meet the following binary criteria to be eligible for delega
 - `blacklisted_score`: If validator is blacklisted, score is 0.0, else 1.0
 - `superminority_score`: If validator is not in the superminority (top 33.3% by stake), score is 1.0, else 0.0
 - `delinquency_score`: If delinquency is not greater than threshold in any epoch within `epoch_credits_range`, score is 1.0, else 0.0
-- `running_jito_score`: If validator has a MEV commission in the last `mev_commission_range` epochs, score is 1.0, else 0.0
+- `running_bam_score`: If validator has been connected to BAM for at least `jito_bam_minimum_epochs` out of the last `jito_bam_window_epochs` epochs, score is 1.0, else 0.0. Epochs with missing BAM data reduce the effective threshold rather than counting as disconnected.
 - `merkle_root_upload_authority_score`: If validator is using an acceptable Tip Distribution merkle root upload authority (TipRouter or OldJito), score is 1.0, else 0.0
 - `priority_fee_commission_score`: If validator's average realized priority fee commission is less than or equal to threshold, score is 1.0, else 0.0
 - `priority_fee_merkle_root_upload_authority_score`: If validator is using an acceptable priority fee merkle root upload authority, score is 1.0, else 0.0
@@ -74,7 +74,7 @@ let score = raw_score
     * blacklisted_score
     * superminority_score
     * delinquency_score
-    * running_jito_score
+    * running_bam_score
     * merkle_root_upload_authority_score
     * priority_fee_commission_score
     * priority_fee_merkle_root_upload_authority_score;

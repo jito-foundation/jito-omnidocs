@@ -72,6 +72,10 @@ RUN_MEV_EARNED=true
 RUN_STEWARD=true
 RUN_EMIT_METRICS=false
 
+# Minimum BAM connection rate (0.0 - 1.0) for a validator to be marked
+# is_bam_connected. A validator must meet or exceed this rate to qualify.
+MIN_BAM_CONNECTION_RATE=0.95
+
 # Interval to update Validator History Accounts (in seconds)
 VALIDATOR_HISTORY_INTERVAL=300
 

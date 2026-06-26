@@ -78,7 +78,7 @@ Understanding these data fields is essential for effective validator analysis an
 - **What**: Whether this validator is connected to BAM (Block Assembly Marketplace)
 - **Why it matters**: Used to compute the `running_bam_score` score, which checks if a validator has maintained BAM connectivity for at least a minimum number of epochs within a rolling window. Validators that do not meet the threshold are excluded from delegation.
 - **Example**: A value of 0 = not connected, 1 = connected
-- **Collection**: Aggregated from Kobe API
+- **Collection**: Derived from the per-validator BAM connection rate reported by the Kobe API. A validator is marked connected (`1`) when its `bam_connection_rate` meets or exceeds a configurable threshold (`min_bam_connection_rate`, a value between `0.0` and `1.0`, currently `0.95`); otherwise it is `0`. The keeper reads the previous epoch's stats and writes the flag to that epoch's history entry, once per epoch at ~10% epoch progress.
 - **Usage**: Evaluated over a configurable window (`jito_bam_window_epochs`); validators must be connected for at least `jito_bam_minimum_epochs` out of the window to qualify. Epochs with missing data reduce the effective threshold rather than counting as disconnected.
 
 Understanding these data fields enables developers to build sophisticated validator analysis tools, stake pool managers to make informed decisions, and network participants to monitor validator performance transparently.

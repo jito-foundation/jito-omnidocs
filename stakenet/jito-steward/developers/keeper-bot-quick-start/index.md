@@ -37,6 +37,12 @@ JSON_RPC_URL="INCLUDE YOUR RPC URL HERE"
 # Cluster to specify (mainnet, testnet, devnet)
 CLUSTER=mainnet
 
+# Region to specify for metrics purposes (us-east, eu-west, local, etc.)
+REGION=local
+
+# Gossip entrypoints
+GOSSIP_ENTRYPOINTS=GOSSIP_ENTRY_1,GOSSIP_ENTRY_2
+
 # Log levels
 RUST_LOG="info,solana_gossip=error,solana_metrics=info"
 
@@ -84,6 +90,12 @@ METRICS_INTERVAL=60
 # For Oracle Authority Only
 RUN_STAKE_UPLOAD=false
 RUN_GOSSIP_UPLOAD=false
+RUN_COPY_IS_BAM_CONNECTED=false
+
+# Minimum BAM connection rate (0.0 - 1.0) for a validator to be marked
+# is_bam_connected. A validator must meet or exceed this rate to qualify.
+# Required when RUN_COPY_IS_BAM_CONNECTED=true.
+MIN_BAM_CONNECTION_RATE=0.95
 
 # Run with the startup flag set to true
 FULL_STARTUP=true
@@ -99,6 +111,9 @@ COOL_DOWN_RANGE=20
 
 # Metrics upload influx server (optional)
 SOLANA_METRICS_CONFIG=""
+
+#  Minimum activated stake threshold for creating validator history accounts (in lamports)
+VALIDATOR_HISTORY_MIN_STAKE=500000000000
 ```
 
 ## Running Docker image from source

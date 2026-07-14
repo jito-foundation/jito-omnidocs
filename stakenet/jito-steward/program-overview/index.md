@@ -211,6 +211,6 @@ The core authorities are `blacklist_authority`, `parameters_authority`, and `adm
 
 `parameters_authority` is used to update the parameters, which affects scoring and delegation.
 
-`admin` is used for all other perimissioned actions, including updating authorities, pausing the state machine, and executing passthrough instructions for SPL Stake Pool that require the staker as a signer.
+`admin` is used for all other permissioned actions, including updating authorities, pausing the state machine, and executing passthrough instructions for SPL Stake Pool that require the staker as a signer.
 
 [Directed Staking](/stakenet/jito-steward/directed-staking/) adds three more authorities: `directed_stake_whitelist_authority` (manages who can direct stake and which validators can receive it), `directed_stake_meta_upload_authority` (uploads per-validator directed stake targets each epoch), and `directed_stake_ticket_override_authority` (can manage tickets on behalf of holders).

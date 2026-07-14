@@ -248,7 +248,7 @@ Marked for immediate removal: false
 
 ### Update Authority
 
-`blacklist` | `admin` | `parameters` | `priority-fee-parameters` | `directed-stake-meta-upload` | `directed-stake-whitelist`
+Valid authority types: `blacklist`, `admin`, `parameters`, `priority-fee-parameters`, `directed-stake-meta-upload`, `directed-stake-whitelist`.
 
 ```bash
 ./target/release/steward-cli --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 update-authority blacklist \

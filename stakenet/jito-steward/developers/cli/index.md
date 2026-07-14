@@ -315,14 +315,18 @@ Valid authority types: `blacklist`, `admin`, `parameters`, `priority-fee-paramet
 
 ## Directed Stake Commands
 
-Commands for managing [Directed Staking](/stakenet/jito-steward/directed-staking/). The whitelist and target-upload commands require their respective authorities; ticket commands require a whitelisted staker (or the ticket override authority); view commands and the crank are permissionless.
+Commands for managing [Directed Staking](/stakenet/jito-steward/directed-staking/).
+The whitelist and target-upload commands require their respective authorities; ticket commands require a whitelisted staker (or the ticket override authority); view commands and the crank are permissionless.
 
 ### View DirectedStakeWhitelist
 
 Displays the whitelisted stakers, protocols, and validators.
 
 ```bash
-./target/release/steward-cli --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 view-directed-stake-whitelist --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv
+./target/release/steward-cli \
+    --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 \
+    view-directed-stake-whitelist \
+    --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv
 ```
 
 ### View DirectedStakeMeta
@@ -330,7 +334,10 @@ Displays the whitelisted stakers, protocols, and validators.
 Displays the current per-validator directed stake targets and applied amounts.
 
 ```bash
-./target/release/steward-cli --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 view-directed-stake-meta --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv
+./target/release/steward-cli \
+    --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 \
+    view-directed-stake-meta \
+    --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv
 ```
 
 ### View DirectedStakeTicket
@@ -338,13 +345,19 @@ Displays the current per-validator directed stake targets and applied amounts.
 Displays a single ticket's preferences by its update authority.
 
 ```bash
-./target/release/steward-cli --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 view-directed-stake-ticket --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv --ticket-signer <TICKET_UPDATE_AUTHORITY>
+./target/release/steward-cli \
+    --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 \
+    view-directed-stake-ticket \
+    --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
+    --ticket-signer <TICKET_UPDATE_AUTHORITY>
 ```
 
 ### View All DirectedStakeTickets
 
 ```bash
-./target/release/steward-cli --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 view-directed-stake-tickets
+./target/release/steward-cli \
+    --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 \
+    view-directed-stake-tickets
 ```
 
 ### Initialize DirectedStakeTicket
@@ -352,10 +365,11 @@ Displays a single ticket's preferences by its update authority.
 Creates a ticket for a whitelisted staker. Run by (or on behalf of) each whitelisted entity.
 
 ```bash
-./target/release/steward-cli --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 init-directed-stake-ticket \
-  --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
-  --ticket-update-authority <TICKET_UPDATE_AUTHORITY> \
-  --authority-keypair-path ~/.config/solana/id.json
+./target/release/steward-cli \
+    --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 init-directed-stake-ticket \
+    --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
+    --ticket-update-authority <TICKET_UPDATE_AUTHORITY> \
+    --authority-keypair-path ~/.config/solana/id.json
 ```
 
 ### Update DirectedStakeTicket
@@ -363,13 +377,15 @@ Creates a ticket for a whitelisted staker. Run by (or on behalf of) each whiteli
 Sets a ticket's validator preferences. Stake shares are specified in basis points of the holder's JitoSOL balance (10000 bps = 100%), up to 8 validators, summing to at most 10000. Every validator must be on the whitelist.
 
 ```bash
-./target/release/steward-cli --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 update-directed-stake-ticket \
-  --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
-  --authority-keypair-path ~/.config/solana/id.json \
-  --vote-pubkey <VALIDATOR_1_VOTE_ACCOUNT> \
-  --stake-share-bps 5000 \
-  --vote-pubkey <VALIDATOR_2_VOTE_ACCOUNT> \
-  --stake-share-bps 3000
+./target/release/steward-cli \
+    --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 \
+    update-directed-stake-ticket \
+    --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
+    --authority-keypair-path ~/.config/solana/id.json \
+    --vote-pubkey <VALIDATOR_1_VOTE_ACCOUNT> \
+    --stake-share-bps 5000 \
+    --vote-pubkey <VALIDATOR_2_VOTE_ACCOUNT> \
+    --stake-share-bps 3000
 ```
 
 ### Add to DirectedStakeWhitelist
@@ -377,32 +393,40 @@ Sets a ticket's validator preferences. Stake shares are specified in basis point
 Requires the `directed_stake_whitelist_authority`. `--record-type` is one of `validator`, `user`, or `protocol`.
 
 ```bash
-./target/release/steward-cli --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 add-to-directed-stake-whitelist \
-  --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
-  --authority-keypair-path ~/.config/solana/id.json \
-  --record-type "validator" \
-  --record <PUBKEY>
+./target/release/steward-cli \
+    --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 \
+    add-to-directed-stake-whitelist \
+    --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
+    --authority-keypair-path ~/.config/solana/id.json \
+    --record-type "validator" \
+    --record <PUBKEY>
 ```
 
 ### Remove from DirectedStakeWhitelist
 
 ```bash
-./target/release/steward-cli --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 remove-from-directed-stake-whitelist \
-  --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
-  --authority-keypair-path ~/.config/solana/id.json \
-  --record-type "validator" \
-  --record <PUBKEY>
+./target/release/steward-cli \
+    --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 \
+    remove-from-directed-stake-whitelist \
+    --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
+    --authority-keypair-path ~/.config/solana/id.json \
+    --record-type "validator" \
+    --record <PUBKEY>
 ```
 
 ### Compute DirectedStakeMeta
 
-Aggregates all tickets and JitoSOL balances into per-validator lamport targets and uploads them on-chain. Requires the `directed_stake_meta_upload_authority`; typically run each epoch by the keeper. The token mint (JitoSOL) is used to query holder balances.
+Aggregates all tickets and JitoSOL balances into per-validator lamport targets and uploads them on-chain.
+Requires the `directed_stake_meta_upload_authority`; typically run each epoch by the keeper.
+The token mint (JitoSOL) is used to query holder balances.
 
 ```bash
-./target/release/steward-cli --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 compute-directed-stake-meta \
-  --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
-  --authority-keypair-path ~/.config/solana/id.json \
-  --token-mint J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn
+./target/release/steward-cli \
+    --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 \
+    compute-directed-stake-meta \
+    --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
+    --authority-keypair-path ~/.config/solana/id.json \
+    --token-mint J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn
 ```
 
 ### Crank Rebalance Directed
@@ -410,5 +434,9 @@ Aggregates all tickets and JitoSOL balances into per-validator lamport targets a
 Permissionlessly cranks the `RebalanceDirected` state, submitting one rebalance instruction per target validator.
 
 ```bash
-./target/release/steward-cli --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 crank-rebalance-directed --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv --payer-keypair-path ../../credentials/stakenet_test.json
+./target/release/steward-cli \
+    --program-id Stewardf95sJbmtcZsyagb2dg4Mo8eVQho8gpECvLx8 \
+    crank-rebalance-directed \
+    --steward-config jitoVjT9jRUyeXHzvCwzPgHj7yWNRhLcUoXtes4wtjv \
+    --payer-keypair-path ../../credentials/stakenet_test.json
 ```

@@ -7,14 +7,14 @@ section_type: page
 
 # Directed Staking
 
-Directed Staking, introduced in [JIP-27](https://forum.jito.network/t/jip-27-introduce-directed-staking-to-the-jito-stake-pool/903), allows whitelisted JitoSOL holders and DeFi protocols to specify which validators the stake underpinning their JitoSOL holdings is delegated to. Stake that is not directed continues to be delegated algorithmically by the Steward's [scoring system](/stakenet/jito-steward/validators/scoring-system/).
+Directed Staking, introduced in [JIP-27](https://forum.jito.network/t/jip-27-introduce-directed-staking-to-the-jito-stake-pool/903), allows whitelisted JitoSOL holders and DeFi protocols to specify which validators the stake underpinning their JitoSOL holdings is delegated to.
+Stake that is not directed continues to be delegated algorithmically by the Steward's [scoring system](/stakenet/jito-steward/validators/scoring-system/).
 
 At a high level:
 
-1. The DAO-controlled whitelist authority approves stakers (users or protocols) and the validators eligible to receive directed stake.
-2. A whitelisted staker creates a **ticket** expressing their validator preferences as percentages of their JitoSOL balance.
-3. Each epoch, an off-chain process aggregates all tickets and current JitoSOL balances into per-validator lamport **targets** and uploads them on-chain.
-4. At the start of each epoch, the Steward state machine enters the **RebalanceDirected** state and moves stake toward those targets before performing any algorithmic (undirected) operations.
+1. A whitelisted staker creates a **ticket** expressing their validator preferences as percentages of their JitoSOL balance.
+2. Each epoch, an off-chain process aggregates all tickets and current JitoSOL balances into per-validator lamport **targets** and uploads them on-chain.
+3. At the start of each epoch, the Steward state machine enters the **RebalanceDirected** state and moves stake toward those targets before performing any algorithmic (undirected) operations.
 
 Because targets are recomputed from live JitoSOL balances every epoch, directed stake automatically scales up or down as a holder's JitoSOL balance changes — no re-submission is needed.
 
@@ -34,7 +34,9 @@ Only the `directed_stake_whitelist_authority` can add or remove entries.
 
 ### DirectedStakeTicket
 
-One ticket per staker, derived from the staker's pubkey (`ticket_update_authority`). A ticket holds up to **8 validator preferences**, each a validator vote account and a `stake_share_bps` (basis points of the holder's JitoSOL balance). The preferences must sum to at most 10,000 bps (100%); any unallocated share remains algorithmically staked. Every validator referenced in a ticket must be on the whitelist.
+One ticket per staker, derived from the staker's pubkey (`ticket_update_authority`).
+A ticket holds up to **8 validator preferences**, each a validator vote account and a `stake_share_bps` (basis points of the holder's JitoSOL balance).
+The preferences must sum to at most 10,000 bps (100%); any unallocated share remains algorithmically staked. Every validator referenced in a ticket must be on the whitelist.
 
 Tickets can be created, updated, or closed at any time by the ticket's update authority (or by the `directed_stake_ticket_override_authority` on the holder's behalf).
 
@@ -61,7 +63,8 @@ Each epoch, the keeper run by the `directed_stake_meta_upload_authority`:
 
 ### 2. RebalanceDirected (on-chain)
 
-After stake pool updates and epoch maintenance complete at the start of each epoch, the state machine enters the `RebalanceDirected` state — before any undirected operations. One permissionless `rebalance_directed` instruction is cranked per target validator, comparing its applied directed stake against its target:
+After stake pool updates and epoch maintenance complete at the start of each epoch, the state machine enters the `RebalanceDirected` state - before any undirected operations.
+One permissionless `rebalance_directed` instruction is cranked per target validator, comparing its applied directed stake against its target:
 
 - **Increase** (applied < target): the validator receives a pro-rata share of the reserve, proportional to its deficit relative to the total deficit across all targets. Increases are capped at the validator's deficit so it is never over-delegated, and the reserve always retains 2× the stake-account rent.
 - **Decrease** (applied > target): the excess is unstaked, subject to the cycle-wide directed unstake cap (see below). If total excess across all targets exceeds the remaining cap headroom, decreases are applied pro-rata.
@@ -69,7 +72,8 @@ After stake pool updates and epoch maintenance complete at the start of each epo
 
 Before each rebalance, the instruction also reconciles external activity: stake deposits to a validator are credited against its directed deficit, and user withdrawals reduce directed accounting first, rolling any remainder over to undirected stake.
 
-The state is complete once every target validator has been processed for the epoch. If directed rebalancing is not finished by the epoch midpoint (the `compute_score_epoch_progress` threshold, 50%), the state machine moves on so that undirected operations are never stalled.
+The state is complete once every target validator has been processed for the epoch.
+If directed rebalancing is not finished by the epoch midpoint (the `compute_score_epoch_progress` threshold, 50%), the state machine moves on so that undirected operations are never stalled.
 
 ## Safeguards
 
@@ -82,18 +86,6 @@ Directed staking operates under several protections to preserve pool yield and h
 | Validator eligibility | Only whitelisted validators can receive directed stake, and only whitelisted stakers can direct it. |
 | No over-delegation | Increases are capped at each validator's target delta, preventing stake that would immediately need to be unstaked. |
 | Epoch deadline | Directed rebalancing that isn't complete by 50% epoch progress is force-completed so undirected stake management continues uninterrupted. |
-
-## Authorities
-
-Directed staking adds three authorities to the Steward `Config`, all ultimately governed by the [Jito DAO](https://gov.jito.network/dao/Jito):
-
-| Authority | Capability |
-| --------- | ---------- |
-| `directed_stake_whitelist_authority` | Adds/removes stakers, protocols, and validators on the whitelist |
-| `directed_stake_meta_upload_authority` | Uploads per-validator lamport targets to the `DirectedStakeMeta` each epoch |
-| `directed_stake_ticket_override_authority` | Can create and update tickets on behalf of ticket holders |
-
-Additionally, the Steward `admin` can execute a one-time `migrate_directed_to_algorithmic` instruction, which zeroes all directed targets and reclassifies existing directed stake as algorithmic without unstaking anything.
 
 ## Governance
 

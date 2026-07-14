@@ -22,11 +22,15 @@ The state machine represents the progress throughout a cycle (10-epoch period fo
 
 [Directed Staking](/stakenet/jito-steward/directed-staking/) (introduced in JIP-27) allows whitelisted JitoSOL holders and protocols to specify which validators the stake underpinning their JitoSOL is delegated to.
 
-At the start of every epoch, after stake pool updates and epoch maintenance complete, the state machine enters the RebalanceDirected state. This state is complete when every target validator within the `DirectedStakeMeta` account has had its directed delegation rebalanced.
+At the start of every epoch, after stake pool updates and epoch maintenance complete, the state machine enters the RebalanceDirected state.
+This state is complete when every target validator within the `DirectedStakeMeta` account has had its directed delegation rebalanced.
 
-The type of rebalance performed for a particular validator depends on its current directed stake lamports versus its target directed stake lamports. Each directed stake increase is a pro-rata allocation of the reserve lamports based on the delta between the validator's current stake and target. Each directed stake decrease is capped per scoring cycle by `directed_stake_unstake_cap_bps` of total pool lamports, which prevents yield drag from excessive unstaking; if the total decrease delta across the validator set exceeds the cap, decreases are performed pro-rata with respect to the remaining headroom.
+The type of rebalance performed for a particular validator depends on its current directed stake lamports versus its target directed stake lamports.
+Each directed stake increase is a pro-rata allocation of the reserve lamports based on the delta between the validator's current stake and target.
+Each directed stake decrease is capped per scoring cycle by `directed_stake_unstake_cap_bps` of total pool lamports, which prevents yield drag from excessive unstaking; if the total decrease delta across the validator set exceeds the cap, decreases are performed pro-rata with respect to the remaining headroom.
 
-Progress is tracked in the `DirectedStakeMeta` account via the `staked_last_updated_epoch` field for each validator. Once all target validators have been processed — or the epoch reaches 50% progress (the compute scores threshold), so that undirected stake operations are never stalled — the state machine transitions to the next state.
+Progress is tracked in the `DirectedStakeMeta` account via the `staked_last_updated_epoch` field for each validator.
+Once all target validators have been processed - or the epoch reaches 50% progress (the compute scores threshold), so that undirected stake operations are never stalled — the state machine transitions to the next state.
 
 See [Directed Staking](/stakenet/jito-steward/directed-staking/) for the full account structure, target computation, and safeguards.
 

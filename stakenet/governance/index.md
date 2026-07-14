@@ -30,6 +30,7 @@ Proposal: [JIP-28 Forum Post](https://forum.jito.network/t/jip-28-accelerate-bam
 
 JIP-27 introduces directed staking to the JitoSOL stake pool, allowing large JitoSOL holders (initially ≥100k JitoSOL) and whitelisted DeFi protocols to direct their stake to specific validators of their choice.
 Validators must meet objective eligibility criteria to qualify for directed stake. A protective floor ensures a minimum amount of SOL remains in non-directed, permissionless delegation.
+See [Directed Staking](/stakenet/jito-steward/directed-staking/) for how this is implemented in the Steward program.
 
 Proposal: [JIP-27 Forum Post](https://forum.jito.network/t/jip-27-introduce-directed-staking-to-the-jito-stake-pool/903)
 

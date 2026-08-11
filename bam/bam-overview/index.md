@@ -1,5 +1,5 @@
 ---
-title: BAM Overview
+title: BAM Documentation
 subtitle: System architecture, validator flow, and operational basics.
 section_type: page
 order: 10
@@ -19,7 +19,7 @@ The BAM System facilitates transaction scheduling on the Solana Network.
 
 ![BAM System Architecture](/shared/images/bam/image3.png)
 
-## **BAM Node:**
+## **BAM Node**
 
 The _BAM Node_ core functional requirements:
 
@@ -28,7 +28,7 @@ The _BAM Node_ core functional requirements:
 - Shall Sequence transactions according to programmatic, stable rules.
 - Send transactions out to a confirmed, connected validator when their leader rotation arrives.
 
-# **Validator**
+## **Validator**
 
 The _BAM Validator_ is responsible for upholding the following contract:
 
@@ -41,11 +41,11 @@ The following diagram illustrates the general flow of messages, transactions, an
 
 ![BAM Validator Flow](/shared/images/bam/image1.png)
 
-# **FAQ's**
+### **FAQ's**
 
-<!-- ### **How do BAM rewards compare to Jito-Solana / Agave / Firedancer?** -->
+<!-- #### **How do BAM rewards compare to Jito-Solana / Agave / Firedancer?** -->
 
-### **How do I migrate from the Jito-Solana client to BAM?**
+#### **How do I migrate from the Jito-Solana client to BAM?**
 
 - All existing Jito flags and features are retained.
 - Add the `--bam-url` flag pointing to the generic BAM Node URL.
@@ -53,39 +53,41 @@ The following diagram illustrates the general flow of messages, transactions, an
 
 See [https://bam.dev/validators/](https://bam.dev/validators/) for more information.
 
-### **Can I run BAM on my existing hardware?**
+#### **Can I run BAM on my existing hardware?**
 
 Yes. Your existing validator running jito-solana is sufficient to run AgaveBAM, or your existing Firedancer validator is sufficient to run FireBAM. No equipment upgrades are required.
 
-### **Does BAM work with Jito Bundles?**
+#### **Does BAM work with Jito Bundles?**
 
 Yes, AgaveBAM and FireBAM sequence both normal transactions and Jito Bundles.
 
-### **Does BAM affect my JitoSOL rank or SFDP delegation?**
+#### **Does BAM affect my JitoSOL rank or SFDP delegation?**
 
 - **JitoSOL rank:** AgaveBAM and FireBAM do **not** directly affect your rank unless downtime occurs.
 - **Vote credits:** Unaffected — AgaveBAM and FireBAM do not interfere with vote production.
 - **SFDP delegation:** AgaveBAM and FireBAM do not impact SFDP eligibility as long as you're running a compatible Jito client version.
 
-### **Does BAM currently support Firedancer?**
+#### **Does BAM currently support Firedancer?**
 
 Yes, FireBAM supports Firedancer. See [https://bam.dev/validators/#firebam](https://bam.dev/validators/#firebam) for more information.
 
-### **How does BAM interact with transactions sent via RPC or directly to TPU?**
+#### **How does BAM interact with transactions sent via RPC or directly to TPU?**
 
 - **RPC flow:** If your validator is connected to BAM and scheduled to be a leader soon, transactions submitted via RPC are routed through BAM.
 - **Direct TPU flow:** Transactions sent directly to your TPU port are processed through BAM before execution.
 
-### **Can I run BAM with a hot spare validator?**
+#### **Can I run BAM with a hot spare validator?**
 
 Hot spare configurations should work normally, similar to Jito-Solana and Agave setups. However, you need to manually re-run `set-bam-url` after switching over to a hot spare to ensure that the connection connects with the correct leader. You may see this in the logs otherwise:
 
-```
-4 [2025-10-24T17:38:12.279721584Z ERROR solana_core::bam_connection]
-  Failed to receive message from inbound stream:
-  Status {
-    code: PermissionDenied,
-    message: "Validator is not on the leader schedule",
-    source: None
-  }
-```
+> Example log output:
+>
+> ```
+> 4 [2025-10-24T17:38:12.279721584Z ERROR solana_core::bam_connection]
+>   Failed to receive message from inbound stream:
+>   Status {
+>     code: PermissionDenied,
+>     message: "Validator is not on the leader schedule",
+>     source: None
+>   }
+> ```

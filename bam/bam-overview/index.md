@@ -41,44 +41,35 @@ The following diagram illustrates the general flow of messages, transactions, an
 
 ![BAM Validator Flow](/shared/images/bam/image1.png)
 
-# Support
-
-For onboarding or technical assistance:
-
-- Join the **\#bam-launch** or **\#validators-mainnet** channels on Slack
-- Tag `@Edgar` or `@Alejandro` for validator support
-- Email: [**support@jito.wtf**](mailto:support@jito.wtf)
-- Status page: bam statuspage \[TODO\]
-
 # **FAQ's**
 
 <!-- ### **How do BAM rewards compare to Jito-Solana / Agave / Firedancer?** -->
 
 ### **How do I migrate from the Jito-Solana client to BAM?**
 
-You'll need to switch to the new [bam-client](https://github.com/jito-labs/bam-client).
-
 - All existing Jito flags and features are retained.
-- Add the `--bam-url` flag pointing to the closest BAM node to you
+- Add the `--bam-url` flag pointing to the generic BAM Node URL.
 - No other CLI syntax changes are required.
 
-### **Do I have to do any equipment upgrades to run BAM?**
+See [https://bam.dev/validators/](https://bam.dev/validators/) for more information.
 
-No. Your existing validator running jito-solana is sufficient to run BAM.
+### **Can I run BAM on my existing hardware?**
+
+Yes. Your existing validator running jito-solana is sufficient to run AgaveBAM, or your existing Firedancer validator is sufficient to run FireBAM. No equipment upgrades are required.
 
 ### **Does BAM work with Jito Bundles?**
 
-Yes, BAM sequences both normal transactions and Jito Bundles.
+Yes, AgaveBAM and FireBAM sequence both normal transactions and Jito Bundles.
 
 ### **Does BAM affect my JitoSOL rank or SFDP delegation?**
 
-- **JitoSOL rank:** BAM does **not** directly affect your rank unless downtime occurs. The most likely risk is temporary downtime during swaps.
-- **Vote credits:** Unaffected — BAM does not interfere with vote production.
-- **SFDP delegation:** BAM does not impact SFDP as long as you're running a compatible Jito client version. You are also free to submit metrics to either the Jito or Solana metrics server.
+- **JitoSOL rank:** AgaveBAM and FireBAM do **not** directly affect your rank unless downtime occurs.
+- **Vote credits:** Unaffected — AgaveBAM and FireBAM do not interfere with vote production.
+- **SFDP delegation:** AgaveBAM and FireBAM do not impact SFDP eligibility as long as you're running a compatible Jito client version.
 
 ### **Does BAM currently support Firedancer?**
 
-Not yet. Firedancer compatibility is on the roadmap. We understand that many validators are already running FD or plan to transition soon, so integration is a high priority for us.
+Yes, FireBAM supports Firedancer. See [https://bam.dev/validators/#firebam](https://bam.dev/validators/#firebam) for more information.
 
 ### **How does BAM interact with transactions sent via RPC or directly to TPU?**
 

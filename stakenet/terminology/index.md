@@ -14,6 +14,16 @@ A Solana program that maintains historical performance data for validators. It r
 
 **Delegation**: The amount of stake targeted to a specific validator by the Steward Program.
 
+**Directed Staking**: A feature (introduced in JIP-27) allowing whitelisted JitoSOL holders and DeFi protocols to choose which validators the stake underpinning their JitoSOL is delegated to, rather than relying solely on the Steward's algorithmic delegation.
+
+**Directed Stake Ticket**: An on-chain account holding a staker's directed staking preferences — up to 8 validators, each assigned a share (in basis points) of the holder's JitoSOL balance.
+
+**Directed Stake Whitelist**: An on-chain account listing the stakers and protocols permitted to direct stake, and the validators eligible to receive it.
+
+**Directed Stake Target**: The per-validator lamport amount of directed stake a validator should hold, recomputed each epoch from all tickets and their holders' current JitoSOL balances, and stored in the DirectedStakeMeta account.
+
+**Undirected Stake**: The portion of the stake pool not covered by directed staking, delegated algorithmically by the Steward's scoring system. Also called algorithmic stake.
+
 **State Machine**: The core logic of the Steward Program that manages different operational states and transitions between them.
 
 **Cycle**: A period of time (currently 10 epochs) in the Steward Program during which validators are selected and delegations are managed. The scores and validator selections are fixed for the duration of a cycle.

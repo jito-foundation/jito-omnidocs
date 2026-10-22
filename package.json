@@ -9,10 +9,12 @@
   "scripts": {
     "validate": "node validate-docs-structure.js",
     "validate:critical": "node validate-docs-structure.js --only-critical",
-    "test": "node validate-docs-structure.js --path ."
+    "test": "node validate-docs-structure.js --path . && node --test tools/test/*.test.mjs",
+    "check": "node tools/build-manifest.mjs --check"
   },
   "dependencies": {
     "commander": "11.1.0",
+    "parse5": "7.3.0",
     "yaml": "2.8.3"
   },
   "keywords": [
@@ -25,6 +27,6 @@
   "author": "Jito Foundation",
   "license": "MIT",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=24.22.1 <25"
   }
-} 
+}

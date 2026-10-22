@@ -2,9 +2,11 @@ name: Validate Documentation Structure
 
 on:
   push:
-    branches: ['**']
+    # master is validated by vercel-deploy.yml, which calls this workflow before deploying.
+    branches-ignore: [master]
   pull_request:
     branches: ['**']
+  workflow_call:
 
 jobs:
   validate-docs:
@@ -17,12 +19,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version-file: .nvmrc
           cache: 'yarn'
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
         
+      - name: Validate v2 content (tools/build-manifest.mjs)
+        run: node tools/build-manifest.mjs --check
+
+      - name: Test docs tooling
+        run: node --test tools/test/*.test.mjs
+
       - name: Run critical documentation validation
         run: node validate-docs-structure.js --only-critical
         

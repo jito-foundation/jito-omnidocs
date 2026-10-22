@@ -68,4 +68,4 @@ Download CSV files for record keeping:
 
 - **Manage Stakes:** [jito.network/manage](https://www.jito.network/manage/) to convert stake accounts
 - **Transaction History:** [jito.network/history](https://www.jito.network/history/) for complete history  
-- **FAQ:** [FAQ section](/jitosol/general-faqs/) for common issues
+- **FAQ:** [FAQ section](/jitosol/faqs/general-faqs/) for common issues

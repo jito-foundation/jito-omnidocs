@@ -12,7 +12,7 @@ As Adopted by directors resolution on December 6, 2023
 
 (b) “***Applicable Law***” means the legal and regulatory requirements and obligations applicable to the Foundation, including U.S. federal, U.S. state, and non-U.S. laws, as well as the relevant regulatory schemes, including Cayman Islands law.
 
-(c) “***Bylaws****”* means these governing bylaws of the Foundation, as may be amended from time to time in accordance with the Foundation Documents.
+(c) “**Bylaws**” means these governing bylaws of the Foundation, as may be amended from time to time in accordance with the Foundation Documents.
 
 (d) “**Constitution**” means the Constitution of the Foundation as available at https://jito.network/docs/governance, as may be amended from time to time in accordance with the Foundation Documents.
 

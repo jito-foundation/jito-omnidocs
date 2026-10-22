@@ -125,15 +125,14 @@ jito-restaking-cli --print-json restaking ncn list
 
 Now that you have the CLI installed and understand the basics, explore these guides:
 
-1. **[Vault Operations](/restaking/cli/overview/vault-operations)** - Create and manage vaults
-2. **[Operator Management](/restaking/cli/overview/operator-management)** - Set up and run operators
-3. **[NCN Operations](/restaking/cli/overview/ncn-operations)** - Coordinate network consensus
+1. **[Vault Operations](/restaking/cli/vault)** - Create and manage vaults
+2. **[Operator Management](/restaking/cli/operator)** - Set up and run operators
+3. **[NCN Operations](/restaking/cli/ncn)** - Coordinate network consensus
 
 ## Getting Help
 
 - Use `--help` with any command for detailed usage information
-- Check the **[CLI Reference](/restaking/cli/overview/cli-reference)** for complete command documentation
-- Review **[Examples & Tutorials](/restaking/cli/overview/cli-examples)** for step-by-step guides
+- Check the **[CLI Reference](/restaking/cli/reference)** for complete command documentation
 
 ```bash
 # Get help for specific commands

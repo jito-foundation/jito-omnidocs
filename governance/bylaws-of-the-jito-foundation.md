@@ -8,11 +8,11 @@ As Adopted by directors resolution on December 6, 2023
 
 #### 1.      Defined Terms
 
-(a) “***Administrator****” *means the administrator of the DAO, which has certain powers and duties as further described in these Bylaws.
+(a) “***Administrator***” means the administrator of the DAO, which has certain powers and duties as further described in these Bylaws.
 
 (b) “***Applicable Law***” means the legal and regulatory requirements and obligations applicable to the Foundation, including U.S. federal, U.S. state, and non-U.S. laws, as well as the relevant regulatory schemes, including Cayman Islands law.
 
-(c) “**Bylaws**” means these governing bylaws of the Foundation, as may be amended from time to time in accordance with the Foundation Documents.
+(c) “***Bylaws***” means these governing bylaws of the Foundation, as may be amended from time to time in accordance with the Foundation Documents.
 
 (d) “**Constitution**” means the Constitution of the Foundation as available at https://jito.network/docs/governance, as may be amended from time to time in accordance with the Foundation Documents.
 
@@ -20,11 +20,11 @@ As Adopted by directors resolution on December 6, 2023
 
 (f) “***Foundation***” means Jito Foundation, a Cayman Islands foundation company.
 
-(g) “***Foundation Articles****”* means the Memorandum of Association and Articles of Association of the Foundation, as may be amended from time to time.
+(g) “***Foundation Articles***” means the Memorandum of Association and Articles of Association of the Foundation, as may be amended from time to time.
 
-(h) “***Foundation Director(s)****”* means the director(s) of the Foundation, who have certain powers and duties pursuant to Cayman Islands law and as further described in the Foundation Articles.
+(h) “***Foundation Director(s)***” means the director(s) of the Foundation, who have certain powers and duties pursuant to Cayman Islands law and as further described in the Foundation Articles.
 
-(i) “***Foundation Documents****” *mean these Bylaws, Constitution and Foundation Articles.
+(i) “***Foundation Documents***” mean these Bylaws, Constitution and Foundation Articles.
 
 (j) “***Foundation Representative(s)***” means the Foundation Directors, Foundation Supervisor and the Administrator.
 

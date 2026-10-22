@@ -37,7 +37,9 @@ class DocStructureValidator {
         /**
          * Get list of parent collection directories (excluding 'shared' and other system directories)
          */
-        const excludedDirs = ['shared', 'node_modules', '.git', '.github', 'dist', 'build', '.next', '.nuxt'];
+        // 'tools' holds the v2 parser; v2 products (with _meta.yml) are validated by
+        // tools/build-manifest.mjs --check instead of this legacy validator.
+        const excludedDirs = ['shared', 'tools', 'node_modules', '.git', '.github', 'dist', 'build', '.next', '.nuxt'];
         const collections = [];
         try {
             const items = fs.readdirSync(this.rootPath, { withFileTypes: true });
@@ -45,7 +47,8 @@ class DocStructureValidator {
                 if (item.isDirectory() && 
                     !excludedDirs.includes(item.name) && 
                     !item.name.startsWith('.') &&
-                    !item.name.endsWith('.log')) {
+                    !item.name.endsWith('.log') &&
+                    !fs.existsSync(path.join(this.rootPath, item.name, '_meta.yml'))) {
                     collections.push(item.name);
                 }
             }

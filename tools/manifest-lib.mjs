@@ -502,10 +502,14 @@ function checkLinks(root, products, bodies, report) {
   }
 }
 
-/** Files the docs sites would publish: git-tracked files, or every file outside git. */
+/** Files the docs sites would publish: tracked and new (not ignored) files, or every file outside git. */
 function listFiles(root) {
   try {
-    const out = execFileSync('git', ['-C', root, 'ls-files', '-z'], { stdio: ['ignore', 'pipe', 'ignore'] })
+    // Tracked files plus new ones not yet added (but not ignored ones), so `yarn validate`
+    // before `git add` sees the same files CI will.
+    const out = execFileSync('git', ['-C', root, 'ls-files', '-z', '--cached', '--others', '--exclude-standard'], {
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
     const prefix = execFileSync('git', ['-C', root, 'rev-parse', '--show-prefix']).toString().trim()
     if (prefix === '') return out.toString().split('\0').filter(Boolean)
   } catch {
@@ -525,8 +529,7 @@ function listFiles(root) {
 }
 
 const ROOT_FILES = new Set([
-  'README.md', 'CONTRIBUTING.md', 'AGENTS.md', 'CLAUDE.md', 'VALIDATION_README.md',
-  'package.json', 'yarn.lock', '.gitignore', '.nvmrc', 'validate-docs-structure.js',
+  'README.md', 'CONTRIBUTING.md', 'AGENTS.md', 'CLAUDE.md', 'package.json', 'yarn.lock', '.gitignore', '.nvmrc',
 ])
 const TOOL_EXTENSIONS = new Set(['mjs', 'js', 'json', 'txt'])
 

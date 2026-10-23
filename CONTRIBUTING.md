@@ -2,12 +2,19 @@
 
 This guide covers how to update docs, from fixing a typo to adding a whole product.
 
+## Setup
+
+You need **Node 24** (the version in `.nvmrc`) and **Yarn 1**. With
+[nvm](https://github.com/nvm-sh/nvm): `nvm install && nvm use` in the repo. For Yarn:
+`corepack enable`, or `npm install -g yarn`. Then `yarn install` once.
+
 ## How a change goes live
 
 1. **Branch** off `master` (e.g. `yourname/fullsend-auth-section`).
 2. **Edit** Markdown files (see the layout below). Preview your Markdown in your editor or
    on GitHub.
-3. **Check** locally: `yarn install && yarn validate`. It tells you exactly what's wrong and on
+3. **Check** locally: `yarn install && yarn validate` (needs Node 24 and Yarn 1; see
+   [Setup](#setup)). It tells you exactly what's wrong and on
    which line.
 4. **Open a PR.** CI runs the same check. Ask the product's owners to review the content.
 5. **Merge.** CI validates `master` again, then redeploys the site that shows that product
@@ -16,7 +23,7 @@ This guide covers how to update docs, from fixing a typo to adding a whole produ
    for `bam/`).
 
 You need write access to `jito-foundation/jito-omnidocs`, and your commits must be
-**signed** (GPG or SSH signing key, e.g. a YubiKey). Ask in #frontend if either is missing.
+**signed** (GPG or SSH signing key, e.g. a YubiKey). Ask a maintainer of this repo if either is missing.
 
 > **Content from private repos:** this repo is public, and **pushing a branch publishes
 > it**, even before a PR is merged. If you're copying docs from a private repo, remove
@@ -51,7 +58,8 @@ pages:                               # order of the rows inside, by file/folder 
   - regional-direct
 ```
 
-- The product's own `_meta.yml` (e.g. `fullsend/_meta.yml`) has `title` and `pages` only.
+- The product's own `_meta.yml` (e.g. `fullsend/_meta.yml`) has `title`, `pages` and an
+  optional `subtitle` (no `type`).
 - `type: header` is only for folders directly inside the product.
 - **Every** page and folder in the folder must be listed in `pages`, exactly once.
 
@@ -78,8 +86,8 @@ Body in Markdown…
 ### Optional `index.md` in a dropdown folder
 
 A dropdown row normally just expands. If the folder has an `index.md`, clicking the row
-also opens that page. Its frontmatter `title` is optional (it defaults to the folder's
-`_meta.yml` title). Product folders themselves can't have an `index.md`; use `overview.md`.
+also opens that page. It still needs a frontmatter block (`---` lines), but `title` in it is
+optional (it defaults to the folder's `_meta.yml` title). Product folders themselves can't have an `index.md`; use `overview.md`.
 
 ## Links and images
 
@@ -133,6 +141,16 @@ product list and the hub). A product folder that isn't enabled is validated but 
 | `link target "…" does not exist` | Check the path against the folders; fix the typo. |
 | `file type not allowed` | Only `.md`, `_meta.yml` and raster images belong in content. |
 | `link scheme "javascript:" is never allowed` | Remove it. |
+| `link to the page URL, not the file` | Drop the `.md`: `/product/path`. |
+| `image "…" does not exist` | Check the file is in `<product>/images/` and the name matches exactly. |
+| `"…" is not a docs page; link to other site pages with a full https:// URL` | Use `https://www.jito.network/...` for non-docs pages. |
+| `missing frontmatter` / `"title" is required` | Start the page with `---`, `title: ...`, `---`. |
+| `invalid YAML` | Check the `_meta.yml` or frontmatter syntax (indentation, a `:` inside an unquoted value). |
+| `folder is missing _meta.yml` | Every folder (and product) needs one; see Layout above. |
+| `names starting with "_" are reserved` | Rename it; only `_meta.yml` may start with `_`. |
+
+A page with a frontmatter error is left out, so links to it also report `link target "…"
+does not exist`. Fix the frontmatter error first.
 
 Raw HTML is allowed for simple formatting (`<u>`, `<small>`, `<figure>`, `<img>`, tables),
 but the sites strip anything interactive or styled (scripts, iframes, forms, `style`

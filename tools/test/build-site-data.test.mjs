@@ -20,7 +20,7 @@ test('builds pages, manifest, redirects, search, markdown exports, llms.txt and 
     ...validProduct(),
     'fullsend/how-to/step-1.md': page(
       'Step 1',
-      'Go to [setup](/fullsend/how-to/on-android/setup#a) or [android](/fullsend/how-to/on-android).\n\n![d](/fullsend/images/diagram.png)',
+      'Go to [setup](/fullsend/how-to/on-android/setup#a) or [android](/fullsend/how-to/on-android).\n\n![d](/fullsend/images/diagram.png)\n\n<img alt="raw" src="/fullsend/images/diagram.png">',
     ),
   })
   const r = run(root, ['--site-url', 'https://site.example', '--site-name', 'Example Docs', '--ref', 'abc'])
@@ -53,6 +53,7 @@ test('builds pages, manifest, redirects, search, markdown exports, llms.txt and 
   assert.match(md, /^# Step 1\n/)
   assert.match(md, /\(https:\/\/site\.example\/docs\/fullsend\/how-to\/on-android\/setup\.md#a\)/)
   assert.match(md, /\(https:\/\/site\.example\/omnidocs\/fullsend\/images\/diagram\.png\)/)
+  assert.match(md, /<img alt="raw" src="https:\/\/site\.example\/omnidocs\/fullsend\/images\/diagram\.png">/)
   // A link to a dropdown row (no page of its own) points at the page it redirects to.
   assert.match(md, /\[android\]\(https:\/\/site\.example\/docs\/fullsend\/how-to\/on-android\/setup\.md\)/)
 

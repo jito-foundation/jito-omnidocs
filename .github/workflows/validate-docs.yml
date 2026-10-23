@@ -1,12 +1,14 @@
 name: Validate Documentation Structure
 
+# PRs are validated here; master is validated by vercel-deploy.yml, which calls this
+# workflow before deploying.
 on:
-  push:
-    # master is validated by vercel-deploy.yml, which calls this workflow before deploying.
-    branches-ignore: [master]
   pull_request:
     branches: ['**']
   workflow_call:
+
+permissions:
+  contents: read
 
 jobs:
   validate-docs:
@@ -30,15 +32,3 @@ jobs:
 
       - name: Test docs tooling
         run: node --test tools/test/*.test.mjs
-
-      - name: Comment on PR with validation results
-        if: failure() && github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '❌ Documentation structure validation failed. Please check the logs and fix the issues before merging.'
-            }) 

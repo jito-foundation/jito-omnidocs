@@ -1,5 +1,6 @@
 ---
-title: MEV Protection API
+title: MEV Protection
+subtitle: Manage your MEV blacklist and view the default one
 ---
 
 Use these endpoints to manage your customer-specific MEV blacklist and inspect the default blacklist.
@@ -8,7 +9,7 @@ Both lists are applied to `sendTransaction` requests by default.
 Set `mev_protection_default=false` and/or `mev_protection_custom=false` on the send URL only when you want to disable one.
 
 
-## Auth
+## Authentication
 
 Customer-list endpoints require `api_key`.
 

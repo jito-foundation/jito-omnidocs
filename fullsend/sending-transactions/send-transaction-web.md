@@ -1,5 +1,6 @@
 ---
-title: sendTransactionWeb
+title: Send from the Browser
+subtitle: The sendTransactionWeb endpoint, built for browser clients
 ---
 
 Low-latency, browser-optimized transaction submission. Eliminates CORS preflight overhead and JSON-RPC parsing by accepting raw base64 as `text/plain`, and returns CORS headers so browser code can read the response cross-origin.
@@ -24,7 +25,7 @@ Browser clients sending transactions via the standard JSON-RPC `sendTransaction`
 POST /api/v1/sendTransactionWeb
 ```
 
-## Auth
+## Authentication
 
 This endpoint authenticates via [Authorized Signers](/fullsend/send-controls/authorized-signers). The fee payer (first signer) of the transaction must be registered as an authorized signer. No API key is passed in the request, which makes it safe to call directly from browser/mobile clients.
 

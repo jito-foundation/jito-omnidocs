@@ -1,5 +1,6 @@
 ---
 title: Overview
+subtitle: Low-latency, direct-to-leader Solana transaction sending
 ---
 
 The Transaction Service provides a Solana JSON-RPC compatible `sendTransaction` interface for low-latency direct-to-leader sends with 100% land rates.

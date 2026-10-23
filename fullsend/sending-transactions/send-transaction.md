@@ -1,5 +1,6 @@
 ---
-title: sendTransaction
+title: Send Transaction
+subtitle: The sendTransaction JSON-RPC method, for any standard Solana client
 ---
 
 The service accepts Solana JSON-RPC `sendTransaction` requests, so standard Solana RPC clients work with the service URL.
@@ -21,7 +22,7 @@ Both the default MEV blacklist and your customer-specific MEV blacklist are enab
 Only add `mev_protection_default=false` and/or `mev_protection_custom=false` if you want to disable one.
 
 
-## Auth
+## Authentication
 
 Pass your API key as a query parameter on the RPC URL:
 

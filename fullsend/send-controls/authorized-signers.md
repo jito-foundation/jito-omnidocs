@@ -1,5 +1,6 @@
 ---
-title: Authorized Signers API
+title: Authorized Signers
+subtitle: Submit from client-side apps without exposing your API key
 ---
 
 Authorized signers are recommended when you need client-side transaction submission without exposing your API key.
@@ -17,7 +18,7 @@ A safer pattern is:
 
 Today, fallback auth for `sendTransaction` uses the first signer (fee payer). If you want to use this feature without signing as fee payer reach out and we can implement that.
 
-## Auth
+## Authentication
 
 All endpoints here require `api_key`.
 

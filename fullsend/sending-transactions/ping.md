@@ -1,5 +1,6 @@
 ---
-title: ping
+title: Ping
+subtitle: Keep the connection warm before you send
 ---
 
 Lightweight keepalive endpoint. Use this to warm the HTTP/TCP connection before making requests to the service.
@@ -10,7 +11,7 @@ Lightweight keepalive endpoint. Use this to warm the HTTP/TCP connection before 
 GET /api/v1/ping
 ```
 
-## Auth
+## Authentication
 
 No auth is required.
 

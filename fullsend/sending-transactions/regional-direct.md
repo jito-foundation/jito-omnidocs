@@ -1,5 +1,6 @@
 ---
-title: Regional Direct
+title: Regional Direct Endpoints
+subtitle: Server-to-server submission straight to a region
 ---
 
 Direct regional endpoints for server-to-server transaction submission.

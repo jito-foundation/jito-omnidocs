@@ -74,17 +74,16 @@ Ref: KG/CK/185745
 
     **A FOUNDATION COMPANY LIMITED BY GUARANTEE WITHOUT SHARE CAPITAL**
 
-    \*\*(ADOPTED BY DIRECTOR'S RESOLUTION DATED DECEMBER 6 2023)
+    (ADOPTED BY DIRECTOR'S RESOLUTION DATED DECEMBER 6 2023)
 
-    \*\*WALKERS (Cayman) LLP
+    WALKERS (Cayman) LLP
     190 Elgin Avenue, George Town, 
     Grand Cayman, KY1-9001, Cayman Islands
     T +1 345 949 0100   F +1 345 949 7886   www.walkersglobal.com
 
     **Ref: KG/CK/185745**
-    \*\*
 
-    INTERPRETATION\*\*
+    INTERPRETATION
 14. In these Articles, unless the context requires otherwise:
 
 "**Acts**" means the Foundation Companies Act, the Companies Act applicable to foundation companies, and every statutory modification or re-enactment of them;

@@ -107,9 +107,10 @@ test('fails on invalid content and on unpublishable products', () => {
   assert.equal(bad.status, 1)
   assert.match(bad.stderr, /not listed/)
 
-  const legacy = run(writeTree({ 'jitosol/intro/index.md': page('Intro') }), ['--products', 'jitosol'])
-  assert.equal(legacy.status, 1)
-  assert.match(legacy.stderr, /not in format v2/)
+  // A product folder without _meta.yml fails validation (it used to be skipped as legacy).
+  const noMeta = run(writeTree({ 'jitosol/intro.md': page('Intro') }), ['--products', 'jitosol'])
+  assert.equal(noMeta.status, 1)
+  assert.match(noMeta.stderr, /jitosol +folder is missing _meta\.yml/)
 
   const missing = run(writeTree(validProduct()), ['--products', 'nope'])
   assert.equal(missing.status, 1)

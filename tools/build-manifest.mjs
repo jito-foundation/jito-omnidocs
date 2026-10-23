@@ -7,8 +7,6 @@
  *        [--dates <dates.json>] [--ref <content sha>]
  *
  * Exits 1 when there are errors (in both modes), so site builds fail loudly on bad content.
- * Legacy-format products are listed in the manifest as { format: 'legacy' } and skipped;
- * links inside them are checked as warnings only.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -46,9 +44,8 @@ const print = (level, { file, line, message }) => {
 if (!args.quiet) warnings.forEach((w) => print('warning', w))
 errors.forEach((e) => print('error', e))
 
-const formats = Object.entries(manifest.products).map(([name, p]) => `${name} (${p.format})`)
 console.log(
-  `\nProducts: ${formats.join(', ') || 'none'}\nPages (v2): ${manifest.pages.length}  Errors: ${errors.length}  Warnings: ${warnings.length}`,
+  `\nProducts: ${Object.keys(manifest.products).join(', ') || 'none'}\nPages: ${manifest.pages.length}  Errors: ${errors.length}  Warnings: ${warnings.length}`,
 )
 
 if (errors.length) process.exit(1)

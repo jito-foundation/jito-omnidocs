@@ -11,8 +11,7 @@
  *   <product>/<dir>/_meta.yml    a dropdown (or top-level header) row + ordered `pages`
  *   <product>/<dir>/index.md     optional: makes the dropdown row itself a page
  *   <product>/images/            assets only
- * Products without <product>/_meta.yml are "legacy" (folder-per-page index.md) and are
- * reported but not parsed here.
+ * Every top-level folder except tools/ is a product and must have <product>/_meta.yml.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -25,11 +24,11 @@ export const META_FILE = '_meta.yml'
 export const IMAGES_DIR = 'images'
 
 // Top-level directories that are never products.
-const RESERVED_ROOT_DIRS = new Set(['tools', 'shared', 'node_modules'])
+const RESERVED_ROOT_DIRS = new Set(['tools', 'node_modules'])
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 const ALLOWED_EXTENSIONS = new Set(['md', 'yml', 'png', 'jpg', 'jpeg', 'gif', 'webp', 'avif'])
 const ALLOWED_SCHEMES = new Set(['http:', 'https:', 'mailto:', 'tel:'])
-// Errors even in legacy content: these can execute script when rendered.
+// Named in their own error message: these can execute script when rendered.
 const DANGEROUS_SCHEMES = new Set(['javascript:', 'vbscript:', 'data:'])
 
 const ROOT_META_KEYS = { title: 'string', subtitle: 'string', pages: 'array' }
@@ -51,15 +50,32 @@ export function splitFrontmatter(source) {
   return { data: data ?? {}, body: source.slice(match[0].length), bodyLine }
 }
 
-/** Lists top-level product directories and whether each uses format v2 or legacy. */
+/**
+ * Git doesn't track folders, so a folder whose files were moved away (e.g. by a pull) can
+ * linger on someone's machine holding only a .DS_Store. It isn't part of the content.
+ */
+function isEffectivelyEmpty(dir) {
+  return fs
+    .readdirSync(dir, { withFileTypes: true })
+    .every(
+      (e) =>
+        e.name === '.DS_Store' ||
+        (e.isDirectory() && !e.isSymbolicLink() && isEffectivelyEmpty(path.join(dir, e.name))),
+    )
+}
+
+/** Lists the top-level product folders. */
 export function discoverProducts(root) {
   return fs
     .readdirSync(root, { withFileTypes: true })
-    .filter((e) => e.isDirectory() && !isHidden(e.name) && !RESERVED_ROOT_DIRS.has(e.name))
-    .map((e) => ({
-      name: e.name,
-      format: fs.existsSync(path.join(root, e.name, META_FILE)) ? 'v2' : 'legacy',
-    }))
+    .filter(
+      (e) =>
+        e.isDirectory() &&
+        !isHidden(e.name) &&
+        !RESERVED_ROOT_DIRS.has(e.name) &&
+        !isEffectivelyEmpty(path.join(root, e.name)),
+    )
+    .map((e) => ({ name: e.name }))
     .sort((a, b) => a.name.localeCompare(b.name))
 }
 
@@ -178,6 +194,7 @@ function buildFolderChildren(ctx, absDir, relDir, meta, depth) {
     const abs = path.join(absDir, entry.name)
     if (entry.isSymbolicLink()) continue // reported by checkFileTypes
     if (isHidden(entry.name)) continue
+    if (entry.isDirectory() && isEffectivelyEmpty(abs)) continue
     if (entry.name === 'index.md') {
       if (!entry.isFile()) {
         report.error(abs, 'index.md must be a file')
@@ -219,7 +236,8 @@ function buildFolderChildren(ctx, absDir, relDir, meta, depth) {
     const fileAbs = path.join(absDir, `${slug}.md`)
     const dirAbs = path.join(absDir, slug)
     const hasFile = fs.existsSync(fileAbs) && fs.lstatSync(fileAbs).isFile()
-    const hasDir = fs.existsSync(dirAbs) && fs.lstatSync(dirAbs).isDirectory()
+    const hasDir =
+      fs.existsSync(dirAbs) && fs.lstatSync(dirAbs).isDirectory() && !isEffectivelyEmpty(dirAbs)
     if (hasFile && hasDir) {
       report.error(dirAbs, `both ${slug}.md and ${slug}/ exist; they would have the same URL`)
       return
@@ -425,9 +443,7 @@ export function urlScheme(target) {
 function checkLinks(root, products, bodies, report) {
   const byName = new Map(products.map((p) => [p.name, p]))
   for (const { product, file, body, bodyLine } of bodies) {
-    const sourceIsV2 = byName.get(product)?.format === 'v2'
-    const problem = (msg, line) =>
-      sourceIsV2 ? report.error(file, msg, line) : report.warn(file, msg, line)
+    const problem = (msg, line) => report.error(file, msg, line)
 
     for (const { kind, target, line: rawLine } of extractLinks(body)) {
       const line = rawLine + bodyLine - 1
@@ -462,7 +478,7 @@ function checkLinks(root, products, bodies, report) {
         const abs = path.join(root, ...segments)
         if (segments.includes('..') || !fs.existsSync(abs) || !fs.lstatSync(abs).isFile()) {
           problem(`${kind} "${target}" does not exist`, line)
-        } else if (sourceIsV2 && !(segments[1] === IMAGES_DIR && byName.get(segments[0])?.format === 'v2')) {
+        } else if (!(segments[1] === IMAGES_DIR && byName.has(segments[0]))) {
           report.error(file, `${kind} "${target}" must live under /<product>/${IMAGES_DIR}/`, line)
         }
         continue
@@ -481,12 +497,7 @@ function checkLinks(root, products, bodies, report) {
         continue
       }
       const rest = segments.slice(1).join('/')
-      const exists =
-        rest === '' ||
-        (targetProduct.format === 'v2'
-          ? targetProduct.nodePaths.has(rest)
-          : fs.existsSync(path.join(root, segments[0], ...segments.slice(1), 'index.md')))
-      if (!exists) problem(`link target "${target}" does not exist`, line)
+      if (rest !== '' && !targetProduct.nodePaths.has(rest)) problem(`link target "${target}" does not exist`, line)
     }
   }
 }
@@ -520,9 +531,8 @@ const ROOT_FILES = new Set([
 const TOOL_EXTENSIONS = new Set(['mjs', 'js', 'json', 'txt'])
 
 /**
- * The sites currently serve this whole checkout as static files on their own origin, so
- * every file here is publicly reachable. Content may only contain markdown, _meta.yml and
- * raster images: an .svg or .html anywhere could run script on jito.network. Tooling and
+ * Content may only contain markdown, _meta.yml and raster images. The sites publish product
+ * images from their own origin, and an .svg or .html there could run script. Tooling and
  * workflow files are allowed only in their own places.
  */
 function checkFileTypes(root, report) {
@@ -559,25 +569,6 @@ function checkFileTypes(root, report) {
   }
 }
 
-/** Collects legacy page bodies so links in legacy content are checked too (as warnings). */
-function collectLegacyBodies(root, product, bodies) {
-  const walk = (dir) => {
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      const abs = path.join(dir, entry.name)
-      if (entry.isDirectory() && !isHidden(entry.name)) walk(abs)
-      else if (entry.isFile() && entry.name === 'index.md') {
-        try {
-          const { body, bodyLine } = splitFrontmatter(fs.readFileSync(abs, 'utf8'))
-          bodies.push({ product, file: abs, body, bodyLine })
-        } catch {
-          // Legacy frontmatter problems are the legacy validator's job.
-        }
-      }
-    }
-  }
-  walk(path.join(root, product))
-}
-
 /**
  * Parses and validates the content tree.
  * Returns { manifest, errors, warnings }. The manifest is only trustworthy when errors is empty.
@@ -591,11 +582,6 @@ export function buildManifest(root, { dates = null, ref = null } = {}) {
   const bodies = []
 
   for (const product of products) {
-    if (product.format === 'legacy') {
-      manifest.products[product.name] = { format: 'legacy' }
-      collectLegacyBodies(root, product.name, bodies)
-      continue
-    }
     const dir = path.join(root, product.name)
     const ctx = { root, product: product.name, report, dates, pages: manifest.pages, bodies }
     const meta = readMeta(dir, { isProductRoot: true }, report)

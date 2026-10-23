@@ -297,8 +297,8 @@ Each operator accumulates voting power from all the different delegations they r
 **Example:**
 
 - Vault A (holding Alice, weight W) delegates 100 tokens to Operator X. Power contribution: 100 \* W.
-- Vault B (holding Bob, weight 2W) delegates 50 tokens to Operator X. Power contribution: 50 _2W = 100_ W.
-- Operator X's total voting power would be (100 _W) + (50_ 2W) = 200 \* W.
+- Vault B (holding Bob, weight 2W) delegates 50 tokens to Operator X. Power contribution: 50 \* 2W = 100 \* W.
+- Operator X's total voting power would be (100 \* W) + (50 \* 2W) = 200 \* W.
 
 This distributed delegation model enables testing complex scenarios where:
 
@@ -321,8 +321,8 @@ Each operator accumulates voting power from all the different delegations they r
 **Example:**
 
 - Vault A (holding TKN1, weight W) delegates 100 tokens to Operator X. Power contribution: 100 \* W.
-- Vault B (holding TKN2, weight 2W) delegates 50 tokens to Operator X. Power contribution: 50 _2W = 100_ W.
-- Operator X's total voting power would be (100 _W) + (50_ 2W) = 200 \* W.
+- Vault B (holding TKN2, weight 2W) delegates 50 tokens to Operator X. Power contribution: 50 \* 2W = 100 \* W.
+- Operator X's total voting power would be (100 \* W) + (50 \* 2W) = 200 \* W.
 
 This distributed delegation model enables testing complex scenarios where:
 

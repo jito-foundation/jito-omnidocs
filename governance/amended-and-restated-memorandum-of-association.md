@@ -15,19 +15,16 @@ title: Amended And Restated Memorandum Of Association
 
 **a foundation company limited by guarantee without share capital**
 
-\*\*A FOUNDATION COMPANY LIMITED BY GUARANTEE WITHOUT SHARE CAPITAL
+A FOUNDATION COMPANY LIMITED BY GUARANTEE WITHOUT SHARE CAPITAL
 
 (ADOPTED BY DIRECTOR'S RESOLUTION DATED DECEMBER 6, 2023)
-\*\*
 
 WALKERS (Cayman) LLP
 190 Elgin Avenue, George Town, 
 Grand Cayman, KY1-9001, Cayman Islands
 T +1 345 949 0100   F +1 345 949 7886   www.walkersglobal.com
 
-\*\*Ref: KG/CK/185745
-
-\*\*
+Ref: KG/CK/185745
 
 **THE COMPANIES ACT (AS AMENDED)**
 

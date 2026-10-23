@@ -3,8 +3,6 @@ title: Getting started
 subtitle: Integration and onboarding path for market maker teams.
 ---
 
-# Getting started
-
 ## Getting Enrolled
 
 Enrollment is configured by the BAM node operator before the node starts. Provide the following details:

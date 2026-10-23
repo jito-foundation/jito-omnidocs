@@ -2,8 +2,6 @@
 title: Steward API
 ---
 
-# Steward API
-
 ## Events Endpoint
 
 This endpoint allows you to retrieve various events related to the Steward program. Events are emitted by the Steward program when certain actions occur, such as when a validator is scored, or when rebalancing takes place.

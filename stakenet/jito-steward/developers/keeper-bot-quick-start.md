@@ -131,7 +131,7 @@ docker compose --env-file .env up -d --build  stakenet-keeper --remove-orphans
 docker logs stakenet-keeper -f
 ```
 
-### Stop Docker\*\*
+### Stop Docker
 
 ```bash
 docker stop stakenet-keeper; docker rm stakenet-keeper;

@@ -7,7 +7,7 @@ JTO is the governance token of the Jito Network, enabling community members to h
 
 Jito's growth within the Solana ecosystem has been substantial. JitoSOL is the largest Liquid Staking Token (LST) on Solana, boasting a Total Value Locked (TVL) of 14m SOL (as of November 2024), while the Jito MEV network of validators running the Jito-Solana client operates over 90% of network-stake weight (as of November 2024) . This article aims to offer a comprehensive understanding of the utility and role of the JTO tokens in governance of the Jito Network.
 
-## **Governance **
+## Governance
 
 JTO enables token holders to make key decisions to shape the future of the Jito Network so that it continues to evolve and thrive in alignment with the needs of those it serves, and of the broader Solana ecosystem. These decisions and initiatives may include:
 
@@ -89,8 +89,6 @@ A portion of JTO tokens was allocated to Jito’s founders and current and futur
 The chart below shows how the circulating supply of JTO tokens will evolve over time:
 
 ![circulating supply](/governance/images/FINAL_Supply_Schedule.png)
-
-**
 
 *Note: the evolution of the JTO circulating supply over time is subject to change as the community makes future decisions on the use of funds and pace of disbursements.*
 

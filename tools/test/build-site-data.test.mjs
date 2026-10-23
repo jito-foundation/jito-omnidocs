@@ -18,7 +18,10 @@ const run = (root, extra = []) => {
 test('builds pages, manifest, redirects, search, markdown exports, llms.txt and images', () => {
   const root = writeTree({
     ...validProduct(),
-    'fullsend/how-to/step-1.md': page('Step 1', 'Go to [setup](/fullsend/how-to/on-android/setup#a).\n\n![d](/fullsend/images/diagram.png)'),
+    'fullsend/how-to/step-1.md': page(
+      'Step 1',
+      'Go to [setup](/fullsend/how-to/on-android/setup#a) or [android](/fullsend/how-to/on-android).\n\n![d](/fullsend/images/diagram.png)',
+    ),
   })
   const r = run(root, ['--site-url', 'https://site.example', '--site-name', 'Example Docs', '--ref', 'abc'])
   assert.equal(r.status, 0, r.stderr)
@@ -50,12 +53,39 @@ test('builds pages, manifest, redirects, search, markdown exports, llms.txt and 
   assert.match(md, /^# Step 1\n/)
   assert.match(md, /\(https:\/\/site\.example\/docs\/fullsend\/how-to\/on-android\/setup\.md#a\)/)
   assert.match(md, /\(https:\/\/site\.example\/omnidocs\/fullsend\/images\/diagram\.png\)/)
+  // A link to a dropdown row (no page of its own) points at the page it redirects to.
+  assert.match(md, /\[android\]\(https:\/\/site\.example\/docs\/fullsend\/how-to\/on-android\/setup\.md\)/)
+
+  const whole = r.read(r.pub, 'docs/fullsend.md')
+  assert.match(whole, /^# FullSend\n\n# Overview\n/)
+  assert.ok(whole.indexOf('# Step 1') < whole.indexOf('# Setup'), 'pages in nav order')
 
   const llms = r.read(r.pub, 'llms.txt')
   assert.match(llms, /^# Example Docs\n/)
   assert.match(llms, /- \[Step 1\]\(https:\/\/site\.example\/docs\/fullsend\/how-to\/step-1\.md\)/)
   assert.match(r.read(r.pub, 'llms-full.txt'), /# Setup/)
   assert.equal(r.read(r.pub, 'omnidocs/fullsend/images/diagram.png'), 'png')
+})
+
+test('a rebuild removes outputs from products that are no longer published', () => {
+  const root = writeTree({
+    ...validProduct(),
+    'other/_meta.yml': meta('Other', ['a']),
+    'other/a.md': page('A'),
+  })
+  const first = run(root, ['--products', 'fullsend,other', '--site-url', 'https://site.example'])
+  assert.equal(first.status, 0, first.stderr)
+  const again = spawnSync(
+    process.execPath,
+    [script, '--root', root, '--out', first.out, '--public', first.pub, '--products', 'other'],
+    { encoding: 'utf8' },
+  )
+  assert.equal(again.status, 0, again.stderr)
+  for (const gone of ['pages/fullsend']) assert.ok(!fs.existsSync(path.join(first.out, gone)), gone)
+  for (const gone of ['docs/fullsend', 'docs/fullsend.md', 'omnidocs/fullsend', 'llms.txt']) {
+    assert.ok(!fs.existsSync(path.join(first.pub, gone)), gone)
+  }
+  assert.ok(fs.existsSync(path.join(first.out, 'pages/other/a.json')))
 })
 
 test('only the requested products are published', () => {

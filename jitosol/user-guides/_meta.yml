@@ -1,0 +1,9 @@
+title: User Guides
+subtitle: In-depth guides for JitoSOL features and interfaces.
+type: header
+pages:
+  - defi-page-guide
+  - restaking
+  - interceptor
+  - managing-your-stakes
+  - mev-harvesting-guide

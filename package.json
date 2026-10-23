@@ -1,16 +1,11 @@
 {
   "name": "jito-docs-validator",
   "version": "1.0.0",
-  "description": "Documentation structure validator for Jito Omnidocs",
-  "main": "validate-docs-structure.js",
-  "bin": {
-    "validate-docs": "./validate-docs-structure.js"
-  },
+  "description": "Jito docs content and its validator/renderer tooling",
+  "private": true,
   "scripts": {
-    "validate": "node validate-docs-structure.js",
-    "validate:critical": "node validate-docs-structure.js --only-critical",
-    "test": "node validate-docs-structure.js --path . && node --test tools/test/*.test.mjs",
-    "check": "node tools/build-manifest.mjs --check"
+    "validate": "node tools/build-manifest.mjs --check",
+    "test": "node --test tools/test/*.test.mjs"
   },
   "dependencies": {
     "commander": "11.1.0",

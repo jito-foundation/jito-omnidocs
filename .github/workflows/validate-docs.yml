@@ -31,13 +31,6 @@ jobs:
       - name: Test docs tooling
         run: node --test tools/test/*.test.mjs
 
-      - name: Run critical documentation validation
-        run: node validate-docs-structure.js --only-critical
-        
-      - name: Run full documentation validation
-        run: node validate-docs-structure.js
-        continue-on-error: true
-        
       - name: Comment on PR with validation results
         if: failure() && github.event_name == 'pull_request'
         uses: actions/github-script@v7

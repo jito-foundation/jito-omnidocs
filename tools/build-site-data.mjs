@@ -58,10 +58,10 @@ for (const e of errors) console.error(`error ${e.file}${e.line ? `:${e.line}` : 
 if (errors.length) process.exit(1)
 
 const allProducts = Object.keys(manifest.products)
-const published = args.products ? args.products.split(',').map((s) => s.trim()).filter(Boolean) : allProducts.filter((p) => manifest.products[p].format === 'v2')
+const published = args.products ? args.products.split(',').map((s) => s.trim()).filter(Boolean) : allProducts
 for (const p of published) {
-  if (manifest.products[p]?.format !== 'v2') {
-    console.error(`error: product "${p}" is ${manifest.products[p] ? 'not in format v2' : 'not in the content'}`)
+  if (!manifest.products[p]) {
+    console.error(`error: product "${p}" is not in the content`)
     process.exit(1)
   }
 }

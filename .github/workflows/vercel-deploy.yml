@@ -26,11 +26,8 @@ jobs:
         with:
           predicate-quantifier: 'every'
           filters: |
-            # shared/** holds images for every product (incl. shared/images/bam/ until the
-            # v2 migration moves them), so it deploys both sites. One brace glob, because
-            # predicate-quantifier 'every' requires a file to match every pattern listed.
             bam:
-              - '{bam,shared}/**'
+              - 'bam/**'
             # tools/** is excluded: sites vendor a pinned copy of tools/, so a tools change
             # alone needs no redeploy.
             main:

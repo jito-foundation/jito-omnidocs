@@ -66,17 +66,43 @@ test('first page skips non-page rows', () => {
   assert.equal(build(files).manifest.products.p.firstPage, 'group/a')
 })
 
-test('legacy products are detected and skipped, reserved dirs are not products', () => {
+test('a product folder without _meta.yml is an error, not skipped', () => {
+  // Regression: products without root metadata used to be treated as an older format and
+  // skipped, so CI passed while the sites' builds failed.
+  const files = { ...validProduct(), 'jitosol/intro.md': page('Intro') }
+  assert.deepEqual(messages(build(files).errors), ['jitosol: folder is missing _meta.yml'])
+  const noRootMeta = validProduct()
+  delete noRootMeta['fullsend/_meta.yml']
+  expectError(noRootMeta, /^fullsend: folder is missing _meta\.yml/)
+})
+
+test('names starting with _ (other than _meta.yml) and non-slug product folders are errors', () => {
+  // Folders and files starting with _ are skipped, so without this they'd vanish silently.
+  expectError({ ...validProduct(), '_bam/_meta.yml': meta('B', ['a']), '_bam/a.md': page('A') }, /_bam\/a\.md: names starting with "_" are reserved/)
+  expectError({ ...validProduct(), 'fullsend/_drafts/x.md': page('X') }, /_drafts\/x\.md: names starting with "_" are reserved/)
+  expectError({ ...validProduct(), 'fullsend/_x.md': page('X') }, /_x\.md: names starting with "_" are reserved/)
+  expectError({ 'Bam Docs/_meta.yml': meta('B', ['a']), 'Bam Docs/a.md': page('A') }, /Bam Docs: product folder names must be lowercase-kebab-case/)
+})
+
+test('tools/ and hidden folders are not products', () => {
+  const { manifest, errors } = build({ ...validProduct(), 'tools/x.mjs': '', '.github/workflows/x.yml': '' })
+  assert.deepEqual(messages(errors), [])
+  assert.deepEqual(Object.keys(manifest.products), ['fullsend'])
+})
+
+test('folders left holding only .DS_Store are ignored', () => {
+  // Git doesn't track folders, so a pull that moves a folder's files can leave it behind
+  // locally with just Finder's .DS_Store in it.
   const { manifest, errors } = build({
     ...validProduct(),
-    'jitosol/intro/index.md': '---\ntitle: Intro\norder: 1\nsection_type: page\n---\n\nHi\n',
-    'tools/x.mjs': '',
-    'shared/images/a.png': 'png',
-    '.github/workflows/x.yml': '',
+    'shared/images/.DS_Store': '',
+    'fullsend/old-page/.DS_Store': '',
+    'fullsend/overview/.DS_Store': '', // next to overview.md: not "both overview.md and overview/"
+    'fullsend/how-to/gone/deeper/.DS_Store': '',
+    'fullsend/how-to/empty/': null,
   })
   assert.deepEqual(messages(errors), [])
-  assert.deepEqual(Object.keys(manifest.products), ['fullsend', 'jitosol'])
-  assert.deepEqual(manifest.products.jitosol, { format: 'legacy' })
+  assert.deepEqual(Object.keys(manifest.products), ['fullsend'])
 })
 
 test('every file and folder must be listed, and every listed slug must exist', () => {
@@ -142,10 +168,10 @@ test('assets: images/ only at product root, no stray files, no symlinks', () => 
   assert.ok(errors.some((e) => /symbolic links are not allowed/.test(e.message)), messages(errors).join('\n'))
 })
 
-test('only plain content and raster images are allowed, in products and shared/', () => {
+test('only plain content and raster images are allowed in products', () => {
   expectError({ ...validProduct(), 'fullsend/images/logo.svg': '<svg/>' }, /logo\.svg: file type not allowed/)
-  expectError({ ...validProduct(), 'shared/images/x.html': '<script>' }, /x\.html: file type not allowed/)
-  expectError({ ...validProduct(), 'jitosol/intro/index.md': page('I'), 'jitosol/intro/a.js': '' }, /a\.js: file type not allowed/)
+  expectError({ ...validProduct(), 'fullsend/how-to/x.html': '<script>' }, /x\.html: file type not allowed/)
+  expectError({ ...validProduct(), 'fullsend/how-to/a.js': '' }, /a\.js: file type not allowed/)
   expectError({ ...validProduct(), 'fullsend/how-to/notes.yml': 'a: 1' }, /notes\.yml: file type not allowed/)
   expectError({ ...validProduct(), 'fullsend/how-to/.secret': 'x' }, /\.secret: hidden files and folders are not allowed/)
   expectError({ ...validProduct(), 'fullsend/.hidden/x.md': 'x' }, /hidden files and folders are not allowed/)
@@ -175,7 +201,7 @@ test('dangerous URL schemes are caught through entities, whitespace and unquoted
   assert.equal(urlScheme('JaVaScRiPt&colon;x'), 'javascript:')
   assert.equal(urlScheme('/fullsend/overview'), null)
 
-  const legacy = (body) => ({ 'jitosol/intro/index.md': `---\ntitle: Intro\n---\n\n${body}\n` })
+  const withBody = (body) => ({ ...validProduct(), 'fullsend/how-to/step-1.md': page('Step 1', body) })
   for (const body of [
     '<a href=javascript:alert(1)>x</a>',
     '[x](&#106;avascript:alert(1))',
@@ -186,19 +212,19 @@ test('dangerous URL schemes are caught through entities, whitespace and unquoted
     '<svg><a xlink:href="javascript:alert(1)">x</a></svg>',
     '<template><a href="javascript:alert(1)">x</a></template>',
   ]) {
-    const { errors } = build(legacy(body))
+    const { errors } = build(withBody(body))
     assert.equal(errors.length, 1, `${body} -> ${messages(errors).join('; ') || 'no errors'}`)
     assert.match(errors[0].message, /is never allowed/)
   }
 })
 
 test('code and comment masking cannot hide links across paragraphs', () => {
-  const legacy = (body) => ({ 'jitosol/intro/index.md': `---\ntitle: Intro\n---\n\n${body}\n` })
+  const withBody = (body) => ({ ...validProduct(), 'fullsend/how-to/step-1.md': page('Step 1', body) })
   for (const body of [
     'a stray ` here\n\n[x](javascript:alert(1))\n\nand another ` here',
     'text <!-- not closed here\n\n[x](javascript:alert(1))\n\nlater --> text',
   ]) {
-    assert.equal(build(legacy(body)).errors.length, 1, body)
+    assert.equal(build(withBody(body)).errors.length, 1, body)
   }
   // Real code spans, fenced blocks and block comments are still ignored.
   for (const body of [
@@ -206,7 +232,7 @@ test('code and comment masking cannot hide links across paragraphs', () => {
     '```\n[x](javascript:1)\n\n[y](javascript:2)\n```',
     '<!--\n[x](javascript:1)\n\n[y](javascript:2)\n-->',
   ]) {
-    assert.deepEqual(messages(build(legacy(body)).errors), [], body)
+    assert.deepEqual(messages(build(withBody(body)).errors), [], body)
   }
 })
 
@@ -232,7 +258,7 @@ test('links in v2 pages must be root-absolute and resolve', () => {
   expectError(withBody('[x](/fullsend/nope)'), /"\/fullsend\/nope" does not exist/)
   expectError(withBody('[x](/stake)'), /not a docs page/)
   expectError(withBody('![x](/fullsend/images/missing.png)'), /image "\/fullsend\/images\/missing\.png" does not exist/)
-  expectError({ ...withBody('![x](/shared/images/a.png)'), 'shared/images/a.png': 'png' }, /must live under \/<product>\/images\//)
+  expectError({ ...withBody('![x](/fullsend/how-to/a.png)'), 'fullsend/how-to/a.png': 'png' }, /must live under \/<product>\/images\//)
   expectError(withBody('<a href="javascript:alert(1)">x</a>'), /"javascript:" is never allowed/)
   expectError(withBody('[x](about:blank)'), /"about:" is not allowed/)
 
@@ -249,29 +275,6 @@ test('links in v2 pages must be root-absolute and resolve', () => {
   assert.deepEqual(messages(errors), [])
   assert.deepEqual(messages(warnings), [])
 })
-
-test('links to legacy products are checked against their folders', () => {
-  const files = {
-    ...validProduct(),
-    'jitosol/intro/index.md': '---\ntitle: Intro\n---\n\nHi\n',
-    'fullsend/how-to/step-1.md': page('Step 1', '[ok](/jitosol/intro) [bad](/jitosol/nope)'),
-  }
-  const { errors } = build(files)
-  assert.deepEqual(messages(errors), ['fullsend/how-to/step-1.md: link target "/jitosol/nope" does not exist'])
-  assert.equal(errors[0].line, 5) // frontmatter is 3 lines + blank line
-})
-
-test('link problems in legacy pages are warnings, dangerous schemes are errors', () => {
-  const files = {
-    'jitosol/intro/index.md': '---\ntitle: Intro\n---\n\n[x](relative.md) [y](about:blank)\n',
-  }
-  const { errors, warnings } = build(files)
-  assert.deepEqual(messages(errors), [])
-  assert.equal(warnings.length, 2)
-  const bad = build({ 'jitosol/intro/index.md': '---\ntitle: Intro\n---\n\n[x](javascript:void(0))\n' })
-  assert.equal(bad.errors.length, 1)
-})
-
 
 test('splitFrontmatter handles BOM, CRLF, empty frontmatter and none', () => {
   assert.deepEqual(splitFrontmatter('﻿---\r\ntitle: A\r\n---\r\nbody').data, { title: 'A' })

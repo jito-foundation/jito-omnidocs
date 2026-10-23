@@ -20,16 +20,17 @@ The core operations of the Steward Program are permissionless such that any cran
 ### Table of Contents
 
 1. [Program Overview](/stakenet/jito-steward/program-overview/)
-2. [Parameters](/stakenet/jito-steward/parameters/)
-3. [StakeNet UI](/stakenet/jito-steward/ui/) (work in progress)
-4. Developers
+2. [Directed Staking](/stakenet/jito-steward/directed-staking/)
+3. [Parameters](/stakenet/jito-steward/parameters/)
+4. [StakeNet UI](/stakenet/jito-steward/ui/) (work in progress)
+5. Developers
    - [Steward CLI Guide](/stakenet/jito-steward/developers/cli/)
    - [Events API](/stakenet/jito-steward/developers/api/)
    - [Running a Keeper](/stakenet/jito-steward/developers/keeper-bot-quick-start/)
-5. Advanced Concepts
+6. Advanced Concepts
    - [SPL Stake Pool Internals](/stakenet/jito-steward/advanced/spl-stake-pool-internals/)
    - [Validator States](/stakenet/jito-steward/advanced/managing-validator-states/)
-6. [Validator FAQ](/stakenet/jito-steward/faq/) (work in progress)
+7. [Validator FAQ](/stakenet/jito-steward/faq/) (work in progress)
 
 
 ## Validator History Program

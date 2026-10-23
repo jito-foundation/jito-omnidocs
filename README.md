@@ -31,9 +31,19 @@ content.
 
 ```bash
 yarn install
-yarn check   # validates structure, frontmatter, links, images and file types
-yarn test    # tests for the tooling in tools/
+yarn validate   # validates structure, frontmatter, links, images and file types
+yarn test       # tests for the tooling in tools/
 ```
 
 `tools/` holds the parser/validator and the renderer the sites use. The sites vendor a
-pinned copy, so a change in `tools/` only reaches a site when that site re-syncs it.
+pinned copy, so a change in `tools/` only reaches a site when that site re-syncs it. See
+[How the sites build it](CONTRIBUTING.md#how-the-sites-build-it).
+
+## Where did my file go?
+
+In October 2026 the docs moved to a flatter layout, so old GitHub links to files may 404
+(links to the docs sites and to product folders still work):
+
+- Pages: `<folder>/index.md` is now `<folder>.md`, e.g. `jitosol/faqs/general-faqs/index.md`
+  → `jitosol/faqs/general-faqs.md`.
+- Images: `shared/images/<product>/<file>` is now `<product>/images/<file>`.

@@ -19,6 +19,6 @@ CONTRIBUTING.md for the full guide; these are the rules that matter most.
 - **This repo is public.** Pushing a branch publishes it. Don't bring in internal details
   from private repos (infra, internal hostnames, config, keys, architecture notes).
 - Prefer Markdown over raw HTML; the sites strip scripts, iframes, forms and inline styles.
-- Before finishing: `yarn check` must report 0 errors. For tooling changes, `yarn test`.
+- Before finishing: `yarn validate` must report 0 errors. For tooling changes, `yarn test`.
 - Don't edit `tools/` for content work. Sites vendor a pinned copy of it.
 - Commits must be signed; leave committing and pushing to the human unless asked.

@@ -7,7 +7,7 @@ This guide covers how to update docs, from fixing a typo to adding a whole produ
 1. **Branch** off `master` (e.g. `yourname/fullsend-auth-section`).
 2. **Edit** Markdown files (see the layout below). Preview your Markdown in your editor or
    on GitHub.
-3. **Check** locally: `yarn install && yarn check`. It tells you exactly what's wrong and on
+3. **Check** locally: `yarn install && yarn validate`. It tells you exactly what's wrong and on
    which line.
 4. **Open a PR.** CI runs the same check. Ask the product's owners to review the content.
 5. **Merge.** CI validates `master` again, then redeploys the site that shows that product
@@ -115,14 +115,14 @@ add the folder name to the parent's `pages`.
 **Reorder:** change the order of `pages` in `_meta.yml`. URLs don't change.
 
 **Rename or move a page:** move the file and update `pages` lists. **The URL changes**, so
-search the repo for links to the old path (`yarn check` reports broken ones) and tell the
+search the repo for links to the old path (`yarn validate` reports broken ones) and tell the
 site owner, who can add a redirect for external links.
 
 **Add a new product:** create `<product>/_meta.yml` and its pages. The site also has to
 enable it: on jito.network that's a small site change (adding the product to the docs
 product list and the hub). A product folder that isn't enabled is validated but not shown.
 
-## When `yarn check` complains
+## When `yarn validate` complains
 
 | Message | Fix |
 |---|---|
@@ -138,9 +138,38 @@ Raw HTML is allowed for simple formatting (`<u>`, `<small>`, `<figure>`, `<img>`
 but the sites strip anything interactive or styled (scripts, iframes, forms, `style`
 attributes). Prefer plain Markdown.
 
-## How it's built (for the curious)
+## How the sites build it
 
-`tools/build-site-data.mjs` validates the content, renders every page to HTML (with code
-highlighting and heading anchors), and writes the search index, per-page `.md` files and
-`llms.txt` for AI agents. Each site runs it on the exact commit it deploys, using a pinned
-copy of `tools/`.
+Writers can skip this. It's for people working on `tools/` or on a docs site.
+
+`tools/` is the only implementation of the content format:
+
+| File | What it does |
+|---|---|
+| `manifest-lib.mjs` | Parses and validates the layout, frontmatter, links, images and file types. |
+| `build-manifest.mjs` | Its CLI; `--check` is what CI and `yarn validate` run. |
+| `render.mjs` | Markdown to sanitized HTML, heading ids, code highlighting, mermaid placeholders. |
+| `build-site-data.mjs` | Everything a site needs: nav, rendered pages, search index, `.md` exports, `llms.txt`, images. |
+| `git-dates.mjs` | "Last updated" dates from git history (skips commits marked `[skip-dates]`). |
+
+Each file's header documents its options and outputs. On every deploy, a site:
+
+1. checks out this repo at the commit it publishes, with full history;
+2. runs `git-dates.mjs`, then `build-site-data.mjs` for its own products (a product a site
+   doesn't publish is still validated, just not shown). Any content error fails the build,
+   so broken docs never deploy;
+3. serves the prebuilt pages. Nothing is rendered or fetched at request time.
+
+**Sites run a pinned copy of `tools/`.** Each site keeps a reviewed copy at an exact commit
+of this repo and never runs tools from the content it's building, because content here is
+public and comes from PRs. A change to `tools/` therefore reaches a site only when that site
+re-syncs to a newer commit.
+
+**Changing the tools:**
+
+- Add or update tests in `tools/test/` and run `yarn test`.
+- Keep the options and output layout backward compatible. If you can't, say so in the PR:
+  every site has to re-sync and adapt.
+- Change the content format and migrate the content in the same PR, so `master` always
+  validates.
+- After merging, re-sync each site to the merge commit and check its docs.

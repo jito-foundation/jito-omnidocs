@@ -32,7 +32,7 @@ The Foundation structure amplifies the power of the Jito Network. Token holder d
 
 The Foundation is led by two independent Directors (Matt Shaw and Glenn Kennedy), with an independent Supervisor provided by FFP Corporate Services. The Foundation’s DAO administrator is [Webslinger](https://www.webslinger.io/), an advisory firm for leading crypto projects. Token holders have ultimate control over the Foundation with the ability to remove the Supervisor and Directors. Transparency reports are provided on a regular basis by the Foundation.
 
-Jito Foundation is governed by its [Constitution](https://www.jito.network/docs/governance/overview/), [Bylaws](https://www.jito.network/docs/governance/bylaws-of-the-jito-foundation/) and [Articles of Association and Memorandum of Association](https://www.jito.network/docs/governance/amended-and-restated-memorandum-of-association/).
+Jito Foundation is governed by its [Constitution](/governance/constitution-of-the-jito-foundation), [Bylaws](/governance/bylaws-of-the-jito-foundation) and [Articles of Association and Memorandum of Association](/governance/amended-and-restated-memorandum-of-association).
 
 ## **Allocation Details**
 

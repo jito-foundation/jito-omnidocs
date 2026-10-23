@@ -80,6 +80,9 @@ test('code: highlighted at build time, mermaid as a placeholder, unknown languag
 
 test('GFM and the raw HTML docs use', () => {
   assert.match(html('| a | b |\n|:-|-:|\n| 1 | 2 |'), /<th align="left">a<\/th><th align="right">b<\/th>/)
+  // Tables are wrapped in a scroll container (once), so wide ones don't widen the page.
+  assert.match(html('| a |\n|-|\n| 1 |'), /^<div class="docs-table"><table>[\s\S]*<\/table><\/div>$/)
+  assert.equal((html('<table><tr><td>x</td></tr></table>').match(/docs-table/g) ?? []).length, 1)
   assert.equal(html('~~old~~ <u>u</u> <small>s</small>'), '<p><del>old</del> <u>u</u> <small>s</small></p>')
   assert.match(html('<figure><img src="/jitosol/images/a.png"><figcaption>c</figcaption></figure>'), /<figure><img src="\/omnidocs\/jitosol\/images\/a\.png"/)
 })

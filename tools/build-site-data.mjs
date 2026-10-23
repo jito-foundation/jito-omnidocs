@@ -11,10 +11,13 @@
  * <out>/pages/<p>/<path>.json  rendered page: html, headings, prev/next, breadcrumbs, dates
  * <out>/search-index.json      plain-text index of published pages
  * <public><site-prefix>/<p>/<path>.md   markdown for agents (absolute links)
+ * <public><site-prefix>/<p>.md          the whole product's markdown, in nav order
  * <public>/llms.txt, llms-full.txt     (when --site-url is given)
  * <public><asset-prefix>/<p>/images/** product images (raster only)
  *
  * Fails (exit 1) on any content error, so a site never builds from invalid content.
+ * Every run first deletes the outputs it manages (the files listed above), so nothing from
+ * an earlier build (e.g. a product that is no longer published) is left behind.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -66,6 +69,22 @@ for (const p of published) {
 const renderer = await createRenderer({ products: allProducts, publishedProducts: published, sitePrefix, assetPrefix })
 const outDir = path.resolve(args.out)
 const publicDir = path.resolve(args.public)
+const underPublic = (prefix) => path.join(publicDir, ...prefix.split('/').filter(Boolean))
+if (!sitePrefix || !assetPrefix) {
+  console.error('error: --site-prefix and --asset-prefix must not be empty (their folders are cleared on every build)')
+  process.exit(2)
+}
+for (const managed of [
+  path.join(outDir, 'pages'),
+  path.join(outDir, 'manifest.json'),
+  path.join(outDir, 'search-index.json'),
+  underPublic(sitePrefix),
+  underPublic(assetPrefix),
+  path.join(publicDir, 'llms.txt'),
+  path.join(publicDir, 'llms-full.txt'),
+]) {
+  fs.rmSync(managed, { recursive: true, force: true })
+}
 const write = (file, content) => {
   fs.mkdirSync(path.dirname(file), { recursive: true })
   fs.writeFileSync(file, content)
@@ -101,7 +120,15 @@ function exportMarkdown(page, body) {
     const [start, end] = m.indices[2]
     const target = body.slice(start, end)
     const isImage = m[1] === '!' || target.split('/')[2] === IMAGES_DIR
-    edits.push({ start, end, text: isImage ? `${base}${assetPrefix}${target}` : `${base}${docsHref(target, sitePrefix).replace(/\/(#|$)/, '.md$1')}` })
+    if (isImage) {
+      edits.push({ start, end, text: `${base}${assetPrefix}${target}` })
+      continue
+    }
+    // Rows that aren't pages have no .md file; point at the page they redirect to.
+    const cut = target.search(/[?#]/)
+    const key = (cut === -1 ? target : target.slice(0, cut)).replace(/^\/+|\/+$/g, '')
+    const resolved = `/${redirects[key] ?? key}${cut === -1 ? '' : target.slice(cut)}`
+    edits.push({ start, end, text: `${base}${docsHref(resolved, sitePrefix).replace(/\/(#|$)/, '.md$1')}` })
   }
   let out = body
   for (const e of edits.sort((a, b) => b.start - a.start)) out = out.slice(0, e.start) + e.text + out.slice(e.end)
@@ -111,6 +138,7 @@ function exportMarkdown(page, body) {
 const searchIndex = []
 const llms = {}
 const llmsFull = []
+const productMarkdown = {}
 for (const p of published) {
   const pages = manifest.pages.filter((page) => page.product === p)
   pages.forEach((page, i) => {
@@ -139,8 +167,14 @@ for (const p of published) {
     const md = exportMarkdown(page, body)
     write(path.join(publicDir, ...sitePrefix.split('/').filter(Boolean), p, `${page.urlPath}.md`), md)
     ;(llms[p] ??= []).push(page)
+    ;(productMarkdown[p] ??= []).push(md)
     llmsFull.push(md)
   })
+
+  write(
+    path.join(publicDir, ...sitePrefix.split('/').filter(Boolean), `${p}.md`),
+    `# ${manifest.products[p].title}\n\n${(productMarkdown[p] ?? []).join('\n---\n\n')}`,
+  )
 
   // Product images (raster only; the validator already rejects anything else).
   const imagesDir = path.join(root, p, IMAGES_DIR)

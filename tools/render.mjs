@@ -116,6 +116,12 @@ function transformTree(tree, { products, publishedProducts, sitePrefix, assetPre
       if (depth >= 2 && depth <= 4) headings.push({ depth, text, id: props.id })
     }
 
+    // Wide tables scroll inside their own box instead of widening the page on mobile.
+    if (node.tagName === 'table' && parent) {
+      parent.children[index] = { type: 'element', tagName: 'div', properties: { className: ['docs-table'] }, children: [node] }
+      return
+    }
+
     if (node.tagName === 'pre' && parent && isElement(node.children?.[0], 'code')) {
       const code = node.children[0]
       const className = [code.properties?.className ?? []].flat().find((c) => String(c).startsWith('language-'))

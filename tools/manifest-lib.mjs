@@ -560,6 +560,9 @@ function checkFileTypes(root, report) {
       if (!TOOL_EXTENSIONS.has(ext)) report.error(abs, `tools/ may only contain ${[...TOOL_EXTENSIONS].join(', ')} files`)
     } else if (rel.split('/').some((part) => part.startsWith('.'))) {
       report.error(abs, 'hidden files and folders are not allowed in content')
+    } else if (rel.split('/').some((part) => part.startsWith('_') && part !== META_FILE)) {
+      // These would be skipped (not listed, not published), so a typo would vanish silently.
+      report.error(abs, `names starting with "_" are reserved for ${META_FILE}`)
     } else if (!ALLOWED_EXTENSIONS.has(ext) || (ext === 'yml' && name !== META_FILE)) {
       report.error(
         abs,
@@ -583,6 +586,9 @@ export function buildManifest(root, { dates = null, ref = null } = {}) {
 
   for (const product of products) {
     const dir = path.join(root, product.name)
+    if (!SLUG_RE.test(product.name)) {
+      report.error(dir, 'product folder names must be lowercase-kebab-case (they are the URL)')
+    }
     const ctx = { root, product: product.name, report, dates, pages: manifest.pages, bodies }
     const meta = readMeta(dir, { isProductRoot: true }, report)
     const tree = meta ? buildFolderChildren(ctx, dir, '', meta, 0) : []

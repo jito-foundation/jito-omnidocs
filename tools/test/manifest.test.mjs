@@ -76,6 +76,14 @@ test('a product folder without _meta.yml is an error, not skipped', () => {
   expectError(noRootMeta, /^fullsend: folder is missing _meta\.yml/)
 })
 
+test('names starting with _ (other than _meta.yml) and non-slug product folders are errors', () => {
+  // Folders and files starting with _ are skipped, so without this they'd vanish silently.
+  expectError({ ...validProduct(), '_bam/_meta.yml': meta('B', ['a']), '_bam/a.md': page('A') }, /_bam\/a\.md: names starting with "_" are reserved/)
+  expectError({ ...validProduct(), 'fullsend/_drafts/x.md': page('X') }, /_drafts\/x\.md: names starting with "_" are reserved/)
+  expectError({ ...validProduct(), 'fullsend/_x.md': page('X') }, /_x\.md: names starting with "_" are reserved/)
+  expectError({ 'Bam Docs/_meta.yml': meta('B', ['a']), 'Bam Docs/a.md': page('A') }, /Bam Docs: product folder names must be lowercase-kebab-case/)
+})
+
 test('tools/ and hidden folders are not products', () => {
   const { manifest, errors } = build({ ...validProduct(), 'tools/x.mjs': '', '.github/workflows/x.yml': '' })
   assert.deepEqual(messages(errors), [])
@@ -89,6 +97,7 @@ test('folders left holding only .DS_Store are ignored', () => {
     ...validProduct(),
     'shared/images/.DS_Store': '',
     'fullsend/old-page/.DS_Store': '',
+    'fullsend/overview/.DS_Store': '', // next to overview.md: not "both overview.md and overview/"
     'fullsend/how-to/gone/deeper/.DS_Store': '',
     'fullsend/how-to/empty/': null,
   })
@@ -159,10 +168,10 @@ test('assets: images/ only at product root, no stray files, no symlinks', () => 
   assert.ok(errors.some((e) => /symbolic links are not allowed/.test(e.message)), messages(errors).join('\n'))
 })
 
-test('only plain content and raster images are allowed, in products and shared/', () => {
+test('only plain content and raster images are allowed in products', () => {
   expectError({ ...validProduct(), 'fullsend/images/logo.svg': '<svg/>' }, /logo\.svg: file type not allowed/)
-  expectError({ ...validProduct(), 'shared/images/x.html': '<script>' }, /x\.html: file type not allowed/)
-  expectError({ ...validProduct(), 'jitosol/intro/index.md': page('I'), 'jitosol/intro/a.js': '' }, /a\.js: file type not allowed/)
+  expectError({ ...validProduct(), 'fullsend/how-to/x.html': '<script>' }, /x\.html: file type not allowed/)
+  expectError({ ...validProduct(), 'fullsend/how-to/a.js': '' }, /a\.js: file type not allowed/)
   expectError({ ...validProduct(), 'fullsend/how-to/notes.yml': 'a: 1' }, /notes\.yml: file type not allowed/)
   expectError({ ...validProduct(), 'fullsend/how-to/.secret': 'x' }, /\.secret: hidden files and folders are not allowed/)
   expectError({ ...validProduct(), 'fullsend/.hidden/x.md': 'x' }, /hidden files and folders are not allowed/)

@@ -130,6 +130,12 @@ function exportMarkdown(page, body) {
     const resolved = `/${redirects[key] ?? key}${cut === -1 ? '' : target.slice(cut)}`
     edits.push({ start, end, text: `${base}${docsHref(resolved, sitePrefix).replace(/\/(#|$)/, '.md$1')}` })
   }
+  // Raw HTML images (<img src="/<product>/images/...">) need the same absolute URL.
+  for (const m of masked.matchAll(/<img\b[^>]*?\ssrc\s*=\s*(["'])(\/[^"']*)\1/dgi)) {
+    const [start, end] = m.indices[2]
+    const target = body.slice(start, end)
+    if (target.split('/')[2] === IMAGES_DIR) edits.push({ start, end, text: `${base}${assetPrefix}${target}` })
+  }
   let out = body
   for (const e of edits.sort((a, b) => b.start - a.start)) out = out.slice(0, e.start) + e.text + out.slice(e.end)
   return `# ${page.title}\n\n${page.subtitle ? `> ${page.subtitle}\n\n` : ''}${out.trim()}\n`

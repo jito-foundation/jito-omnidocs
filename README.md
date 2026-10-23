@@ -29,6 +29,8 @@ content.
 
 ## Checks
 
+Needs Node 24 (`.nvmrc`) and Yarn 1; see [Setup](CONTRIBUTING.md#setup).
+
 ```bash
 yarn install
 yarn validate   # validates structure, frontmatter, links, images and file types

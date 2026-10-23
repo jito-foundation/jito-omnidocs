@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { execFileSync } from 'node:child_process'
 import { buildManifest, splitFrontmatter, extractLinks, urlScheme } from '../manifest-lib.mjs'
 import { writeTree, page, meta, validProduct, messages } from './helpers.mjs'
 
@@ -82,6 +83,17 @@ test('names starting with _ (other than _meta.yml) and non-slug product folders 
   expectError({ ...validProduct(), 'fullsend/_drafts/x.md': page('X') }, /_drafts\/x\.md: names starting with "_" are reserved/)
   expectError({ ...validProduct(), 'fullsend/_x.md': page('X') }, /_x\.md: names starting with "_" are reserved/)
   expectError({ 'Bam Docs/_meta.yml': meta('B', ['a']), 'Bam Docs/a.md': page('A') }, /Bam Docs: product folder names must be lowercase-kebab-case/)
+})
+
+test('in a git checkout, new files are checked before they are added', () => {
+  // `yarn validate` before `git add` must see the same files CI will.
+  const root = writeTree({ ...validProduct(), 'fullsend/images/flow.svg': '<svg/>', 'fullsend/notes.tmp': 'x', '.gitignore': '*.tmp\n' })
+  execFileSync('git', ['init', '-q', root])
+  const { errors } = buildManifest(root)
+  assert.deepEqual(
+    messages(errors).filter((m) => /file type not allowed/.test(m)),
+    [`fullsend/images/flow.svg: file type not allowed; content may only contain md, yml, png, jpg, jpeg, gif, webp, avif (yml only as _meta.yml)`],
+  )
 })
 
 test('tools/ and hidden folders are not products', () => {

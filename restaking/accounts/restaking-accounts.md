@@ -3,7 +3,6 @@ title: Restaking Accounts
 subtitle: An overview of the accounts used in the Jito Restaking program.
 mermaid: true
 ---
-
 ## 1. About the program
 
 The restaking program acts as a registry for NCNs, operators, and relationships between NCNs, operators, and vaults.

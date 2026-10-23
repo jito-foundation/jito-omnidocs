@@ -2,7 +2,6 @@
 title: Key Features & Capabilities
 subtitle: Data persistence, aggregation, and transparent validator metrics
 ---
-
 The Validator History Program provides features designed to make validator data accessible, reliable, and actionable.
 
 ## Historical Data Persistence
@@ -40,7 +39,7 @@ Rather than requiring multiple API calls across different data sources, the Vali
 
 ## Single Account Access
 
-**Simplified Integration**: 
+**Simplified Integration**:
     Developers can access all validator data through a single ValidatorHistory account, eliminating the complexity of querying multiple data sources.
     This design enables seamless integration with other on-chain programs.
 

@@ -2,7 +2,6 @@
 title: (Re)staking Overview
 subtitle: Understanding Jito (Re)staking, vaults, NCNs, and node operators
 ---
-
 ## What is Jito (Re)staking?
 
 Jito (Re)staking is liquid staking infrastructure on Solana. It allows external networks to build staking protocol on Solana and enables users to (re)stake JitoSOL and other SPL tokens across these networks, simultaneously. (Re)staked assets provide economic security to these networks and earn rewards, creating opportunities for additional yield beyond traditional staking.
@@ -14,7 +13,7 @@ Jito (Re)staking is liquid staking infrastructure on Solana. It allows external 
 - **Multi-Asset Staking**: The ability to stake various types of SPL tokens, not limited to native blockchain tokens.
 - **Liquid Staking**: A form of staking that provides liquidity to Solana stakers.
 - **Node Consensus Network (NCN)**: A set of node operators running software for the same network, working together to achieve consensus and provide services.
-- **Node Operator (or Operator)**: A specialized party who runs core functionalities for NCNs, such as performing specific offchain computations and participating in consensus 
+- **Node Operator (or Operator)**: A specialized party who runs core functionalities for NCNs, such as performing specific offchain computations and participating in consensus
 - **(Re)staking**: The process of staking already-staked assets, such as liquid staking tokens. E.g. Whereas users can “stake” SOL to NCNs, users can “(re)stake” JitoSOL to NCNs.
 - **Staking**: The process of collateraliziung assets to support network operations and earn rewards.
 - **Slashing**: A penalty mechanism where a portion of staked assets and/or expected rewards are forfeited if an operator misbehaves or fails to meet performance requirements.
@@ -26,18 +25,18 @@ Jito (Re)staking is liquid staking infrastructure on Solana. It allows external 
 
 ### Vaults
 **What are Vaults?**
-Vaults serve as deposit pools that hold SPL tokens (e.g. JitoSOL) and issue vault receipt tokens (VRTs) representing those positions. Users retain ownership of their stake via liquid VRTs, enabling utility and composability in Solana's DeFi ecosystem. VRTs are burned when users withdraw their assets from the vault. 
+Vaults serve as deposit pools that hold SPL tokens (e.g. JitoSOL) and issue vault receipt tokens (VRTs) representing those positions. Users retain ownership of their stake via liquid VRTs, enabling utility and composability in Solana's DeFi ecosystem. VRTs are burned when users withdraw their assets from the vault.
 
 Vaults opt into supporting specific NCNs and delegate stake to approved operators. Each vault defines key parameters, including how much stake is allocated to each node operator and fees.
 
 ### NCNs (Node Consensus Networks)
 **What are NCNs?**
-NCNs are a set of node operators and onchain programs that reach consensus on offchain workloads and enforce onchain state transitions. In most cases, NCNs will include their own custom onchain programs to handle proof submissions, verify work, and distribute rewards. Consensus can take place onchain or offchain. For example, oracle networks, DePINs, bridges, DeFi apps, or entire blockchains can deploy an NCN to achieve consensus on an arbitrary result and finalize and distribute rewards, payments, and penalties. 
+NCNs are a set of node operators and onchain programs that reach consensus on offchain workloads and enforce onchain state transitions. In most cases, NCNs will include their own custom onchain programs to handle proof submissions, verify work, and distribute rewards. Consensus can take place onchain or offchain. For example, oracle networks, DePINs, bridges, DeFi apps, or entire blockchains can deploy an NCN to achieve consensus on an arbitrary result and finalize and distribute rewards, payments, and penalties.
 
-NCNs build custom staking mechanisms and use (re)staked assets for economic security, ensuring node operators have an economic commitment to follow protocol and maintain operation. 
+NCNs build custom staking mechanisms and use (re)staked assets for economic security, ensuring node operators have an economic commitment to follow protocol and maintain operation.
 
 **How NCNs Work:**
-- NCNs define an offchain protocol, and node operators opt in to service these operations. 
+- NCNs define an offchain protocol, and node operators opt in to service these operations.
 - (Re)staked assets are delegated to node operators to provide economic security to underlying network operations.
 - Each NCN has specific penalties or slashing conditions for node operators.
 - NCNs pay rewards to (re)stakers and node operators for participating in the network and following protocol according to established standards.
@@ -54,7 +53,7 @@ Node operators are infrastructure providers that run the offchain protocol for N
 
 Currently you can (re)stake JitoSOL to:
 - **TipRouter** - Jito's REV distribution protocol
-- **Switchboard** - a decentralized oracle network 
+- **Switchboard** - a decentralized oracle network
 - **Note:** Visit the [Jito (Re)staking website](https://www.jito.network/restaking/) to view other supported assets and NCNs. Additional assets and NCNs will be supported as the protocol expands.
 
 ## Using the (Re)staking Interface
@@ -115,7 +114,7 @@ The (re)staking interface provides a toggle to choose your deposit method:
 ### How You Earn Rewards
 Rewards are generated through a combination of:
 - **Base staking yields** from the underlying staked assets (if they are staked assets)
-- **Additional rewards from NCNs** for providing economic security 
+- **Additional rewards from NCNs** for providing economic security
 - Exact reward structure varies by vault strategy and supported NCNs
 
 ### Fee Structure
@@ -170,4 +169,4 @@ Jito (Re)staking has been audited by multiple security firms:
 - [NCN Directory](https://www.jito.network/restaking/ncns/) - View supported networks
 - [Node Operator List](https://www.jito.network/restaking/node-operators/) - See infrastructure providers
 
-This overview provides the foundation for understanding Jito (Re)staking. For specific instructions on using the interface, see the individual user guides for depositing and withdrawing. 
+This overview provides the foundation for understanding Jito (Re)staking. For specific instructions on using the interface, see the individual user guides for depositing and withdrawing.

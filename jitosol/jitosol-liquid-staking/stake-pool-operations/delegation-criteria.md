@@ -2,7 +2,6 @@
 title: Delegation Criteria
 subtitle: JitoSOL delegation criteria and methodology
 ---
-
 ## Overview
 
 The aim of Jito's Liquid Staking is to decentralize the network and improve the performance of the Solana blockchain. Validators that meet the minimum criteria may become eligible for a stake delegation. Stakenet automates this process using transparent scoring algorithms and safety mechanisms.

@@ -1,7 +1,6 @@
 ---
 title: StakeNet Governance
 ---
-
 ## JIP-33
 
 JIP-33 proposes a strategic partnership between Jito Network and Coinbase to integrate JitoSOL into Coinbase's product ecosystem.

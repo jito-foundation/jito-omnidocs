@@ -1,8 +1,6 @@
 ---
 title: Terms of Use
 ---
-
-
 **Last updated : April 10, 2025**
 
 I.	An Introduction to the Terms
@@ -50,7 +48,7 @@ B.	Your Acknowledgement Relating to Information on the Interfaces
 
 You hereby acknowledge and agree that all information provided in connection with your access and use of the Interfaces and as it relates to the Features is intended for informational purposes only. Foundation strives to provide accurate information, but it does not guarantee or otherwise warrant that the information is updated, complete, or timely.  For this reason, you acknowledge and agree that you are not relying on any of the information on the Interfaces for any purpose and expressly (i) disclaim any reliance on any information on the Interface or within the Features, and (ii) acknowledge that Foundation will not be liable for any such information provided.
 
-You should take all steps to independently verify any information on any Interface on which you intend to rely and should not take action based solely on any information contained on any Interfaces, including blog posts, data, articles, links to third-party content, social media content (including Discord, Telegram or X), news feeds, tutorials and videos. 
+You should take all steps to independently verify any information on any Interface on which you intend to rely and should not take action based solely on any information contained on any Interfaces, including blog posts, data, articles, links to third-party content, social media content (including Discord, Telegram or X), news feeds, tutorials and videos.
 
 None of the information provided on the Interfaces or through the Features should be construed as professional or investment advice, and Foundation does not owe any duties and does not have any obligations to you based on the information provided on the Interfaces or through the Features.
 
@@ -110,7 +108,7 @@ You hereby acknowledge and agree that using the Interfaces or Features may resul
 
 C.	Your Feedback
 
-You may provide feedback to us or otherwise submit questions and inquiries through some of the Interfaces (“Feedback”).  We welcome Feedback relating to improvements or updates to the Interfaces or Features, or inquiries about the same.  We will try to review your Feedback, but are not obligated to do so nor are we obligated to release any modifications or improvements you submit to us based on your Feedback. 
+You may provide feedback to us or otherwise submit questions and inquiries through some of the Interfaces (“Feedback”).  We welcome Feedback relating to improvements or updates to the Interfaces or Features, or inquiries about the same.  We will try to review your Feedback, but are not obligated to do so nor are we obligated to release any modifications or improvements you submit to us based on your Feedback.
 
 You acknowledge and agree that we will own all right, title, and interest in and to all Feedback you submit. You represent and warrant that (i) you and your licensors own all right, title, and interest in and to your Feedback; and (ii) you will not violate any intellectual property or other rights of third parties in providing Feedback to us.
 
@@ -173,7 +171,7 @@ IX.	Governing Law, Dispute Resolution and Class Action Waiver
 
 A.	Governing Law
 
-The Terms – and your use of the Interfaces and Features – are governed by the laws of the Cayman Islands, without regard to conflict of laws rules.  Any arbitration commenced against us is subject to the Arbitration Rules of the Cayman International Mediation and Arbitration Centre. 
+The Terms – and your use of the Interfaces and Features – are governed by the laws of the Cayman Islands, without regard to conflict of laws rules.  Any arbitration commenced against us is subject to the Arbitration Rules of the Cayman International Mediation and Arbitration Centre.
 
 B.	Dispute Resolution
 
@@ -181,13 +179,13 @@ Prior to commencing any legal proceeding against us of any kind, including an ar
 
 C.	Mandatory Arbitration Provision
 
-Any dispute, claim or controversy arising out of or relating to the Terms, Interfaces or Features, or the breach, termination, enforcement, interpretation or validity of the Terms, including the determination of the scope or applicability of this agreement to arbitrate, will be determined by arbitration in the Cayman Islands before one arbitrator. This clause will not preclude parties from seeking provisional remedies in aid of arbitration from a court of appropriate jurisdiction. 
+Any dispute, claim or controversy arising out of or relating to the Terms, Interfaces or Features, or the breach, termination, enforcement, interpretation or validity of the Terms, including the determination of the scope or applicability of this agreement to arbitrate, will be determined by arbitration in the Cayman Islands before one arbitrator. This clause will not preclude parties from seeking provisional remedies in aid of arbitration from a court of appropriate jurisdiction.
 
 YOU UNDERSTAND THAT BY AGREEING TO THE TERMS, THE PARTIES ARE EACH WAIVING THE RIGHT TO TRIAL BY JURY OR TO PARTICIPATE IN A CLASS ACTION OR CLASS ARBITRATION.
 
 D.	Waiver of Right to Bring Class Action or Representative Claims
 
-Any arbitration under the Terms will take place on an individual basis – class arbitrations and class actions are not permitted. 
+Any arbitration under the Terms will take place on an individual basis – class arbitrations and class actions are not permitted.
 
 To the fullest extent permitted by applicable law, you agree that any proceeding to resolve any dispute, claim or controversy will be brought and conducted only in your individual capacity and not as a party (plaintiff or otherwise) or member of any class (or purported class), consolidated proceeding, multi-plaintiff proceeding or representative action or proceeding.
 
@@ -210,4 +208,3 @@ The failure by us to enforce any provision of the Terms will not constitute a pr
 
 XIII.	Severability
 If any portion of the Terms are held to be invalid or unenforceable, the remaining portions of the Terms will remain in full force and effect. Any invalid or unenforceable portions will be interpreted to effectuate the intent of the original portion. If such construction is not possible, the invalid or unenforceable portion will be severed from the Terms but the rest of the Terms will remain in full force and effect.
-

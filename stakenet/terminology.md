@@ -1,7 +1,6 @@
 ---
 title: StakeNet Terminology
 ---
-
 **Steward Program**: An Anchor program designed to manage the staking authority for a SPL Stake Pool, selecting and managing validators based on performance metrics.
 
 **SPL Stake Pool**: A Solana program that allows for the creation of stake pools, enabling users to delegate their stake to multiple validators through a single pool and receive a Liquid Staking Token (LST) representing their stake.

@@ -2,7 +2,6 @@
 title: Automated Management via Stakenet
 subtitle: How JitoSOL stake moves automatically
 ---
-
 Over time, as people deposit SOL into the reserve, or as validator performance varies, it becomes necessary to move stake around. Jito now uses **Stakenet** – a blend of on-chain programs and off-chain "keepers" – to automatically manage JitoSOL's stake distribution across validators.
 
 ## Design Principles
@@ -47,7 +46,7 @@ The system operates with on-chain programs making decisions and off-chain keeper
 
 All parameters governing this process are stored on-chain and can be modified through Jito DAO governance.
 
-## Running a keeper 
+## Running a keeper
 
 Community members can optionally run their own keepers. See the [Keeper Quick-Start guide](/stakenet/jito-steward/developers/keeper-bot-quick-start/) for detailed setup instructions.
 
@@ -56,4 +55,4 @@ Community members can optionally run their own keepers. See the [Keeper Quick-St
 * Current parameters: <https://www.jito.network/stakenet/steward/config/>  
 * StakeNet Steward dashboard: <https://www.jito.network/stakenet/steward/>
 * StakeNet History dashboard: <https://www.jito.network/stakenet/history/>
-* Event API: `https://kobe.mainnet.jito.network/api/v1/steward_events` 
+* Event API: `https://kobe.mainnet.jito.network/api/v1/steward_events`

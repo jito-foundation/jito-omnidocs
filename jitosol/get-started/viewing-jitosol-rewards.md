@@ -2,7 +2,6 @@
 title: Viewing JitoSOL Rewards
 subtitle: Learn how to track your staking and MEV rewards over time.
 ---
-
 JitoSOL automatically earns both staking rewards and MEV rewards. The rewards interface provides tracking tools to help you monitor your earnings.
 
 **Important:** All reward values are approximate and for informational purposes only.

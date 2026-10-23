@@ -2,7 +2,6 @@
 title: Technical FAQs
 subtitle: Technical questions about JitoSOL mechanics and implementation
 ---
-
 ## JitoSOL Token Mechanics
 
 **Q: How is the JitoSOL exchange rate calculated?**
@@ -267,5 +266,3 @@ JitoSOL doesn't maintain a fixed peg, it appreciates against SOL as rewards accu
 - Current parameters viewable at [jito.network/stakenet/steward/config](https://www.jito.network/stakenet/steward/config)
 - Event API: `https://kobe.mainnet.jito.network/api/v1/steward_events`
 - Real-time validator selection and scoring visible on-chain
-
-

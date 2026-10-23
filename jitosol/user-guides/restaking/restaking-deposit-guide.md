@@ -2,7 +2,6 @@
 title: Restaking Deposit Guide
 subtitle: Step-by-step guide for depositing assets into restaking vaults
 ---
-
 ## Before You Start
 
 **Prerequisites:**
@@ -163,4 +162,4 @@ Your VRT tokens can be:
 - Never lose access to your VRT tokens (they're required for withdrawals)
 - Check compatibility before using VRTs in external DeFi protocols
 
-This guide covers the basic deposit process. For withdrawal instructions, see the [Restaking Withdrawal Guide](/jitosol/user-guides/restaking/restaking-withdrawal-guide/). Always do your own research and understand the risks before depositing significant amounts. 
+This guide covers the basic deposit process. For withdrawal instructions, see the [Restaking Withdrawal Guide](/jitosol/user-guides/restaking/restaking-withdrawal-guide/). Always do your own research and understand the risks before depositing significant amounts.

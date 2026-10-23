@@ -2,7 +2,6 @@
 title: TypeScript Client
 subtitle: Learn how to use the Jito Restaking TypeScript client.
 ---
-
 Install like below:
 
 ```bash

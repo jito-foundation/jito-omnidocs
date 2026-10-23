@@ -2,7 +2,6 @@
 title: Technical Architecture
 subtitle: On-chain data structures and stroage architecture
 ---
-
 The Validator History Program employs technical architecture designed for efficient on-chain storage and retrieval of historical validator data.
 
 ## Core Account Structure

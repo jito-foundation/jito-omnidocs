@@ -2,7 +2,6 @@
 title: Jito (Re)staking
 subtitle: Liquid staking infrastructure for node consensus networks (NCNs).
 ---
-
 **Jito (Re)staking** is liquid staking infrastructure for decentralized networks called node consensus networks (NCNs) on Solana. It provides a framework for deploying NCNs and staking SPL tokens to them, with flexibility baked in at every level. Altogether, Jito (Re)staking is a coordination protocol for developers to build liquid staking protocols and use the Solana runtime to enforce custom proof of stake protocol for external networks.
 
 The protocol coordinates stake and rewards between three main participants: NCNs, Vaults, and Operators. Developers register NCNs with custom rules. Operators perform arbitrary logic defined by the NCN, whether that’s processing data, coordinating tasks, participating in consensus, running models, or verifying offchain inputs. Vaults hold staked SPL tokens, delegate them to Operators, and mint liquid receipt tokens to users, maintaining liquidity and composability in DeFi. NCNs, Operators, and Vaults can define who they interact with and under what conditions.  
@@ -24,15 +23,15 @@ This split enables scalability and flexibility for developers while retaining cr
 
 ### Node Consensus Network (NCN)
 
-NCNs are a set of node operators and onchain programs that reach consensus on offchain workloads and enforce onchain state transitions. In most cases, NCNs will include their own custom onchain programs to handle proof submissions, verify work, and distribute rewards. Consensus can take place onchain or offchain. 
+NCNs are a set of node operators and onchain programs that reach consensus on offchain workloads and enforce onchain state transitions. In most cases, NCNs will include their own custom onchain programs to handle proof submissions, verify work, and distribute rewards. Consensus can take place onchain or offchain.
 
-For example, oracle networks, DePINs, bridges, DeFi apps, or entire blockchains can deploy an NCN to achieve consensus on an arbitrary result and finalize and distribute rewards, payments, and penalties. 
+For example, oracle networks, DePINs, bridges, DeFi apps, or entire blockchains can deploy an NCN to achieve consensus on an arbitrary result and finalize and distribute rewards, payments, and penalties.
 
-NCNs build custom staking mechanisms and use (re)staked assets for economic security, ensuring node operators have an economic commitment to follow protocol and maintain core network operations. 
+NCNs build custom staking mechanisms and use (re)staked assets for economic security, ensuring node operators have an economic commitment to follow protocol and maintain core network operations.
 
 ### Vaults
 
-Vaults serve as deposit pools that hold SPL tokens (e.g. JitoSOL) and issue liquid vault receipt tokens (VRTs) representing those positions.  Vaults opt into supporting specific NCNs and delegate stake to approved operators. 
+Vaults serve as deposit pools that hold SPL tokens (e.g. JitoSOL) and issue liquid vault receipt tokens (VRTs) representing those positions.  Vaults opt into supporting specific NCNs and delegate stake to approved operators.
 
  Users retain ownership of their stake via liquid VRTs. VRTs accrue rewards that are distributed to the underlying vault and VRT prices are automatically updated as rewards accrue, making it extremely easy for developers to leverage the benefits of liquid staking tokens.
 
@@ -64,18 +63,18 @@ We built the Jito (Re)staking protocol because there are aspects of Jito Network
 
 - **Maintain upgradeability for outsourcing and decentralizing key protocol functions**: Developers maintain upgradeability for building a network that integrates with VRTs. Examples: Rewards distributions, stake delegations, proof of bandwidth, proof of location, compute verification, prediction markets, auction mechanisms, and more.
 
-- **Wide Distribution**: Over 90% of Solana validators run the Jito-Solana client, and JitoSOL is the largest stake pool on Solana. 
+- **Wide Distribution**: Over 90% of Solana validators run the Jito-Solana client, and JitoSOL is the largest stake pool on Solana.
 
 - **Access to professional node operators**: NCNs require different hardware requirements and software competencies. Jito Network is deeply integrated with Solana’s validator ecosystem, which includes a wide range of sophisticated independent operators and institutional operators. This makes it very trivial for NCNs to connect with the industry’s best node operators to participate in their networks, regardless of the underlying network’s hardware and software requirements.
 
-- **Access to Jito Network Stakers (JitoSOL)**: 
-Incremental yield to attract economy security from JitoSOL is marginal, and JitoSOL is deeply integrated with the Solana DeFi ecosystem. NCNs can immediately tap into Jito’s network effects without having to attract native stake from scratch. This means, by registering with the Jito (Re)staking framework, bootstrapping and building staked networks is very cost-effective and extremely trivial. 
+- **Access to Jito Network Stakers (JitoSOL)**:
+Incremental yield to attract economy security from JitoSOL is marginal, and JitoSOL is deeply integrated with the Solana DeFi ecosystem. NCNs can immediately tap into Jito’s network effects without having to attract native stake from scratch. This means, by registering with the Jito (Re)staking framework, bootstrapping and building staked networks is very cost-effective and extremely trivial.
 
 - **Capital efficiency**: The same stake can secure multiple services. The same operators can operate multiple services.
 
 - **Aligned incentives**: Stakers, operators, and NCN developers all benefit from performance, transparency, and modular security.
 
-- **Instant access to Internet Capital Markets**: NCNs have instant access to [Internet Capital Markets](https://multicoin.capital/2025/01/22/the-solana-thesis-internet-capital-markets/). Vaults have the incentive to integrate VRTs across DeFi, creating market structures for native tokens. 
+- **Instant access to Internet Capital Markets**: NCNs have instant access to [Internet Capital Markets](https://multicoin.capital/2025/01/22/the-solana-thesis-internet-capital-markets/). Vaults have the incentive to integrate VRTs across DeFi, creating market structures for native tokens.
 
 Jito (Re)staking greatly reduces the friction to launch, or transition existing services into, decentralized protocols with proof of stake security rooted on Solana.
 

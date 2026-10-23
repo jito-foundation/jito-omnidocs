@@ -2,7 +2,6 @@
 title: MEV & Claims API
 subtitle: Individual reward claims, validator commissions, and distribution mechanics
 ---
-
 # MEV Rewards API Documentation
 
 ## Overview
@@ -186,7 +185,7 @@ curl "https://kobe.mainnet.jito.network/api/v1/validator_rewards?epoch=678&limit
 ### Understanding Validator Self-Rewards
 
 In the staker rewards endpoint, when you see:
-- `claimant` = `validator_vote_account` 
+- `claimant` = `validator_vote_account`
 - `stake_authority` = `withdraw_authority` = `11111111111111111111111111111111` (system program)
 
 This indicates the validator claiming their own portion of MEV rewards.
@@ -238,4 +237,4 @@ In case of errors, both endpoints return appropriate error responses with detail
 
 ## Rate Limiting
 
-The API implements caching with a 60-second lifespan to ensure optimal performance. Identical requests within this timeframe will return cached results. 
+The API implements caching with a 60-second lifespan to ensure optimal performance. Identical requests within this timeframe will return cached results.

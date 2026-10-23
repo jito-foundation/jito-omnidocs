@@ -2,7 +2,6 @@
 title: Staking SOL for JitoSOL
 subtitle: Complete guide to staking your SOL
 ---
-
 ## Overview
 
 **Time Required:** 2-5 minutes  
@@ -135,4 +134,3 @@ subtitle: Complete guide to staking your SOL
 - Use wallet-specific guides above
 
 Ready to start? Visit [jito.network/staking](https://www.jito.network/staking/)
-

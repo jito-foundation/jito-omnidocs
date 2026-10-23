@@ -2,7 +2,6 @@
 title: Unstaking with Solflare
 subtitle: Step-by-step guide for delayed unstaking using Solflare wallet
 ---
-
 This guide covers **delayed unstaking** using Solflare wallet. For most users, we recommend [instant trading via Jupiter](/jitosol/get-started/unstaking-jitosol-flow/unstaking-overview/#option-1-instant-trading-recommended) instead.
 
 **Time Required:** Setup (5-10 minutes) + waiting period (up to 2 days)  

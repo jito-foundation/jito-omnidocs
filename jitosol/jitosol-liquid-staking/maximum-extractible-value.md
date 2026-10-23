@@ -2,7 +2,6 @@
 title: Maximum Extractable Value
 subtitle: What is Solana MEV and how does JitoSOL benefit from it?
 ---
-
 ## MEV Explained
 
 Maximum extractable value (MEV) describes profit opportunities privileged entities can extract attributable to the specific order of transaction execution. For example, a large swap on Orca can lower the pool’s price below that of Raydium or Serum. Traders will race to profit from that price difference and this arbitrage is considered MEV.
@@ -11,7 +10,7 @@ Alternatively, a large account on Solend may be near liquidation. Liquidation bo
 
 MEV is a natural byproduct of financial markets with infinite examples in traditional finance and daily life. When Taylor Swift announces a new concert and fans rush to buy tickets directly to avoid reseller markups, that is also MEV.
 
-The Jito Foundation's mission is to ensure that MEV is efficiently extracted and shared with stakers and validators because it increases the security and denctralization of Solana. 
+The Jito Foundation's mission is to ensure that MEV is efficiently extracted and shared with stakers and validators because it increases the security and denctralization of Solana.
 
 ## MEV Spam Problems
 
@@ -31,7 +30,6 @@ Jito's mechanism eliminates the benefit of spam while simultaneously increasing 
 
 JitoSOL directly benefits from these MEV rewards since the auction proceeds are passed through to stakers after a modest commission. JitoSOL is the first liquid staking token to offer this additional source of yield.
 
-Because the rewards are based on guaranteed auction amounts, JitoSOL has no exposure to the risks around MEV trading. 
+Because the rewards are based on guaranteed auction amounts, JitoSOL has no exposure to the risks around MEV trading.
 
 For further context on the MEV solution, checkout this overview of [Jito-Solana](https://medium.com/p/e1028c53fae1).
-

@@ -2,7 +2,6 @@
 title: Integration & Composability
 subtitle: Building with validator history data
 ---
-
 The Validator History Program's unified data structure enables seamless integration with other on-chain programs and off-chain applications, creating a composable foundation for validator analysis and automated decision-making.
 
 ## How Other Programs Access Data

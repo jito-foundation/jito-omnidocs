@@ -2,7 +2,6 @@
 title: Unstaking Overview
 subtitle: Compare instant trading vs direct unstaking to choose the best method
 ---
-
 ## Two Ways to Convert JitoSOL
 
 When you want to convert your JitoSOL back to SOL (or other tokens), you have two main options:
@@ -126,4 +125,3 @@ Review the transaction details and approve in your wallet to initiate the unstak
 ## Summary
 
 Most users should use Instake Unstaking for instant, convenient conversion with competitive rates. Direct unstaking is primarily useful for very large amounts or when you specifically need to minimize fees and can wait several days.
-

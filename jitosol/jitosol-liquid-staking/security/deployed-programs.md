@@ -1,10 +1,9 @@
 ---
 title: Deployed Programs
 ---
+Jito Network uses the Solana Program Library deployed stake pool program at address `SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy` on Mainnet.
 
-Jito Network uses the Solana Program Library deployed stake pool program at address `SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy` on Mainnet. 
-
-Audits: 
+Audits:
 
 - Quantstamp
     - Initial review commit hash [<code>99914c9</code>](https://github.com/solana-labs/solana-program-library/tree/99914c9fc7246b22ef04416586ab1722c89576de)​
@@ -17,7 +16,7 @@ Audits:
     - Review commit hash [<code>3dd6767</code>](https://github.com/solana-labs/solana-program-library/tree/3dd67672974f92d3b648bb50ee74f4747a5f8973)​
     - Report [https://solana.com/SolanaKudelskiStakePoolAudit.pdf](https://solana.com/SolanaKudelskiStakePoolAudit.pdf)​
 
-Upgrade keys for this program are owned by a committee of Solana Staking Ecosystem participants. Leveraging this program provides minimal risk compared to deploying or writing our own stake pool implementation, in case of a network fork or loss of funds. 
+Upgrade keys for this program are owned by a committee of Solana Staking Ecosystem participants. Leveraging this program provides minimal risk compared to deploying or writing our own stake pool implementation, in case of a network fork or loss of funds.
 
 ### Jito Stake Pool Addresses
 

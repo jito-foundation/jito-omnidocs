@@ -2,7 +2,6 @@
 title: Data Fields Explained
 subtitle: Comprehensive breakdown of validator metrics and data sources
 ---
-
 The Validator History Program tracks diverse validator metrics from multiple sources.
 Understanding these data fields is essential for effective validator analysis and selection.
 
@@ -29,7 +28,7 @@ Understanding these data fields is essential for effective validator analysis an
 
 ## Client Type (`client_type`)
 - **What**: Software client implementation identifier
-- **Values**: 
+- **Values**:
   - `0` = Solana Labs
   - `1` = Jito Labs
   - `2` = Firedancer

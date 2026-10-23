@@ -3,7 +3,6 @@ title: Vault Accounts
 subtitle: An overview of the accounts used in the Jito Vault program.
 mermaid: true
 ---
-
 ## 1. About the program
 
 The vault program manages the vault receipt tokens (VRTs) and associated deposits. The program stores deposited funds and handles the minting and burning of tokenized stake. It also manages the vault's stake in an NCN, including delegation.

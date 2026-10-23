@@ -2,7 +2,6 @@
 title: CLI Overview
 subtitle: Getting started with jito-restaking-cli
 ---
-
 ## Installation
 
 ### Option 1: Install from crates.io (Recommended)

@@ -2,7 +2,6 @@
 title: Getting Started
 subtitle: Getting started with building our sample NCN
 ---
-
 ## Get to know the program template
 
 Our example NCN Program facilitates consensus on a simple "weather status" using a stake-weighted voting mechanism. It operates in distinct time periods called epochs (your NCN's epochs do not have to be equivalent to a Solana epoch). The program uses a weight-based system to determine the influence (voting power) of different operators. Consensus is achieved when votes representing at least 66% of the total participating stake weight agree on the same outcome (ballot).

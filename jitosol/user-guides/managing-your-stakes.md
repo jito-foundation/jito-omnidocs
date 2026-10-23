@@ -2,7 +2,6 @@
 title: Managing Your Stake Accounts
 subtitle: Utility for SOL stake account holders to manage and convert stakes.
 ---
-
 ## Managing Your SOL Stake Accounts
 
 **This page is for holders of native SOL stake accounts, not JitoSOL holders.** If you already have JitoSOL, you don't need this page - your JitoSOL automatically earns rewards and can be traded anytime.

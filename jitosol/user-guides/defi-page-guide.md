@@ -18,7 +18,7 @@ The [jito.network/defi](https://www.jito.network/defi/) page displays third-part
 
 **Various Strategies** across major DeFi categories - from simple lending to complex yield farming setups.
 
-**Quick Filters:** 
+**Quick Filters:**
 
 * **Strategy type** - Lending, Liquidity Pools, Looping, Restaking
 * **Protocol** - Filter by specific platforms (Kamino, Drift, etc.)

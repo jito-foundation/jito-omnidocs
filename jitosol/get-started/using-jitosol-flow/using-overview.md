@@ -2,7 +2,6 @@
 title: Using JitoSOL Overview
 subtitle: JitoSOL integrates with 20+ leading Solana DeFi protocols for enhanced yield opportunities
 ---
-
 JitoSOL has extensive integrations across the Solana DeFi ecosystem, with over 40% of JitoSOL supply actively used as collateral and liquidity provision. JitoSOL has 16M SOL TVL and 180,000 holders as of July 2025.
 
 ### **Lending & Borrowing Protocols:**
@@ -11,7 +10,7 @@ JitoSOL has extensive integrations across the Solana DeFi ecosystem, with over 4
 
 [Drift](/jitosol/get-started/using-jitosol-flow/drift) - Cross-margined perpetuals and spot trading
 
-[Save](/jitosol/get-started/using-jitosol-flow/save) - Decentralized lending protocol 
+[Save](/jitosol/get-started/using-jitosol-flow/save) - Decentralized lending protocol
 
 ### **Liquidity Provision & DEXs:**
 
@@ -36,4 +35,4 @@ All DeFi protocols carry smart contract risks. JitoSOL itself is built on the au
 
 ### **New Integrations:**
 
-Jito actively works with leading Solana protocols to expand JitoSOL utility. Recent growth includes expanded lending options and automated vault strategies. 
+Jito actively works with leading Solana protocols to expand JitoSOL utility. Recent growth includes expanded lending options and automated vault strategies.

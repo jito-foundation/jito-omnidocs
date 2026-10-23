@@ -2,8 +2,6 @@
 title: Constitution of the Jito Foundation
 subtitle: Jito Foundation Constitution
 ---
-
-
 This Constitution provides an overview of the governing framework for the holders of JTO (each, a “**Tokenholder**”, and collectively, the "**DAO**"), which is the governing body for the Jito Network (as defined below). Defined terms in this Constitution shall have the meaning ascribed to those terms in the Bylaws of the Foundation (as defined below), as amended from time to time, unless otherwise defined in this Constitution.
 
 Some of the rules and procedures in this Constitution will be enforced directly on a blockchain, and some will not. All rules are equally binding. Actions taken under this Constitution may be on-chain or off-chain actions. On-chain actions are those that are actuated directly by the governance parameters of the DAO as transactions on a blockchain. Off-chain actions are those that are actuated by other means.
@@ -82,7 +80,7 @@ The total cost of the proposal, broken down if needed.
 
 *9. Performance Milestones, if applicable*
 
-The performance milestones for any JIPs submitted in the Treasury category. 
+The performance milestones for any JIPs submitted in the Treasury category.
 
 The author should incorporate any feedback received from the community and may alter the template if absolutely necessary to communicate effectively. It is recommended that the DAO Moderator confirm that the draft conforms to the proposal guidelines ([https://jito.network/docs/governance](https://jito.network/docs/governance)) before submitting the proposal and inform the Administrator. After the Administrator has confirmed proposals meet the above criteria, the proposal will be posted on Jito’s governance forum ([https://forum.jito.network/](https://forum.jito.network/)) for community discussion.
 
@@ -146,7 +144,7 @@ One (1) JTO token equals one (1) vote over any proposals submitted to the DAO (t
 
 The DAO, by Tokenholder Vote, may establish guidelines for evaluating and approving the inclusion of additional tokens in governance in the future.
 
-Tokenholders have governance power over components of the Jito Network such as Realms Treasury management to allocate funds for community growth, protocol fee splits, stake pool fees, and other features including the ability to adjust the on-chain functions outlined at [https://jito.network/docs/governance](https://jito.network/docs/governance). 
+Tokenholders have governance power over components of the Jito Network such as Realms Treasury management to allocate funds for community growth, protocol fee splits, stake pool fees, and other features including the ability to adjust the on-chain functions outlined at [https://jito.network/docs/governance](https://jito.network/docs/governance).
 
 ### Amendments to Governance
 
@@ -230,7 +228,7 @@ Foundation activities that are subject to non-disclosure agreements with third p
 
 Compensation information of Security Council Members and Foundation Representatives
 
-Subject to a reasonable Security Council review and comment period chosen by the Security Council, Meeting Notes will be shared publicly with the community on Jito’s governance documentation page ([https://jito.network/docs/governance](https://jito.network/docs/governance)). 
+Subject to a reasonable Security Council review and comment period chosen by the Security Council, Meeting Notes will be shared publicly with the community on Jito’s governance documentation page ([https://jito.network/docs/governance](https://jito.network/docs/governance)).
 
 #### Advisory Meetings
 
@@ -261,4 +259,3 @@ Each member of the Security Council shall have one (1) vote in Emergency Meeting
 #### Compensation
 
 Initially, the Security Council Member position will be paid an amount equal to $1,000, which shall be paid, at the election of the Foundation, in (a) USDC or (b) JTO.  If paid in JTO, the Security Council Member compensation shall be calculated on an as-converted to U.S. dollars basis, with such amount being the number of JTO that is the equivalent of USD $1,000, at a conversion price equal to the trailing seven (7) day time weighted average price of JTO recorded on [https://coinmarketcap.com/](https://coinmarketcap.com/). Any changes to the Security Council Member compensation shall be subject to approval by Tokenholders by Tokenholder Vote.
-

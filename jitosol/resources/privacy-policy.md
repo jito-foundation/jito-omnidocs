@@ -7,13 +7,13 @@ title: Privacy Policy
 
 Last Updated:  March 4, 2025
 
-This Privacy Policy is designed to help you understand how Jito Foundation , Inc. (“**Jito Foundation**”, “**we**”, “**us**,” or** **“**our**”), collect, use, process, and share your personal information, and to help you understand and exercise your privacy rights.  
+This Privacy Policy is designed to help you understand how Jito Foundation , Inc. (“**Jito Foundation**”, “**we**”, “**us**,” or “**our**”), collect, use, process, and share your personal information, and to help you understand and exercise your privacy rights.  
 
 **About Our Services and the Blockchain**
 
 Our Services (as defined below) may facilitate interaction with certain decentralized cryptographic protocols like blockchains, which we do not own or control (each, a “**Protocol**”).  Our Services may also facilitate the creation of a digital wallet through third party services that we do not own and control that enable you to take self-custody and manage digital assets (such as NFTs, cryptocurrency, or blockchain tokens), and enable you to interact with third party services and supported Protocols to support the sale, purchase, trade, staking, distribution of digital assets and other transactions on the decentralized blockchains on which the supported digital assets are recorded (each, a “**Blockchain**”).  
 
-**An Important Note Regarding Blockchain Technologies: **If you participate in our Services relating to the creation and management of a digital assets, smart contracts will be employed that necessarily collect information, such as your digital wallet address (which some legal jurisdictions may consider personal information), and that information will be stored on a public blockchain that we do not control.  A smart contract is computer code that automatically processes events when certain conditions are met; for example, when a transaction is conducted to add a token to a digital wallet, a smart contract would automatically execute the proposed action.  In these situations, your personal information, such as a digital wallet address, will be stored on that blockchain through the execution of a smart contract and that personal information may not be able to be modified or deleted due to the immutable nature of the blockchain.  
+**An Important Note Regarding Blockchain Technologies:** If you participate in our Services relating to the creation and management of a digital assets, smart contracts will be employed that necessarily collect information, such as your digital wallet address (which some legal jurisdictions may consider personal information), and that information will be stored on a public blockchain that we do not control.  A smart contract is computer code that automatically processes events when certain conditions are met; for example, when a transaction is conducted to add a token to a digital wallet, a smart contract would automatically execute the proposed action.  In these situations, your personal information, such as a digital wallet address, will be stored on that blockchain through the execution of a smart contract and that personal information may not be able to be modified or deleted due to the immutable nature of the blockchain.  
 
 Please make sure to review our [<u>Terms of Use</u>](/jitosol/resources/terms-of-use/) for more information, including specific terms and obligations for the use of our Services that may include dispute resolutions. 
 
@@ -61,7 +61,7 @@ We may collect personal information that you provide to us.  
 
 - **Contact Information.** We may collect personal information when you purchase certain products from us, including your phone number, email and mailing address.
 - **Account Creation**.  We may collect personal information when you connect to the Services, such as your digital wallet address.
-- **Online Transactional Information.  **We may collect transactional information, such as your wallet address.  We may collect personal information and details associated with your transactions including, but not limited to, information about the transactions you make using the Services, the purpose of the transactions, and information on sources of your funds.
+- **Online Transactional Information.**  We may collect transactional information, such as your wallet address.  We may collect personal information and details associated with your transactions including, but not limited to, information about the transactions you make using the Services, the purpose of the transactions, and information on sources of your funds.
 - **Your Communications with Us**.  We may collect personal information, such as email address, digital wallet address or online handle (for example, Discord) when you request information about our Services, register for our newsletter, request customer or technical support, or otherwise communicate with us.
 - **Surveys**.  We may contact you to participate in surveys.  If you decide to participate, we may collect personal information from you in connection with the survey.
 - **Interactive Features**.  We and others who use our Services may collect personal information that you submit or make available through our interactive features (for example, blockchain, messaging and chat features, commenting functionalities, forums, blogs, and social media pages).  Any information you provide using the public sharing features of the Services will be considered “public,” unless otherwise required by applicable law, and is not subject to the privacy protections referenced herein.
@@ -86,7 +86,7 @@ Our uses of these Technologies fall into the following general categories:
 - **Functionality-Related**.  We may use Technologies that allow us to offer you enhanced functionality when accessing or using our Services.  This may include identifying you when you sign into our Services or keeping track of your specified preferences, interests, or past items viewed;
 - **Advertising- or Targeting-Related**.  We may use first party or third-party Technologies to deliver content, including ads relevant to your interests, on our Services or on third-party digital properties.
 
-*See “Your Privacy Choices and Rights” below to understand your choices regarding these Technologies.  *
+*See “Your Privacy Choices and Rights” below to understand your choices regarding these Technologies.*
 
 - **Analytics**.  We may use Technologies and other third-party tools to process analytics information on our Services.  These Technologies allow us to better understand how our digital Services are used and to continually improve and personalize our Services.  Some of our analytics partners include:
 - **Google Analytics**.  For more information about how Google uses your personal information (including for its own purposes, for example, for profiling or linking it to other data), please visit [<u>Google Analytics’ Privacy Policy</u>](http://www.google.com/policies/privacy/partners/).  To learn more about how to opt-out of Google Analytics’ use of your information, please click [<u>here</u>](http://tools.google.com/dlpage/gaoptout).
@@ -169,7 +169,7 @@ Some of the service providers we may use include: 
 5. **Affiliates**.  We may share your personal information with our Jito Foundation affiliates.
 6. **Other Users or Third Parties You Share or Interact With**.  As described above in “Personal Information We Collect,” our Services may allow you to share personal information or interact with third parties (including individuals and third parties who do not use our Services and the general public, such as those on the blockchain).
 7. **Advertising Partners**.  We may share your personal information with third-party advertising partners.  These third-party advertising partners may set Technologies and other tracking tools on our Services to collect information regarding your activities and your device (for example, your IP address, cookie identifiers, page(s) visited, location, time of day).  These advertising partners may use this information (and similar information collected from other services) for purposes of delivering personalized advertisements to you when you visit digital properties within their networks.  This practice is commonly referred to as “interest-based advertising”, “targeted advertising,” “personalized advertising, or cross-context behavioral advertising.”
-8. **APIs/SDKs**.  We may use third-party application program interfaces (“**APIs**”) and software development kits (“**SDKs**”) as part of the functionality of our Services.  SDKs typically collect your mobile device identifier and information related to your use of the Services.  SDKs may allow third parties including analytics and advertising partners to collect your information for various purposes including to provide analytics services and personalized advertising.  For more information about our use of APIs and SDKs, please contact us as set forth in “<u>Contact Us</u>”** **below.
+8. **APIs/SDKs**.  We may use third-party application program interfaces (“**APIs**”) and software development kits (“**SDKs**”) as part of the functionality of our Services.  SDKs typically collect your mobile device identifier and information related to your use of the Services.  SDKs may allow third parties including analytics and advertising partners to collect your information for various purposes including to provide analytics services and personalized advertising.  For more information about our use of APIs and SDKs, please contact us as set forth in “<u>Contact Us</u>” below.
 
 ## **B. Disclosures to Protect Us or Others**
 
@@ -193,16 +193,16 @@ Please note you must separately opt out in each browser and on each device.  
 
 **Your Privacy Rights**.  In accordance with applicable law, you may have the right to:
 
-- **Confirm Whether We Are Processing Your Personal Information **(the right to know);
+- **Confirm Whether We Are Processing Your Personal Information** (the right to know);
 - **Access to and Portability of Your Personal Information**, including: (i) obtaining access to or a copy of your personal information; and (ii) receiving an electronic copy of personal information that you have provided to us, or asking us to send that information to another company in a structured, commonly used, and machine readable format (also known as the “right of data portability”);
-- **Request Correction **of your personal information where it is inaccurate or incomplete;
-- **Request Deletion **of your personal information;
+- **Request Correction** of your personal information where it is inaccurate or incomplete;
+- **Request Deletion** of your personal information;
 - **Request to Opt-Out of Certain Processing Activities** including, as applicable, if we process your personal information for “targeted advertising” (as “targeted advertising” is defined by applicable privacy laws), if we “sell” your personal information (as “sell” is defined by applicable privacy laws), or if we engage in “profiling” in furtherance of certain “decisions that produce legal or similarly significant effects” concerning you (as such terms are defined by applicable privacy laws);
-- **Request Restriction of or Object to **our** **processing of your personal information;
+- **Request Restriction of or Object to** our processing of your personal information;
 - **Withdraw your Consent** to our processing of your personal information.  Please note that your withdrawal will only take effect for future processing, and will not affect the lawfulness of processing before the withdrawal; and
-- **Appeal our Decision **to decline to process your request.
+- **Appeal our Decision** to decline to process your request.
 
-If you would like to exercise any of these rights, please contact us as set forth in “Contact Us”** **below.  We will process such requests in accordance with applicable laws.  
+If you would like to exercise any of these rights, please contact us as set forth in “Contact Us” below.  We will process such requests in accordance with applicable laws.  
 
 If your personal information is subject to the applicable data protection laws of the European Economic Area or the United Kingdom, you have the right to lodge a complaint with the competent supervisory authority if you believe our processing of your personal information violates applicable law. 
 
@@ -293,8 +293,7 @@ If you are a parent or guardian and believe your child has uploaded personal inf
 
 - [<u>EEA Data Protection Authorities (DPAs)</u>](https://edpb.europa.eu/about-edpb/board/members_en)
 - [<u>Swiss Federal Data Protection and Information Commissioner (FDPIC)</u>](https://www.edoeb.admin.ch/edoeb/en/home/the-fdpic/contact.html)
-- [<u>UK Information Commissioner’s Office (ICO)</u>](https://ico.org.uk/global/contact-us/)**
-    **
+- [<u>UK Information Commissioner’s Office (ICO)</u>](https://ico.org.uk/global/contact-us/)
 
 # **11. CONTACT US**
 

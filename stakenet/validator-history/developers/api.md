@@ -2,8 +2,6 @@
 title: Validator History API
 ---
 
-# Validator History API
-
 ## Validator History Endpoint
 
 This endpoint allows you to fetch all validator histories by vote account

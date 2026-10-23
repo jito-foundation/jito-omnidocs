@@ -45,7 +45,7 @@ As the circulating supply of JTO increases and governance becomes more active, t
 
 ****
 
-**Liquidity mining **
+**Liquidity mining**
 
 The Jito Foundation has launched a number of small-scale liquidity mining programs. These programs have tended to last a month or less, and have focused on growing liquidity for JTO, expanding the use of JitoSOL pairs (especially for newly-launched products), and encouraging JitoSOL usage in new products and markets. 
 

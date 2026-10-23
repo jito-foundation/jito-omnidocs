@@ -3,8 +3,6 @@ title: Rebalance System
 subtitle: How StakeNet rebalances among validators
 ---
 
-# Rebalance System
-
 Over time, as people deposit SOL into the reserve, or as validator performance varies, you will want to move stake around.
 The best way to do this will be through an automated system to collect information about the stake pool and the network, and decide how much stake to allocate to each validator.
 

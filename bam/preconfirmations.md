@@ -3,8 +3,6 @@ title: Preconfirmations
 subtitle: What preconfirmation streaming means for BAM validators, and how the revenue reaches you.
 ---
 
-# Preconfirmations
-
 BAM Preconfirmations are live, distributed through Helius and Triton. If you run
 a BAM client, your slots now earn from them. This page covers what that means
 for validators; for the full picture, read

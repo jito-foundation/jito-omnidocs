@@ -2,8 +2,6 @@
 title: Parameters
 ---
 
-# Parameters
-
 Live parameters can be seen on-chain at https://jito.network/stakenet/steward/config or via the CLI.
 
 | Parameter                                     | Value                        | Description                                                                                                                                                                                             |

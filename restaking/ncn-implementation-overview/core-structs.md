@@ -3,8 +3,6 @@ title: Core Struct Definitions
 subtitle: Complete reference for all data structures used by the NCN program
 ---
 
-## Core struct definitions
-
 Here are the definitions for the core data structures used by the NCN program, typically found in the `/core/src` directory. Understanding these structures is key to understanding the program's logic.
 
 ### Config

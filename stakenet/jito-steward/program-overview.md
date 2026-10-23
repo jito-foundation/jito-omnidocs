@@ -2,8 +2,6 @@
 title: Program Overview
 ---
 
-# Program Overview
-
 The Steward Program's main functions include:
 
 1. **Validator Selection and Management**: The program selects validators, monitors their performance, and adjusts stake allocations to maintain optimal performance.

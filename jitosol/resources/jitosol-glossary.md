@@ -2,7 +2,6 @@
 title: JitoSOL Glossary
 subtitle: Key terms and definitions for understanding JitoSOL
 ---
-
 ## Core Terms
 
 **JitoSOL**

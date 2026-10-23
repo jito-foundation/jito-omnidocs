@@ -2,7 +2,6 @@
 title: Validator History CLI Guide
 subtitle: Commands and operations for Validator History management
 ---
-
 ## Accounts
 
 | Account                  | Address                                      |

@@ -1,7 +1,6 @@
 ---
 title: Terminology
 ---
-
 - **MEV (Maximum Extractable Value) Tips**: Tips paid by users participating in a blockspace auction powered by Jito-Solana.
 - **Jito Tip Router NCN (Node Consensus Network)**: A decentralized network that takes responsibility for programmatically handling the distribution of tips collected by the Tip Distribution Protocol.
 - **Tip Distribution Protocol**: A mechanism that aggregates SOL, generates a merkle tree and merkle root for distribution, and transfers SOL to the appropriate users/accounts.
@@ -10,4 +9,3 @@ title: Terminology
 - **Node Consensus Network (NCN)**: A set of nodes running software for the same network, working together to achieve
   consensus and provide services.
 - **Operator**: An entity that manages one or more nodes in the node consensus network.
-

@@ -2,7 +2,6 @@
 title: Raydium
 subtitle: Hybrid DEX with concentrated liquidity and solid platform for new token launches
 ---
-
 Raydium is a leading Solana DEX with over $2.3B+ TVL that combines automated market making with central limit order books.
 
 ## JitoSOL Integration

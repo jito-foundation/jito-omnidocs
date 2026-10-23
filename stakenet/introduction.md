@@ -1,7 +1,6 @@
 ---
 title: Introduction to Stakenet
 ---
-
 Jito StakeNet is a decentralized Solana stake pool manager, blending Validator History and Steward Programs for secure, transparent validator management and autonomous stake operations.
 
 ## Jito Steward Program

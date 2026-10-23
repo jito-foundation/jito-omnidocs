@@ -2,7 +2,6 @@
 title: Drift
 subtitle: Open-source decentralized exchange for transparent, non-custodial trading
 ---
-
 Drift Protocol is an open-source decentralized exchange built on Solana, offering transparent and non-custodial trading with support for JitoSOL as collateral.
 
 ## JitoSOL Integration

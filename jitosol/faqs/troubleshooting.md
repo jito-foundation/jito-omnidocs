@@ -2,7 +2,6 @@
 title: Troubleshooting
 subtitle: Common issues and solutions when using JitoSOL
 ---
-
 ## Transaction Issues
 
 **Q: My staking transaction failed. What should I do?**

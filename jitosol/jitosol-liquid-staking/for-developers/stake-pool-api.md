@@ -2,7 +2,6 @@
 title: Validator API
 subtitle: Network analytics, validator rankings, and stake pool APY metrics
 ---
-
 ## API Endpoints
 
 ### 1. Validators

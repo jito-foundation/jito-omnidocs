@@ -2,7 +2,6 @@
 title: Orca
 subtitle: Solana's leading DEX with concentrated liquidity and JitoSOL pools
 ---
-
 Orca is one of Solana's largest DEXes with over $40M+ in LP fees generated. The platform offers multiple JitoSOL liquidity pools through their concentrated liquidity system.
 
 ## JitoSOL Pools

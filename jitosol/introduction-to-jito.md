@@ -2,7 +2,6 @@
 title: Introduction to Jito
 subtitle: Solana's first staking product including MEV rewards
 ---
-
 Jito is the liquid staking service for Solana that distributes MEV (maximum extractable value) rewards to holders. The Jito Stake Pool enables users to stake their Solana tokens in exchange for a liquid stake pool token (JitoSOL). The JitoSOL token provides liquidity while earning a combination of staking rewards and MEV rewards.
 
 Jito's liquid staking token is unique in two ways:

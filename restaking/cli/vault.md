@@ -2,7 +2,6 @@
 title: Vault Operations
 subtitle: Overview of vault program operations
 ---
-
 The vault commands manage the core functionality of restaking vaults, including global configuration, vault creation and management, user operations, and administrative functions. Vaults are the primary interface for users to participate in restaking and earn rewards.
 
 ## Command Structure

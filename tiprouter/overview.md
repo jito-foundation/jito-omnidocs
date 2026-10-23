@@ -1,12 +1,11 @@
 ---
 title: Jito Tip Router
 ---
-
 Jito Tip Router NCN will assume programmatic operations related to the distribution of MEV tips generated from the Jito Tip Distribution protocol every epoch, and, as part of these programmatic operations, will route some portion of all MEV tips collected to the DAO treasury and the NCN network participants.
 
 ## Overview
 
-Jito Tip Router NCN is handling operation of distribution of MEV tips generated from the Jito Tip Distribution protocol. The system is made of 3 components: 
+Jito Tip Router NCN is handling operation of distribution of MEV tips generated from the Jito Tip Distribution protocol. The system is made of 3 components:
 
 - Onchain NCN program
 - Node Operator Client
@@ -23,7 +22,7 @@ Onchain NCN program has several components:
   - Take snapshots of Operator and Vault per epoch.
 
 - Core Logic (Consensus)
-  - Prepare Ballot Box, all votes would be collected here. 
+  - Prepare Ballot Box, all votes would be collected here.
   - Each operator calculate the merkle tree to produce merkle root then cast vote with produced merkle root.
   - After consensus reached with more than 2/3, cranker can upload the merkle tree of each validator.
 

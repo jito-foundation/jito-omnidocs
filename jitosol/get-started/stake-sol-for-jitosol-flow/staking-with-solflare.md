@@ -2,7 +2,6 @@
 title: Staking with Solflare
 subtitle: Step-by-step guide for staking SOL using Solflare wallet
 ---
-
 **Time Required:** 2-5 minutes  
 **Prerequisites:** Solflare wallet with SOL
 
@@ -89,4 +88,3 @@ subtitle: Step-by-step guide for staking SOL using Solflare wallet
 **Need Help?**
 - Review [main staking overview](/jitosol/get-started/stake-sol-for-jitosol-flow/overview/)
 - Check [FAQ section](/jitosol/faqs/general-faqs/)
-

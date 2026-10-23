@@ -2,7 +2,6 @@
 title: MEV Harvesting Guide
 subtitle: Guide for stake account holders to claim unclaimed MEV rewards.
 ---
-
 ## MEV Harvesting for Stake Account Holders
 
 **This page is only for holders of native SOL stake accounts, not JitoSOL holders.** If you have JitoSOL, your MEV rewards are automatically included and compounded - you don't need to do anything.
@@ -38,7 +37,7 @@ The [Jito Harvest page](https://www.jito.network/harvest/) allows stake account 
 2. **Connect your wallet:** Same wallet that owns the stake accounts
 3. **Review available rewards:** Check unclaimed MEV amounts for each stake account
 4. **Select accounts:** Toggle on the stake accounts you want to claim from
-5. **Choose reward type:** 
+5. **Choose reward type:**
    - Keep toggle off for SOL rewards
    - Turn on "Convert MEV to JitoSOL" to receive liquid staking tokens instead
 6. **Confirm harvest:** Click "Harvest MEV as SOL" to proceed

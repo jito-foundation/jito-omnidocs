@@ -2,7 +2,6 @@
 title: marginfi
 subtitle: Leading Solana lending protocol with $400M+ TVL and JitoSOL integration
 ---
-
 marginfi is one of Solana's largest lending protocols with over $400 million in deposits. The platform offers lending, borrowing, and leveraged staking strategies using JitoSOL as collateral.
 
 ## JitoSOL Integration

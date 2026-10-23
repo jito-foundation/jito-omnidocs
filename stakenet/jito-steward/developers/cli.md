@@ -2,7 +2,6 @@
 title: Steward CLI Guide
 subtitle: Commands and operations for Steward management
 ---
-
 # Accounts
 
 | Account        | Address                                      |

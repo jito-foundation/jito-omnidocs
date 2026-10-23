@@ -2,7 +2,6 @@
 title: Program Overview
 subtitle: On-chain validator data aggregation and historical tracking
 ---
-
 The Validator History Program is a foundational component of Jito StakeNet that creates an on-chain record of verified Solana validator data, storing up to 512 epochs of history per validator.
 
 ## What It Does

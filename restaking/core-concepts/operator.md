@@ -2,7 +2,6 @@
 title: Operators
 subtitle: Infrastructure providers that run NCN software and manage delegated assets in the Jito Restaking ecosystem
 ---
-
 ## What is an Operator?
 
 An **Operator** is an entity responsible for running Node Consensus Network (NCN) software and managing delegated assets from vaults. Operators serve as the infrastructure providers in the Jito Restaking ecosystem, executing the actual work required by NCNs while being held accountable through economic incentives and slashing mechanisms.
@@ -69,7 +68,7 @@ Operators create **OperatorVaultTickets** to establish relationships with vaults
 - Only the operator's `vault_admin` can manage these relationships
 - This ticket represents the relationship between an Operator and a Vault, created by the Operator to opt in to work with a Vault
 
-### NCN Relationships (NcnOperatorState) 
+### NCN Relationships (NcnOperatorState)
 Operators participate in **NcnOperatorState** for mutual opt-in with NCNs:
 - Both the NCN and operator must opt into each other
 - Enables operators to provide services to specific NCNs

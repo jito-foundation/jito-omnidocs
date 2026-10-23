@@ -1,7 +1,6 @@
 ---
 title: Permissionless Cranker
 ---
-
 ## Overview
 
 The Tip Router Keeper is a critical component of the Jito Tip Router system that manages epoch-based operations for validators, operators, and vaults.

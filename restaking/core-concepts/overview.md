@@ -2,7 +2,6 @@
 title: Overview
 subtitle: A basic overview of the Jito Restaking architecture.
 ---
-
 ## Jito Restaking Architecture Overview
 
 The Jito (Re)Staking protocol facilitates the relationship between three components:
@@ -20,8 +19,8 @@ The Jito (Re)Staking protocol facilitates the relationship between three compone
 
 All three components must opt-in to a three-way relationship in order to warm-up and activate a staked relationship.
 
-If any of the three components is not "opt-in", there is no stake i.e. the relationship between each component is inactive. 
-Additionally, any component can opt-out of active staked relationships, in which case the protocol will cool down the relationship in the next epoch and deactivate stake. 
+If any of the three components is not "opt-in", there is no stake i.e. the relationship between each component is inactive.
+Additionally, any component can opt-out of active staked relationships, in which case the protocol will cool down the relationship in the next epoch and deactivate stake.
 Conversely, relationships can be warmed up.
 
 <figure>

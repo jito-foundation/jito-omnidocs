@@ -2,7 +2,6 @@
 title: Steward API
 subtitle: Steward program event monitoring
 ---
-
 ## API Endpoints
 
 ### 1. Steward Events

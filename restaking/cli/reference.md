@@ -2,7 +2,6 @@
 title: CLI Usage
 subtitle: Command-Line Reference for jito-restaking-cli
 ---
-
 # Command-Line Help for `jito-restaking-cli`
 
 This document contains the help content for the `jito-restaking-cli` command-line program.
@@ -48,8 +47,8 @@ Restaking program commands
 ###### **Subcommands:**
 
 * `config` — Initialize, get, and set the config struct
-* `ncn` — 
-* `operator` — 
+* `ncn` —
+* `operator` —
 
 
 
@@ -531,7 +530,7 @@ Vault program commands
 
 ###### **Subcommands:**
 
-* `config` — 
+* `config` —
 * `vault` — Vault commands
 
 
@@ -617,7 +616,7 @@ Vault commands
 
 * `initialize` — Creates a new vault
 * `create-token-metadata` — Creates token metadata for the vault's LRT token
-* `update-token-metadata` — 
+* `update-token-metadata` —
 * `initialize-vault-update-state-tracker` — Starts the vault update cycle
 * `crank-vault-update-state-tracker` — Cranks the vault update state tracker, needs to be run per operator
 * `close-vault-update-state-tracker` — Ends the vault update cycle
@@ -634,7 +633,7 @@ Vault commands
 * `get-vault-update-state-tracker` — Gets the update state tracker for a vault
 * `get-operator-delegations` — Gets the operator delegations for a vault
 * `get-operator-delegation` — Gets the operator delegation for a vault
-* `get-withdrawal-ticket` — 
+* `get-withdrawal-ticket` —
 * `get` — Gets a vault
 * `list` — List all vaults
 * `set-admin` — Set Admin
@@ -1073,4 +1072,3 @@ Transfer a token account
     This document was generated automatically by
     <a href="https://crates.io/crates/clap-markdown"><code>clap-markdown</code></a>.
 </i></small>
-

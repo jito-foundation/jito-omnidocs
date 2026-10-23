@@ -2,7 +2,6 @@
 title: How it works
 subtitle: Batch scheduling model and maker-specific execution behavior.
 ---
-
 # BAM Maker Priority Plugin (v0)
 
 BAM's maker priority plugin adds a dedicated, priority transaction ingress path for enrolled market makers. It provides top-of-batch scheduling for market maker transactions without interfering with standard transaction or bundle handling.

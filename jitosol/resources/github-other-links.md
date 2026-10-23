@@ -1,8 +1,6 @@
 ---
 title: Github + Other Links
 ---
-
-
 Github: [link](https://github.com/jito-foundation)
 
 Medium: [link](https://medium.com/@Jito-Foundation)

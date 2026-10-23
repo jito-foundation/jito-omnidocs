@@ -1,8 +1,6 @@
 ---
 title: Cookie Policy
 ---
-
-
 **Last updated: April 10, 2025**
 
 **I.	Introduction**
@@ -42,4 +40,3 @@ Cookies are not the only way to recognize or track visitors to a website. We may
 **V.	Contact Us**
 
 If you have any questions about cookies or other tracking technologies that we use, please contact us at legal@jito.network.
-

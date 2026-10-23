@@ -2,7 +2,6 @@
 title: NCNs
 subtitle: An overview of the Node Consensus Network (NCN) component.
 ---
-
 ## Overview
 
 A Node Consensus Network (NCN) is a decentralized service or network that reaches onchain consensus on offchain data or workloads. This may include oracles, DePIN services, bridges, co-processors, or new chains. NCNs represent one of the core components in the Jito Restaking ecosystem, alongside Operators and Vaults.

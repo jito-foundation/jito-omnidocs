@@ -2,8 +2,6 @@
 title: Bylaws of the Jito Foundation
 subtitle: (a Cayman Islands foundation company)
 ---
-
-
 As Adopted by directors resolution on December 6, 2023
 
 #### 1.      Defined Terms
@@ -36,7 +34,7 @@ As Adopted by directors resolution on December 6, 2023
 
 (n) “***Network***” means the decentralized Solana-based protocol that enables users to stake SOL to validators participating in efficient block organization and receive a liquid staking token (JitoSOL) representing accumulated validator rewards and tips.
 
-(o) “***Security Council***” means the council established in accordance with the Foundation Documents to represent the Tokenholders. 
+(o) “***Security Council***” means the council established in accordance with the Foundation Documents to represent the Tokenholders.
 
 (p) "***Security Council Member(s)***" means the person or entity elected by the Tokenholders to, among other things, facilitate the implementation of JIPs or other matters as the Tokenholders may direct from time to time.
 
@@ -46,7 +44,7 @@ As Adopted by directors resolution on December 6, 2023
 
 (s) “***Tokenholder***” means any holder of the Token.
 
-(t) “***Tokenholder Vote***” means a vote of the Tokenholders passed pursuant to a successful JIP in accordance with the JIP Process. 
+(t) “***Tokenholder Vote***” means a vote of the Tokenholders passed pursuant to a successful JIP in accordance with the JIP Process.
 
 #### 2.     Voting Matters
 
@@ -64,7 +62,7 @@ The Tokenholders have the authority to engage in the following activities:
 
 (f) approve grants that further the purpose of the foundation;
 
-(g)  wind-up the Foundation; 
+(g)  wind-up the Foundation;
 
 (h) approve changes to the parameters of the protocol; and
 
@@ -96,7 +94,7 @@ As part of their service to the DAO or the Foundation, as applicable, each Found
 - As appropriate, elect, nominate, promote, hire, or contract with individuals or organizations into important administrative, governance, engineering, legal, or other roles established to serve the Foundation and the DAO.
 - No Foundation Representative should speak on behalf of the DAO or Foundation, unless explicitly authorized by the DAO or the Foundation. This provision does not in any way restrict a Foundation Representative from publicly discussing their personal opinion about a JIP or other matter affecting the DAO or the Foundation, provided that such communication is clearly presented as a personal opinion in light of the circumstances or context.
 
-#### 4.     Service Providers of the Foundation 
+#### 4.     Service Providers of the Foundation
 
 **(a) Foundation Directors**
 
@@ -143,7 +141,7 @@ The role of the supervisor is set forth in the Foundation Articles.
 
 *(iv) Compensation of supervisors*
 
-Supervisor compensation shall be determined by the Security Council pursuant to a Security Council Vote or as set forth in Section 2(c) above. 
+Supervisor compensation shall be determined by the Security Council pursuant to a Security Council Vote or as set forth in Section 2(c) above.
 
 **(c) Security Council**
 
@@ -184,7 +182,7 @@ Security Council Member compensation shall be initially determined by the Founda
 
 *(i) Appointment of Administrator*
 
-The Administrator is a service provider of the Foundation and shall be initially appointed by the Foundation Directors and thereafter by the Tokenholders by Tokenholder Vote and shall serve for a period of twelve (12) months from the date appointed (the “***Administrator Term***”).  The Administrator Term shall be automatically extended until such time as the Administrator is terminated or replaced pursuant to a JIP and in accordance with the JIP Process. 
+The Administrator is a service provider of the Foundation and shall be initially appointed by the Foundation Directors and thereafter by the Tokenholders by Tokenholder Vote and shall serve for a period of twelve (12) months from the date appointed (the “***Administrator Term***”).  The Administrator Term shall be automatically extended until such time as the Administrator is terminated or replaced pursuant to a JIP and in accordance with the JIP Process.
 
 (ii) *Removal of Administrators*
 
@@ -194,11 +192,11 @@ An Administrator may be removed by Tokenholders by Tokenholder Vote, or by the F
 
 The Administrators are persons or entities elected by the Tokenholders and thereafter engaged by the Foundation to manage the JIP process or other matters as determined by Tokenholders from time to time.  All actions of the Administrator, as the Foundation’s service provider, remain subject to the review and veto by the Foundation Directors.
 
-The Administrators shall implement any such proposals as promptly as possible following the determination of approval unless otherwise indicated by the Tokenholders. 
+The Administrators shall implement any such proposals as promptly as possible following the determination of approval unless otherwise indicated by the Tokenholders.
 
 In the event there is no Administrator, the Tokenholders shall advise the Foundation Directors in respect to the implementation of the proposals.
 
-The Administrator may not bring forward a JIP in their capacity as the Administrator or otherwise act without: (i) direction by the Tokenholders by Tokenholder Vote; or (ii) direction of the Foundation Directors. 
+The Administrator may not bring forward a JIP in their capacity as the Administrator or otherwise act without: (i) direction by the Tokenholders by Tokenholder Vote; or (ii) direction of the Foundation Directors.
 
 *(v) Compensation of Administrators*
 
@@ -220,7 +218,6 @@ Should a controversy, dispute or claim arise out of or in relation to these Byla
 
 Should the Dispute remain at the expiration of thirty (30) days after service of the Notice of Dispute, the Dispute shall be settled by arbitration administered by the International Centre for Dispute Resolution in accordance with its International Arbitration Rules (the "***Rules***"). The arbitration shall be seated in George Town, Grand Cayman, Cayman Islands and governed by the law of the Cayman Islands. The language of the arbitration shall be English. The arbitration shall be determined by a sole arbitrator to be appointed in accordance with the Rules. Any award or decision made by the arbitrator shall be in writing and shall be final and binding on the parties without any right of appeal, and judgment upon any award thus obtained may be entered in or enforced by any court having jurisdiction thereof. No action at law or in equity based upon any claim arising out of or related to these Bylaws shall be instituted in any court of any jurisdiction.
 
-#### 7.     Controlling Authority 
+#### 7.     Controlling Authority
 
-These Bylaws are subject to the provisions set forth in other sources of authority binding on the Foundation. In the event of any conflict between these Bylaws and such authority enumerated herein, such authority shall supersede these Bylaws and be controlling in the following order: (i) Cayman Islands law, and (ii) The Foundation Articles. 
-
+These Bylaws are subject to the provisions set forth in other sources of authority binding on the Foundation. In the event of any conflict between these Bylaws and such authority enumerated herein, such authority shall supersede these Bylaws and be controlling in the following order: (i) Cayman Islands law, and (ii) The Foundation Articles.

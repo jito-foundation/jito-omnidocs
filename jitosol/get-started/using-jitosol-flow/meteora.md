@@ -2,7 +2,6 @@
 title: Meteora
 subtitle: Dynamic liquidity market maker with JitoSOL-SOL pools
 ---
-
 Meteora offers Dynamic Liquidity Market Maker (DLMM) pools that arrange liquidity into distinct price bins, providing concentrated liquidity with automated optimization.
 
 ## JitoSOL-SOL Pool

@@ -2,8 +2,7 @@
 title: Definitions
 subtitle: A glossary of terms used in Jito Restaking.
 ---
-
-- **Node Operator (or Operator)**: A specialized party who runs core functionalities for NCNs, such as performing specific offchain computations and participating in consensus 
+- **Node Operator (or Operator)**: A specialized party who runs core functionalities for NCNs, such as performing specific offchain computations and participating in consensus
 - **Node Consensus Network (NCN)**: A set of node operators running software for the same network, working together to achieve consensus and provide services.
 - **Vault**: A smart contract that securely holds staked assets and delegates them to operators.
 - **Vault Receipt Token (VRT)**: A tokenized representation of staked assets inside a vault, allowing for liquidity and

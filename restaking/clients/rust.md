@@ -2,7 +2,6 @@
 title: Rust Client
 subtitle: Learn how to use the Jito Restaking Rust client.
 ---
-
 Powered by [Codama](https://github.com/codama-idl/codama), there are Rust clients code `jito-restaking-client` and `jito-vault-client`.
 
 Install like below:

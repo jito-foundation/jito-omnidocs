@@ -2,7 +2,6 @@
 title: Jito Interceptor Program
 subtitle: Understanding the Interceptor protection system for stake account deposits.
 ---
-
 ## What is the Jito Interceptor?
 
 Interceptor temporarily holds JitoSOL from stake account deposits for 10 hours, then automatically delivers it to you with no fees. **You don't need to do anything.**

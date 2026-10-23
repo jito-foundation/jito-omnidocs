@@ -1,7 +1,6 @@
 ---
 title: SPL Stake Pool Internals
 ---
-
 # SPL Stake Pool: Overview
 
 The [SPL Stake Pool program](https://github.com/solana-program/stake-pool) allows users to delegate stake to multiple validators while maintaining liquidity through pool tokens.

@@ -2,7 +2,6 @@
 title: BAM Boost API
 subtitle: JIP 31 BAM Early Adopter Subsidy Programme
 ---
-
 ## API Endpoints
 
 ### 1. BAM Boost Validators

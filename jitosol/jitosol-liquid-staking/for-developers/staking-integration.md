@@ -2,7 +2,6 @@
 title: Staking Integration
 subtitle: Code examples for integrating JitoSOL staking functionality
 ---
-
 ## Developer Integration Guide
 
 This guide shows how to integrate JitoSOL staking and unstaking functionality using both assisted (SPL stake pool library) and manual transaction building methods.
@@ -230,4 +229,4 @@ The repository includes:
 - [JitoSOL Stake/Unstake Reference Implementation](https://github.com/jito-foundation/jito-stake-unstake-reference)
 - [Jito Network Documentation](https://docs.jito.network/)
 
-This guide provides both assisted (library-based) and manual transaction building approaches. For production applications, transaction confirmation, and user experience considerations. 
+This guide provides both assisted (library-based) and manual transaction building approaches. For production applications, transaction confirmation, and user experience considerations.

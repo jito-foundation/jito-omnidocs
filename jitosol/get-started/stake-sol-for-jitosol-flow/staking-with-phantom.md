@@ -2,7 +2,6 @@
 title: Staking with Phantom
 subtitle: Step-by-step guide for staking SOL using Phantom wallet
 ---
-
 **Time Required:** 2-5 minutes  
 **Prerequisites:** Phantom wallet with SOL
 

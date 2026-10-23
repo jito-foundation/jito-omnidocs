@@ -2,7 +2,6 @@
 title: Kamino Finance
 subtitle: Automated liquidity vaults with $1.6B+ TVL for optimized JitoSOL yields
 ---
-
 Kamino Finance is Solana's leading automated vault protocol with over $2.4 billion TVL. Kamino creates actively managed liquidity strategies that optimize yield farming across concentrated liquidity AMMs like Orca, Meteora, and Raydium.
 
 ## JitoSOL Integration

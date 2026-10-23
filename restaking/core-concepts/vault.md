@@ -2,7 +2,6 @@
 title: Vaults
 subtitle: An overview of the Vault component.
 ---
-
 ## Overview
 
 ### The Vault Account:

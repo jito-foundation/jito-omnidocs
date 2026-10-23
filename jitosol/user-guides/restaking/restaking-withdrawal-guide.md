@@ -2,7 +2,6 @@
 title: (Re)staking Withdrawal Guide
 subtitle: Step-by-step guide for withdrawing assets from (re)staking vaults
 ---
-
 ## Understanding Withdrawals
 
 **Standard Withdrawal Process:**
@@ -162,4 +161,4 @@ The primary method for exiting (re)staking positions follows a three-step proces
 - Transfer VRT tokens between wallets if needed
 - Use VRT tokens in compatible DeFi protocols for additional yield
 
-This guide covers standard withdrawal processes. Specific vaults may have unique requirements or procedures. Always check vault-specific documentation and current terms before initiating withdrawals. 
+This guide covers standard withdrawal processes. Specific vaults may have unique requirements or procedures. Always check vault-specific documentation and current terms before initiating withdrawals.

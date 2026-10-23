@@ -1,7 +1,6 @@
 ---
 title: Node Operator Client
 ---
-
 ## Solana Epoch Snapshot
 
 Once an epoch completes, the operator client takes a snapshot of the Bank from the last existing block of the previous epoch.
@@ -27,4 +26,3 @@ Finally, a MetaMerkleTree is created from the `GeneratedMerkleTreeCollection`.
 ## Cast Vote
 
 Once the `meta_merkle_root` is created, the operator submits their vote by calling the cast_vote instruction, provided the BallotBox, EpochSnapshot, and OperatorSnapshot accounts have already been initialized.
-

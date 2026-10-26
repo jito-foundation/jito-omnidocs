@@ -3,7 +3,9 @@ title: MEV Protection
 subtitle: Manage your MEV blacklist and view the default one
 ---
 
-Use these endpoints to manage your customer-specific MEV blacklist and inspect the default blacklist.
+To protect transactions from malicious MEV, FullSend by default automatically applies an MEV-aware blacklist that will skip validators with a history of frontrunning or other types of negative MEV.
+
+Use these endpoints to manage your customer-specific MEV blacklist and/or inspect the default blacklist.
 
 Both lists are applied to `sendTransaction` requests by default.
 Set `mev_protection_default=false` and/or `mev_protection_custom=false` on the send URL only when you want to disable one.

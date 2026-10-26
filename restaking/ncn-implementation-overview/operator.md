@@ -3,8 +3,6 @@ title: Operator
 subtitle: Complete guide to running NCN operators and automated consensus voting
 ---
 
-## Operator
-
 With NCNs, operators are responsible for driving consensus. While each operator can have its own unique logic, it's up to the NCN designer to define that behavior. Operators perform all computation off-chain and submit votes on-chain during specific windows, using stake delegated by vaults. To simplify their responsibilities, the operator process automates the on-chain tasks for registered operators, primarily casting votes, handling post-vote logic, and reporting metrics. It runs continuously and monitors the state of the network and acts when it's the operator’s turn to participate. In this guide, we'll be looking at a template operator that fetches weather data and votes on the result.
 
 This process is typically run by the same entity that registered the operator, such as a validator, DAO or data provider participating in the NCN. 

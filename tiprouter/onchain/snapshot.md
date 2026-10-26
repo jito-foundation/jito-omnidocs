@@ -14,9 +14,7 @@ Fees are also stored. This is performed in a top-down approach:
 
 
 ![alt text](/tiprouter/images/snapshot.png)
-*Figure: Overview of the Snapshot
-
-
+*Figure: Overview of the Snapshot*
 ## EpochSnapshot
 
 ### Initialize & Realloc EpochSnapshot
@@ -25,7 +23,7 @@ A Permissionless Cranker initializes and reallocs `EpochSnapshot` account to sto
 
 - `fees`: Snapshot of the NCN Fees for the epoch 
 - `operator_count`: The count of operator is associated with Jito Tip Router
-- `vault_count`: The count of vault is associated with Jito Tip Router (* number of `VaultEntry` stored in `WeightTable` account)
+- `vault_count`: The count of vault is associated with Jito Tip Router (number of `VaultEntry` stored in `WeightTable` account)
 - `stake_weights`: The total stake weights for all vault operator delegations
 
 ```rust

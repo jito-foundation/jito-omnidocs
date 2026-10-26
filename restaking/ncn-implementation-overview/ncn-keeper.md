@@ -3,8 +3,6 @@ title: NCN Keeper
 subtitle: Hands-on guide to NCN keeper setup, configuration, and automation
 ---
 
-## NCN Keeper
-
 Each NCN relies on off-chain agents called keepers. Keepers are essentially permissionless automation agents that execute all necessary on-chain instructions to advance (“crank”) the NCN through its epoch phases. Anyone can run a keeper.
 There are no special authorities required to keep the NCN operational.
 By monitoring network state and calling the NCN program’s instructions at certain times, keepers make sure the NCN progresses correctly and remains in sync with Solana’s epoch.
@@ -285,7 +283,7 @@ The `crank_close_epoch_accounts` function performs the following operations:
 4. **Close Weight Table** – Closes the `WeightTable` account that stored epoch voting weights
 5. **Close Epoch State** – Closes the `EpochState` account that tracked progress through the state machine
 
-Each closure is attempted independently and any errors are logged. Failures do not block anything. ****The keeper will simply attempt to retry them in subsequent loops.
+Each closure is attempted independently and any errors are logged. Failures do not block anything. The keeper will simply attempt to retry them in subsequent loops.
 
 #### 5. Timeout and Heartbeat
 At the end of each loop, the keeper:

@@ -21,9 +21,7 @@ The pricing system ensures that all registered vaults and tokens within the Jito
 
 
 ![alt text](/tiprouter/images/pricing.png)
-*Figure: Overview of the Pricing
-
-
+*Figure: Overview of the Pricing*
 ## VaultRegistry
 
 ### Initialize VaultRegistry

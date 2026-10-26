@@ -3,8 +3,6 @@ title: BAM Documentation
 subtitle: System architecture, validator flow, and operational basics.
 ---
 
-# **BAM Documentation**
-
 BAM builds on top of existing Solana validator infrastructure (Agave and Jito-Solana) with enhanced trust \+ performance.
 
 It introduces a dedicated **BAM Node** and a lightweight **BAM Client** that connect to validators via gRPC and QUIC, as shown below.

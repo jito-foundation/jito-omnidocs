@@ -3,8 +3,6 @@ title: NCN Components
 subtitle: The three essential components that work together to create a Node Consensus Network
 ---
 
-## NCN Components
-
 To run an NCN, you need one or more of each of the following three components, which interact with each other: Vaults, Operators, and the NCN Program itself.
 
 ### 1. Vaults

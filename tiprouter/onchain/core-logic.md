@@ -15,9 +15,7 @@ This section focuses on two main components:
 Once consensus is achieved, the `meta_merkle_root` is finalized, and the system facilitates the seamless integration of this result into downstream processes, such as setting the merkle root for validator Tip Distribution Accounts which enables stakers to claim rewards.
 
 ![alt text](/tiprouter/images/core_logic.png)
-*Figure: Overview of the Core Logic
-
-
+*Figure: Overview of the Core Logic*
 ## Ballot Box
 
 ### Initialize & Realloc BallotBox

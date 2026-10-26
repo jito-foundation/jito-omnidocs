@@ -3,8 +3,6 @@ title: Scoring System
 subtitle: How StakeNet scores validators
 ---
 
-# Scoring System
-
 The Steward program uses a 4-tier hierarchical scoring system combined with binary eligibility criteria to rank validators for stake delegation. This page provides detailed formulas and explanations for each component.
 
 ## Overview

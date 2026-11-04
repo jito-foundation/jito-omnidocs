@@ -67,7 +67,7 @@ Yes, AgaveBAM and FireBAM sequence both normal transactions and Jito Bundles.
 
 #### **Does BAM currently support Firedancer?**
 
-Yes, FireBAM supports Firedancer. See [https://bam.dev/validators/#firebam](https://bam.dev/validators/#firebam) for more information.
+Yes, FireBAM supports Firedancer. Frankendancer is not supported: it has no Alpenglow support, so its BAM support ended when Alpenglow activated on mainnet in October 2026. See [https://bam.dev/validators/#firebam](https://bam.dev/validators/#firebam) for more information.
 
 #### **How does BAM interact with transactions sent via RPC or directly to TPU?**
 
@@ -76,7 +76,7 @@ Yes, FireBAM supports Firedancer. See [https://bam.dev/validators/#firebam](http
 
 #### **Can I run BAM with a hot spare validator?**
 
-Hot spare configurations should work normally, similar to Jito-Solana and Agave setups. However, you need to manually re-run `set-bam-url` after switching over to a hot spare to ensure that the connection connects with the correct leader. You may see this in the logs otherwise:
+Hot spare configurations should work normally, similar to Jito-Solana and Agave setups. However, you need to manually re-run `set-bam-config` after switching over to a hot spare to ensure that the connection connects with the correct leader. You may see this in the logs otherwise:
 
 > Example log output:
 >

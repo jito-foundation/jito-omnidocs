@@ -11,7 +11,7 @@ No. Phase 1 (maker transactions) always drains before Phase 2 (bundles + regular
 
 **Does every BAM node run the maker plugin?**
 
-At launch, the maker priority plugin will be available on BAM leaders connected to BAM nodes in select regions.
+No. The Plugin TPU runs only in the regions listed in [Getting started](/bam/maker-plugin/getting-started#sending-protocol).
 
 **Are maker transactions visible onchain?**
 

@@ -1,9 +1,9 @@
 ---
-title: Preconfirmations
-subtitle: What preconfirmation streaming means for BAM validators, and how the revenue reaches you.
+title: Validators
+subtitle: What preconfirmation streaming means for BAM validators.
 ---
 
-# Preconfirmations
+# Preconfirmations for Validators
 
 BAM Preconfirmations are live, distributed through Helius and Triton. If you run
 a BAM client, your slots now earn from them. This page covers what that means
@@ -14,7 +14,6 @@ for validators; for the full picture, read
 
 | | |
 | --- | --- |
-| Your share | 35% of total preconfirmation revenue |
 | Revenue starts | October 2026 |
 | Action needed | None |
 | Paid as | Priority fees, on-chain |
@@ -43,20 +42,13 @@ the stream reflects what you have already agreed to execute, in that order. You
 can still skip the slot or land on a fork — a preconfirmation says what will
 execute if the block lands, not that the block will land.
 
-## Where the money comes from, and how it reaches you
+## How the revenue reaches you
 
-Distributors bill their own subscribers and pay the Jito DAO. Total revenue
-splits three ways:
-
-- **35%** — BAM validators
-- **35%** — Jito DAO
-- **30%** — Distributors
-
-The validator 35% is shared across the whole network rather than paid to
+The validator share is shared across the whole network rather than paid to
 whoever produced a given stream. The mechanics:
 
 **Cadence** — Slot by slot, over the month following the distributors' payment
-to the DAO.
+to the Jito DAO.
 
 **Instrument** — The connected BAM Node submits a transaction for the
 [market-tick program](https://github.com/firedancer-io/market-tick), and for
@@ -81,18 +73,6 @@ The [BAM Verifier](https://bam.dev/blog/the-bam-verifier-ensuring-verifiable-exe
 checks produced blocks against those commitments. A validator that deviates is
 detected and can be disconnected from the network.
 
-## How a preconfirmation reaches a subscriber
-
-1. A BAM-enabled validator comes up on the leader schedule; the BAM Node
-   receives orderflow and schedules it.
-2. The BAM Node sends the scheduled transactions to the leader for execution.
-3. The leader commits to executing them and sends a commit confirmation back to
-   the BAM Node.
-4. That confirmation triggers the BAM Node to stream the preconfirmation out to
-   co-located distributors.
-5. Distributors receive the preconfirmations and serve them to their
-   subscribers.
-
 ## If you would rather not stream
 
 - You can opt out and forgo the associated revenue. Nothing else about your BAM
@@ -108,7 +88,9 @@ detected and can be disconnected from the network.
 Open a ticket in the [Jito Developers Discord](https://discord.gg/jito)
 [#open-ticket](https://discord.com/channels/938287290806042626/1336799632898134037)
 channel and choose **Validator Support**. Pricing and subscriber access are
-handled by the distributors, not by Jito.
+handled by the distributors, not by Jito. How a preconfirmation reaches a
+subscriber is covered in the
+[Preconfirmations overview](/bam/preconfirmations#how-a-preconfirmation-reaches-a-subscriber).
 
 - [Helius](https://www.helius.dev/docs/pre-confirmations/overview) — distribution
   partner, subscriber docs

@@ -1,0 +1,5 @@
+title: Preconfirmations
+subtitle: The stream of transactions a BAM leader has committed to executing.
+pages:
+  - searchers
+  - validators

@@ -9,19 +9,21 @@ BAM Direct Bundle Ingest (DBI) lets an approved searcher or application send
 bundles straight to a BAM Node over JSON-RPC or QUIC, without routing through
 the Block Engine. Access is allowlisted.
 
-## Who it is for
+You do not need DBI to reach BAM leaders. Bundles sent to the Block Engine
+from a whitelisted Block Engine access key where the upcoming leader is a BAM
+validator are forwarded to the BAM Node of that leader.
+
+DBI removes the Block Engine hop for senders who want the shortest path to BAM
+leader slots.
+
+## Get Access
 
 DBI is allowlisted, and in this early phase of the rollout new users are
 added gradually. Apply with the
 [DBI access form](https://form.typeform.com/to/tQDIpkYh). Approvals aren't
 immediate; Jito will contact you when your key is ready, so you don't need to
-follow up in a new ticket. **A Block Engine UUID or gRPC key does not grant
-DBI access.** DBI credentials are issued separately.
-
-You do not need DBI to reach BAM leaders. Bundles sent to the Block Engine
-from an approved key for a BAM leader are forwarded to the BAM Node. DBI
-removes the Block Engine hop for senders who want the shortest path to BAM
-leader slots.
+follow up in a new ticket. A Block Engine UUID or gRPC key does not grant DBI
+access. DBI credentials are issued separately.
 
 ## Transports
 

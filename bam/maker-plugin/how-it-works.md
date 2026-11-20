@@ -25,7 +25,7 @@ Maker Priority Plugin transactions follow a completely separate ingestion path f
 
 ## Scheduling Logic
 
-Every auction round, BAM assembles a batch of transactions for the validator in two sequential phases. A round lasts a tenth of the cluster's slot time (50 ms for slots of 400 ms or more), which is **20 ms** at today's 200 ms slots.
+Every auction round, BAM assembles a batch of transactions for the validator in two sequential phases. Each round lasts a fixed **40 ms**.
 
 Phase 1 drains all maker priority plugin transactions received during the previously scheduled round and schedules the surviving updates at the top of the batch in ascending sequence-number order before Phase 2 begins. This ordering is structural and cannot be changed by paying higher fees or tips. Within Phase 2, bundles and regular transactions compete on the same priority score under the same scheduling logic.
 
